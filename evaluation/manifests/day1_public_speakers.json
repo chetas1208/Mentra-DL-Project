@@ -1,0 +1,125 @@
+{
+  "speakers": {
+    "2300": {
+      "enroll": [
+        "evaluation/data/day1_public/2300/enroll_00.wav",
+        "evaluation/data/day1_public/2300/enroll_01.wav",
+        "evaluation/data/day1_public/2300/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/2300/test_00.wav",
+        "evaluation/data/day1_public/2300/test_01.wav",
+        "evaluation/data/day1_public/2300/test_02.wav",
+        "evaluation/data/day1_public/2300/test_03.wav",
+        "evaluation/data/day1_public/2300/test_04.wav",
+        "evaluation/data/day1_public/2300/test_05.wav"
+      ]
+    },
+    "4446": {
+      "enroll": [
+        "evaluation/data/day1_public/4446/enroll_00.wav",
+        "evaluation/data/day1_public/4446/enroll_01.wav",
+        "evaluation/data/day1_public/4446/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/4446/test_00.wav",
+        "evaluation/data/day1_public/4446/test_01.wav",
+        "evaluation/data/day1_public/4446/test_02.wav",
+        "evaluation/data/day1_public/4446/test_03.wav",
+        "evaluation/data/day1_public/4446/test_04.wav",
+        "evaluation/data/day1_public/4446/test_05.wav"
+      ]
+    },
+    "2961": {
+      "enroll": [
+        "evaluation/data/day1_public/2961/enroll_00.wav",
+        "evaluation/data/day1_public/2961/enroll_01.wav",
+        "evaluation/data/day1_public/2961/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/2961/test_00.wav",
+        "evaluation/data/day1_public/2961/test_01.wav",
+        "evaluation/data/day1_public/2961/test_02.wav",
+        "evaluation/data/day1_public/2961/test_03.wav",
+        "evaluation/data/day1_public/2961/test_04.wav",
+        "evaluation/data/day1_public/2961/test_05.wav"
+      ]
+    },
+    "7176": {
+      "enroll": [
+        "evaluation/data/day1_public/7176/enroll_00.wav",
+        "evaluation/data/day1_public/7176/enroll_01.wav",
+        "evaluation/data/day1_public/7176/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/7176/test_00.wav",
+        "evaluation/data/day1_public/7176/test_01.wav",
+        "evaluation/data/day1_public/7176/test_02.wav",
+        "evaluation/data/day1_public/7176/test_03.wav",
+        "evaluation/data/day1_public/7176/test_04.wav",
+        "evaluation/data/day1_public/7176/test_05.wav"
+      ]
+    },
+    "3729": {
+      "enroll": [
+        "evaluation/data/day1_public/3729/enroll_00.wav",
+        "evaluation/data/day1_public/3729/enroll_01.wav",
+        "evaluation/data/day1_public/3729/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/3729/test_00.wav",
+        "evaluation/data/day1_public/3729/test_01.wav",
+        "evaluation/data/day1_public/3729/test_02.wav",
+        "evaluation/data/day1_public/3729/test_03.wav",
+        "evaluation/data/day1_public/3729/test_04.wav",
+        "evaluation/data/day1_public/3729/test_05.wav"
+      ]
+    },
+    "7729": {
+      "enroll": [
+        "evaluation/data/day1_public/7729/enroll_00.wav",
+        "evaluation/data/day1_public/7729/enroll_01.wav",
+        "evaluation/data/day1_public/7729/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/7729/test_00.wav",
+        "evaluation/data/day1_public/7729/test_01.wav",
+        "evaluation/data/day1_public/7729/test_02.wav",
+        "evaluation/data/day1_public/7729/test_03.wav",
+        "evaluation/data/day1_public/7729/test_04.wav",
+        "evaluation/data/day1_public/7729/test_05.wav"
+      ]
+    },
+    "908": {
+      "enroll": [
+        "evaluation/data/day1_public/908/enroll_00.wav",
+        "evaluation/data/day1_public/908/enroll_01.wav",
+        "evaluation/data/day1_public/908/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/908/test_00.wav",
+        "evaluation/data/day1_public/908/test_01.wav",
+        "evaluation/data/day1_public/908/test_02.wav",
+        "evaluation/data/day1_public/908/test_03.wav",
+        "evaluation/data/day1_public/908/test_04.wav",
+        "evaluation/data/day1_public/908/test_05.wav"
+      ]
+    },
+    "61": {
+      "enroll": [
+        "evaluation/data/day1_public/61/enroll_00.wav",
+        "evaluation/data/day1_public/61/enroll_01.wav",
+        "evaluation/data/day1_public/61/enroll_02.wav"
+      ],
+      "test": [
+        "evaluation/data/day1_public/61/test_00.wav",
+        "evaluation/data/day1_public/61/test_01.wav",
+        "evaluation/data/day1_public/61/test_02.wav",
+        "evaluation/data/day1_public/61/test_03.wav",
+        "evaluation/data/day1_public/61/test_04.wav",
+        "evaluation/data/day1_public/61/test_05.wav"
+      ]
+    }
+  },
+  "source": "LibriSpeech test-clean (OpenSLR-12, CC BY 4.0)"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "speakerverification_speakernet",
+  "provider": "NVIDIA NeMo",
+  "task": "speaker verification",
+  "format": "nemo",
+  "source": "nemo_asr.models.EncDecSpeakerLabelModel.from_pretrained('speakerverification_speakernet')",
+  "nemo_version": "3.0.0",
+  "sha256": "07e9653ec9776260b6d5de92df2d1aacde798d7657f4d12937b36e22596acdb5",
+  "sample_rate": 16000,
+  "parameter_count": 5854328,
+  "embedding_dimension": null,
+  "license_status": "NOT_VERIFIED",
+  "resolved_at": "2026-08-21T23:29:16.111396+00:00",
+  "local_path": "models/vendor/nemo/speakerverification_speakernet.nemo"
+}

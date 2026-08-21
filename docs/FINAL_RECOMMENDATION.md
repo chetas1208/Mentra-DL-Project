@@ -1,0 +1,17 @@
+# Final Recommendation
+
+Status: NOT STARTED. Write only at end of sprint (2026-09-04), using
+section 60 format from the master execution prompt:
+
+- SYSTEM VERDICT
+- BEST WORKING ARCHITECTURE
+- WHAT WAS ACTUALLY TESTED
+- RESULTS
+- MODEL COMPARISON
+- MENTRA INTEGRATION STATUS
+- PHONE PERFORMANCE
+- HARD FAILURE CASES
+- COMMERCIAL/LICENSE STATUS
+- IF WE STOP TODAY
+- NEXT ENGINEERING STEP
+- TRAINING REQUIREMENT (state `NONE` unless evidence says otherwise)

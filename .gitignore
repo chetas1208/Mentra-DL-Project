@@ -1,0 +1,24 @@
+# Android
+*.apk
+*.aab
+.gradle/
+local.properties
+*.iml
+.idea/
+build/
+captures/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+*.env
+.env
+*accesskey*
+*access_key*
+
+# OS
+.DS_Store
