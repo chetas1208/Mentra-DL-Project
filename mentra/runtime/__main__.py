@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from mentra.audio.consumer import MentraInferenceConsumer
-from mentra.audio.frame import AudioFrame
+from mentra.audio.frame import AudioFrame, MessageType
 from research.sherpa_onnx.detector import SherpaOnnxWearerDetector
 from server.audio.remote_receiver import MentraRemoteReceiver
 
@@ -56,6 +56,19 @@ async def run_remote(args):
             print(f"score={result.wearer_score:+.3f}  state={result.state:11s}  "
                   f"ctx={result.context_ms:.0f}ms  infer={result.inference_ms:.1f}ms  "
                   f"capture->prediction={result.capture_to_prediction_ms:.1f}ms", flush=True)
+            payload = json.dumps({
+                "wearer_score": result.wearer_score,
+                "state": result.state,
+                "context_ms": result.context_ms,
+                "inference_ms": result.inference_ms,
+                "capture_to_prediction_ms": result.capture_to_prediction_ms,
+            }).encode("utf-8")
+            return AudioFrame(
+                sequence_number=0, capture_timestamp_ns=result.frame_capture_timestamp_ns,
+                sample_rate=16000, channels=1, bits_per_sample=16,
+                payload=payload, message_type=MessageType.DETECTION,
+            )
+        return None
 
     receiver = MentraRemoteReceiver(args.listen, args.port, jitter_target_ms=20, jitter_max_ms=80)
     print(f"MentraRemoteReceiver listening on {args.listen}:{args.port}")

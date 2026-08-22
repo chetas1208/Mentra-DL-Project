@@ -98,7 +98,9 @@ class MentraRemoteReceiver:
 
                 jitter_buffer.push(frame)
                 for ready_frame in jitter_buffer.release_ready():
-                    on_frame(ready_frame)
+                    response = on_frame(ready_frame)
+                    if response is not None:
+                        await websocket.send(response.encode())
 
         except websockets.exceptions.ConnectionClosed:
             logger.info("session %s disconnected", session_id)

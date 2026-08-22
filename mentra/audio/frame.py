@@ -31,6 +31,7 @@ class MessageType(IntEnum):
     AUDIO_FRAME = 4
     PING = 5
     PONG = 6
+    DETECTION = 7  # server->client: live inference result, payload = UTF-8 JSON
 
 
 class Codec(IntEnum):
