@@ -102,11 +102,24 @@ EER both, matching overlap-degradation curve at every TIR). Full numbers in
 - NeMo checkpoint: `models/vendor/nemo/speakerverification_speakernet.nemo`,
   5,854,328 params (near-exact match to the ONNX file's 5.85M), sha256 in
   `models/manifests/speakernet_nemo.json`.
-- Not yet done: `SpeakerNetBackbone` wrapper (frame-level features before
-  pooling — the actual point of building a custom model), `MentraWearNet`
-  module skeleton, parameter-count assertion, causality test, training
-  smoke test, dataset adapters, actual training. None of this is
-  fabricated or claimed done — check `docs/TODO.md` for current state.
+- **`SpeakerNetBackbone` + `MentraWearNet-v1` implemented** (2026-08-21):
+  `training/models/speakernet_backbone.py`, `training/models/mentrawearnet.py`.
+  Total deployment params 4,698,618 (PASS <10M). Forward/backward/frozen-
+  backbone tests PASS. **Causality test FAILS** — real, measured, root-
+  caused (pretrained SpeakerNet encoder's symmetric-padded convs leak
+  bounded future context; the new causal TCN itself is verified fine).
+  Three unresolved options logged in `docs/MENTRAWEARNET_ARCHITECTURE.md`,
+  none chosen yet.
+- **GPU environment fixed for real**: `nemo_toolkit[asr]` silently upgraded
+  torch to a cu130 build incompatible with the driver (535.288.01, CUDA
+  12.2 max). Root-caused (not guessed), fixed with `torch==2.6.0+cu118`
+  (satisfies both NeMo's `>=2.6.0` floor and the driver's ceiling).
+  Verified via a real 2-process `torchrun` DDP smoke test — clean exit,
+  correct per-rank GPU assignment, real all-reduce, real DDP backward.
+  `GPU_TRAINING_READY`.
+- Not yet done: dataset adapters, mixture generator, real training loop,
+  ONNX export, INT8 quantization. Explicit stop condition — do not launch
+  training until reviewed. Check `docs/TODO.md` for current state.
 
 ## Standing instruction
 

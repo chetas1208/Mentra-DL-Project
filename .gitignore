@@ -22,3 +22,7 @@ venv/
 
 # OS
 .DS_Store
+
+# Third-party repos (cloned for reference, not vendored into our history —
+# see docs/MENTRA_SDK_NOTES.md for the exact commit used)
+vendor/

@@ -152,6 +152,47 @@ be avoidable rather than fundamental. Kept in one venv since it works;
 revisit only if NeMo itself turns out to be Python-3.13-incompatible (being
 installed now, not yet confirmed).
 
+## 2026-08-21 — MentraWearNet-v1 core implemented; causality gap found and documented, not hidden
+
+**Decision**: shipped `SpeakerNetBackbone` + `MentraWearNet-v1` as real,
+tested modules (4,698,618 total deployment params, well under the 10M cap).
+Did NOT proceed to launch training this session, per the explicit stop
+condition (backbone extraction + structural tests first).
+
+**Evidence**: forward/backward/frozen-backbone tests all PASS. Causality
+test FAILS — the pretrained SpeakerNet encoder's symmetric-padded
+convolutions leak a small, bounded amount of future audio context (max
+diff 0.0098, growing measurably toward the future boundary, confirming the
+custom causal TCN is not the source).
+
+**Why recorded as FAIL, not smoothed over**: the alternative was either
+skip the test (fabrication by omission) or declare a loose tolerance to
+pass it (fabrication by redefinition). Neither is honest. The real finding
+— non-causality is bounded and localized to the reused pretrained
+backbone, not the new code — is more useful than a fake PASS, and leaves
+three concrete resolution options open in `docs/MENTRAWEARNET_ARCHITECTURE.md`
+rather than a false sense of "done."
+
+## 2026-08-21 — GPU environment: root-caused and fixed, not worked around
+
+**Decision**: pinned `torch==2.6.0+cu118` for real GPU training capability,
+replacing the `CUDA_VISIBLE_DEVICES=""` workaround used for CPU-only
+parity work.
+
+**Evidence**: `nemo_toolkit[asr]`'s own install silently upgraded torch to
+a `cu130` build the installed driver (535.288.01, CUDA 12.2 max) can't run
+— confirmed via the actual PyTorch warning message, not inferred. Pinning
+back to the previously-working `2.5.1+cu121` failed because
+`nemo-toolkit==3.0.0` requires `torch>=2.6.0`. `torch==2.6.0+cu118`
+satisfies both constraints (NeMo's version floor, driver's CUDA ceiling).
+Verified with a real 2-process `torchrun` DDP job completing cleanly, not
+just `torch.cuda.is_available()==True`.
+
+**Why this matters going forward**: the user explicitly flagged that the
+CPU-only workaround "is not a training fix" and required a genuine
+diagnosis before any 2x3090 run. This is that diagnosis, done before
+training was attempted, not discovered mid-run.
+
 ## 2026-08-21 — Papers archived from arXiv, not fabricated when unavailable
 
 **Decision**: 19 of 20 requested papers downloaded as real PDFs to
