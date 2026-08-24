@@ -1,0 +1,9 @@
+{
+  "checkpoint": "training/checkpoints/mentrawearnet_v2_final_5000.pt",
+  "step": 5000,
+  "final_loss": 1.0123021602630615,
+  "n_clips": 176,
+  "n_frames": 30848,
+  "global_wearer_threshold_logit": 0.2778502718516145,
+  "common_activity_threshold_logit": -4.416264533996582
+}

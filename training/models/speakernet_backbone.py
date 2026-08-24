@@ -45,13 +45,64 @@ class SpeakerNetBackbone(nn.Module):
         self.preprocessor = nemo_model.preprocessor
         self.encoder = nemo_model.encoder
         # decoder._pooling (StatsPoolLayer) + decoder.emb_layers[0] (Linear
-        # 3000->256, BatchNorm, ReLU) are the embedding path we keep.
-        # decoder.final (Linear 256->7205) is the classifier we DROP.
+        # 3000->256, BatchNorm(affine=False), ReLU) are the embedding path
+        # we keep. decoder.final (Linear 256->7205) is the classifier we DROP.
+        #
+        # BUG FOUND (real, measured): NeMo's own SpeakerDecoder.forward()
+        # does NOT run the ReLU for the returned embedding -- it slices
+        # `layer[:self.emb_id]` (emb_id=2 for this checkpoint, i.e.
+        # Linear+BatchNorm only) applied to the pre-pooling input, and
+        # separately runs the FULL Sequential (incl. ReLU) only to produce
+        # `pool` for the classifier head, which we don't use. Running the
+        # full Sequential here (as this used to) means the embedding passes
+        # through ReLU, zeroing ~half its dimensions for every input --
+        # empirically this collapsed cosine similarity between two genuinely
+        # different speakers' enrollment embeddings to 0.991 (should be
+        # nowhere near that), which silently broke FiLM conditioning
+        # (identical enrollment regardless of speaker -> model can't tell
+        # wearer from anyone else) and was the root cause of a trained
+        # checkpoint scoring at chance-level (~50%) EER instead of beating
+        # the SpeakerNet baseline. Slicing to emb_id matches NeMo's actual
+        # embedding-extraction behavior.
         self.pooling = nemo_model.decoder._pooling
-        self.embedding_projection = nemo_model.decoder.emb_layers[0]
+        emb_id = nemo_model.decoder.emb_id
+        self.embedding_projection = nemo_model.decoder.emb_layers[0][:emb_id]
 
         self.frame_channels = 1500  # measured: ConvASREncoder's last Jasper block output channels
         self.embedding_dim = 256    # measured: decoder.emb_layers[0] output
+
+    def train(self, mode: bool = True):
+        """BUG FOUND (real, measured): `MentraWearNet.freeze_backbone()` only
+        sets requires_grad=False -- it never puts this backbone into eval()
+        mode. Since the outer model's training loop calls model.train() every
+        step (standard practice), every "frozen" submodule was actually still
+        in train mode too, and BatchNorm layers update their running_mean/
+        running_var via momentum-blended batch statistics in train mode
+        REGARDLESS of requires_grad. Measured effect on embedding_projection's
+        BatchNorm after one real 5000-step run: running_var collapsed ~77x
+        (3.0e-8 pretrained -> 3.9e-10 after training), i.e. far below
+        eps=1e-5, so the normalization degenerates to dividing every
+        dimension by ~sqrt(eps) instead of its own calibrated per-dimension
+        scale -- erasing the relative structure that separates speakers.
+        Loading a checkpoint trained this way restores that drifted state
+        (running stats are saved buffers), re-breaking enrollment-embedding
+        discrimination (cosine similarity between different real speakers
+        measured at ~0.988) even with the separate ReLU-slicing fix above
+        already applied and correct.
+
+        Fix: force eval() on any submodule with zero trainable parameters,
+        regardless of the outer `mode` argument, so "frozen" means frozen --
+        weights AND running statistics. This is dynamic (checks requires_grad
+        at call time), so it stays correct if `unfreeze_upper_backbone()` is
+        ever used to make encoder/pooling/embedding_projection genuinely
+        trainable later -- those submodules would then have >=1 trainable
+        param and correctly enter train mode."""
+        super().train(mode)
+        if mode:
+            for module in (self.preprocessor, self.encoder, self.pooling, self.embedding_projection):
+                if not any(p.requires_grad for p in module.parameters()):
+                    module.eval()
+        return self
 
     def encode_frames(self, waveform: torch.Tensor, lengths: torch.Tensor):
         """waveform: [B, N] float32 in [-1, 1]. Returns (frame_features [B, 1500, T], frame_lengths [B])."""

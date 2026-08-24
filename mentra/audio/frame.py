@@ -32,6 +32,16 @@ class MessageType(IntEnum):
     PING = 5
     PONG = 6
     DETECTION = 7  # server->client: live inference result, payload = UTF-8 JSON
+    WEARER_PCM = 8       # server->client: gated PCM16 (silence when state != WEARER)
+    ENVIRONMENT_PCM = 9  # server->client: gated PCM16 (silence when state != ENVIRONMENT)
+    TRANSCRIPT = 10      # server->client: ASR text, payload = UTF-8 JSON
+    ENROLL_AUDIO = 11    # client->server: one full enrollment recording, payload = PCM16
+    ENROLL_DONE = 12     # server->client: enrollment accepted, ready for live inference
+    SET_PLAYBACK_MODE = 13  # client->server: payload = ASCII "both"/"wearer"/"environment"/"muted" --
+                             # tells the server which of WEARER_PCM/ENVIRONMENT_PCM the client
+                             # actually wants, so the server can skip building+sending the
+                             # unwanted stream entirely (was previously always sending both and
+                             # relying on the client to silently gate playback volume locally).
 
 
 class Codec(IntEnum):

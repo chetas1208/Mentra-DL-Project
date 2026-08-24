@@ -89,9 +89,23 @@ class MentraWearNet(nn.Module):
         tcn_kernel_size: int = 3,
         tcn_dilations: tuple[int, ...] = (1, 2, 4, 8, 16),
         dropout: float = 0.1,
+        aux_losses: bool = False,
     ):
         super().__init__()
         assert len(tcn_dilations) == tcn_blocks, "one dilation per TCN block"
+
+        # V2 diagnostics/infra addition (sections 2e/2f) -- OFF by default.
+        # MentraWearNet() with no args (exactly how training/train.py's
+        # current V1 run constructs the model: `model = MentraWearNet()`)
+        # gets aux_losses=False, which means NONE of the new aux_* modules
+        # below are even created, and process_with_embedding()'s new branch
+        # (also gated on self.aux_losses) never executes -- so the
+        # architecture, state_dict keys, param count, and forward() output
+        # are all byte-identical to before this change for every existing
+        # call site. Only a caller that explicitly passes aux_losses=True
+        # (not done anywhere in this repo yet -- a future V2 script would
+        # opt in) sees any different behavior.
+        self.aux_losses = aux_losses
 
         self.backbone = SpeakerNetBackbone()  # the ONE shared backbone instance (section 6)
         D = projection_dim
@@ -120,6 +134,20 @@ class MentraWearNet(nn.Module):
         # Section 14: independent logit heads, no sigmoid inside the model (loss takes logits).
         self.wearer_head = nn.Conv1d(D, 1, kernel_size=1)
         self.environment_head = nn.Conv1d(D, 1, kernel_size=1)
+
+        # Section 2e (V2 infra, opt-in): auxiliary training-only heads, only
+        # instantiated when aux_losses=True (default False -- see __init__).
+        # Removed at export/deployment; not part of the <10M deployment
+        # param budget when unused (they don't exist in the module tree at
+        # all unless explicitly requested).
+        #   any_speech_head: y_speech = y_wearer OR y_environment, 3rd BCE target
+        #   four_state_head: 4-way softmax over {00, 10, 01, 11} (silence /
+        #     wearer-only / environment-only / overlap), a 4th auxiliary
+        #     training signal alongside (not replacing) the two independent
+        #     sigmoid heads above.
+        if self.aux_losses:
+            self.any_speech_head = nn.Conv1d(D, 1, kernel_size=1)
+            self.four_state_head = nn.Conv1d(D, 4, kernel_size=1)
 
         self.projection_dim = D
 
@@ -152,12 +180,35 @@ class MentraWearNet(nn.Module):
         wearer_logits = self.wearer_head(temporal).squeeze(1)  # [B, T]
         environment_logits = self.environment_head(temporal).squeeze(1)  # [B, T]
 
-        return {
+        out = {
             "wearer_logits": wearer_logits,
             "environment_logits": environment_logits,
             "frame_lengths": frame_lengths,
             "similarity": similarity.squeeze(1),
         }
+
+        # Sections 2e/2f (V2 infra, opt-in) -- this branch only runs when
+        # aux_losses=True, which requires the caller to have explicitly
+        # constructed MentraWearNet(aux_losses=True) (the any_speech_head /
+        # four_state_head modules referenced below only exist in that case
+        # -- see __init__). For every existing call site (aux_losses=False,
+        # the default), self.aux_losses is False and this entire block is
+        # skipped, so `out` above is returned completely unchanged from
+        # before this addition.
+        if self.aux_losses:
+            out["any_speech_logits"] = self.any_speech_head(temporal).squeeze(1)  # [B, T]
+            out["four_state_logits"] = self.four_state_head(temporal)  # [B, 4, T]
+            # 2f: expose the frame-level speaker-similarity projection (and
+            # the enrollment embedding's projection into that same space) so
+            # train.py can add an optional non-overlap speaker-discrimination
+            # loss without recomputing them -- these are the SAME tensors
+            # already computed above for the existing similarity branch,
+            # just also returned rather than only consumed internally.
+            out["frame_speaker"] = frame_speaker  # [B, E, T], NOT L2-normalized
+            out["frame_speaker_norm"] = frame_speaker_norm  # [B, E, T], L2-normalized over E
+            out["enrollment_sim_space"] = enrollment_sim_space  # [B, E], L2-normalized
+
+        return out
 
     def forward(self, mixture_waveform: torch.Tensor, mixture_lengths: torch.Tensor,
                 enrollment_waveform: torch.Tensor, enrollment_lengths: torch.Tensor) -> dict:
@@ -196,3 +247,63 @@ class MentraWearNet(nn.Module):
         SpeakerNetBackbone never loads model.decoder.final -- see
         speakernet_backbone.py)."""
         return sum(p.numel() for p in self.parameters())
+
+
+class MixtureAwareAdapter(nn.Module):
+    """Section 2g (V2 infra, NOT wired into MentraWearNet's active forward
+    path). A genuinely separate, standalone module -- importing or
+    instantiating this class has zero effect on MentraWearNet's existing
+    behavior; nothing in this file's MentraWearNet class references it.
+
+    Implements the review's spec: given the static enrollment embedding
+    `e` [B, embedding_dim] and a per-frame mixture projection `m_t`
+    [B, T, mixture_dim], produce an ADAPTIVE per-frame conditioning vector
+    (as opposed to MentraWearNet's FiLM, which conditions on the STATIC
+    embedding alone, identically for every frame). Both `e` and `m_t` are
+    first projected down to a small shared `adapter_dim` before forming the
+    interaction features `[e, m_t, e*m_t, |e-m_t|]` (concatenated -> 4x
+    adapter_dim), which are passed through a small gated MLP:
+        gate(feats) * mlp(feats)
+    A future MentraWearNetV2 (not implemented here) could feed this
+    adapter's output into an additional FiLM-like conditioning step, in
+    place of or alongside the current static-embedding FiLM.
+
+    Param budget: <150k (target from the review). Default dims below
+    measure to 125,800 params -- see the assertion in __init__.
+
+    Usage example (standalone, not part of any existing training run):
+
+        adapter = MixtureAwareAdapter(embedding_dim=256, mixture_dim=256)
+        e = wearer_embedding                       # [B, 256], static per-utterance
+        m_t = some_per_frame_mixture_projection     # [B, T, 256]
+        adaptive_cond = adapter(e, m_t)             # [B, T, out_dim]
+    """
+
+    def __init__(self, embedding_dim: int = 256, mixture_dim: int = 256,
+                 adapter_dim: int = 88, hidden_dim: int = 88, out_dim: int = 112,
+                 max_params: int = 150_000):
+        super().__init__()
+        self.e_proj = nn.Linear(embedding_dim, adapter_dim)
+        self.m_proj = nn.Linear(mixture_dim, adapter_dim)
+        interaction_dim = adapter_dim * 4  # [e, m, e*m, |e-m|]
+        self.fc1 = nn.Linear(interaction_dim, hidden_dim)
+        self.fc2 = nn.Linear(hidden_dim, out_dim)
+        self.gate = nn.Linear(interaction_dim, out_dim)
+        self.out_dim = out_dim
+
+        n_params = sum(p.numel() for p in self.parameters())
+        assert n_params < max_params, (
+            f"MixtureAwareAdapter has {n_params:,} params, over the {max_params:,} budget -- "
+            f"reduce adapter_dim/hidden_dim/out_dim")
+
+    def forward(self, e: torch.Tensor, m_t: torch.Tensor) -> torch.Tensor:
+        # e: [B, embedding_dim] (static enrollment embedding)
+        # m_t: [B, T, mixture_dim] (per-frame mixture projection)
+        e_p = self.e_proj(e)              # [B, adapter_dim]
+        m_p = self.m_proj(m_t)            # [B, T, adapter_dim]
+        e_exp = e_p.unsqueeze(1).expand(-1, m_p.shape[1], -1)  # [B, T, adapter_dim]
+        feats = torch.cat([e_exp, m_p, e_exp * m_p, (e_exp - m_p).abs()], dim=-1)  # [B, T, 4*adapter_dim]
+        h = nn.functional.silu(self.fc1(feats))
+        candidate = self.fc2(h)                      # [B, T, out_dim]
+        gate = torch.sigmoid(self.gate(feats))        # [B, T, out_dim]
+        return gate * candidate                        # [B, T, out_dim] adaptive conditioning vector

@@ -15,6 +15,12 @@ export enum MessageType {
   PING = 5,
   PONG = 6,
   DETECTION = 7,
+  WEARER_PCM = 8,
+  ENVIRONMENT_PCM = 9,
+  TRANSCRIPT = 10,
+  ENROLL_AUDIO = 11,
+  ENROLL_DONE = 12,
+  SET_PLAYBACK_MODE = 13,
 }
 
 export enum Codec {
@@ -99,6 +105,17 @@ export function float32ToPcm16LE(samples: Float32Array): Uint8Array {
     const clipped = Math.max(-1, Math.min(1, samples[i] ?? 0))
     const int16 = clipped < 0 ? clipped * 0x8000 : clipped * 0x7fff
     view.setInt16(i * 2, Math.round(int16), true) // little-endian, matches PCM16 payload convention
+  }
+  return out
+}
+
+/** Inverse of float32ToPcm16LE -- little-endian PCM16 bytes back to Float32
+ * in [-1, 1], for scheduling gated-audio playback via Web Audio. */
+export function pcm16LEToFloat32(bytes: Uint8Array): Float32Array {
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+  const out = new Float32Array(bytes.length / 2)
+  for (let i = 0; i < out.length; i++) {
+    out[i] = view.getInt16(i * 2, true) / 32768
   }
   return out
 }

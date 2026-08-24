@@ -13,6 +13,13 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'MentraWearNet',
+      meta: [
+        // dark color-scheme so native form controls (the input-device
+        // select, on mobile especially) render dark-themed instead of a
+        // jarring light-mode dropdown against this page's dark panel.
+        { name: 'color-scheme', content: 'dark' },
+        { name: 'theme-color', content: '#0B1116' },
+      ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },

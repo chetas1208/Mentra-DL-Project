@@ -1,0 +1,158 @@
+{
+  "tag": "step4800",
+  "results": {
+    "mean_wearer_prob": {
+      "overall_auroc": 0.7046130952380952,
+      "overall_eer_pct": 35.773809523809526,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 34.375,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 59.375,
+      "tir-10_eer_pct": 46.875
+    },
+    "mean_wearer_logit": {
+      "overall_auroc": 0.7001488095238095,
+      "overall_eer_pct": 34.04761904761905,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 37.5,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 59.375,
+      "tir-10_eer_pct": 46.875
+    },
+    "median_wearer_logit": {
+      "overall_auroc": 0.69375,
+      "overall_eer_pct": 32.32142857142858,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 37.5,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 59.375,
+      "tir-10_eer_pct": 46.875
+    },
+    "max_wearer_prob": {
+      "overall_auroc": 0.6793154761904763,
+      "overall_eer_pct": 37.5,
+      "clean_eer_pct": 29.166666666666668,
+      "tir+5_eer_pct": 34.375,
+      "tir+0_eer_pct": 62.5,
+      "tir-5_eer_pct": 62.5,
+      "tir-10_eer_pct": 50.0
+    },
+    "top10pct_mean_prob": {
+      "overall_auroc": 0.6967261904761904,
+      "overall_eer_pct": 35.773809523809526,
+      "clean_eer_pct": 25.0,
+      "tir+5_eer_pct": 46.875,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 50.0,
+      "tir-10_eer_pct": 37.5
+    },
+    "top25pct_mean_prob": {
+      "overall_auroc": 0.6956845238095237,
+      "overall_eer_pct": 34.04761904761905,
+      "clean_eer_pct": 25.0,
+      "tir+5_eer_pct": 50.0,
+      "tir+0_eer_pct": 46.875,
+      "tir-5_eer_pct": 50.0,
+      "tir-10_eer_pct": 37.5
+    },
+    "p75_wearer_prob": {
+      "overall_auroc": 0.6874999999999999,
+      "overall_eer_pct": 34.04761904761905,
+      "clean_eer_pct": 25.0,
+      "tir+5_eer_pct": 50.0,
+      "tir+0_eer_pct": 50.0,
+      "tir-5_eer_pct": 59.375,
+      "tir-10_eer_pct": 37.5
+    },
+    "p90_wearer_prob": {
+      "overall_auroc": 0.6979166666666667,
+      "overall_eer_pct": 35.773809523809526,
+      "clean_eer_pct": 25.0,
+      "tir+5_eer_pct": 46.875,
+      "tir+0_eer_pct": 46.875,
+      "tir-5_eer_pct": 46.875,
+      "tir-10_eer_pct": 37.5
+    },
+    "frac_above_calibrated_threshold": {
+      "overall_auroc": 0.71875,
+      "overall_eer_pct": 33.63095238095239,
+      "clean_eer_pct": 29.166666666666668,
+      "tir+5_eer_pct": 34.375,
+      "tir+0_eer_pct": 34.375,
+      "tir-5_eer_pct": 50.0,
+      "tir-10_eer_pct": 46.875
+    },
+    "longest_run_frac": {
+      "overall_auroc": 0.7026041666666667,
+      "overall_eer_pct": 35.773809523809526,
+      "clean_eer_pct": 25.0,
+      "tir+5_eer_pct": 25.0,
+      "tir+0_eer_pct": 34.375,
+      "tir-5_eer_pct": 46.875,
+      "tir-10_eer_pct": 46.875
+    },
+    "logsumexp_wearer_logit": {
+      "overall_auroc": 0.6909226190476191,
+      "overall_eer_pct": 37.083333333333336,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 37.5,
+      "tir+0_eer_pct": 50.0,
+      "tir-5_eer_pct": 50.0,
+      "tir-10_eer_pct": 37.5
+    },
+    "speech_gated_mean_wearer_logit": {
+      "overall_auroc": 0.7001488095238095,
+      "overall_eer_pct": 34.04761904761905,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 37.5,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 59.375,
+      "tir-10_eer_pct": 46.875
+    },
+    "mean_dominance_logit": {
+      "overall_auroc": 0.699404761904762,
+      "overall_eer_pct": 37.083333333333336,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 25.0,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 50.0,
+      "tir-10_eer_pct": 37.5
+    },
+    "top25pct_dominance_logit": {
+      "overall_auroc": 0.690922619047619,
+      "overall_eer_pct": 35.357142857142854,
+      "clean_eer_pct": 25.0,
+      "tir+5_eer_pct": 34.375,
+      "tir+0_eer_pct": 37.5,
+      "tir-5_eer_pct": 37.5,
+      "tir-10_eer_pct": 37.5
+    },
+    "frac_speech_active_dominant": {
+      "overall_auroc": 0.6933035714285714,
+      "overall_eer_pct": 35.773809523809526,
+      "clean_eer_pct": 20.833333333333336,
+      "tir+5_eer_pct": 28.125,
+      "tir+0_eer_pct": 34.375,
+      "tir-5_eer_pct": 50.0,
+      "tir-10_eer_pct": 37.5
+    }
+  },
+  "ranked_by_overall_eer": [
+    "median_wearer_logit",
+    "frac_above_calibrated_threshold",
+    "mean_wearer_logit",
+    "top25pct_mean_prob",
+    "p75_wearer_prob",
+    "speech_gated_mean_wearer_logit",
+    "top25pct_dominance_logit",
+    "mean_wearer_prob",
+    "top10pct_mean_prob",
+    "p90_wearer_prob",
+    "longest_run_frac",
+    "frac_speech_active_dominant",
+    "logsumexp_wearer_logit",
+    "mean_dominance_logit",
+    "max_wearer_prob"
+  ],
+  "best_method": "median_wearer_logit"
+}

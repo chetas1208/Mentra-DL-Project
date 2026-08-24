@@ -121,6 +121,46 @@ EER both, matching overlap-degradation curve at every TIR). Full numbers in
   ONNX export, INT8 quantization. Explicit stop condition — do not launch
   training until reviewed. Check `docs/TODO.md` for current state.
 
+## Product pivot: web app (2026-08-22)
+
+Dropped the live-hardware-connection chase per explicit direction ("DROP
+this idea of connecting. Delete related code too"). Deleted:
+`android/.../mentra/MentraPcmSource.kt`, `scripts/mentra/check_desktop_audio.sh`,
+`docs/MENTRA_SDK_NOTES.md`, `vendor/` (cloned SDK). Kept the transport/
+protocol/consumer layer (`mentra/audio/*`, `server/audio/*`) — it's reused
+as-is by the web frontend, unchanged in spirit from the original design
+("same binary protocol regardless of source").
+
+**New architecture**: browser mic (`getUserMedia` → `AudioWorklet` → PCM16)
+speaks the same binary WebSocket protocol directly to the Python backend.
+No native bridge, no laptop Bluetooth dependency for the browser-mic path.
+Real Mentra hardware audio remains a separate, still-unresolved question —
+this pivot sidesteps it rather than solving it, by using the browser as
+the audio source instead of trying to bridge Mentra's mic_pcm through a
+laptop.
+
+**Live infrastructure, real and working (2026-08-22)**:
+- Backend: `scripts/mentra/run_receiver.py`, HPC-local, `127.0.0.1:8765`.
+- Tunnel: Cloudflare quick tunnel (account-less, ephemeral) —
+  `cloudflared tunnel --url http://localhost:8765`. WebSocket handshake
+  verified working through it end-to-end.
+- Frontend: Nuxt 4 + Tailwind, `web/` directory, deployed to Vercel at
+  `https://mentra-dl-project.vercel.app`. Instrument-panel design with a
+  bipolar center-out meter as the signature element.
+- GitHub: `github.com/chetas1208/Mentra-DL-Project` (private), both
+  backend and frontend pushed.
+
+**Known fragility**: both the receiver and the Cloudflare tunnel are
+background processes tied to this session's lifecycle — the receiver died
+once already mid-session for reasons outside anything the user or their
+SSH command did. If the tunnel dies, the deployed Vercel app's backend URL
+goes stale until both are restarted and the Vercel env var
+(`NUXT_PUBLIC_BACKEND_WS_URL`) is updated to match the new random
+`trycloudflare.com` subdomain (quick tunnels don't have stable URLs).
+
+**Still real enrollment is a placeholder** (LibriSpeech clip, not a real
+wearer) — disclosed directly in the UI, not hidden.
+
 ## Standing instruction
 
 **Do not commit** until the user explicitly authorizes it (repeated across

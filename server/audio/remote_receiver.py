@@ -48,7 +48,7 @@ class MentraRemoteReceiver:
 
         self.sessions: dict[str, SessionStats] = {}
 
-    async def _handle_connection(self, websocket, on_frame):
+    async def _handle_connection(self, websocket, on_frame, on_enroll=None, on_playback_mode=None):
         session_id = None
         jitter_buffer: JitterBuffer | None = None
         try:
@@ -86,6 +86,19 @@ class MentraRemoteReceiver:
                     await websocket.send(pong.encode())
                     continue
 
+                if frame.message_type == MessageType.ENROLL_AUDIO:
+                    if on_enroll is not None:
+                        on_enroll(frame)
+                        done = AudioFrame(0, time.monotonic_ns(), self.sample_rate, 1, 16,
+                                           payload=b"", message_type=MessageType.ENROLL_DONE)
+                        await websocket.send(done.encode())
+                    continue
+
+                if frame.message_type == MessageType.SET_PLAYBACK_MODE:
+                    if on_playback_mode is not None:
+                        on_playback_mode(frame.payload.decode("ascii", errors="replace"))
+                    continue
+
                 if frame.message_type != MessageType.AUDIO_FRAME:
                     continue
 
@@ -99,8 +112,14 @@ class MentraRemoteReceiver:
                 jitter_buffer.push(frame)
                 for ready_frame in jitter_buffer.release_ready():
                     response = on_frame(ready_frame)
-                    if response is not None:
-                        await websocket.send(response.encode())
+                    if response is None:
+                        continue
+                    # on_frame may return a single AudioFrame or a list of
+                    # them (e.g. DETECTION + gated audio + TRANSCRIPT per
+                    # input frame) -- normalize to a list.
+                    responses = response if isinstance(response, list) else [response]
+                    for r in responses:
+                        await websocket.send(r.encode())
 
         except websockets.exceptions.ConnectionClosed:
             logger.info("session %s disconnected", session_id)
@@ -111,9 +130,9 @@ class MentraRemoteReceiver:
                 logger.info("session %s final stats: %s, jitter: %s",
                              session_id, self.sessions[session_id], jitter_buffer.stats)
 
-    async def serve(self, on_frame) -> None:
+    async def serve(self, on_frame, on_enroll=None, on_playback_mode=None) -> None:
         async with websockets.serve(
-            lambda ws: self._handle_connection(ws, on_frame),
+            lambda ws: self._handle_connection(ws, on_frame, on_enroll, on_playback_mode),
             self.host, self.port, max_size=None,
         ):
             logger.info("MentraRemoteReceiver listening on %s:%d", self.host, self.port)

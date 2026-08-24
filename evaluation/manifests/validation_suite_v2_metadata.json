@@ -1,0 +1,1202 @@
+[
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "2196",
+    "other_id": "6272",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "6078",
+    "other_id": "5652",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "6848",
+    "other_id": "4640",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "1624",
+    "other_id": "5652",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "5390",
+    "other_id": "6848",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "103",
+    "other_id": "4640",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "4640",
+    "other_id": "1624",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_0.5s",
+    "wearer_id": "6848",
+    "other_id": "839",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "39",
+    "other_id": "5652",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "2007",
+    "other_id": "6078",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "4362",
+    "other_id": "5652",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "3259",
+    "other_id": "2196",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "6078",
+    "other_id": "26",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "3214",
+    "other_id": "5390",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "200",
+    "other_id": "839",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_1.0s",
+    "wearer_id": "2007",
+    "other_id": "103",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "4362",
+    "other_id": "1624",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "6848",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "200",
+    "other_id": "3259",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "839",
+    "other_id": "2196",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "2196",
+    "other_id": "6848",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "1624",
+    "other_id": "2002",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "2196",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_wearer_2.0s",
+    "wearer_id": "839",
+    "other_id": "2007",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "5652",
+    "other_id": "26",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "2196",
+    "other_id": "1624",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "8051",
+    "other_id": "4362",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "6848",
+    "other_id": "4362",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "8051",
+    "other_id": "39",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "4441",
+    "other_id": "3259",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "4640",
+    "other_id": "39",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_0.5s",
+    "wearer_id": "26",
+    "other_id": "6272",
+    "duration_s": 0.5,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "2007",
+    "other_id": "4640",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "3259",
+    "other_id": "26",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "200",
+    "other_id": "4362",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "2002",
+    "other_id": "26",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "2196",
+    "other_id": "6272",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "6848",
+    "other_id": "5652",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "8051",
+    "other_id": "4362",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_1.0s",
+    "wearer_id": "2196",
+    "other_id": "1624",
+    "duration_s": 1.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "103",
+    "other_id": "2196",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "839",
+    "other_id": "2007",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "5390",
+    "other_id": "6848",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "1624",
+    "other_id": "2196",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "839",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "3214",
+    "other_id": "3259",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "4441",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "clean_solo_environment_2.0s",
+    "wearer_id": "6848",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "103",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "26",
+    "other_id": "39",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "8051",
+    "other_id": "2002",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "6078",
+    "other_id": "2002",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "8051",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "26",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "26",
+    "other_id": "6848",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+5",
+    "wearer_id": "5652",
+    "other_id": "2002",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "3259",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "4362",
+    "other_id": "1624",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "4362",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "39",
+    "other_id": "4441",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "3259",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "4640",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "200",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir+0",
+    "wearer_id": "839",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "5390",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "26",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "5390",
+    "other_id": "2007",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "3214",
+    "other_id": "4640",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "4362",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "103",
+    "other_id": "2007",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "200",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-5",
+    "wearer_id": "4640",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "1624",
+    "other_id": "4441",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "6272",
+    "other_id": "200",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "6078",
+    "other_id": "3214",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "8051",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "3214",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "6848",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "2002",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir-10",
+    "wearer_id": "5652",
+    "other_id": "39",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "random",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "6272",
+    "other_id": "2196",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "103",
+    "other_id": "39",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "26",
+    "other_id": "4640",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "4640",
+    "other_id": "2196",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "2196",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "26",
+    "other_id": "4640",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "6272",
+    "other_id": "39",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+5",
+    "wearer_id": "4441",
+    "other_id": "200",
+    "duration_s": 2.0,
+    "tir_db": 5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "6078",
+    "other_id": "4640",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "2007",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "200",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "8051",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "2002",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "103",
+    "other_id": "2007",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "39",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir+0",
+    "wearer_id": "8051",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "2196",
+    "other_id": "39",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "5652",
+    "other_id": "4640",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "1624",
+    "other_id": "3214",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "8051",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "4362",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "4441",
+    "other_id": "2002",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "2196",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-5",
+    "wearer_id": "4362",
+    "other_id": "39",
+    "duration_s": 2.0,
+    "tir_db": -5,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "6848",
+    "other_id": "200",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "200",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "6272",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "3214",
+    "other_id": "4362",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "4640",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "3259",
+    "other_id": "839",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "103",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_hardpair_tir-10",
+    "wearer_id": "3214",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": -10,
+    "pair_type": "hard",
+    "noisy": false
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "8051",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "5390",
+    "other_id": "2002",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "3214",
+    "other_id": "103",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "4441",
+    "other_id": "839",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "6848",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "8051",
+    "other_id": "6848",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "4441",
+    "other_id": "8051",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "overlap_random_tir0_noisy",
+    "wearer_id": "2002",
+    "other_id": "6848",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "3214",
+    "other_id": "8051",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "4441",
+    "other_id": "39",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "5390",
+    "other_id": "4640",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "839",
+    "other_id": "2196",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "2002",
+    "other_id": "8051",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "2002",
+    "other_id": "6078",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "1624",
+    "other_id": "2002",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_0.5s",
+    "wearer_id": "6272",
+    "other_id": "2196",
+    "duration_s": 0.5,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "2196",
+    "other_id": "4640",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "839",
+    "other_id": "39",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "839",
+    "other_id": "4362",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "5390",
+    "other_id": "103",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "2196",
+    "other_id": "1624",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "1624",
+    "other_id": "6848",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "4441",
+    "other_id": "5652",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_1.0s",
+    "wearer_id": "5652",
+    "other_id": "8051",
+    "duration_s": 1.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "4362",
+    "other_id": "5652",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "3259",
+    "other_id": "26",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "103",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "1624",
+    "other_id": "26",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "4441",
+    "other_id": "1624",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "4362",
+    "other_id": "5390",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "26",
+    "other_id": "6272",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  },
+  {
+    "slice": "short_duration_overlap_2.0s",
+    "wearer_id": "4441",
+    "other_id": "6078",
+    "duration_s": 2.0,
+    "tir_db": 0,
+    "pair_type": "random",
+    "noisy": true
+  }
+]

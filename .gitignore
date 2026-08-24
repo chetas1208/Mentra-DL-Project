@@ -26,3 +26,15 @@ venv/
 # Third-party repos (cloned for reference, not vendored into our history —
 # see docs/MENTRA_SDK_NOTES.md for the exact commit used)
 vendor/
+
+# Training artifacts -- checkpoints/logs/datasets are large binaries that
+# don't belong in git history. Small result summaries (JSON/PNG) under
+# evaluation/results/ ARE tracked -- those are the actual evidence, not bulk
+# data.
+training/checkpoints/
+training/runs/
+training/logs/
+server/logs/
+evaluation/manifests/*.npz
+evaluation/results/*.npz
+/models/

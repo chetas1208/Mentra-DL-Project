@@ -1,0 +1,306 @@
+{
+  "source": "LibriSpeech train-clean-100 (OpenSLR-12, CC BY 4.0)",
+  "split": "val",
+  "speakers": {
+    "103": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1240/103-1240-0036.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1240/103-1240-0020.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1241/103-1241-0009.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1240/103-1240-0018.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1240/103-1240-0053.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1241/103-1241-0042.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1241/103-1241-0028.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1241/103-1241-0036.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/103/1241/103-1241-0026.flac"
+      ]
+    },
+    "1624": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/168623/1624-168623-0031.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/142933/1624-142933-0018.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/142933/1624-142933-0010.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/168623/1624-168623-0010.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/142933/1624-142933-0034.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/142933/1624-142933-0028.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/168623/1624-168623-0029.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/168623/1624-168623-0052.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/1624/168623/1624-168623-0040.flac"
+      ]
+    },
+    "200": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/126784/200-126784-0009.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/126784/200-126784-0013.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/124139/200-124139-0025.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/126784/200-126784-0021.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/124140/200-124140-0009.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/124140/200-124140-0030.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/124139/200-124139-0032.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/124140/200-124140-0025.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/200/124139/200-124139-0024.flac"
+      ]
+    },
+    "2002": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0106.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0100.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0010.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0089.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0051.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0028.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0074.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0083.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2002/139469/2002-139469-0040.flac"
+      ]
+    },
+    "2007": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/132570/2007-132570-0012.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/149877/2007-149877-0036.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/149877/2007-149877-0053.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/132570/2007-132570-0045.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/149877/2007-149877-0009.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/149877/2007-149877-0042.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/132570/2007-132570-0000.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/132570/2007-132570-0015.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2007/132570/2007-132570-0060.flac"
+      ]
+    },
+    "2196": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/174172/2196-174172-0035.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/170151/2196-170151-0003.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/174172/2196-174172-0022.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/170379/2196-170379-0014.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/170379/2196-170379-0006.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/170379/2196-170379-0023.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/170379/2196-170379-0032.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/170151/2196-170151-0008.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/2196/174172/2196-174172-0015.flac"
+      ]
+    },
+    "26": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/495/26-495-0039.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/495/26-495-0055.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/495/26-495-0031.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/495/26-495-0075.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/496/26-496-0008.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/496/26-496-0005.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/496/26-496-0000.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/496/26-496-0023.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/26/495/26-495-0056.flac"
+      ]
+    },
+    "3214": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167602/3214-167602-0011.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167607/3214-167607-0028.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167607/3214-167607-0034.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167602/3214-167602-0006.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167607/3214-167607-0037.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167607/3214-167607-0007.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167606/3214-167606-0001.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167606/3214-167606-0020.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3214/167607/3214-167607-0010.flac"
+      ]
+    },
+    "3259": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0088.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0038.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0062.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0061.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0023.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0082.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0075.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0046.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/3259/158083/3259-158083-0118.flac"
+      ]
+    },
+    "39": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121914/39-121914-0007.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121914/39-121914-0016.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121916/39-121916-0015.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121915/39-121915-0026.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121914/39-121914-0042.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121914/39-121914-0023.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121914/39-121914-0028.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121914/39-121914-0006.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/39/121916/39-121916-0027.flac"
+      ]
+    },
+    "4362": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0070.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0018.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0029.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0093.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0057.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0049.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0103.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0104.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4362/15663/4362-15663-0091.flac"
+      ]
+    },
+    "4441": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76250/4441-76250-0032.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76262/4441-76262-0035.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76263/4441-76263-0034.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76262/4441-76262-0029.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76262/4441-76262-0005.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76263/4441-76263-0027.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76262/4441-76262-0018.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76262/4441-76262-0017.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4441/76263/4441-76263-0038.flac"
+      ]
+    },
+    "4640": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19187/4640-19187-0019.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19188/4640-19188-0029.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19187/4640-19187-0013.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19187/4640-19187-0023.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19187/4640-19187-0024.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19188/4640-19188-0005.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19188/4640-19188-0013.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19187/4640-19187-0012.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/4640/19188/4640-19188-0032.flac"
+      ]
+    },
+    "5390": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/30102/5390-30102-0021.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/30102/5390-30102-0002.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/24512/5390-24512-0048.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/24512/5390-24512-0000.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/24512/5390-24512-0009.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/30096/5390-30096-0001.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/30102/5390-30102-0024.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/24512/5390-24512-0034.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5390/24512/5390-24512-0033.flac"
+      ]
+    },
+    "5652": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/19215/5652-19215-0017.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/39938/5652-39938-0025.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/39938/5652-39938-0036.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/39938/5652-39938-0011.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/19215/5652-19215-0062.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/19215/5652-19215-0010.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/39938/5652-39938-0044.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/39938/5652-39938-0057.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/5652/19215/5652-19215-0008.flac"
+      ]
+    },
+    "6078": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54013/6078-54013-0009.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54013/6078-54013-0040.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54013/6078-54013-0042.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54013/6078-54013-0031.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54007/6078-54007-0025.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54007/6078-54007-0014.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54013/6078-54013-0024.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54013/6078-54013-0033.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6078/54007/6078-54007-0047.flac"
+      ]
+    },
+    "6272": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70168/6272-70168-0012.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70168/6272-70168-0014.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70168/6272-70168-0008.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70191/6272-70191-0028.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70168/6272-70168-0002.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70171/6272-70171-0000.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70191/6272-70191-0032.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70168/6272-70168-0017.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6272/70168/6272-70168-0030.flac"
+      ]
+    },
+    "6848": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/76049/6848-76049-0019.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/252323/6848-252323-0024.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/252322/6848-252322-0019.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/252323/6848-252323-0038.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/252323/6848-252323-0006.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/252323/6848-252323-0040.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/76049/6848-76049-0010.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/252323/6848-252323-0025.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/6848/76049/6848-76049-0020.flac"
+      ]
+    },
+    "8051": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/118101/8051-118101-0030.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/295385/8051-295385-0000.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/118101/8051-118101-0015.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/118101/8051-118101-0022.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/118101/8051-118101-0001.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/119902/8051-119902-0006.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/118101/8051-118101-0007.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/119902/8051-119902-0015.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/8051/119902/8051-119902-0016.flac"
+      ]
+    },
+    "839": {
+      "enroll": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0081.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0000.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0073.flac"
+      ],
+      "test": [
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0086.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0051.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0091.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0002.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0083.flac",
+        "evaluation/data/raw/LibriSpeech/train-clean-100/839/130898/839-130898-0032.flac"
+      ]
+    }
+  }
+}

@@ -68,6 +68,13 @@ class MentraInferenceConsumer:
     def enroll(self, enrollment_segments: list[tuple[np.ndarray, int]]) -> None:
         self.detector.enroll(enrollment_segments)
 
+    @property
+    def current_state(self) -> str:
+        """Current classification state, updated on hop boundaries but
+        readable on every raw frame -- needed for gating/ASR-routing
+        decisions that should apply continuously, not just at hop time."""
+        return self._current_state
+
     def consume_frame(self, frame: AudioFrame) -> LiveDetectionResult | None:
         if frame.sample_rate != self.sample_rate or frame.bits_per_sample != 16 or frame.channels != 1:
             self.stats.dropped_wrong_format += 1
