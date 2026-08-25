@@ -165,15 +165,38 @@ def sample_duration_s(rng: random.Random) -> float:
 
 
 def generate_example(pool: SpeakerPool, rng: random.Random, total_s: float = 2.0,
-                      noise_pool: "NoisePool | None" = None) -> MixtureExample:
+                      noise_pool: "NoisePool | None" = None,
+                      hard_pairs: "dict | None" = None, p_hard: float = 0.0) -> MixtureExample:
     """One temporally-structured example: a random sequence of SILENCE /
     WEARER / ENVIRONMENT / OVERLAP segments (section 21) summing to
     total_s, built from real speaker audio with role randomization
     (section 23 -- the same person is sometimes wearer, sometimes not,
-    across different calls to this function with different wearer_id)."""
+    across different calls to this function with different wearer_id).
+
+    V3B addition (hard-negative curriculum, see docs/... V3B report): when
+    hard_pairs is given and p_hard > 0, the impostor (`other_id`) is drawn
+    from hard_pairs[wearer_id] (that wearer's nearest-neighbor speakers by
+    frozen-SpeakerNet cosine similarity, see
+    training/diagnostics/hard_negative_mining.py) with probability p_hard,
+    and uniformly at random otherwise -- this is the ONLY thing this
+    function changes for V3B; state mix, TIR sampling, duration, and noise
+    are untouched. When hard_pairs is None or p_hard <= 0 (the default),
+    this branch is skipped WITHOUT consuming an rng draw, so existing
+    callers (V1/V2/V3A, and any V3B run passing p_hard=0.0 as its explicit
+    random-only control) get byte-identical random-stream behavior to
+    before this option existed."""
     wearer_id = rng.choice(pool.speaker_ids)
     other_candidates = [s for s in pool.speaker_ids if s != wearer_id]
-    other_id = rng.choice(other_candidates)
+    used_hard_negative = False
+    if hard_pairs and p_hard > 0.0 and rng.random() < p_hard:
+        candidates = [s for s in hard_pairs.get(wearer_id, []) if s != wearer_id and s in pool.speakers]
+        if candidates:
+            other_id = rng.choice(candidates)
+            used_hard_negative = True
+        else:
+            other_id = rng.choice(other_candidates)
+    else:
+        other_id = rng.choice(other_candidates)
 
     n_samples = int(total_s * SAMPLE_RATE)
     # Planning grid: 10ms chunks used only to decide WHERE segment
@@ -256,5 +279,6 @@ def generate_example(pool: SpeakerPool, rng: random.Random, total_s: float = 2.0
         metadata={
             "wearer_id": wearer_id, "other_id": other_id,
             "segment_states": segment_states, "n_plan_chunks": n_plan_chunks,
+            "used_hard_negative": used_hard_negative,
         },
     )

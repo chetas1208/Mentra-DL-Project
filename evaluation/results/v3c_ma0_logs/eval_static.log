@@ -1,0 +1,837 @@
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo I 2026-08-25 02:26:11 cloud:58] Found existing object /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+[NeMo I 2026-08-25 02:26:11 cloud:64] Re-using file from: /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo
+[NeMo I 2026-08-25 02:26:11 common:1122] Instantiating model from pre-trained checkpoint
+[NeMo W 2026-08-25 02:26:12 modelPT:175] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: /ws/manifests/raid/combined/train_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: true
+    time_length: 8
+    augmentor:
+      noise:
+        manifest_path: /ws/manifests/raid/musan/musan_music_noise_manifest_dur8.json
+        prob: 0.2
+        min_snr_db: 5
+        max_snr_db: 15
+    num_workers: 4
+    
+[NeMo W 2026-08-25 02:26:12 modelPT:182] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: /ws/manifests/raid/voxceleb/small_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: false
+    time_length: 8
+    num_workers: 1
+    
+[NeMo I 2026-08-25 02:26:12 save_restore_connector:287] Model EncDecSpeakerLabelModel was successfully restored from /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+loaded training/runs/20260824T213704Z-v3c_ma0_static/checkpoint_step1250.pt (step=1250)  missing=[]  unexpected=[]
+  tir=5: done (120 clips so far)
+  tir=0: done (160 clips so far)
+  tir=-5: done (200 clips so far)
+  tir=-10: done (240 clips so far)
+saved evaluation/results/mentrawearnet_v3a_v3c_ma0_static_step1250_joint_frame_dataset.npz (49920 frames across 240 clips)
+saved evaluation/results/mentrawearnet_v3a_v3c_ma0_static_step1250_analysis.json
+{
+  "tag": "v3c_ma0_static_step1250",
+  "phase2_frame_metrics_overall": {
+    "wearer_auroc": 0.8853600753926427,
+    "wearer_auprc": 0.8527212569070086,
+    "wearer_f1": 0.7959477840712996,
+    "wearer_far": 0.226370438234845,
+    "wearer_frr": 0.17370595177878942,
+    "environment_auroc": 0.8929096111348827,
+    "environment_auprc": 0.8948566736529865,
+    "environment_f1": 0.7949502839409742,
+    "environment_far": 0.20024689510698787,
+    "environment_frr": 0.18802829049508366,
+    "overlap_f1": 0.46977016542233935,
+    "overlap_far": 0.12805160948235866,
+    "overlap_frr": 0.31092978312218167,
+    "wearer_frr_at_far": {
+      "far_20pct": 0.20822795481369083,
+      "far_10pct": 0.38012139605462825,
+      "far_5pct": 0.5848507840161861,
+      "far_1pct": 0.8499831394368572
+    },
+    "n_frames": 49920
+  },
+  "phase4_state_conditional": {
+    "00": {
+      "wearer_logit": {
+        "mean": -3.811830972426675,
+        "std": 1.921979391245835,
+        "median": -4.1694817543029785,
+        "p10": -6.0715651512146,
+        "p25": -5.201427936553955,
+        "p75": -2.579888343811035,
+        "p90": -1.054055118560791,
+        "n": 7665
+      },
+      "environment_logit": {
+        "mean": -3.3318077497539065,
+        "std": 1.6673311043399315,
+        "median": -3.595878839492798,
+        "p10": -5.390960788726806,
+        "p25": -4.592010498046875,
+        "p75": -2.221186399459839,
+        "p90": -0.9556351542472838,
+        "n": 7665
+      },
+      "wearer_probability": {
+        "mean": 0.0835784905767208,
+        "std": 0.16514793452035115,
+        "median": 0.015224888920783997,
+        "p10": 0.002302246214821935,
+        "p25": 0.005478513427078724,
+        "p75": 0.07044404000043869,
+        "p90": 0.2584471642971039,
+        "n": 7665
+      },
+      "environment_probability": {
+        "mean": 0.09231442490988093,
+        "std": 0.1518850128901833,
+        "median": 0.02670389600098133,
+        "p10": 0.0045369151048362255,
+        "p25": 0.010030829347670078,
+        "p75": 0.09786400943994522,
+        "p90": 0.27775294184684757,
+        "n": 7665
+      }
+    },
+    "10": {
+      "wearer_logit": {
+        "mean": 1.6581695102076666,
+        "std": 1.7621790381448508,
+        "median": 1.707972526550293,
+        "p10": -0.6416362285614012,
+        "p25": 0.4293482303619385,
+        "p75": 2.942427635192871,
+        "p90": 3.856129407882691,
+        "n": 19067
+      },
+      "environment_logit": {
+        "mean": -0.8739881398611616,
+        "std": 1.5415929772520858,
+        "median": -0.9379616379737854,
+        "p10": -2.81658239364624,
+        "p25": -1.963049054145813,
+        "p75": 0.06430535018444061,
+        "p90": 1.1939582824707038,
+        "n": 19067
+      },
+      "wearer_probability": {
+        "mean": 0.7485267017407652,
+        "std": 0.24939260550671777,
+        "median": 0.8465731739997864,
+        "p10": 0.344876766204834,
+        "p25": 0.6057180166244507,
+        "p75": 0.9499043524265289,
+        "p90": 0.9792883634567261,
+        "n": 19067
+      },
+      "environment_probability": {
+        "mean": 0.3446638804441863,
+        "std": 0.26139675594295236,
+        "median": 0.2813122570514679,
+        "p10": 0.056434646248817444,
+        "p25": 0.1231374517083168,
+        "p75": 0.5160708129405975,
+        "p90": 0.7674482107162477,
+        "n": 19067
+      }
+    },
+    "01": {
+      "wearer_logit": {
+        "mean": -1.1941415674224158,
+        "std": 2.1294400675885563,
+        "median": -1.405791997909546,
+        "p10": -3.902252435684204,
+        "p25": -2.8251229524612427,
+        "p75": 0.3809797465801239,
+        "p90": 1.7666635513305664,
+        "n": 18531
+      },
+      "environment_logit": {
+        "mean": 2.50582953527072,
+        "std": 2.577663247412831,
+        "median": 2.4566731452941895,
+        "p10": -0.8244484663009644,
+        "p25": 0.5450393557548523,
+        "p75": 4.460238695144653,
+        "p90": 6.070537567138672,
+        "n": 18531
+      },
+      "wearer_probability": {
+        "mean": 0.32835332818150315,
+        "std": 0.3129436913566699,
+        "median": 0.19689860939979553,
+        "p10": 0.019796550273895264,
+        "p25": 0.055981582030653954,
+        "p75": 0.5941093564033508,
+        "p90": 0.8540422320365906,
+        "n": 18531
+      },
+      "environment_probability": {
+        "mean": 0.7811589339154684,
+        "std": 0.2763356726540056,
+        "median": 0.9210480451583862,
+        "p10": 0.3048202097415924,
+        "p25": 0.632983922958374,
+        "p75": 0.988572508096695,
+        "p90": 0.9976953864097595,
+        "n": 18531
+      }
+    },
+    "11": {
+      "wearer_logit": {
+        "mean": 2.1395034627956537,
+        "std": 1.804493814721832,
+        "median": 2.4242770671844482,
+        "p10": -0.47755621075630184,
+        "p25": 1.1121189594268799,
+        "p75": 3.4126338958740234,
+        "p90": 4.197731494903565,
+        "n": 4657
+      },
+      "environment_logit": {
+        "mean": 1.7981549394675942,
+        "std": 1.9468710544369843,
+        "median": 1.8381195068359375,
+        "p10": -0.8167022466659546,
+        "p25": 0.23666389286518097,
+        "p75": 3.410271167755127,
+        "p90": 4.251141929626465,
+        "n": 4657
+      },
+      "wearer_probability": {
+        "mean": 0.8078660778943285,
+        "std": 0.24270195922390184,
+        "median": 0.9186599254608154,
+        "p10": 0.38282940387725833,
+        "p25": 0.7525239586830139,
+        "p75": 0.9680970311164856,
+        "p90": 0.9851929068565368,
+        "n": 4657
+      },
+      "environment_probability": {
+        "mean": 0.7442412574315356,
+        "std": 0.2665210007970775,
+        "median": 0.8627261519432068,
+        "p10": 0.30646414756774903,
+        "p25": 0.5588913559913635,
+        "p75": 0.968023955821991,
+        "p90": 0.9859522581100464,
+        "n": 4657
+      }
+    }
+  },
+  "phase5_10v01_overall": {
+    "n": 37598,
+    "n_wearer_only": 19067,
+    "n_env_only": 18531,
+    "wearer_logit_auroc": 0.8420807746848357,
+    "wearer_logit_auprc": 0.8211648985126034,
+    "wearer_prob_auroc": 0.8420807760999413,
+    "wearer_prob_auprc": 0.8211648418026243,
+    "dominance_logit_auroc": 0.8806631784941725,
+    "dominance_logit_auprc": 0.8511778706064158,
+    "dominance_prob_auroc": 0.8747156066258029,
+    "dominance_prob_auprc": 0.843274945570324
+  },
+  "phase5_10v01_by_bucket": {
+    "clean": {
+      "n": 13636,
+      "n_wearer_only": 7196,
+      "n_env_only": 6440,
+      "wearer_logit_auroc": 0.8585916218119798,
+      "wearer_logit_auprc": 0.8493903340111049,
+      "wearer_prob_auroc": 0.8585916218119797,
+      "wearer_prob_auprc": 0.8493902985968673,
+      "dominance_logit_auroc": 0.8803686010861798,
+      "dominance_logit_auprc": 0.8568184572512403,
+      "dominance_prob_auroc": 0.8750532991068192,
+      "dominance_prob_auprc": 0.8499133772864136
+    },
+    "tir+5": {
+      "n": 5624,
+      "n_wearer_only": 3060,
+      "n_env_only": 2564,
+      "wearer_logit_auroc": 0.8545305537711705,
+      "wearer_logit_auprc": 0.8515027626424383,
+      "wearer_prob_auroc": 0.8545305537711705,
+      "wearer_prob_auprc": 0.8515027906921436,
+      "dominance_logit_auroc": 0.9179270798282911,
+      "dominance_logit_auprc": 0.9187964475534913,
+      "dominance_prob_auroc": 0.9167590723236773,
+      "dominance_prob_auprc": 0.92028212481501
+    },
+    "tir+0": {
+      "n": 5874,
+      "n_wearer_only": 2449,
+      "n_env_only": 3425,
+      "wearer_logit_auroc": 0.8998817929558616,
+      "wearer_logit_auprc": 0.8880136158029941,
+      "wearer_prob_auroc": 0.8998817929558616,
+      "wearer_prob_auprc": 0.8880136158029941,
+      "dominance_logit_auroc": 0.9135061830689123,
+      "dominance_logit_auprc": 0.8924630312276889,
+      "dominance_prob_auroc": 0.9074876979431497,
+      "dominance_prob_auprc": 0.883982781779169
+    },
+    "tir-5": {
+      "n": 6562,
+      "n_wearer_only": 2660,
+      "n_env_only": 3902,
+      "wearer_logit_auroc": 0.8068866746569139,
+      "wearer_logit_auprc": 0.7243201908665302,
+      "wearer_prob_auroc": 0.8068866746569139,
+      "wearer_prob_auprc": 0.7243201908665302,
+      "dominance_logit_auroc": 0.8478314571667508,
+      "dominance_logit_auprc": 0.7521293580129926,
+      "dominance_prob_auroc": 0.8337591479981347,
+      "dominance_prob_auprc": 0.7305856603968397
+    },
+    "tir-10": {
+      "n": 5902,
+      "n_wearer_only": 3702,
+      "n_env_only": 2200,
+      "wearer_logit_auroc": 0.8187329330582976,
+      "wearer_logit_auprc": 0.8671950436832335,
+      "wearer_prob_auroc": 0.8187329330582978,
+      "wearer_prob_auprc": 0.8671950790271735,
+      "dominance_logit_auroc": 0.8620803251313787,
+      "dominance_logit_auprc": 0.9023027382016514,
+      "dominance_prob_auroc": 0.8613723540101175,
+      "dominance_prob_auprc": 0.9012659023694021
+    }
+  },
+  "phase5_metric_10v01_overall": {
+    "n": 37598,
+    "n_wearer_only": 19067,
+    "n_env_only": 18531,
+    "metric_auroc": 0.6273577916241311,
+    "metric_auprc": 0.5884459952887441,
+    "pos_10_cosine": {
+      "mean": 0.8235939242105563,
+      "std": 0.0625716324508194,
+      "median": 0.8343935012817383,
+      "p10": 0.7429473161697387,
+      "p25": 0.7931690216064453,
+      "p75": 0.864887923002243,
+      "p90": 0.8923059940338135,
+      "n": 19067
+    },
+    "neg_01_cosine": {
+      "mean": 0.7878599900437292,
+      "std": 0.08449563166779257,
+      "median": 0.8049478530883789,
+      "p10": 0.6686956286430359,
+      "p25": 0.7399468123912811,
+      "p75": 0.84769606590271,
+      "p90": 0.8824415802955627,
+      "n": 18531
+    },
+    "realized_margin_of_means": 0.035733938217163086
+  },
+  "phase5_metric_10v01_by_bucket": {
+    "clean": {
+      "n": 13636,
+      "n_wearer_only": 7196,
+      "n_env_only": 6440,
+      "metric_auroc": 0.632794541222004,
+      "metric_auprc": 0.6007010356331843,
+      "pos_10_cosine": {
+        "mean": 0.8197761692640979,
+        "std": 0.06366763583307544,
+        "median": 0.8321682810783386,
+        "p10": 0.7358461916446686,
+        "p25": 0.7892271876335144,
+        "p75": 0.8610212951898575,
+        "p90": 0.8886628150939941,
+        "n": 7196
+      },
+      "neg_01_cosine": {
+        "mean": 0.7815052062689518,
+        "std": 0.08709562273269453,
+        "median": 0.798139363527298,
+        "p10": 0.655765026807785,
+        "p25": 0.7263236492872238,
+        "p75": 0.8437260985374451,
+        "p90": 0.8848197281360627,
+        "n": 6440
+      },
+      "realized_margin_of_means": 0.03827095031738281
+    },
+    "tir+5": {
+      "n": 5624,
+      "n_wearer_only": 3060,
+      "n_env_only": 2564,
+      "metric_auroc": 0.5501452362016049,
+      "metric_auprc": 0.5643319995789859,
+      "pos_10_cosine": {
+        "mean": 0.8192184079316707,
+        "std": 0.07678282093416514,
+        "median": 0.8337700963020325,
+        "p10": 0.7188080668449401,
+        "p25": 0.7784247696399689,
+        "p75": 0.8720474541187286,
+        "p90": 0.9051555395126343,
+        "n": 3060
+      },
+      "neg_01_cosine": {
+        "mean": 0.8037560881462744,
+        "std": 0.08705569133551183,
+        "median": 0.8156464993953705,
+        "p10": 0.6891457259654998,
+        "p25": 0.7512880116701126,
+        "p75": 0.8659326136112213,
+        "p90": 0.9100557148456574,
+        "n": 2564
+      },
+      "realized_margin_of_means": 0.015462338924407959
+    },
+    "tir+0": {
+      "n": 5874,
+      "n_wearer_only": 2449,
+      "n_env_only": 3425,
+      "metric_auroc": 0.617408863441953,
+      "metric_auprc": 0.5107926169440337,
+      "pos_10_cosine": {
+        "mean": 0.8288372097428159,
+        "std": 0.051164196296098356,
+        "median": 0.8381859064102173,
+        "p10": 0.7554962158203125,
+        "p25": 0.7955218553543091,
+        "p75": 0.8666502237319946,
+        "p90": 0.8890284299850464,
+        "n": 2449
+      },
+      "neg_01_cosine": {
+        "mean": 0.7979770615327098,
+        "std": 0.07723044260601936,
+        "median": 0.8182398080825806,
+        "p10": 0.6867631673812866,
+        "p25": 0.7691048383712769,
+        "p75": 0.8462355136871338,
+        "p90": 0.8777992606163025,
+        "n": 3425
+      },
+      "realized_margin_of_means": 0.03086012601852417
+    },
+    "tir-5": {
+      "n": 6562,
+      "n_wearer_only": 2660,
+      "n_env_only": 3902,
+      "metric_auroc": 0.6807229664371076,
+      "metric_auprc": 0.5604086341629186,
+      "pos_10_cosine": {
+        "mean": 0.8301441458383001,
+        "std": 0.057117682617596054,
+        "median": 0.8364472687244415,
+        "p10": 0.7620273768901825,
+        "p25": 0.8010662347078323,
+        "p75": 0.8682719469070435,
+        "p90": 0.8954626321792603,
+        "n": 2660
+      },
+      "neg_01_cosine": {
+        "mean": 0.7786098255263665,
+        "std": 0.0869899973116651,
+        "median": 0.7971503734588623,
+        "p10": 0.6612101256847381,
+        "p25": 0.7258862107992172,
+        "p75": 0.8447566628456116,
+        "p90": 0.8742055237293244,
+        "n": 3902
+      },
+      "realized_margin_of_means": 0.05153423547744751
+    },
+    "tir-10": {
+      "n": 5902,
+      "n_wearer_only": 3702,
+      "n_env_only": 2200,
+      "metric_auroc": 0.6586094739944012,
+      "metric_auprc": 0.7416739822644632,
+      "pos_10_cosine": {
+        "mean": 0.8264564981192012,
+        "std": 0.05687956593228573,
+        "median": 0.8344452679157257,
+        "p10": 0.7586845338344574,
+        "p25": 0.8010360300540924,
+        "p75": 0.8644220232963562,
+        "p90": 0.8889426827430725,
+        "n": 3702
+      },
+      "neg_01_cosine": {
+        "mean": 0.7885919828035615,
+        "std": 0.07528544176769109,
+        "median": 0.7997446656227112,
+        "p10": 0.6916634917259217,
+        "p25": 0.7519525736570358,
+        "p75": 0.8443313539028168,
+        "p90": 0.8720285654067993,
+        "n": 2200
+      },
+      "realized_margin_of_means": 0.037864506244659424
+    }
+  },
+  "phase6_common_activity": {
+    "common_activity_logit_auroc_speech_vs_silence": 0.979148040625275,
+    "common_activity_logit_auprc_speech_vs_silence": 0.9946355660467174,
+    "n_speech": 42255,
+    "n_silence": 7665
+  },
+  "phase8_prediction_bias_by_bucket": {
+    "clean": {
+      "n": 16640,
+      "true_wearer_positive_rate": 0.4349158704280853,
+      "pred_wearer_positive_rate_at_0.5": 0.4338942307692308,
+      "mean_wearer_prob": 0.4307534694671631,
+      "true_env_positive_rate": 0.38948318362236023,
+      "pred_env_positive_rate_at_0.5": 0.42752403846153847,
+      "mean_env_prob": 0.4600648880004883
+    },
+    "tir+5": {
+      "n": 8320,
+      "true_wearer_positive_rate": 0.5078125,
+      "pred_wearer_positive_rate_at_0.5": 0.5849759615384615,
+      "mean_wearer_prob": 0.5515029430389404,
+      "true_env_positive_rate": 0.4481971263885498,
+      "pred_env_positive_rate_at_0.5": 0.3895432692307692,
+      "mean_env_prob": 0.44371867179870605
+    },
+    "tir+0": {
+      "n": 8320,
+      "true_wearer_positive_rate": 0.4625000059604645,
+      "pred_wearer_positive_rate_at_0.5": 0.5600961538461539,
+      "mean_wearer_prob": 0.5334550738334656,
+      "true_env_positive_rate": 0.579807698726654,
+      "pred_env_positive_rate_at_0.5": 0.5981971153846154,
+      "mean_env_prob": 0.5801109671592712
+    },
+    "tir-5": {
+      "n": 8320,
+      "true_wearer_positive_rate": 0.4409855902194977,
+      "pred_wearer_positive_rate_at_0.5": 0.5246394230769231,
+      "mean_wearer_prob": 0.5190051198005676,
+      "true_env_positive_rate": 0.5902644395828247,
+      "pred_env_positive_rate_at_0.5": 0.6049278846153846,
+      "mean_env_prob": 0.6029109358787537
+    },
+    "tir-10": {
+      "n": 8320,
+      "true_wearer_positive_rate": 0.5703125,
+      "pred_wearer_positive_rate_at_0.5": 0.5313701923076923,
+      "mean_wearer_prob": 0.5104597210884094,
+      "true_env_positive_rate": 0.389783650636673,
+      "pred_env_positive_rate_at_0.5": 0.45865384615384613,
+      "mean_env_prob": 0.4844859838485718
+    }
+  },
+  "phase9_far_operating_points_by_bucket": {
+    "clean": {
+      "n": 16640,
+      "far_20pct": 0.15669476302335217,
+      "far_10pct": 0.3989222053337018,
+      "far_5pct": 0.6519275943070333,
+      "far_1pct": 0.8043388144258671
+    },
+    "tir+5": {
+      "n": 8320,
+      "far_20pct": 0.16781065088757396,
+      "far_10pct": 0.33443786982248525,
+      "far_5pct": 0.6011834319526628,
+      "far_1pct": 0.7988165680473372
+    },
+    "tir+0": {
+      "n": 8320,
+      "far_20pct": 0.1294178794178794,
+      "far_10pct": 0.21439708939708935,
+      "far_5pct": 0.2882016632016632,
+      "far_1pct": 0.468035343035343
+    },
+    "tir-5": {
+      "n": 8320,
+      "far_20pct": 0.30580539656582173,
+      "far_10pct": 0.5132188607249932,
+      "far_5pct": 0.7323521395475606,
+      "far_1pct": 0.8757154538021259
+    },
+    "tir-10": {
+      "n": 8320,
+      "far_20pct": 0.19325605900948362,
+      "far_10pct": 0.4354056902002107,
+      "far_5pct": 0.622550052687039,
+      "far_1pct": 0.7698630136986302
+    }
+  },
+  "phase10_solo_target_overall": {
+    "n": 49920,
+    "n_true_solo": 19067,
+    "solo_prob_auroc": 0.8948462559593239,
+    "solo_prob_auprc": 0.8036101846379657,
+    "argmax": {
+      "precision": 0.7532384455461378,
+      "recall": 0.7410709602978969,
+      "f1": 0.7471051657590017,
+      "far": 0.15003403234693546,
+      "frr": 0.2589290397021031
+    },
+    "thresh_0.5": {
+      "precision": 0.7900555860973673,
+      "recall": 0.6783447841820948,
+      "f1": 0.7299509001636661,
+      "far": 0.11139921563543254,
+      "frr": 0.3216552158179053
+    }
+  },
+  "phase10_solo_target_by_bucket": {
+    "clean": {
+      "n": 16640,
+      "n_true_solo": 7196,
+      "solo_prob_auroc": 0.90451233525661,
+      "solo_prob_auprc": 0.833626423278574,
+      "argmax": {
+        "precision": 0.8138691645263635,
+        "recall": 0.7486103390772652,
+        "f1": 0.7798769453492581,
+        "far": 0.1304531977975434,
+        "frr": 0.25138966092273485
+      },
+      "thresh_0.5": {
+        "precision": 0.8407600470825627,
+        "recall": 0.6948304613674263,
+        "f1": 0.7608612949859241,
+        "far": 0.10027530707327403,
+        "frr": 0.3051695386325737
+      }
+    },
+    "tir+5": {
+      "n": 8320,
+      "n_true_solo": 3060,
+      "solo_prob_auroc": 0.9153236288178135,
+      "solo_prob_auprc": 0.852060733840614,
+      "argmax": {
+        "precision": 0.7229205669965232,
+        "recall": 0.8833333333333333,
+        "f1": 0.7951169289601411,
+        "far": 0.19695817490494297,
+        "frr": 0.11666666666666667
+      },
+      "thresh_0.5": {
+        "precision": 0.746319018404908,
+        "recall": 0.7950980392156862,
+        "f1": 0.7699367088607596,
+        "far": 0.15722433460076046,
+        "frr": 0.20490196078431372
+      }
+    },
+    "tir+0": {
+      "n": 8320,
+      "n_true_solo": 2449,
+      "solo_prob_auroc": 0.864660710238134,
+      "solo_prob_auprc": 0.7713047497035166,
+      "argmax": {
+        "precision": 0.6496,
+        "recall": 0.6631278072682728,
+        "f1": 0.6562942008486562,
+        "far": 0.1492079713847726,
+        "frr": 0.33687219273172725
+      },
+      "thresh_0.5": {
+        "precision": 0.714498510427011,
+        "recall": 0.5875867701102491,
+        "f1": 0.6448577190230786,
+        "far": 0.09793902231306421,
+        "frr": 0.41241322988975093
+      }
+    },
+    "tir-5": {
+      "n": 8320,
+      "n_true_solo": 2660,
+      "solo_prob_auroc": 0.8612639815085417,
+      "solo_prob_auprc": 0.6954570379888027,
+      "argmax": {
+        "precision": 0.6294642857142857,
+        "recall": 0.6360902255639098,
+        "f1": 0.6327599102468212,
+        "far": 0.17597173144876324,
+        "frr": 0.36390977443609024
+      },
+      "thresh_0.5": {
+        "precision": 0.6792698826597132,
+        "recall": 0.587593984962406,
+        "f1": 0.6301148961902842,
+        "far": 0.1303886925795053,
+        "frr": 0.412406015037594
+      }
+    },
+    "tir-10": {
+      "n": 8320,
+      "n_true_solo": 3702,
+      "solo_prob_auroc": 0.9072691443694241,
+      "solo_prob_auprc": 0.8706637702931493,
+      "argmax": {
+        "precision": 0.8478057889822596,
+        "recall": 0.7358184764991896,
+        "f1": 0.7878524945770066,
+        "far": 0.10588999566912083,
+        "frr": 0.26418152350081037
+      },
+      "thresh_0.5": {
+        "precision": 0.8771498771498771,
+        "recall": 0.6750405186385737,
+        "f1": 0.7629369561898948,
+        "far": 0.075790385448246,
+        "frr": 0.3249594813614263
+      }
+    }
+  }
+}
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo I 2026-08-25 02:26:28 cloud:58] Found existing object /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+[NeMo I 2026-08-25 02:26:28 cloud:64] Re-using file from: /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo
+[NeMo I 2026-08-25 02:26:28 common:1122] Instantiating model from pre-trained checkpoint
+[NeMo W 2026-08-25 02:26:29 modelPT:175] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: /ws/manifests/raid/combined/train_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: true
+    time_length: 8
+    augmentor:
+      noise:
+        manifest_path: /ws/manifests/raid/musan/musan_music_noise_manifest_dur8.json
+        prob: 0.2
+        min_snr_db: 5
+        max_snr_db: 15
+    num_workers: 4
+    
+[NeMo W 2026-08-25 02:26:29 modelPT:182] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: /ws/manifests/raid/voxceleb/small_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: false
+    time_length: 8
+    num_workers: 1
+    
+[NeMo I 2026-08-25 02:26:29 save_restore_connector:287] Model EncDecSpeakerLabelModel was successfully restored from /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+loaded training/runs/20260824T213704Z-v3c_ma0_static/checkpoint_step1250.pt (step=1250)  missing=[]  unexpected=[]
+scoring 3600 trials from evaluation/manifests/hard_eval_suite_v1.npz ...
+  scored 3600/3600
+saved evaluation/results/v3c_ma0_static_step1250_hard_eval_suite_scores.json
+saved evaluation/results/v3c_ma0_static_step1250_hard_eval_suite_raw_scores.npz
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo I 2026-08-25 02:35:27 cloud:58] Found existing object /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+[NeMo I 2026-08-25 02:35:27 cloud:64] Re-using file from: /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo
+[NeMo I 2026-08-25 02:35:27 common:1122] Instantiating model from pre-trained checkpoint
+[NeMo W 2026-08-25 02:35:27 modelPT:175] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: /ws/manifests/raid/combined/train_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: true
+    time_length: 8
+    augmentor:
+      noise:
+        manifest_path: /ws/manifests/raid/musan/musan_music_noise_manifest_dur8.json
+        prob: 0.2
+        min_snr_db: 5
+        max_snr_db: 15
+    num_workers: 4
+    
+[NeMo W 2026-08-25 02:35:27 modelPT:182] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: /ws/manifests/raid/voxceleb/small_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: false
+    time_length: 8
+    num_workers: 1
+    
+[NeMo I 2026-08-25 02:35:28 save_restore_connector:287] Model EncDecSpeakerLabelModel was successfully restored from /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+loaded training/runs/20260824T213704Z-v3c_ma0_static/checkpoint_step1250.pt (step=1250)  missing=[]  unexpected=[]
+  tir=5: done
+  tir=0: done
+  tir=-5: done
+  tir=-10: done
+saved evaluation/results/v3c_ma0_v3c_ma0_static_step1250_drift_diagnostics.json
+{
+  "n_state01_frames": 17588,
+  "target_similarity_cos_e_t_e": {
+    "n": 17588,
+    "mean": 0.8458943367004395,
+    "std": 0.01716827042400837,
+    "median": 0.8448888063430786
+  },
+  "environment_similarity_cos_e_t_other": {
+    "n": 17588,
+    "mean": 0.28460898995399475,
+    "std": 0.10250574350357056,
+    "median": 0.2715909779071808
+  },
+  "margin_target_minus_environment": {
+    "n": 17588,
+    "mean": 0.5612853765487671,
+    "std": 0.10413604974746704,
+    "median": 0.5741527080535889
+  },
+  "frac_frames_drifted_toward_interferer": 0.0
+}
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo I 2026-08-25 02:35:42 cloud:58] Found existing object /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+[NeMo I 2026-08-25 02:35:42 cloud:64] Re-using file from: /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo
+[NeMo I 2026-08-25 02:35:42 common:1122] Instantiating model from pre-trained checkpoint
+[NeMo W 2026-08-25 02:35:42 modelPT:175] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: /ws/manifests/raid/combined/train_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: true
+    time_length: 8
+    augmentor:
+      noise:
+        manifest_path: /ws/manifests/raid/musan/musan_music_noise_manifest_dur8.json
+        prob: 0.2
+        min_snr_db: 5
+        max_snr_db: 15
+    num_workers: 4
+    
+[NeMo W 2026-08-25 02:35:42 modelPT:182] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: /ws/manifests/raid/voxceleb/small_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: false
+    time_length: 8
+    num_workers: 1
+    
+[NeMo I 2026-08-25 02:35:43 save_restore_connector:287] Model EncDecSpeakerLabelModel was successfully restored from /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+(ignored 4 unexpected checkpoint keys not used by this eval: ['any_speech_head.weight', 'any_speech_head.bias', 'four_state_head.weight', 'four_state_head.bias'])
+loaded checkpoint from training/runs/20260824T213704Z-v3c_ma0_static/checkpoint_step1250.pt (trained 1250 steps, final_loss=1.0790)
+
+=== Clean rotation EER (matches original SpeakerNet protocol) ===
+clean EER: 14.58%  (SpeakerNet baseline: 2.13%)
+
+=== Overlap / TIR EER (matches scripts/run_overlap_experiment.py protocol) ===
+TIR +10dB: EER= 16.67%  (SpeakerNet baseline:  4.17%, delta=+12.50pp, WORSE)
+TIR  +5dB: EER= 37.50%  (SpeakerNet baseline:  4.17%, delta=+33.33pp, WORSE)
+TIR  +0dB: EER= 37.50%  (SpeakerNet baseline: 13.33%, delta=+24.17pp, WORSE)
+TIR  -5dB: EER= 45.83%  (SpeakerNet baseline: 20.83%, delta=+25.00pp, WORSE)
+TIR -10dB: EER= 37.50%  (SpeakerNet baseline: 29.17%, delta=+8.33pp, WORSE)

@@ -57,8 +57,11 @@ async function inspectDevice(deviceId: string) {
     activeStream = stream
     // The real, measured settings the browser actually granted -- never
     // assume a device delivers 16kHz/mono just because that's what this
-    // pipeline wants; this is the whole point of the page.
-    trackSettings.value = stream.getAudioTracks()[0]?.getSettings() ?? null
+    // pipeline wants; this is the whole point of the page. Cast is just
+    // widening MediaTrackSettings (no index signature) to the dynamic
+    // Record shape this component iterates with v-for -- every value
+    // still comes straight from the real MediaTrackSettings object.
+    trackSettings.value = (stream.getAudioTracks()[0]?.getSettings() ?? null) as Record<string, unknown> | null
   } catch (e) {
     errorMessage.value = e instanceof Error ? e.message : String(e)
   }

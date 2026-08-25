@@ -1,0 +1,9 @@
+usage: v3a_frame_dataset.py [-h] --checkpoint CHECKPOINT --tag TAG
+                            [--device DEVICE]
+                            [--examples-per-tir EXAMPLES_PER_TIR]
+                            [--examples-clean EXAMPLES_CLEAN]
+                            [--total-s TOTAL_S] [--seed SEED]
+                            [--out-dir OUT_DIR]
+                            [--adapter-mode {static,mixture}]
+                            [--adapter-hidden-dim ADAPTER_HIDDEN_DIM]
+v3a_frame_dataset.py: error: argument --checkpoint: expected one argument

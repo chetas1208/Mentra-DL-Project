@@ -60,11 +60,26 @@ def main():
     ap.add_argument("--checkpoint", default="training/checkpoints/mentrawearnet_v1.pt")
     ap.add_argument("--manifest", default="evaluation/manifests/day1_public_speakers.json")
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    ap.add_argument("--adapter-mode", default=None, choices=["static", "mixture"],
+                     help="V3C-MA0: build the model with a MixtureAwareEnrollmentAdapter "
+                          "so this script's scoring actually reflects the adapter's effect "
+                          "(without this flag, an adapter checkpoint's adapter.* weights "
+                          "would silently be dropped as 'unexpected' and this script would "
+                          "just re-measure the frozen STATIC_BASE weights underneath it).")
+    ap.add_argument("--adapter-hidden-dim", type=int, default=32)
     args = ap.parse_args()
 
-    model = MentraWearNet().to(args.device)
+    model = MentraWearNet(adapter_mode=args.adapter_mode, adapter_hidden_dim=args.adapter_hidden_dim).to(args.device)
     ckpt = torch.load(args.checkpoint, map_location=args.device)
-    model.load_state_dict(ckpt["model_state_dict"])
+    # strict=False: V3A checkpoints (trained with --aux-losses) carry two
+    # extra heads (any_speech_head/four_state_head) not present in this
+    # script's aux_losses=False model -- this script only ever reads
+    # wearer_logits from process_with_embedding(), so those extra keys are
+    # safely ignored. No effect on V1/V2 checkpoints (no extra/missing keys
+    # there either way).
+    missing, unexpected = model.load_state_dict(ckpt["model_state_dict"], strict=False)
+    if unexpected:
+        print(f"(ignored {len(unexpected)} unexpected checkpoint keys not used by this eval: {unexpected})")
     model.eval()
     print(f"loaded checkpoint from {args.checkpoint} (trained {ckpt.get('step', '?')} steps, "
           f"final_loss={ckpt.get('final_loss', '?'):.4f})" if isinstance(ckpt.get('final_loss'), float)

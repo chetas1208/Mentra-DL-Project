@@ -1,0 +1,73 @@
+{
+  "static_tag": "v3c_ma0_static_step1250",
+  "mixture_tag": "v3c_ma0_mixture_step1750",
+  "frame_level": {
+    "dominance_auroc_static": 0.8747156066258029,
+    "dominance_auroc_mixture": 0.8751697210173802,
+    "dominance_auroc_diff_MA_minus_STATIC": 0.00045411439157727607,
+    "dominance_auroc_diff_ci95": [
+      -0.0004567965603592239,
+      0.0014113864773880147
+    ],
+    "speaker_metric_auroc_static": 0.6273577916241311,
+    "speaker_metric_auroc_mixture": 0.6212106262176116,
+    "speaker_metric_auroc_diff_MA_minus_STATIC": -0.006147165406519495,
+    "speaker_metric_auroc_diff_ci95": [
+      -0.007146447618605714,
+      -0.005150249938682148
+    ],
+    "n_frames_10v01": 37598
+  },
+  "hard_eval_suite": {
+    "wearer_prob": {
+      "random_arm": {
+        "auroc_static": 0.6828385416666667,
+        "auroc_mixture": 0.6902810329861111,
+        "auroc_diff_MA_minus_STATIC": 0.007442491319444411,
+        "auroc_diff_ci95": [
+          0.0028988603873396387,
+          0.012229894735398044
+        ],
+        "n_pos": 960,
+        "n_neg": 960
+      },
+      "hard_arm": {
+        "auroc_static": 0.6369346788194444,
+        "auroc_mixture": 0.6470746527777778,
+        "auroc_diff_MA_minus_STATIC": 0.010139973958333326,
+        "auroc_diff_ci95": [
+          0.004969781301585948,
+          0.01525858492378434
+        ],
+        "n_pos": 960,
+        "n_neg": 960
+      },
+      "_note": "FAR/FRR@FAR5 per branch: see by_condition scores from score_hard_eval_suite.py directly"
+    },
+    "speaker_metric": {
+      "random_arm": {
+        "auroc_static": 0.6113384331597221,
+        "auroc_mixture": 0.612470703125,
+        "auroc_diff_MA_minus_STATIC": 0.0011322699652778212,
+        "auroc_diff_ci95": [
+          -0.003654398341478124,
+          0.006454038883273224
+        ],
+        "n_pos": 960,
+        "n_neg": 960
+      },
+      "hard_arm": {
+        "auroc_static": 0.5552137586805556,
+        "auroc_mixture": 0.5612424045138888,
+        "auroc_diff_MA_minus_STATIC": 0.00602864583333329,
+        "auroc_diff_ci95": [
+          0.00048373917077781936,
+          0.011457510033996032
+        ],
+        "n_pos": 960,
+        "n_neg": 960
+      },
+      "_note": "FAR/FRR@FAR5 per branch: see by_condition scores from score_hard_eval_suite.py directly"
+    }
+  }
+}

@@ -21,7 +21,11 @@ function makeTrack(context: AudioContext, gainValue: number) {
   function push(samples: Float32Array) {
     if (samples.length === 0) return
     const buffer = context.createBuffer(1, samples.length, 16000)
-    buffer.copyToChannel(samples, 0)
+    // `samples` (from pcm16LEToFloat32) is always backed by a fresh, real
+    // ArrayBuffer, never a SharedArrayBuffer -- this cast only satisfies
+    // lib.dom's newer Float32Array<ArrayBuffer> vs <ArrayBufferLike>
+    // distinction, it doesn't change what's actually copied.
+    buffer.copyToChannel(samples as Float32Array<ArrayBuffer>, 0)
     const source = context.createBufferSource()
     source.buffer = buffer
     source.connect(gainNode)

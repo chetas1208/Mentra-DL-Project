@@ -19,6 +19,18 @@ export default defineNuxtConfig({
         // jarring light-mode dropdown against this page's dark panel.
         { name: 'color-scheme', content: 'dark' },
         { name: 'theme-color', content: '#0B1116' },
+        // Link-preview card for WhatsApp/Discord/iMessage/etc -- absolute
+        // URL required, relative paths don't render in most unfurlers.
+        { property: 'og:title', content: 'MentraWearNet' },
+        { property: 'og:description', content: 'Wearer-vs-environment speech detection, live.' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: 'https://mentra-dl-project.vercel.app/og-image.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'MentraWearNet' },
+        { name: 'twitter:description', content: 'Wearer-vs-environment speech detection, live.' },
+        { name: 'twitter:image', content: 'https://mentra-dl-project.vercel.app/og-image.png' },
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

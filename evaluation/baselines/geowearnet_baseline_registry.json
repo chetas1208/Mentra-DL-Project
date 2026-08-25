@@ -1,0 +1,132 @@
+{
+  "generated_at_utc": "2026-08-25T02:49:55Z",
+  "purpose": "GeoWearNet Phase 0 baseline fingerprint -- read-only, does not modify any of these files",
+  "entries": {
+    "speakernet_nemo_checkpoint": {
+      "path": "models/vendor/nemo/speakerverification_speakernet.nemo",
+      "exists": true,
+      "size_bytes": 21850118,
+      "mtime_utc": "2026-08-21T23:28:48Z",
+      "sha256": "07e9653ec9776260b6d5de92df2d1aacde798d7657f4d12937b36e22596acdb5"
+    },
+    "speakernet_onnx": {
+      "path": "models/sherpa-speaker/nemo_en_speakerverification_speakernet.onnx",
+      "exists": true,
+      "size_bytes": 23411863,
+      "mtime_utc": "2026-08-21T23:08:08Z",
+      "sha256": "d204dc8aac0014b8543f05fc8e310510c7022bc65b6452c203ec205ef7a66b23"
+    },
+    "speakernet_manifest": {
+      "path": "models/manifests/speakernet_nemo.json",
+      "exists": true,
+      "size_bytes": 589,
+      "mtime_utc": "2026-08-21T23:29:16Z",
+      "sha256": "01eb67fd9c4210a7692aca5f0dbd746537168eb0e1e485209b8b85fb7db393d4"
+    },
+    "mentrawearnet_v3b_control_latest": {
+      "path": "training/checkpoints/mentrawearnet_v3b_control_latest.pt",
+      "exists": true,
+      "size_bytes": 24542672,
+      "mtime_utc": "2026-08-24T20:07:45Z",
+      "sha256": "e15c2049e8037213d6c86cdb7086e30687d21b1756d0bd12a178758d26b9081b"
+    },
+    "mentrawearnet_v3b_hard_latest": {
+      "path": "training/checkpoints/mentrawearnet_v3b_hard_latest.pt",
+      "exists": true,
+      "size_bytes": 24541899,
+      "mtime_utc": "2026-08-24T19:34:35Z",
+      "sha256": "9c377cc50ea36020de08eade9cbb00fd70928d17ca4fe449d6f2ade4c389c8c9"
+    },
+    "mentrawearnet_v3c_ma0_mixture_latest": {
+      "path": "training/checkpoints/mentrawearnet_v3c_ma0_v3c_ma0_mixture_latest.pt",
+      "exists": true,
+      "size_bytes": 20183374,
+      "mtime_utc": "2026-08-25T01:03:48Z",
+      "sha256": "5b402f0d6509ab31907e44f7f5044435de0d23abff5a6a05fcbacd00b0939d4b"
+    },
+    "mentrawearnet_v3c_ma0_static_latest": {
+      "path": "training/checkpoints/mentrawearnet_v3c_ma0_v3c_ma0_static_latest.pt",
+      "exists": true,
+      "size_bytes": 19786050,
+      "mtime_utc": "2026-08-25T01:03:55Z",
+      "sha256": "c9aa5bca936efc3858ab67ec487ca61de6b7eec21368d38b4ac9ca446cf9e088"
+    },
+    "mentrawearnet_v1": {
+      "path": "training/checkpoints/mentrawearnet_v1.pt",
+      "exists": true,
+      "size_bytes": 24520576,
+      "mtime_utc": "2026-08-22T23:06:40Z",
+      "sha256": "061a467b6cfdb485f459629a16a6e16c031ae43cbeede2504ccad4359bc944e0"
+    },
+    "librispeech_train_manifest": {
+      "path": "evaluation/manifests/librispeech_train_clean_100_train.json",
+      "exists": true,
+      "size_bytes": 188519,
+      "mtime_utc": "2026-08-22T07:02:14Z",
+      "sha256": "80a00085cb85f25d0a471fa44e476f490a9680f992002df16b9ce0bbf322ccca"
+    },
+    "librispeech_val_manifest": {
+      "path": "evaluation/manifests/librispeech_train_clean_100_val.json",
+      "exists": true,
+      "size_bytes": 17892,
+      "mtime_utc": "2026-08-22T07:02:14Z",
+      "sha256": "d2b0680a6e9795bf009f3f2bb151379e16dbc60bfcd4ffb340bdb563e8933b96"
+    },
+    "librispeech_test_manifest": {
+      "path": "evaluation/manifests/librispeech_train_clean_100_test.json",
+      "exists": true,
+      "size_bytes": 17961,
+      "mtime_utc": "2026-08-22T07:02:14Z",
+      "sha256": "a6d863e51fa634944918869c9a3de0619aaffa02b27827fe852ab41e0888f900"
+    },
+    "hard_eval_suite_v1": {
+      "path": "evaluation/manifests/hard_eval_suite_v1.npz",
+      "exists": true,
+      "size_bytes": 3159161778,
+      "mtime_utc": "2026-08-24T19:15:21Z",
+      "sha256": "SKIPPED_TOO_LARGE"
+    },
+    "hard_eval_suite_v1_metadata": {
+      "path": "evaluation/manifests/hard_eval_suite_v1_metadata.json",
+      "exists": true,
+      "size_bytes": 838465,
+      "mtime_utc": "2026-08-24T19:15:25Z",
+      "sha256": "75af3287cb087efa542ec275d68e1d2e7ab7475592b3cc73a2f8115ddbc54012"
+    },
+    "validation_suite_v2": {
+      "path": "evaluation/manifests/validation_suite_v2.npz",
+      "exists": true,
+      "size_bytes": 86422512,
+      "mtime_utc": "2026-08-22T21:23:15Z",
+      "sha256": "b258cc113ee35accd1188a3e58a9a2160bb529e155e7f9a441affceb6eaf6b4a"
+    },
+    "v3b_control_hard_eval_scores": {
+      "path": "evaluation/results/v3b_control_step2000_hard_eval_suite_scores.json",
+      "exists": true,
+      "size_bytes": 35070,
+      "mtime_utc": "2026-08-24T20:39:29Z",
+      "sha256": "9cc8dbc418c87a0644ca84dbb4426d3bc42763fd49ce3337ff21789b1738a6fd"
+    },
+    "v3b_hard_hard_eval_scores": {
+      "path": "evaluation/results/v3b_hard_step2000_hard_eval_suite_scores.json",
+      "exists": true,
+      "size_bytes": 35119,
+      "mtime_utc": "2026-08-24T20:31:46Z",
+      "sha256": "32cd6779c7ce7435d93ecd70c7f86efd03582e32ca1f8d975abcd223339b12d2"
+    },
+    "v3c_ma0_mixture_hard_eval_scores": {
+      "path": "evaluation/results/v3c_ma0_mixture_step1750_hard_eval_suite_scores.json",
+      "exists": true,
+      "size_bytes": 35127,
+      "mtime_utc": "2026-08-25T02:45:40Z",
+      "sha256": "02e19546a7cf5ba75eb0d41f5cb41f187dd1f3807ee177662ba5de611da6a71c"
+    },
+    "v3c_ma0_static_hard_eval_scores": {
+      "path": "evaluation/results/v3c_ma0_static_step1250_hard_eval_suite_scores.json",
+      "exists": true,
+      "size_bytes": 35180,
+      "mtime_utc": "2026-08-25T02:35:18Z",
+      "sha256": "79f87cbf93964aa1b1ac99b705caf48a47d6ef1010e6f7b4885a1ffab5ac54c1"
+    }
+  }
+}

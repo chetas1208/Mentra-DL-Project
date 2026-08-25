@@ -1,0 +1,102 @@
+run_dir=training/runs/20260824T213704Z-v3c_ma0_static
+adapter_mode=static  device=cuda:0
+OneLogger: Setting error_handling_strategy to DISABLE_QUIETLY_AND_REPORT_METRIC_ERROR for rank (rank=0) with OneLogger disabled. To override: explicitly set error_handling_strategy parameter.
+No exporters were provided. This means that no telemetry data will be collected.
+[NeMo I 2026-08-24 21:37:11 cloud:58] Found existing object /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+[NeMo I 2026-08-24 21:37:11 cloud:64] Re-using file from: /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo
+[NeMo I 2026-08-24 21:37:11 common:1122] Instantiating model from pre-trained checkpoint
+[NeMo W 2026-08-24 21:37:12 modelPT:175] If you intend to do training or fine-tuning, please call the ModelPT.setup_training_data() method and provide a valid configuration file to setup the train data loader.
+    Train config : 
+    manifest_filepath: /ws/manifests/raid/combined/train_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: true
+    time_length: 8
+    augmentor:
+      noise:
+        manifest_path: /ws/manifests/raid/musan/musan_music_noise_manifest_dur8.json
+        prob: 0.2
+        min_snr_db: 5
+        max_snr_db: 15
+    num_workers: 4
+    
+[NeMo W 2026-08-24 21:37:12 modelPT:182] If you intend to do validation, please call the ModelPT.setup_validation_data() or ModelPT.setup_multiple_validation_data() method and provide a valid configuration file to setup the validation data loader(s). 
+    Validation config : 
+    manifest_filepath: /ws/manifests/raid/voxceleb/small_manifest.json
+    sample_rate: 16000
+    labels: null
+    batch_size: 64
+    shuffle: false
+    time_length: 8
+    num_workers: 1
+    
+[NeMo I 2026-08-24 21:37:12 save_restore_connector:287] Model EncDecSpeakerLabelModel was successfully restored from /home/923873155/.cache/torch/NeMo/NeMo_3.0.0/speakerverification_speakernet/a8330fa516557b963a89ccbf0fcbe2f2/speakerverification_speakernet.nemo.
+adapter param count: 99,105
+loaded STATIC_BASE from training/checkpoints/mentrawearnet_v3b_control_latest.pt (source step=2000, source final_loss=1.1799, file sha256=e15c2049e8037213d6c86cdb7086e30687d21b1756d0bd12a178758d26b9081b)
+  missing_keys (adapter.*, fresh init, expected): ['adapter.alpha', 'adapter.m_proj.weight', 'adapter.m_proj.bias', 'adapter.fc1.weight', 'adapter.fc1.bias', 'adapter.delta_proj.weight', 'adapter.delta_proj.bias', 'adapter.gate_proj.weight', 'adapter.gate_proj.bias']
+  unexpected_keys (expected empty): []
+RESIDUAL INIT CHECK: alpha=0.0  max|e_t - e| at step 0 (real batch) = 0.0
+trainable params: 99,105 / total: 4,798,688
+FROZEN MODEL FINGERPRINT (before training): afad9a15e5baba0228073d004b784ab12c533d70649d417a65f34ff08fc344da
+validation set: 64 FIXED examples from evaluation/manifests/librispeech_train_clean_100_val.json, reused at every eval point
+EVAL step 0  val_loss=1.1794  val_wearer_acc=0.786  val_env_acc=0.791  wearer_loss=0.4616  env_loss=0.4580  any_speech_loss=0.1762  four_state_loss=0.7452  four_state_acc=0.7058  four_state_macro_f1=0.6669  four_state_solo_f1=0.6627  speaker_disc_loss=0.2942  speaker_cos_pos_mean=0.8160  speaker_cos_pos_std=0.0739  speaker_cos_neg_mean=0.8026  speaker_cos_neg_std=0.0777  speaker_cos_margin=0.0134
+step    0  loss=1.1680  loss_avg50=1.1680  wearer_acc=0.798  env_acc=0.793  lr=3.00e-04  grad_norm=0.069  alpha=-0.00030  gate_mean=0.5018  delta_norm=1.6233  elapsed=7.7s
+step   50  loss=1.2265  loss_avg50=1.2023  wearer_acc=0.767  env_acc=0.776  lr=3.00e-04  grad_norm=0.242  alpha=-0.01126  gate_mean=0.5032  delta_norm=2.0574  elapsed=273.8s
+step  100  loss=1.2005  loss_avg50=1.1708  wearer_acc=0.777  env_acc=0.790  lr=3.00e-04  grad_norm=0.157  alpha=-0.02487  gate_mean=0.5127  delta_norm=3.7657  elapsed=585.1s
+step  150  loss=1.1773  loss_avg50=1.1630  wearer_acc=0.781  env_acc=0.790  lr=3.00e-04  grad_norm=0.227  alpha=-0.02709  gate_mean=0.5163  delta_norm=4.2111  elapsed=844.0s
+step  200  loss=1.2249  loss_avg50=1.1605  wearer_acc=0.795  env_acc=0.799  lr=3.00e-04  grad_norm=0.402  alpha=-0.02945  gate_mean=0.5207  delta_norm=4.6770  elapsed=1084.1s
+EVAL step 250  val_loss=1.1199  val_wearer_acc=0.786  val_env_acc=0.816  wearer_loss=0.4360  env_loss=0.4319  any_speech_loss=0.1752  four_state_loss=0.7170  four_state_acc=0.7186  four_state_macro_f1=0.6643  four_state_solo_f1=0.6834  speaker_disc_loss=0.2897  speaker_cos_pos_mean=0.8139  speaker_cos_pos_std=0.0766  speaker_cos_neg_mean=0.7931  speaker_cos_neg_std=0.0862  speaker_cos_margin=0.0209
+step  250  loss=1.1150  loss_avg50=1.1641  wearer_acc=0.777  env_acc=0.791  lr=3.00e-04  grad_norm=0.185  alpha=-0.03247  gate_mean=0.5263  delta_norm=5.2843  elapsed=1336.9s
+step  300  loss=1.2960  loss_avg50=1.1615  wearer_acc=0.771  env_acc=0.758  lr=3.00e-04  grad_norm=0.051  alpha=-0.03440  gate_mean=0.5302  delta_norm=5.6807  elapsed=1584.5s
+step  350  loss=1.1909  loss_avg50=1.1535  wearer_acc=0.788  env_acc=0.794  lr=3.00e-04  grad_norm=1.724  alpha=-0.03728  gate_mean=0.5354  delta_norm=6.2352  elapsed=1856.6s
+step  400  loss=1.1010  loss_avg50=1.1437  wearer_acc=0.800  env_acc=0.793  lr=3.00e-04  grad_norm=0.128  alpha=-0.04125  gate_mean=0.5421  delta_norm=6.9833  elapsed=2197.0s
+step  450  loss=1.2377  loss_avg50=1.1533  wearer_acc=0.777  env_acc=0.771  lr=3.00e-04  grad_norm=0.320  alpha=-0.04306  gate_mean=0.5454  delta_norm=7.2148  elapsed=2586.0s
+EVAL step 500  val_loss=1.1211  val_wearer_acc=0.789  val_env_acc=0.820  wearer_loss=0.4423  env_loss=0.4282  any_speech_loss=0.1659  four_state_loss=0.7215  four_state_acc=0.7230  four_state_macro_f1=0.6695  four_state_solo_f1=0.6881  speaker_disc_loss=0.2875  speaker_cos_pos_mean=0.8093  speaker_cos_pos_std=0.0771  speaker_cos_neg_mean=0.7840  speaker_cos_neg_std=0.0897  speaker_cos_margin=0.0253
+  no val improvement > 0.001 for 1 eval(s) (best so far: step 250, val_loss=1.1199)
+step  500  loss=1.1854  loss_avg50=1.1435  wearer_acc=0.763  env_acc=0.797  lr=3.00e-04  grad_norm=0.863  alpha=-0.04722  gate_mean=0.5523  delta_norm=7.8269  elapsed=3053.3s
+step  550  loss=1.1574  loss_avg50=1.1549  wearer_acc=0.782  env_acc=0.805  lr=3.00e-04  grad_norm=0.988  alpha=-0.04909  gate_mean=0.5556  delta_norm=7.9972  elapsed=3483.0s
+step  600  loss=1.0654  loss_avg50=1.1373  wearer_acc=0.792  env_acc=0.824  lr=3.00e-04  grad_norm=0.819  alpha=-0.05081  gate_mean=0.5588  delta_norm=8.1889  elapsed=3864.5s
+step  650  loss=1.2119  loss_avg50=1.1403  wearer_acc=0.777  env_acc=0.768  lr=3.00e-04  grad_norm=0.639  alpha=-0.05386  gate_mean=0.5631  delta_norm=8.6017  elapsed=4244.1s
+step  700  loss=1.0089  loss_avg50=1.1402  wearer_acc=0.819  env_acc=0.820  lr=3.00e-04  grad_norm=0.354  alpha=-0.05524  gate_mean=0.5646  delta_norm=8.7224  elapsed=4616.9s
+EVAL step 750  val_loss=1.0956  val_wearer_acc=0.779  val_env_acc=0.827  wearer_loss=0.4388  env_loss=0.4108  any_speech_loss=0.1610  four_state_loss=0.7076  four_state_acc=0.7184  four_state_macro_f1=0.6677  four_state_solo_f1=0.6799  speaker_disc_loss=0.2882  speaker_cos_pos_mean=0.8078  speaker_cos_pos_std=0.0767  speaker_cos_neg_mean=0.7829  speaker_cos_neg_std=0.0895  speaker_cos_margin=0.0250
+step  750  loss=1.1241  loss_avg50=1.1325  wearer_acc=0.793  env_acc=0.782  lr=3.00e-04  grad_norm=1.032  alpha=-0.05956  gate_mean=0.5696  delta_norm=9.3167  elapsed=5000.1s
+step  800  loss=1.1452  loss_avg50=1.1231  wearer_acc=0.780  env_acc=0.780  lr=3.00e-04  grad_norm=0.923  alpha=-0.06205  gate_mean=0.5737  delta_norm=9.6959  elapsed=5376.9s
+step  850  loss=1.0959  loss_avg50=1.1393  wearer_acc=0.807  env_acc=0.801  lr=3.00e-04  grad_norm=0.114  alpha=-0.06378  gate_mean=0.5744  delta_norm=9.8510  elapsed=5754.4s
+step  900  loss=1.2342  loss_avg50=1.1241  wearer_acc=0.776  env_acc=0.765  lr=3.00e-04  grad_norm=0.239  alpha=-0.06469  gate_mean=0.5757  delta_norm=9.9300  elapsed=6134.9s
+step  950  loss=1.1642  loss_avg50=1.1217  wearer_acc=0.777  env_acc=0.787  lr=3.00e-04  grad_norm=0.173  alpha=-0.06797  gate_mean=0.5802  delta_norm=10.4168  elapsed=6514.4s
+EVAL step 1000  val_loss=1.1028  val_wearer_acc=0.772  val_env_acc=0.833  wearer_loss=0.4473  env_loss=0.4095  any_speech_loss=0.1599  four_state_loss=0.7086  four_state_acc=0.7100  four_state_macro_f1=0.6593  four_state_solo_f1=0.6607  speaker_disc_loss=0.2894  speaker_cos_pos_mean=0.8102  speaker_cos_pos_std=0.0750  speaker_cos_neg_mean=0.7862  speaker_cos_neg_std=0.0907  speaker_cos_margin=0.0240
+  no val improvement > 0.001 for 1 eval(s) (best so far: step 750, val_loss=1.0956)
+step 1000  loss=1.0966  loss_avg50=1.1104  wearer_acc=0.800  env_acc=0.810  lr=3.00e-04  grad_norm=0.530  alpha=-0.06974  gate_mean=0.5821  delta_norm=10.6336  elapsed=6901.1s
+step 1050  loss=1.2192  loss_avg50=1.1199  wearer_acc=0.763  env_acc=0.775  lr=3.00e-04  grad_norm=0.195  alpha=-0.07208  gate_mean=0.5853  delta_norm=11.1826  elapsed=7281.5s
+step 1100  loss=1.0662  loss_avg50=1.1058  wearer_acc=0.826  env_acc=0.786  lr=3.00e-04  grad_norm=0.640  alpha=-0.07349  gate_mean=0.5878  delta_norm=11.4346  elapsed=7660.5s
+step 1150  loss=1.1278  loss_avg50=1.1320  wearer_acc=0.775  env_acc=0.812  lr=3.00e-04  grad_norm=0.248  alpha=-0.07521  gate_mean=0.5874  delta_norm=11.5197  elapsed=8035.9s
+step 1200  loss=1.1444  loss_avg50=1.1195  wearer_acc=0.779  env_acc=0.781  lr=3.00e-04  grad_norm=0.170  alpha=-0.07641  gate_mean=0.5892  delta_norm=11.7428  elapsed=8413.6s
+EVAL step 1250  val_loss=1.0790  val_wearer_acc=0.774  val_env_acc=0.838  wearer_loss=0.4358  env_loss=0.3998  any_speech_loss=0.1613  four_state_loss=0.6967  four_state_acc=0.7189  four_state_macro_f1=0.6633  four_state_solo_f1=0.6788  speaker_disc_loss=0.2897  speaker_cos_pos_mean=0.8064  speaker_cos_pos_std=0.0760  speaker_cos_neg_mean=0.7807  speaker_cos_neg_std=0.0944  speaker_cos_margin=0.0257
+step 1250  loss=1.0851  loss_avg50=1.1119  wearer_acc=0.798  env_acc=0.808  lr=3.00e-04  grad_norm=0.222  alpha=-0.07778  gate_mean=0.5898  delta_norm=11.9629  elapsed=8793.4s
+step 1300  loss=1.1105  loss_avg50=1.1012  wearer_acc=0.799  env_acc=0.807  lr=3.00e-04  grad_norm=0.675  alpha=-0.07906  gate_mean=0.5907  delta_norm=12.2592  elapsed=9156.8s
+step 1350  loss=1.1828  loss_avg50=1.1104  wearer_acc=0.783  env_acc=0.787  lr=3.00e-04  grad_norm=0.330  alpha=-0.08129  gate_mean=0.5930  delta_norm=12.5535  elapsed=9430.2s
+step 1400  loss=1.0669  loss_avg50=1.1110  wearer_acc=0.808  env_acc=0.811  lr=3.00e-04  grad_norm=0.983  alpha=-0.08145  gate_mean=0.5927  delta_norm=12.5462  elapsed=9692.6s
+step 1450  loss=1.1235  loss_avg50=1.1012  wearer_acc=0.792  env_acc=0.822  lr=3.00e-04  grad_norm=0.129  alpha=-0.08336  gate_mean=0.5931  delta_norm=12.7308  elapsed=9946.3s
+EVAL step 1500  val_loss=1.0824  val_wearer_acc=0.775  val_env_acc=0.837  wearer_loss=0.4391  env_loss=0.3988  any_speech_loss=0.1619  four_state_loss=0.6997  four_state_acc=0.7214  four_state_macro_f1=0.6628  four_state_solo_f1=0.6722  speaker_disc_loss=0.2913  speaker_cos_pos_mean=0.8029  speaker_cos_pos_std=0.0784  speaker_cos_neg_mean=0.7778  speaker_cos_neg_std=0.0965  speaker_cos_margin=0.0252
+  no val improvement > 0.001 for 1 eval(s) (best so far: step 1250, val_loss=1.0790)
+step 1500  loss=1.1163  loss_avg50=1.1131  wearer_acc=0.807  env_acc=0.800  lr=3.00e-04  grad_norm=0.297  alpha=-0.08479  gate_mean=0.5950  delta_norm=12.9295  elapsed=10204.9s
+step 1550  loss=1.1328  loss_avg50=1.1082  wearer_acc=0.782  env_acc=0.802  lr=3.00e-04  grad_norm=0.697  alpha=-0.08494  gate_mean=0.5939  delta_norm=12.8123  elapsed=10452.9s
+step 1600  loss=1.1492  loss_avg50=1.1104  wearer_acc=0.778  env_acc=0.786  lr=3.00e-04  grad_norm=0.338  alpha=-0.08603  gate_mean=0.5950  delta_norm=13.0373  elapsed=10726.8s
+step 1650  loss=1.1544  loss_avg50=1.1046  wearer_acc=0.771  env_acc=0.797  lr=3.00e-04  grad_norm=0.321  alpha=-0.08630  gate_mean=0.5946  delta_norm=13.1638  elapsed=10969.0s
+step 1700  loss=1.0502  loss_avg50=1.1034  wearer_acc=0.828  env_acc=0.802  lr=3.00e-04  grad_norm=0.579  alpha=-0.08804  gate_mean=0.5964  delta_norm=13.4494  elapsed=11214.5s
+EVAL step 1750  val_loss=1.0837  val_wearer_acc=0.769  val_env_acc=0.836  wearer_loss=0.4390  env_loss=0.3998  any_speech_loss=0.1624  four_state_loss=0.7005  four_state_acc=0.7217  four_state_macro_f1=0.6710  four_state_solo_f1=0.6596  speaker_disc_loss=0.2921  speaker_cos_pos_mean=0.8020  speaker_cos_pos_std=0.0792  speaker_cos_neg_mean=0.7785  speaker_cos_neg_std=0.0944  speaker_cos_margin=0.0236
+  no val improvement > 0.001 for 2 eval(s) (best so far: step 1250, val_loss=1.0790)
+step 1750  loss=1.0828  loss_avg50=1.1015  wearer_acc=0.810  env_acc=0.791  lr=3.00e-04  grad_norm=1.126  alpha=-0.08936  gate_mean=0.5957  delta_norm=13.3953  elapsed=11427.0s
+step 1800  loss=1.1136  loss_avg50=1.1024  wearer_acc=0.789  env_acc=0.793  lr=3.00e-04  grad_norm=0.228  alpha=-0.08970  gate_mean=0.5961  delta_norm=13.5516  elapsed=11638.8s
+step 1850  loss=1.0800  loss_avg50=1.0977  wearer_acc=0.807  env_acc=0.802  lr=3.00e-04  grad_norm=0.456  alpha=-0.09035  gate_mean=0.5954  delta_norm=13.4852  elapsed=11820.0s
+step 1900  loss=1.0447  loss_avg50=1.1178  wearer_acc=0.806  env_acc=0.818  lr=3.00e-04  grad_norm=0.170  alpha=-0.09003  gate_mean=0.5956  delta_norm=13.6065  elapsed=12018.4s
+step 1950  loss=1.1001  loss_avg50=1.1184  wearer_acc=0.803  env_acc=0.795  lr=3.00e-04  grad_norm=0.196  alpha=-0.08991  gate_mean=0.5942  delta_norm=13.4803  elapsed=12209.7s
+step 1999  loss=1.1626  loss_avg50=1.0880  wearer_acc=0.782  env_acc=0.805  lr=3.00e-04  grad_norm=0.132  alpha=-0.08961  gate_mean=0.5944  delta_norm=13.5411  elapsed=12399.7s
+EVAL step 2000  val_loss=1.0817  val_wearer_acc=0.769  val_env_acc=0.837  wearer_loss=0.4394  env_loss=0.3977  any_speech_loss=0.1632  four_state_loss=0.6981  four_state_acc=0.7218  four_state_macro_f1=0.6727  four_state_solo_f1=0.6597  speaker_disc_loss=0.2927  speaker_cos_pos_mean=0.8046  speaker_cos_pos_std=0.0781  speaker_cos_neg_mean=0.7827  speaker_cos_neg_std=0.0930  speaker_cos_margin=0.0219
+  no val improvement > 0.001 for 3 eval(s) (best so far: step 1250, val_loss=1.0790)
+EARLY STOP at step 2000: patience (3 evals) exhausted
+FROZEN MODEL FINGERPRINT (after training): afad9a15e5baba0228073d004b784ab12c533d70649d417a65f34ff08fc344da
+FROZEN MODEL INTEGRITY: IDENTICAL
+BEST CHECKPOINT: step 1250  val_loss=1.0790
+saved summary to training/runs/20260824T213704Z-v3c_ma0_static/summary.json
