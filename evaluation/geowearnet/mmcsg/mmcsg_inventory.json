@@ -1,0 +1,151 @@
+{
+  "root": "/usr/data/923873155/mmcsg/MMCSG",
+  "total_audio_bytes": 63578045688,
+  "total_audio_gb": 63.58,
+  "splits": {
+    "train": {
+      "split": "train",
+      "n_audio_files": 172,
+      "n_transcripts": 172,
+      "n_rttm": 172,
+      "n_metadata": 172,
+      "n_missing_transcript": 0,
+      "n_missing_rttm": 0,
+      "n_missing_metadata": 0,
+      "n_orphan_transcript": 0,
+      "n_orphan_rttm": 0,
+      "missing_transcript_ids": [],
+      "n_corrupt_or_unreadable": 0,
+      "corrupt_files": [],
+      "n_rttm_validation_issues": 0,
+      "rttm_validation_issues": [],
+      "sample_rate_hz_distribution": {
+        "48000": 172
+      },
+      "channel_count_distribution": {
+        "7": 172
+      },
+      "subtype_distribution": {
+        "PCM_16": 172
+      },
+      "container_format_distribution": {
+        "WAV": 172
+      },
+      "duration_seconds": {
+        "n": 172,
+        "mean": 177.33739135174417,
+        "std": 24.237141278426886,
+        "min": 112.0,
+        "p50": 179.28,
+        "max": 250.75,
+        "total_hours": 8.472786475694445
+      },
+      "total_audio_bytes": 20497372610,
+      "representative_audio_first_1mb_sha256": {
+        "657224313040060_0001_3800_18550": "7ed20dd452d2f20382114a2936960278c8acfe27ba6354649e17cc12b6c3a15f",
+        "388357947087940_0001_3275_21275": "d3406ae0a3948b53e184e2137985cd13a613c692b9320e8c6f7e93a528933f0b",
+        "321323504224929_0001_3450_20900": "c5740632e0b62cd7d2fa47ad79bceada3196d837abff8e161a36f4f0c4ca0ba9",
+        "334692879388009_0001_100_22000": "477f825a405f2de1ef82bee95541a57c8fc16176ae7b16c9317ceac9728d3d6e",
+        "789039436386515_0001_3400_21900": "bc20aeba1d3df51433b2f5c7491c5a2eb7290f5572735b8c53173a3db7720e9d"
+      },
+      "annotation_sha256_by_recording_n": 172
+    },
+    "dev": {
+      "split": "dev",
+      "n_audio_files": 169,
+      "n_transcripts": 169,
+      "n_rttm": 169,
+      "n_metadata": 169,
+      "n_missing_transcript": 0,
+      "n_missing_rttm": 0,
+      "n_missing_metadata": 0,
+      "n_orphan_transcript": 0,
+      "n_orphan_rttm": 0,
+      "missing_transcript_ids": [],
+      "n_corrupt_or_unreadable": 0,
+      "corrupt_files": [],
+      "n_rttm_validation_issues": 0,
+      "rttm_validation_issues": [],
+      "sample_rate_hz_distribution": {
+        "48000": 169
+      },
+      "channel_count_distribution": {
+        "7": 169
+      },
+      "subtype_distribution": {
+        "PCM_16": 169
+      },
+      "container_format_distribution": {
+        "WAV": 169
+      },
+      "duration_seconds": {
+        "n": 169,
+        "mean": 179.37053833826428,
+        "std": 11.518794274295937,
+        "min": 147.25,
+        "p50": 178.0,
+        "max": 221.75,
+        "total_hours": 8.42045027199074
+      },
+      "total_audio_bytes": 20370760734,
+      "representative_audio_first_1mb_sha256": {
+        "755874273061546_0001_3100_20900": "32e05aae08cc9ce2c909188a04d54db4f0b932a31e587174fb599266ed0e0544",
+        "366361389474584_0001_3350_21525": "8e6817cdae6736248aedc7db4f590f98994edfb0cf6cac38225e2e998cf5da1f",
+        "612798457639608_0001_3375_18825": "8cd14caa781af27bceb51f415daa0f81cb8dcc16d7eff6d1f20e9ff2d9ad0f08",
+        "895329572076072_0001_3375_20125": "6dfe3ebd4093bce1a7c8386b495424da866f5a7eb9454543e68482d975f7eebb",
+        "396942622723865_0001_3575_21225": "51daa3a2cc8dd822ca8e58f2f06e44dce023668584d1d79fd437e9f10d3e0449"
+      },
+      "annotation_sha256_by_recording_n": 169
+    },
+    "eval": {
+      "split": "eval",
+      "n_audio_files": 189,
+      "n_transcripts": 189,
+      "n_rttm": 189,
+      "n_metadata": 189,
+      "n_missing_transcript": 0,
+      "n_missing_rttm": 0,
+      "n_missing_metadata": 0,
+      "n_orphan_transcript": 0,
+      "n_orphan_rttm": 0,
+      "missing_transcript_ids": [],
+      "n_corrupt_or_unreadable": 0,
+      "corrupt_files": [],
+      "n_rttm_validation_issues": 0,
+      "rttm_validation_issues": [],
+      "sample_rate_hz_distribution": {
+        "48000": 189
+      },
+      "channel_count_distribution": {
+        "7": 189
+      },
+      "subtype_distribution": {
+        "PCM_16": 189
+      },
+      "container_format_distribution": {
+        "WAV": 189
+      },
+      "duration_seconds": {
+        "n": 189,
+        "mean": 178.8068785273369,
+        "std": 9.090237863145868,
+        "min": 149.0,
+        "p50": 177.5,
+        "max": 217.75,
+        "total_hours": 9.387361122685187
+      },
+      "total_audio_bytes": 22709912344,
+      "representative_audio_first_1mb_sha256": {
+        "709373261285178_0001_3425_21075": "5aef0a2e56fd5d4ec15f423254d3691e60819b908770f07a066a09a08c4e38ca",
+        "835960324972472_0001_3350_22650": "225a26abbf4ae92bc1d07cd79b4052b72623db08d53828eb9c55a1065d15bb08",
+        "2279870678890926_0001_3325_20175": "ca0c1d2d6a0b8a0e855e495d68bb136c92b9651fbd5c39fd0c582f11ab16039c",
+        "899035341672676_0001_3250_19600": "654e328472831959c931c5db52acbe305ae51da0568287151c1189e4b24b7a7d",
+        "392744053285797_0001_3375_20750": "dd01ab5f31e31c6630befe661df858ec6f7b71bc3471045391b0b8a8652a0c6e"
+      },
+      "annotation_sha256_by_recording_n": 189
+    }
+  },
+  "seven_channel_property_holds_for_all_files": true,
+  "seven_channel_exceptions": [],
+  "note": "sample_rate/channel/duration are MEASURED via soundfile.info (metadata-only read, no decode) for every audio file, not assumed. Only a bounded random sample of raw audio files is content-hashed (first 1MB) per split -- hashing every multi-GB file would be prohibitively expensive and is not needed to detect corruption (soundfile.info already fails loudly on unreadable files)."
+}

@@ -1,0 +1,1086 @@
+{
+  "status": "SCORED",
+  "generated_utc": "2026-08-27T11:47:20.342796+00:00",
+  "checkpoint": "training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+  "channel": 2,
+  "official_dev_used": false,
+  "official_eval_used": false,
+  "data_boundary": "MMCSG official train only: frozen G2's wearer-disjoint internal validation split. No official dev/eval access and no model fitting/tuning.",
+  "identity_holdout": {
+    "n_internal_train_wearers": 34,
+    "n_internal_val_wearers": 9,
+    "wearer_identity_overlap_train_val": 0,
+    "pass": true
+  },
+  "operating_point": {
+    "wearer_logit_threshold": 0.0,
+    "false_wearer_definition": "environment-only frame with wearer logit > 0"
+  },
+  "overall": {
+    "n_frames": 671575,
+    "n_solo_frames": 579653,
+    "n_environment_only_frames": 261359,
+    "n_wearer_only_frames": 318294,
+    "solo_auroc_wearer_minus_environment_logit": 0.9468562327971278,
+    "false_wearer_rate_on_environment_only": 0.10632119039329045,
+    "wearer_miss_rate_on_wearer_only": 0.0806298579300898
+  },
+  "per_self_speaker": {
+    "NYC3841148": {
+      "n_recordings": 3,
+      "recording_ids": [
+        "1302664060426140_0001_3375_22000",
+        "1421935842010246_0001_3425_21725",
+        "305309135293833_0001_3525_22725"
+      ],
+      "contains_known_label_anomaly": true,
+      "n_frames": 56119,
+      "n_solo_frames": 53558,
+      "n_environment_only_frames": 34430,
+      "n_wearer_only_frames": 19128,
+      "solo_auroc_wearer_minus_environment_logit": 0.636969963301484,
+      "false_wearer_rate_on_environment_only": 0.16808016264885275,
+      "wearer_miss_rate_on_wearer_only": 0.630280217482225
+    },
+    "NYC3841203": {
+      "n_recordings": 8,
+      "recording_ids": [
+        "1459836027928081_0001_3475_14900",
+        "1865684753828525_0001_3400_15150",
+        "2202463226626277_0001_3350_15250",
+        "633225632191759_0001_3300_15150",
+        "6365885960180108_0001_3425_14650",
+        "778942984059557_0001_3275_14475",
+        "879517150527834_0001_3450_15550",
+        "881678756780914_0001_3375_15475"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 93534,
+      "n_solo_frames": 80166,
+      "n_environment_only_frames": 40577,
+      "n_wearer_only_frames": 39589,
+      "solo_auroc_wearer_minus_environment_logit": 0.988948385539253,
+      "false_wearer_rate_on_environment_only": 0.06111836754811839,
+      "wearer_miss_rate_on_wearer_only": 0.06582636590972239
+    },
+    "NYC3870560": {
+      "n_recordings": 2,
+      "recording_ids": [
+        "3681369768776306_0001_3475_26575",
+        "682969793925843_0001_3250_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 41046,
+      "n_solo_frames": 36739,
+      "n_environment_only_frames": 17196,
+      "n_wearer_only_frames": 19543,
+      "solo_auroc_wearer_minus_environment_logit": 0.9986460005163104,
+      "false_wearer_rate_on_environment_only": 0.008955571063037916,
+      "wearer_miss_rate_on_wearer_only": 0.024970577700455406
+    },
+    "NYC3870666": {
+      "n_recordings": 3,
+      "recording_ids": [
+        "233199686474075_0001_3275_20375",
+        "384864347251414_0001_3325_19925",
+        "666990128959727_0001_3250_21250"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 51694,
+      "n_solo_frames": 49348,
+      "n_environment_only_frames": 22921,
+      "n_wearer_only_frames": 26427,
+      "solo_auroc_wearer_minus_environment_logit": 0.9957395983668171,
+      "false_wearer_rate_on_environment_only": 0.02674403385541643,
+      "wearer_miss_rate_on_wearer_only": 0.06020357967230484
+    },
+    "NYC3871134": {
+      "n_recordings": 8,
+      "recording_ids": [
+        "2052526851768450_0001_3450_21725",
+        "2468882769956730_0001_3575_22675",
+        "336293912631837_0001_3475_22275",
+        "3541265506096365_0001_3400_21100",
+        "688341613416540_0001_3400_21450",
+        "747466143499214_0001_3475_24200",
+        "789039436386515_0001_3400_21900",
+        "876511064219697_0001_3400_22075"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 149809,
+      "n_solo_frames": 135887,
+      "n_environment_only_frames": 37398,
+      "n_wearer_only_frames": 98489,
+      "solo_auroc_wearer_minus_environment_logit": 0.9951436542810891,
+      "false_wearer_rate_on_environment_only": 0.07650141718808492,
+      "wearer_miss_rate_on_wearer_only": 0.020022540588289048
+    },
+    "NYC3871149": {
+      "n_recordings": 5,
+      "recording_ids": [
+        "3280415488759535_0001_3125_19725",
+        "334692879388009_0001_100_22000",
+        "374439191929643_0001_3300_22050",
+        "672948924751405_0001_3325_21150",
+        "7015497248540235_0001_3325_22825"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 94535,
+      "n_solo_frames": 70481,
+      "n_environment_only_frames": 31689,
+      "n_wearer_only_frames": 38792,
+      "solo_auroc_wearer_minus_environment_logit": 0.9970321257760829,
+      "false_wearer_rate_on_environment_only": 0.0598630439584714,
+      "wearer_miss_rate_on_wearer_only": 0.017916065168075892
+    },
+    "NYC3871316": {
+      "n_recordings": 3,
+      "recording_ids": [
+        "1531799547654802_0001_3000_23100",
+        "1740957896405887_0001_2700_23750",
+        "348219804730648_0001_3450_25075"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 62725,
+      "n_solo_frames": 50350,
+      "n_environment_only_frames": 30785,
+      "n_wearer_only_frames": 19565,
+      "solo_auroc_wearer_minus_environment_logit": 0.9966302768170183,
+      "false_wearer_rate_on_environment_only": 0.03482215364625629,
+      "wearer_miss_rate_on_wearer_only": 0.017071300792231025
+    },
+    "NYC3901213": {
+      "n_recordings": 2,
+      "recording_ids": [
+        "333604642911495_0001_3225_25650",
+        "355109977333172_0001_3200_28275"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 47496,
+      "n_solo_frames": 38406,
+      "n_environment_only_frames": 13424,
+      "n_wearer_only_frames": 24982,
+      "solo_auroc_wearer_minus_environment_logit": 0.9977785584882141,
+      "false_wearer_rate_on_environment_only": 0.07762216924910607,
+      "wearer_miss_rate_on_wearer_only": 0.009807061083980466
+    },
+    "NYC3901252": {
+      "n_recordings": 4,
+      "recording_ids": [
+        "3340931076196744_0001_3450_21800",
+        "3613052312271427_0001_3400_23675",
+        "401799428951034_0001_3600_21825",
+        "685646093767500_0001_3425_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 74617,
+      "n_solo_frames": 64718,
+      "n_environment_only_frames": 32939,
+      "n_wearer_only_frames": 31779,
+      "solo_auroc_wearer_minus_environment_logit": 0.7535471551898972,
+      "false_wearer_rate_on_environment_only": 0.3607274052035581,
+      "wearer_miss_rate_on_wearer_only": 0.17863998237830014
+    }
+  },
+  "per_other_speaker": {
+    "NYC3840591": {
+      "n_recordings": 2,
+      "recording_ids": [
+        "3681369768776306_0001_3475_26575",
+        "682969793925843_0001_3250_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 41046,
+      "n_solo_frames": 36739,
+      "n_environment_only_frames": 17196,
+      "n_wearer_only_frames": 19543,
+      "solo_auroc_wearer_minus_environment_logit": 0.9986460005163104,
+      "false_wearer_rate_on_environment_only": 0.008955571063037916,
+      "wearer_miss_rate_on_wearer_only": 0.024970577700455406
+    },
+    "NYC3841148": {
+      "n_recordings": 8,
+      "recording_ids": [
+        "2052526851768450_0001_3450_21725",
+        "2468882769956730_0001_3575_22675",
+        "336293912631837_0001_3475_22275",
+        "3541265506096365_0001_3400_21100",
+        "688341613416540_0001_3400_21450",
+        "747466143499214_0001_3475_24200",
+        "789039436386515_0001_3400_21900",
+        "876511064219697_0001_3400_22075"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 149809,
+      "n_solo_frames": 135887,
+      "n_environment_only_frames": 37398,
+      "n_wearer_only_frames": 98489,
+      "solo_auroc_wearer_minus_environment_logit": 0.9951436542810891,
+      "false_wearer_rate_on_environment_only": 0.07650141718808492,
+      "wearer_miss_rate_on_wearer_only": 0.020022540588289048
+    },
+    "NYC3841165": {
+      "n_recordings": 5,
+      "recording_ids": [
+        "3280415488759535_0001_3125_19725",
+        "334692879388009_0001_100_22000",
+        "374439191929643_0001_3300_22050",
+        "672948924751405_0001_3325_21150",
+        "7015497248540235_0001_3325_22825"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 94535,
+      "n_solo_frames": 70481,
+      "n_environment_only_frames": 31689,
+      "n_wearer_only_frames": 38792,
+      "solo_auroc_wearer_minus_environment_logit": 0.9970321257760829,
+      "false_wearer_rate_on_environment_only": 0.0598630439584714,
+      "wearer_miss_rate_on_wearer_only": 0.017916065168075892
+    },
+    "NYC3841204": {
+      "n_recordings": 8,
+      "recording_ids": [
+        "1459836027928081_0001_3475_14900",
+        "1865684753828525_0001_3400_15150",
+        "2202463226626277_0001_3350_15250",
+        "633225632191759_0001_3300_15150",
+        "6365885960180108_0001_3425_14650",
+        "778942984059557_0001_3275_14475",
+        "879517150527834_0001_3450_15550",
+        "881678756780914_0001_3375_15475"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 93534,
+      "n_solo_frames": 80166,
+      "n_environment_only_frames": 40577,
+      "n_wearer_only_frames": 39589,
+      "solo_auroc_wearer_minus_environment_logit": 0.988948385539253,
+      "false_wearer_rate_on_environment_only": 0.06111836754811839,
+      "wearer_miss_rate_on_wearer_only": 0.06582636590972239
+    },
+    "NYC3841290": {
+      "n_recordings": 4,
+      "recording_ids": [
+        "3340931076196744_0001_3450_21800",
+        "3613052312271427_0001_3400_23675",
+        "401799428951034_0001_3600_21825",
+        "685646093767500_0001_3425_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 74617,
+      "n_solo_frames": 64718,
+      "n_environment_only_frames": 32939,
+      "n_wearer_only_frames": 31779,
+      "solo_auroc_wearer_minus_environment_logit": 0.7535471551898972,
+      "false_wearer_rate_on_environment_only": 0.3607274052035581,
+      "wearer_miss_rate_on_wearer_only": 0.17863998237830014
+    },
+    "NYC3841356": {
+      "n_recordings": 3,
+      "recording_ids": [
+        "1531799547654802_0001_3000_23100",
+        "1740957896405887_0001_2700_23750",
+        "348219804730648_0001_3450_25075"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 62725,
+      "n_solo_frames": 50350,
+      "n_environment_only_frames": 30785,
+      "n_wearer_only_frames": 19565,
+      "solo_auroc_wearer_minus_environment_logit": 0.9966302768170183,
+      "false_wearer_rate_on_environment_only": 0.03482215364625629,
+      "wearer_miss_rate_on_wearer_only": 0.017071300792231025
+    },
+    "NYC3871134": {
+      "n_recordings": 3,
+      "recording_ids": [
+        "1302664060426140_0001_3375_22000",
+        "1421935842010246_0001_3425_21725",
+        "305309135293833_0001_3525_22725"
+      ],
+      "contains_known_label_anomaly": true,
+      "n_frames": 56119,
+      "n_solo_frames": 53558,
+      "n_environment_only_frames": 34430,
+      "n_wearer_only_frames": 19128,
+      "solo_auroc_wearer_minus_environment_logit": 0.636969963301484,
+      "false_wearer_rate_on_environment_only": 0.16808016264885275,
+      "wearer_miss_rate_on_wearer_only": 0.630280217482225
+    },
+    "NYC3871203": {
+      "n_recordings": 2,
+      "recording_ids": [
+        "333604642911495_0001_3225_25650",
+        "355109977333172_0001_3200_28275"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 47496,
+      "n_solo_frames": 38406,
+      "n_environment_only_frames": 13424,
+      "n_wearer_only_frames": 24982,
+      "solo_auroc_wearer_minus_environment_logit": 0.9977785584882141,
+      "false_wearer_rate_on_environment_only": 0.07762216924910607,
+      "wearer_miss_rate_on_wearer_only": 0.009807061083980466
+    },
+    "NYC3900683": {
+      "n_recordings": 3,
+      "recording_ids": [
+        "233199686474075_0001_3275_20375",
+        "384864347251414_0001_3325_19925",
+        "666990128959727_0001_3250_21250"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 51694,
+      "n_solo_frames": 49348,
+      "n_environment_only_frames": 22921,
+      "n_wearer_only_frames": 26427,
+      "solo_auroc_wearer_minus_environment_logit": 0.9957395983668171,
+      "false_wearer_rate_on_environment_only": 0.02674403385541643,
+      "wearer_miss_rate_on_wearer_only": 0.06020357967230484
+    }
+  },
+  "per_noise_category": {
+    "Busy intersection": {
+      "n_recordings": 2,
+      "recording_ids": [
+        "3681369768776306_0001_3475_26575",
+        "682969793925843_0001_3250_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 41046,
+      "n_solo_frames": 36739,
+      "n_environment_only_frames": 17196,
+      "n_wearer_only_frames": 19543,
+      "solo_auroc_wearer_minus_environment_logit": 0.9986460005163104,
+      "false_wearer_rate_on_environment_only": 0.008955571063037916,
+      "wearer_miss_rate_on_wearer_only": 0.024970577700455406
+    },
+    "No background Noise": {
+      "n_recordings": 36,
+      "recording_ids": [
+        "1302664060426140_0001_3375_22000",
+        "1421935842010246_0001_3425_21725",
+        "1459836027928081_0001_3475_14900",
+        "1531799547654802_0001_3000_23100",
+        "1740957896405887_0001_2700_23750",
+        "1865684753828525_0001_3400_15150",
+        "2052526851768450_0001_3450_21725",
+        "2202463226626277_0001_3350_15250",
+        "233199686474075_0001_3275_20375",
+        "2468882769956730_0001_3575_22675",
+        "305309135293833_0001_3525_22725",
+        "3280415488759535_0001_3125_19725",
+        "333604642911495_0001_3225_25650",
+        "3340931076196744_0001_3450_21800",
+        "334692879388009_0001_100_22000",
+        "336293912631837_0001_3475_22275",
+        "348219804730648_0001_3450_25075",
+        "3541265506096365_0001_3400_21100",
+        "355109977333172_0001_3200_28275",
+        "3613052312271427_0001_3400_23675",
+        "374439191929643_0001_3300_22050",
+        "384864347251414_0001_3325_19925",
+        "401799428951034_0001_3600_21825",
+        "633225632191759_0001_3300_15150",
+        "6365885960180108_0001_3425_14650",
+        "666990128959727_0001_3250_21250",
+        "672948924751405_0001_3325_21150",
+        "685646093767500_0001_3425_21200",
+        "688341613416540_0001_3400_21450",
+        "7015497248540235_0001_3325_22825",
+        "747466143499214_0001_3475_24200",
+        "778942984059557_0001_3275_14475",
+        "789039436386515_0001_3400_21900",
+        "876511064219697_0001_3400_22075",
+        "879517150527834_0001_3450_15550",
+        "881678756780914_0001_3375_15475"
+      ],
+      "contains_known_label_anomaly": true,
+      "n_frames": 630529,
+      "n_solo_frames": 542914,
+      "n_environment_only_frames": 244163,
+      "n_wearer_only_frames": 298751,
+      "solo_auroc_wearer_minus_environment_logit": 0.9427073301861933,
+      "false_wearer_rate_on_environment_only": 0.11317849141761856,
+      "wearer_miss_rate_on_wearer_only": 0.0842708476289619
+    }
+  },
+  "per_recording_session": {
+    "1302664060426140_0001_3375_22000": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "1302664060426140_0001_3375_22000"
+      ],
+      "contains_known_label_anomaly": true,
+      "n_frames": 18623,
+      "n_solo_frames": 17453,
+      "n_environment_only_frames": 5552,
+      "n_wearer_only_frames": 11901,
+      "solo_auroc_wearer_minus_environment_logit": 0.004476684084620308,
+      "false_wearer_rate_on_environment_only": 0.969200288184438,
+      "wearer_miss_rate_on_wearer_only": 0.9622720779766406
+    },
+    "1421935842010246_0001_3425_21725": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "1421935842010246_0001_3425_21725"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18298,
+      "n_solo_frames": 17664,
+      "n_environment_only_frames": 13962,
+      "n_wearer_only_frames": 3702,
+      "solo_auroc_wearer_minus_environment_logit": 0.99710261649452,
+      "false_wearer_rate_on_environment_only": 0.020985532158716517,
+      "wearer_miss_rate_on_wearer_only": 0.05429497568881685
+    },
+    "1459836027928081_0001_3475_14900": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "1459836027928081_0001_3475_14900"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 11423,
+      "n_solo_frames": 9306,
+      "n_environment_only_frames": 4905,
+      "n_wearer_only_frames": 4401,
+      "solo_auroc_wearer_minus_environment_logit": 0.9853350445559472,
+      "false_wearer_rate_on_environment_only": 0.09092762487257901,
+      "wearer_miss_rate_on_wearer_only": 0.07521017950465803
+    },
+    "1531799547654802_0001_3000_23100": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "1531799547654802_0001_3000_23100"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 20098,
+      "n_solo_frames": 16996,
+      "n_environment_only_frames": 12132,
+      "n_wearer_only_frames": 4864,
+      "solo_auroc_wearer_minus_environment_logit": 0.9973693124262498,
+      "false_wearer_rate_on_environment_only": 0.03066271018793274,
+      "wearer_miss_rate_on_wearer_only": 0.030016447368421052
+    },
+    "1740957896405887_0001_2700_23750": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "1740957896405887_0001_2700_23750"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 21004,
+      "n_solo_frames": 16539,
+      "n_environment_only_frames": 5034,
+      "n_wearer_only_frames": 11505,
+      "solo_auroc_wearer_minus_environment_logit": 0.9962558297622236,
+      "false_wearer_rate_on_environment_only": 0.07667858561779897,
+      "wearer_miss_rate_on_wearer_only": 0.008083441981747066
+    },
+    "1865684753828525_0001_3400_15150": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "1865684753828525_0001_3400_15150"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 11748,
+      "n_solo_frames": 10129,
+      "n_environment_only_frames": 5180,
+      "n_wearer_only_frames": 4949,
+      "solo_auroc_wearer_minus_environment_logit": 0.9889668440486787,
+      "false_wearer_rate_on_environment_only": 0.09575289575289575,
+      "wearer_miss_rate_on_wearer_only": 0.050717316629622144
+    },
+    "2052526851768450_0001_3450_21725": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "2052526851768450_0001_3450_21725"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18273,
+      "n_solo_frames": 17022,
+      "n_environment_only_frames": 2997,
+      "n_wearer_only_frames": 14025,
+      "solo_auroc_wearer_minus_environment_logit": 0.9979700199308043,
+      "false_wearer_rate_on_environment_only": 0.05038371705038372,
+      "wearer_miss_rate_on_wearer_only": 0.022174688057041
+    },
+    "2202463226626277_0001_3350_15250": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "2202463226626277_0001_3350_15250"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 11898,
+      "n_solo_frames": 10113,
+      "n_environment_only_frames": 6229,
+      "n_wearer_only_frames": 3884,
+      "solo_auroc_wearer_minus_environment_logit": 0.9950853198363391,
+      "false_wearer_rate_on_environment_only": 0.0301814095360411,
+      "wearer_miss_rate_on_wearer_only": 0.047116374871266735
+    },
+    "233199686474075_0001_3275_20375": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "233199686474075_0001_3275_20375"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 17098,
+      "n_solo_frames": 16142,
+      "n_environment_only_frames": 7117,
+      "n_wearer_only_frames": 9025,
+      "solo_auroc_wearer_minus_environment_logit": 0.9962644318138031,
+      "false_wearer_rate_on_environment_only": 0.025432064071940423,
+      "wearer_miss_rate_on_wearer_only": 0.06160664819944598
+    },
+    "2468882769956730_0001_3575_22675": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "2468882769956730_0001_3575_22675"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 19098,
+      "n_solo_frames": 17983,
+      "n_environment_only_frames": 3186,
+      "n_wearer_only_frames": 14797,
+      "solo_auroc_wearer_minus_environment_logit": 0.9995861973175285,
+      "false_wearer_rate_on_environment_only": 0.022284996861268048,
+      "wearer_miss_rate_on_wearer_only": 0.015678853821720618
+    },
+    "305309135293833_0001_3525_22725": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "305309135293833_0001_3525_22725"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 19198,
+      "n_solo_frames": 18441,
+      "n_environment_only_frames": 14916,
+      "n_wearer_only_frames": 3525,
+      "solo_auroc_wearer_minus_environment_logit": 0.9930407635001873,
+      "false_wearer_rate_on_environment_only": 0.007575757575757576,
+      "wearer_miss_rate_on_wearer_only": 0.11432624113475177
+    },
+    "3280415488759535_0001_3125_19725": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "3280415488759535_0001_3125_19725"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 16598,
+      "n_solo_frames": 14767,
+      "n_environment_only_frames": 5917,
+      "n_wearer_only_frames": 8850,
+      "solo_auroc_wearer_minus_environment_logit": 0.9994741189085552,
+      "false_wearer_rate_on_environment_only": 0.027547743789082306,
+      "wearer_miss_rate_on_wearer_only": 0.008135593220338983
+    },
+    "333604642911495_0001_3225_25650": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "333604642911495_0001_3225_25650"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 22423,
+      "n_solo_frames": 16975,
+      "n_environment_only_frames": 5670,
+      "n_wearer_only_frames": 11305,
+      "solo_auroc_wearer_minus_environment_logit": 0.9975973859329307,
+      "false_wearer_rate_on_environment_only": 0.09329805996472663,
+      "wearer_miss_rate_on_wearer_only": 0.015745245466607695
+    },
+    "3340931076196744_0001_3450_21800": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "3340931076196744_0001_3450_21800"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18348,
+      "n_solo_frames": 15488,
+      "n_environment_only_frames": 9920,
+      "n_wearer_only_frames": 5568,
+      "solo_auroc_wearer_minus_environment_logit": 0.008082168120828698,
+      "false_wearer_rate_on_environment_only": 0.9830645161290322,
+      "wearer_miss_rate_on_wearer_only": 0.9105603448275862
+    },
+    "334692879388009_0001_100_22000": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "334692879388009_0001_100_22000"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 21898,
+      "n_solo_frames": 13458,
+      "n_environment_only_frames": 5523,
+      "n_wearer_only_frames": 7935,
+      "solo_auroc_wearer_minus_environment_logit": 0.9948758933398867,
+      "false_wearer_rate_on_environment_only": 0.10193735288792323,
+      "wearer_miss_rate_on_wearer_only": 0.030749842470069313
+    },
+    "336293912631837_0001_3475_22275": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "336293912631837_0001_3475_22275"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18798,
+      "n_solo_frames": 17343,
+      "n_environment_only_frames": 4915,
+      "n_wearer_only_frames": 12428,
+      "solo_auroc_wearer_minus_environment_logit": 0.9985788497800229,
+      "false_wearer_rate_on_environment_only": 0.07263479145473041,
+      "wearer_miss_rate_on_wearer_only": 0.0026552944962986804
+    },
+    "348219804730648_0001_3450_25075": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "348219804730648_0001_3450_25075"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 21623,
+      "n_solo_frames": 16815,
+      "n_environment_only_frames": 13619,
+      "n_wearer_only_frames": 3196,
+      "solo_auroc_wearer_minus_environment_logit": 0.9910712423130426,
+      "false_wearer_rate_on_environment_only": 0.023056024671414935,
+      "wearer_miss_rate_on_wearer_only": 0.02972465581977472
+    },
+    "3541265506096365_0001_3400_21100": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "3541265506096365_0001_3400_21100"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 17698,
+      "n_solo_frames": 14877,
+      "n_environment_only_frames": 5550,
+      "n_wearer_only_frames": 9327,
+      "solo_auroc_wearer_minus_environment_logit": 0.9930386546082911,
+      "false_wearer_rate_on_environment_only": 0.11873873873873873,
+      "wearer_miss_rate_on_wearer_only": 0.01651120403130696
+    },
+    "355109977333172_0001_3200_28275": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "355109977333172_0001_3200_28275"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 25073,
+      "n_solo_frames": 21431,
+      "n_environment_only_frames": 7754,
+      "n_wearer_only_frames": 13677,
+      "solo_auroc_wearer_minus_environment_logit": 0.9981252120079293,
+      "false_wearer_rate_on_environment_only": 0.06615940159917462,
+      "wearer_miss_rate_on_wearer_only": 0.0048987351027272065
+    },
+    "3613052312271427_0001_3400_23675": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "3613052312271427_0001_3400_23675"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 20273,
+      "n_solo_frames": 18252,
+      "n_environment_only_frames": 8154,
+      "n_wearer_only_frames": 10098,
+      "solo_auroc_wearer_minus_environment_logit": 0.989947775960415,
+      "false_wearer_rate_on_environment_only": 0.08830022075055188,
+      "wearer_miss_rate_on_wearer_only": 0.01643889879183997
+    },
+    "3681369768776306_0001_3475_26575": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "3681369768776306_0001_3475_26575"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 23098,
+      "n_solo_frames": 20529,
+      "n_environment_only_frames": 6895,
+      "n_wearer_only_frames": 13634,
+      "solo_auroc_wearer_minus_environment_logit": 0.9988913205192453,
+      "false_wearer_rate_on_environment_only": 0.006381435823060188,
+      "wearer_miss_rate_on_wearer_only": 0.023984157253924013
+    },
+    "374439191929643_0001_3300_22050": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "374439191929643_0001_3300_22050"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18718,
+      "n_solo_frames": 13807,
+      "n_environment_only_frames": 5917,
+      "n_wearer_only_frames": 7890,
+      "solo_auroc_wearer_minus_environment_logit": 0.999632324039796,
+      "false_wearer_rate_on_environment_only": 0.09582558729085686,
+      "wearer_miss_rate_on_wearer_only": 0.010012674271229404
+    },
+    "384864347251414_0001_3325_19925": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "384864347251414_0001_3325_19925"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 16598,
+      "n_solo_frames": 15821,
+      "n_environment_only_frames": 6064,
+      "n_wearer_only_frames": 9757,
+      "solo_auroc_wearer_minus_environment_logit": 0.9936048890411674,
+      "false_wearer_rate_on_environment_only": 0.018304749340369394,
+      "wearer_miss_rate_on_wearer_only": 0.07112842062109255
+    },
+    "401799428951034_0001_3600_21825": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "401799428951034_0001_3600_21825"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18223,
+      "n_solo_frames": 15497,
+      "n_environment_only_frames": 6039,
+      "n_wearer_only_frames": 9458,
+      "solo_auroc_wearer_minus_environment_logit": 0.9898451178918057,
+      "false_wearer_rate_on_environment_only": 0.05033946017552575,
+      "wearer_miss_rate_on_wearer_only": 0.03584267286952844
+    },
+    "633225632191759_0001_3300_15150": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "633225632191759_0001_3300_15150"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 11848,
+      "n_solo_frames": 10419,
+      "n_environment_only_frames": 2733,
+      "n_wearer_only_frames": 7686,
+      "solo_auroc_wearer_minus_environment_logit": 0.9695884544096741,
+      "false_wearer_rate_on_environment_only": 0.11964873765093303,
+      "wearer_miss_rate_on_wearer_only": 0.1068175904241478
+    },
+    "6365885960180108_0001_3425_14650": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "6365885960180108_0001_3425_14650"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 11223,
+      "n_solo_frames": 9327,
+      "n_environment_only_frames": 4502,
+      "n_wearer_only_frames": 4825,
+      "solo_auroc_wearer_minus_environment_logit": 0.9912825848270084,
+      "false_wearer_rate_on_environment_only": 0.059306974677920926,
+      "wearer_miss_rate_on_wearer_only": 0.0627979274611399
+    },
+    "666990128959727_0001_3250_21250": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "666990128959727_0001_3250_21250"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 17998,
+      "n_solo_frames": 17385,
+      "n_environment_only_frames": 9740,
+      "n_wearer_only_frames": 7645,
+      "solo_auroc_wearer_minus_environment_logit": 0.9969271698564239,
+      "false_wearer_rate_on_environment_only": 0.03295687885010267,
+      "wearer_miss_rate_on_wearer_only": 0.04460431654676259
+    },
+    "672948924751405_0001_3325_21150": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "672948924751405_0001_3325_21150"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 17823,
+      "n_solo_frames": 12197,
+      "n_environment_only_frames": 5769,
+      "n_wearer_only_frames": 6428,
+      "solo_auroc_wearer_minus_environment_logit": 0.9946488069022864,
+      "false_wearer_rate_on_environment_only": 0.05373548275264344,
+      "wearer_miss_rate_on_wearer_only": 0.02893590541381456
+    },
+    "682969793925843_0001_3250_21200": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "682969793925843_0001_3250_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 17948,
+      "n_solo_frames": 16210,
+      "n_environment_only_frames": 10301,
+      "n_wearer_only_frames": 5909,
+      "solo_auroc_wearer_minus_environment_logit": 0.9981852550630819,
+      "false_wearer_rate_on_environment_only": 0.0106785748956412,
+      "wearer_miss_rate_on_wearer_only": 0.027246573024200374
+    },
+    "685646093767500_0001_3425_21200": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "685646093767500_0001_3425_21200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 17773,
+      "n_solo_frames": 15481,
+      "n_environment_only_frames": 8826,
+      "n_wearer_only_frames": 6655,
+      "solo_auroc_wearer_minus_environment_logit": 0.9870524607730422,
+      "false_wearer_rate_on_environment_only": 0.12531157942442783,
+      "wearer_miss_rate_on_wearer_only": 0.015326821938392186
+    },
+    "688341613416540_0001_3400_21450": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "688341613416540_0001_3400_21450"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18048,
+      "n_solo_frames": 15106,
+      "n_environment_only_frames": 7024,
+      "n_wearer_only_frames": 8082,
+      "solo_auroc_wearer_minus_environment_logit": 0.9884091324177747,
+      "false_wearer_rate_on_environment_only": 0.10535307517084283,
+      "wearer_miss_rate_on_wearer_only": 0.02412769116555308
+    },
+    "7015497248540235_0001_3325_22825": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "7015497248540235_0001_3325_22825"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 19498,
+      "n_solo_frames": 16252,
+      "n_environment_only_frames": 8563,
+      "n_wearer_only_frames": 7689,
+      "solo_auroc_wearer_minus_environment_logit": 0.9957046004849235,
+      "false_wearer_rate_on_environment_only": 0.0343337615321733,
+      "wearer_miss_rate_on_wearer_only": 0.0148263753413968
+    },
+    "747466143499214_0001_3475_24200": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "747466143499214_0001_3475_24200"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 20723,
+      "n_solo_frames": 19181,
+      "n_environment_only_frames": 4604,
+      "n_wearer_only_frames": 14577,
+      "solo_auroc_wearer_minus_environment_logit": 0.994749473525859,
+      "false_wearer_rate_on_environment_only": 0.07406602953953084,
+      "wearer_miss_rate_on_wearer_only": 0.025039445702133498
+    },
+    "778942984059557_0001_3275_14475": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "778942984059557_0001_3275_14475"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 11198,
+      "n_solo_frames": 10134,
+      "n_environment_only_frames": 6267,
+      "n_wearer_only_frames": 3867,
+      "solo_auroc_wearer_minus_environment_logit": 0.9941075299751524,
+      "false_wearer_rate_on_environment_only": 0.03239189404818893,
+      "wearer_miss_rate_on_wearer_only": 0.07008016550297388
+    },
+    "789039436386515_0001_3400_21900": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "789039436386515_0001_3400_21900"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18498,
+      "n_solo_frames": 17405,
+      "n_environment_only_frames": 4274,
+      "n_wearer_only_frames": 13131,
+      "solo_auroc_wearer_minus_environment_logit": 0.9936261773346423,
+      "false_wearer_rate_on_environment_only": 0.061534861956013105,
+      "wearer_miss_rate_on_wearer_only": 0.021323585408575128
+    },
+    "876511064219697_0001_3400_22075": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "876511064219697_0001_3400_22075"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 18673,
+      "n_solo_frames": 16970,
+      "n_environment_only_frames": 4848,
+      "n_wearer_only_frames": 12122,
+      "solo_auroc_wearer_minus_environment_logit": 0.9975189329277755,
+      "false_wearer_rate_on_environment_only": 0.05754950495049505,
+      "wearer_miss_rate_on_wearer_only": 0.03316284441511302
+    },
+    "879517150527834_0001_3450_15550": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "879517150527834_0001_3450_15550"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 12098,
+      "n_solo_frames": 10594,
+      "n_environment_only_frames": 5639,
+      "n_wearer_only_frames": 4955,
+      "solo_auroc_wearer_minus_environment_logit": 0.9954153438760514,
+      "false_wearer_rate_on_environment_only": 0.028019152331973753,
+      "wearer_miss_rate_on_wearer_only": 0.042179616548940466
+    },
+    "881678756780914_0001_3375_15475": {
+      "n_recordings": 1,
+      "recording_ids": [
+        "881678756780914_0001_3375_15475"
+      ],
+      "contains_known_label_anomaly": false,
+      "n_frames": 12098,
+      "n_solo_frames": 10144,
+      "n_environment_only_frames": 5122,
+      "n_wearer_only_frames": 5022,
+      "solo_auroc_wearer_minus_environment_logit": 0.9853739601979327,
+      "false_wearer_rate_on_environment_only": 0.0771183131589223,
+      "wearer_miss_rate_on_wearer_only": 0.047192353643966546
+    }
+  },
+  "distribution_summaries": {
+    "self_speaker_solo_auroc": {
+      "n_groups": 9,
+      "median": 0.9957395983668171,
+      "p10": 0.7302317168122145,
+      "p90": 0.9979520468938333,
+      "worst": 0.636969963301484
+    },
+    "self_speaker_false_wearer_rate": {
+      "n_groups": 9,
+      "median": 0.06111836754811839,
+      "p10": 0.023186341296940728,
+      "p90": 0.20660961115979387,
+      "worst": 0.3607274052035581
+    },
+    "recording_session_solo_auroc": {
+      "n_groups": 38,
+      "median": 0.9948126834328728,
+      "p10": 0.985362285505337,
+      "p90": 0.9986725910017896,
+      "worst": 0.004476684084620308
+    },
+    "recording_session_false_wearer_rate": {
+      "n_groups": 38,
+      "median": 0.058428239814207986,
+      "p10": 0.02018129731321238,
+      "p90": 0.11901173841239703,
+      "worst": 0.9830645161290322
+    }
+  },
+  "decision_conditioned_identity_increment": {
+    "status": "SCORED",
+    "method": "grouped held-recording cross-validation of false-wearer decisions on environment-only frames; base model uses physical features plus noise category, expanded model also uses self-speaker identity. Unknown held-fold identities are ignored.",
+    "n_frames": 57000,
+    "n_recordings": 38,
+    "n_self_speakers": 9,
+    "folds": [
+      {
+        "fold": 1,
+        "n_train": 45000,
+        "n_test": 12000,
+        "acoustic_noise_controls": {
+          "auroc": 0.6529496287762417,
+          "brier": 0.0617913952986517,
+          "log_loss": 0.24227326325896953
+        },
+        "plus_self_speaker": {
+          "auroc": 0.6695203959720089,
+          "brier": 0.059265608724412555,
+          "log_loss": 0.23485815454342987
+        }
+      },
+      {
+        "fold": 2,
+        "n_train": 45000,
+        "n_test": 12000,
+        "acoustic_noise_controls": {
+          "auroc": 0.6510358208055482,
+          "brier": 0.042529362741061526,
+          "log_loss": 0.1819699926760183
+        },
+        "plus_self_speaker": {
+          "auroc": 0.6237500322942713,
+          "brier": 0.04445607624633666,
+          "log_loss": 0.18580895106213657
+        }
+      },
+      {
+        "fold": 3,
+        "n_train": 45000,
+        "n_test": 12000,
+        "acoustic_noise_controls": {
+          "auroc": 0.8364877932525425,
+          "brier": 0.07958640393480479,
+          "log_loss": 0.299256268628342
+        },
+        "plus_self_speaker": {
+          "auroc": 0.8096199364560808,
+          "brier": 0.10272881646802004,
+          "log_loss": 0.3687444497217577
+        }
+      },
+      {
+        "fold": 4,
+        "n_train": 46500,
+        "n_test": 10500,
+        "acoustic_noise_controls": {
+          "auroc": 0.6483979326743973,
+          "brier": 0.07493934479483659,
+          "log_loss": 0.2815261386435902
+        },
+        "plus_self_speaker": {
+          "auroc": 0.6352880715631075,
+          "brier": 0.09446547129521905,
+          "log_loss": 0.33406541040113846
+        }
+      },
+      {
+        "fold": 5,
+        "n_train": 46500,
+        "n_test": 10500,
+        "acoustic_noise_controls": {
+          "auroc": 0.8638542556925659,
+          "brier": 0.08197876448986607,
+          "log_loss": 0.3585384796010153
+        },
+        "plus_self_speaker": {
+          "auroc": 0.8869918924702209,
+          "brier": 0.07779028746102372,
+          "log_loss": 0.34270572453933357
+        }
+      }
+    ],
+    "expanded_minus_control_mean": {
+      "auroc": -0.005511020489121265,
+      "brier": 0.007576197787158269,
+      "log_loss": 0.020523709491972165
+    },
+    "verdict": "NO_MATERIAL_HELD_RECORDING_IMPROVEMENT",
+    "interpretation": "This is an observational association test, not a causal identity-shortcut test. The same-source geometry counterfactual is reported separately."
+  },
+  "known_label_quality_context": {
+    "recording_id": "1302664060426140_0001_3375_22000",
+    "status": "RETAINED_NOT_RELABELED_OR_EXCLUDED",
+    "evidence_artifact": "evaluation/geowearnet/mmcsg/results/error_analysis.json",
+    "note": "The known isolated RTTM role-swap suspicion is retained in every aggregate and flagged in groups."
+  },
+  "feature_controls": [
+    "log_rms",
+    "peak",
+    "crest_factor",
+    "clipping_fraction",
+    "zero_crossing_rate",
+    "spectral_centroid",
+    "spectral_rolloff85",
+    "spectral_tilt",
+    "lf_energy_ratio",
+    "mf_energy_ratio",
+    "hf_energy_ratio",
+    "spectral_flux",
+    "energy_derivative",
+    "harmonicity"
+  ]
+}

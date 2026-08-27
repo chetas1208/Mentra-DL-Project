@@ -73,13 +73,17 @@ def frame_signal(x: np.ndarray, win: int = FRAME_WIN, hop: int = FRAME_HOP) -> n
     start -- no whole-utterance lookahead of any kind happens here."""
     n = len(x)
     nf = num_frames(n, win, hop)
-    out = np.zeros((nf, win), dtype=np.float64)
-    for i in range(nf):
-        start = i * hop
-        end = min(start + win, n)
-        seg = x[start:end]
-        out[i, : len(seg)] = seg
-    return out
+    # Vectorized (Workstream D): the original per-frame Python loop was ~25 ms
+    # per 6-second clip and ran inside every DataLoader worker. This produces a
+    # BIT-IDENTICAL array -- it is a gather, not a recomputation -- which the
+    # test suite asserts against the original loop.
+    need = hop * (nf - 1) + win
+    xd = np.asarray(x, dtype=np.float64)
+    if len(xd) < need:
+        xd = np.concatenate([xd, np.zeros(need - len(xd), dtype=np.float64)])
+    return np.ascontiguousarray(
+        np.lib.stride_tricks.sliding_window_view(xd[:need], win)[::hop]
+    )
 
 
 def _spectral_features(frames: np.ndarray, sr: int = SAMPLE_RATE):

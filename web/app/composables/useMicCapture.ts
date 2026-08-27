@@ -99,7 +99,20 @@ export function useMicCapture() {
   let resampler: StreamingResampler | null = null
   let framer: FixedSizeFramer | null = null
   let onAudioFrame: ((pcm16: Uint8Array, captureTimestampNs: bigint) => void) | null = null
+  // G4 WS6: optional tap on the PRE-RESAMPLE, native-rate blocks. Research
+  // capture needs the least-processed audio the application layer can see;
+  // the transport path still gets the same 16kHz frames it always did, and
+  // this callback is null in the normal live-demo path.
+  let onNativeBlock: ((samples: Float32Array, nativeSampleRate: number, captureTimestampNs: bigint) => void) | null = null
   let trackEndedHandler: (() => void) | null = null
+
+  /** Attach/detach the native-rate tap. Never rescales or copies the signal
+   * path -- the same Float32 block that feeds the resampler is handed over. */
+  function setNativeBlockListener(
+    listener: ((samples: Float32Array, nativeSampleRate: number, captureTimestampNs: bigint) => void) | null,
+  ) {
+    onNativeBlock = listener
+  }
 
   async function start(deviceId: string | undefined, onFrame: (pcm16: Uint8Array, captureTimestampNs: bigint) => void) {
     if (typeof window === 'undefined') throw new Error('mic capture is client-only')
@@ -180,6 +193,10 @@ export function useMicCapture() {
       for (let i = 0; i < samples.length; i++) sumSquares += (samples[i] ?? 0) ** 2
       micLevel.value = Math.sqrt(sumSquares / samples.length)
 
+      // Native-rate tap FIRST, before any resampling, so research capture
+      // records the least-processed audio available to this layer.
+      onNativeBlock?.(samples, audioContext!.sampleRate, captureTimestampNs)
+
       const resampled = resampler!.process(samples)
       const outFrames = framer!.push(resampled)
       for (const frame of outFrames) {
@@ -221,6 +238,7 @@ export function useMicCapture() {
     resampler = null
     framer = null
     onAudioFrame = null
+    onNativeBlock = null
 
     isCapturing.value = false
     audioContextState.value = null
@@ -241,5 +259,6 @@ export function useMicCapture() {
     start,
     stop,
     resumeAudioContext,
+    setNativeBlockListener,
   }
 }

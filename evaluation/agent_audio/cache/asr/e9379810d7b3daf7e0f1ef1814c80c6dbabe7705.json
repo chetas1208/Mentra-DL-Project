@@ -1,0 +1,1 @@
+{"text": "Art", "words": [{"word": "art", "start_s": 18.799999237060547, "end_s": 19.120000076293945}], "latency_s": 1.014081961940974, "audio_duration_s": 20.0, "rtf": 0.0507040980970487, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

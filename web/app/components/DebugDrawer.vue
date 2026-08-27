@@ -5,6 +5,7 @@ import { getWaveformSnapshot } from '~/composables/useMicCapture'
 import { computeSignalIntegrity } from '~/utils/signalIntegrity'
 import { REQUESTED_CONSTRAINTS, type CaptureFormat } from '~/composables/useMicCapture'
 import type { ModelCapabilities } from '~/utils/modelCapabilities'
+import type { ModelCatalog } from '~/utils/modelCatalog'
 import { PROTOCOL_VERSION } from '~/utils/mentraProtocol'
 
 const props = defineProps<{
@@ -15,6 +16,10 @@ const props = defineProps<{
   wsState: string
   sessionId: string | null
   capabilities: ModelCapabilities | null
+  modelCatalog?: ModelCatalog | null
+  selectedModel?: string | null
+  activeModel?: string | null
+  modelMs?: number | null
   queueDepth: number
   queueHighWaterMark: number
   getBufferedAmount: () => number | null
@@ -50,6 +55,28 @@ const rows = computed(() => [
   ['protocol version', String(PROTOCOL_VERSION)],
 ])
 
+// Model provenance stays here, never on the main dashboard: which model the
+// backend actually bound, its version, and the frozen-checkpoint hash prefix
+// it reported for that binding.
+const modelRows = computed(() => {
+  const rows: [string, string][] = [
+    ['selected (user request)', props.selectedModel ?? '—'],
+    ['active (backend ack)', props.activeModel ?? '—'],
+    ['model version', props.capabilities?.modelVersion ?? '—'],
+    ['model inference ms', props.modelMs != null ? `${props.modelMs.toFixed(1)} ms` : '—'],
+    ['catalog default', props.modelCatalog?.defaultModel ?? 'NO CATALOG (single-model receiver)'],
+  ]
+  for (const m of props.modelCatalog?.models ?? []) {
+    rows.push([
+      `catalog: ${m.id}`,
+      `${m.ready ? 'ready' : `unavailable (${m.unavailableReason ?? 'no reason given'})`}`
+      + `${m.checkpointSha256Prefix ? ` · sha256 ${m.checkpointSha256Prefix}…` : ''}`
+      + `${m.experimental ? ' · experimental' : ''}`,
+    ])
+  }
+  return rows
+})
+
 const auditRows = computed(() => [
   ['requested echoCancellation', String(REQUESTED_CONSTRAINTS.echoCancellation)],
   ['actual echoCancellation', String(props.captureFormat.echoCancellation ?? '—')],
@@ -79,6 +106,14 @@ const auditRows = computed(() => [
         <div class="grid grid-cols-2 gap-x-4 gap-y-1">
           <template v-for="[k, v] in rows" :key="k">
             <span class="text-ink-faint">{{ k }}</span><span class="text-ink">{{ v }}</span>
+          </template>
+        </div>
+      </div>
+      <div>
+        <div class="text-ink-faint mb-1">MODEL RUNTIME (backend-reported)</div>
+        <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+          <template v-for="[k, v] in modelRows" :key="k">
+            <span class="text-ink-faint">{{ k }}</span><span class="text-ink break-words">{{ v }}</span>
           </template>
         </div>
       </div>

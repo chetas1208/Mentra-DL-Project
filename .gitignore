@@ -34,7 +34,18 @@ vendor/
 training/checkpoints/
 training/runs/
 training/logs/
+training/geowearnet/cache/
+training/geowearnet/runs/
+training/geowearnet/export/
+training/geowearnet/mmcsg/*
+!training/geowearnet/mmcsg/frozen/
+!training/geowearnet/mmcsg/frozen/**
 server/logs/
+logs/
+
+# Local-machine-only config (e.g. resolved absolute paths to large external
+# datasets like MMCSG). Never commit an absolute path to another machine.
+configs/*.local.json
 evaluation/manifests/*.npz
 evaluation/results/*.npz
 /models/

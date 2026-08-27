@@ -29,6 +29,7 @@ def pcm16_bytes_to_float32(payload: bytes) -> np.ndarray:
 @dataclass
 class LiveDetectionResult:
     wearer_score: float
+    environment_score: float | None
     state: str
     context_ms: float
     inference_ms: float
@@ -45,28 +46,63 @@ class ConsumerStats:
 
 class MentraInferenceConsumer:
     """Rolling-window consumer: accumulates float32 PCM up to `context_s`
-    seconds, re-scores against the enrolled wearer embedding every
-    `hop_s` seconds of newly-arrived audio (section 21/22 -- reprocess
-    the whole window each hop, not the stateful streaming version yet)."""
+    seconds and re-scores every `hop_s` seconds of newly-arrived audio.
+
+    Legacy detectors expose only ``wearer_score`` and retain the original
+    binary hysteresis behavior. GeoWearNet additionally exposes
+    ``environment_score``; in that case the consumer independently latches
+    both classes and publishes WEARER, ENVIRONMENT, OVERLAP, or SILENCE.
+    """
 
     def __init__(self, detector: SherpaOnnxWearerDetector, sample_rate: int = 16000,
                  context_s: float = 2.0, hop_s: float = 0.2,
-                 wearer_high_threshold: float = 0.5, wearer_low_threshold: float = 0.35):
+                 wearer_high_threshold: float = 0.5, wearer_low_threshold: float = 0.35,
+                 environment_high_threshold: float | None = None,
+                 environment_low_threshold: float | None = None):
+        if not 0.0 <= wearer_low_threshold <= wearer_high_threshold <= 1.0:
+            raise ValueError("wearer thresholds must satisfy 0 <= low <= high <= 1")
+        if environment_high_threshold is None:
+            environment_high_threshold = wearer_high_threshold
+        if environment_low_threshold is None:
+            environment_low_threshold = wearer_low_threshold
+        if not 0.0 <= environment_low_threshold <= environment_high_threshold <= 1.0:
+            raise ValueError("environment thresholds must satisfy 0 <= low <= high <= 1")
         self.detector = detector
         self.sample_rate = sample_rate
         self.context_samples = int(context_s * sample_rate)
         self.hop_samples = int(hop_s * sample_rate)
         self.wearer_high = wearer_high_threshold
         self.wearer_low = wearer_low_threshold
+        self.environment_high = environment_high_threshold
+        self.environment_low = environment_low_threshold
 
         self._buffer = np.zeros(0, dtype=np.float32)
         self._samples_since_last_hop = 0
         self._current_state = "SILENCE"
+        self._wearer_active = False
+        self._environment_active = False
         self.stats = ConsumerStats()
         self.last_result: LiveDetectionResult | None = None
 
     def enroll(self, enrollment_segments: list[tuple[np.ndarray, int]]) -> None:
         self.detector.enroll(enrollment_segments)
+
+    def reset(self) -> None:
+        """Forget stream-local state at a transport/session boundary.
+
+        This deliberately does not call ``detector.enroll`` or otherwise
+        modify a detector's long-lived model parameters.  In the GeoWearNet
+        path there is no enrolled identity to retain; in the legacy
+        SpeakerNet path enrollment is owned by that detector and remains its
+        explicit, separate lifecycle.
+        """
+        self._buffer = np.zeros(0, dtype=np.float32)
+        self._samples_since_last_hop = 0
+        self._current_state = "SILENCE"
+        self._wearer_active = False
+        self._environment_active = False
+        self.stats = ConsumerStats()
+        self.last_result = None
 
     @property
     def current_state(self) -> str:
@@ -98,18 +134,41 @@ class MentraInferenceConsumer:
         result = self.detector.process(self._buffer, self.sample_rate)
         inference_ms = (time.perf_counter() - t0) * 1000
 
-        score = result["wearer_score"]
-        if score >= self.wearer_high:
-            self._current_state = "WEARER"
-        elif score < self.wearer_low:
-            self._current_state = "ENVIRONMENT"
-        # else: stays in previous state -- hysteresis band between low/high (section 45, prior phase)
+        score = float(result["wearer_score"])
+        environment_score = result.get("environment_score")
+        if environment_score is None:
+            # Preserve the legacy SpeakerNet contract exactly: only a
+            # wearer/non-wearer score exists, and the hysteresis band holds
+            # the previously emitted binary state.
+            if score >= self.wearer_high:
+                self._current_state = "WEARER"
+            elif score < self.wearer_low:
+                self._current_state = "ENVIRONMENT"
+        else:
+            environment_score = float(environment_score)
+            self._wearer_active = (
+                score > self.wearer_low if self._wearer_active
+                else score >= self.wearer_high
+            )
+            self._environment_active = (
+                environment_score > self.environment_low if self._environment_active
+                else environment_score >= self.environment_high
+            )
+            if self._wearer_active and self._environment_active:
+                self._current_state = "OVERLAP"
+            elif self._wearer_active:
+                self._current_state = "WEARER"
+            elif self._environment_active:
+                self._current_state = "ENVIRONMENT"
+            else:
+                self._current_state = "SILENCE"
 
         now_ns = time.monotonic_ns()
         capture_to_prediction_ms = (now_ns - frame.capture_timestamp_ns) / 1e6
 
         live_result = LiveDetectionResult(
             wearer_score=score,
+            environment_score=environment_score,
             state=self._current_state,
             context_ms=(len(self._buffer) / self.sample_rate) * 1000,
             inference_ms=inference_ms,

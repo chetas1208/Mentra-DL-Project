@@ -1,0 +1,1 @@
+{"text": "His", "words": [{"word": "his", "start_s": 1.2799999713897705, "end_s": 1.5199999332427978}], "latency_s": 0.21005295985378325, "audio_duration_s": 4.0, "rtf": 0.05251323996344581, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

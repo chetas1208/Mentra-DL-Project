@@ -1,0 +1,355 @@
+{
+  "status": "SCORED",
+  "generated_utc": "2026-08-27T16:35:22.896513+00:00",
+  "checkpoint": "training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+  "official_dev_used": false,
+  "official_eval_used": false,
+  "data_boundary": "One MMCSG train-derived internal validation recording; no official dev/eval access.",
+  "source_recording": "1302664060426140_0001_3375_22000",
+  "source_split": "train",
+  "runtime_contract": {
+    "pcm_frame_ms": 10.0,
+    "receiver_context_ms": 2000.0,
+    "receiver_decision_update_cadence_ms": 200.0,
+    "state_thresholds": {
+      "wearer_on": 0.6,
+      "wearer_off": 0.4,
+      "environment_on": 0.6,
+      "environment_off": 0.4
+    },
+    "routing_semantics": "The live receiver is a four-state, 200 ms state router: WEARER and OVERLAP pass original mixed PCM, ENVIRONMENT and SILENCE mute it. It does not claim to reproduce the evaluator's 10 ms attack/release/hangover envelope.",
+    "future_audio_lookahead_ms": 0.0,
+    "frontend_extra_audio_buffer_ms": 0.0,
+    "note": "The 200 ms receiver update cadence is operational scheduling, not future-audio lookahead. The 2 s rolling buffer is history only. ASR is downstream and excluded."
+  },
+  "runs": {
+    "1_threads/passthrough": {
+      "policy": "passthrough",
+      "threads": 1,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 0.010802410542964935,
+        "p95_ms": 0.290139019488035,
+        "max_ms": 139.2800861503929
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 8.295533596538007,
+        "p95_ms": 13.530906231608231,
+        "max_ms": 139.22539306804538
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 0.0032244715839624405,
+        "p95_ms": 0.014483963605016447,
+        "max_ms": 0.04700617864727974
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 8.329917560331523,
+        "p95_ms": 13.585699792020012,
+        "max_ms": 139.2800861503929
+      },
+      "wall_clock_s": 1.561192445922643,
+      "compute_rtf": 0.05203974819742143,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": null
+    },
+    "1_threads/geowear_gate": {
+      "policy": "geowear_gate",
+      "threads": 1,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 0.01258007250726223,
+        "p95_ms": 0.36998892901311586,
+        "max_ms": 16.346727963536978
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 8.339926018379629,
+        "p95_ms": 12.654498708434403,
+        "max_ms": 16.266314778476954
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 0.004994100891053677,
+        "p95_ms": 0.02077240496873855,
+        "max_ms": 0.06059790030121803
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 8.382532047107816,
+        "p95_ms": 12.717818329110742,
+        "max_ms": 16.346727963536978
+      },
+      "wall_clock_s": 1.3964835011865944,
+      "compute_rtf": 0.046549450039553145,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": null
+    },
+    "1_threads/rnnoise_geowear_gate": {
+      "policy": "rnnoise_geowear_gate",
+      "threads": 1,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 1.1704416247084737,
+        "p95_ms": 3.685086581389844,
+        "max_ms": 18.88776710256934
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 8.935863384976983,
+        "p95_ms": 12.10074711125343,
+        "max_ms": 16.732231015339494
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 1.1514085344970226,
+        "p95_ms": 1.7165307886898515,
+        "max_ms": 3.5404309164732695
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 10.60439448338002,
+        "p95_ms": 14.040720183402287,
+        "max_ms": 18.88776710256934
+      },
+      "wall_clock_s": 5.28816773602739,
+      "compute_rtf": 0.17627225786757966,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": true
+    },
+    "2_threads/passthrough": {
+      "policy": "passthrough",
+      "threads": 2,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 0.01120101660490036,
+        "p95_ms": 0.29627663316082997,
+        "max_ms": 18.87646596878767
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 8.392713032662868,
+        "p95_ms": 13.35063118021933,
+        "max_ms": 18.80654809065163
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 0.0033364631235599518,
+        "p95_ms": 0.01451654825359582,
+        "max_ms": 0.040143029764294624
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 8.431604946963489,
+        "p95_ms": 13.404015579726524,
+        "max_ms": 18.87646596878767
+      },
+      "wall_clock_s": 1.4262406441848725,
+      "compute_rtf": 0.047541354806162416,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": null
+    },
+    "2_threads/geowear_gate": {
+      "policy": "geowear_gate",
+      "threads": 2,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 0.012977514415979385,
+        "p95_ms": 0.28078289469598394,
+        "max_ms": 28.58752920292318
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 8.263106108643115,
+        "p95_ms": 13.321322703268375,
+        "max_ms": 28.497203951701522
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 0.005205394700169563,
+        "p95_ms": 0.0210417667403817,
+        "max_ms": 0.06440910510718822
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 8.303991053253412,
+        "p95_ms": 13.38469760958105,
+        "max_ms": 28.58752920292318
+      },
+      "wall_clock_s": 1.4348553000018,
+      "compute_rtf": 0.047828510000060005,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": null
+    },
+    "2_threads/rnnoise_geowear_gate": {
+      "policy": "rnnoise_geowear_gate",
+      "threads": 2,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 1.1678800219669938,
+        "p95_ms": 3.568248474038654,
+        "max_ms": 23.24463101103902
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 9.755844133906066,
+        "p95_ms": 13.30237176734954,
+        "max_ms": 20.546355051919818
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 1.1481429683044553,
+        "p95_ms": 1.7441073898226023,
+        "max_ms": 3.414606209844351
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 11.419868096709251,
+        "p95_ms": 15.547417558263986,
+        "max_ms": 23.24463101103902
+      },
+      "wall_clock_s": 5.422280880855396,
+      "compute_rtf": 0.1807426960285132,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": true
+    },
+    "4_threads/passthrough": {
+      "policy": "passthrough",
+      "threads": 4,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 0.011236872524023056,
+        "p95_ms": 0.2918694168316205,
+        "max_ms": 18.943987088277936
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 7.971331593580544,
+        "p95_ms": 9.222151816356927,
+        "max_ms": 18.876612186431885
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 0.0033889664337038994,
+        "p95_ms": 0.015517184510827035,
+        "max_ms": 0.03918912261724472
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 8.00661405082792,
+        "p95_ms": 9.262226929422468,
+        "max_ms": 18.943987088277936
+      },
+      "wall_clock_s": 1.300790020963177,
+      "compute_rtf": 0.04335966736543924,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": null
+    },
+    "4_threads/geowear_gate": {
+      "policy": "geowear_gate",
+      "threads": 4,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 0.013428973034024239,
+        "p95_ms": 0.25225373683393265,
+        "max_ms": 21.44568902440369
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 8.205781457945704,
+        "p95_ms": 9.691669140011065,
+        "max_ms": 21.359720965847373
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 0.005312962457537651,
+        "p95_ms": 0.01744154142215845,
+        "max_ms": 0.05734805017709732
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 8.25504504609853,
+        "p95_ms": 9.73941553384065,
+        "max_ms": 21.44568902440369
+      },
+      "wall_clock_s": 1.3357002940028906,
+      "compute_rtf": 0.044523343133429684,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": null
+    },
+    "4_threads/rnnoise_geowear_gate": {
+      "policy": "rnnoise_geowear_gate",
+      "threads": 4,
+      "processed_audio_seconds": 30.0,
+      "audio_frames": 3000,
+      "detector_updates": 150,
+      "receiver_frame_compute": {
+        "n": 3000,
+        "p50_ms": 1.2041105655953288,
+        "p95_ms": 2.2281515761269017,
+        "max_ms": 22.615463007241488
+      },
+      "geowearnet_update_compute": {
+        "n": 150,
+        "p50_ms": 9.334856178611517,
+        "p95_ms": 12.529631482902913,
+        "max_ms": 20.60202998109162
+      },
+      "frontend_policy_compute": {
+        "n": 3000,
+        "p50_ms": 1.1843930697068572,
+        "p95_ms": 1.719263929408043,
+        "max_ms": 2.3534949868917465
+      },
+      "full_frontend_on_detector_update": {
+        "n": 150,
+        "p50_ms": 11.094393557868898,
+        "p95_ms": 14.872018387541171,
+        "max_ms": 22.615463007241488
+      },
+      "wall_clock_s": 5.388170192018151,
+      "compute_rtf": 0.1796056730672717,
+      "model_params": 132678,
+      "checkpoint_size_mb": 1.6083927154541016,
+      "rnnoise_available": true
+    }
+  },
+  "rss_start_mb": 728.9453125,
+  "rss_end_mb": 728.9453125,
+  "rss_growth_mb": 0.0
+}

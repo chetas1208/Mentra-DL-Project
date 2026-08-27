@@ -1,0 +1,89 @@
+{
+  "physics": {
+    "air_absorption_db_per_m_at_20C_50pct": {
+      "125": 0.00043978997709849435,
+      "1000": 0.004664731873821475,
+      "4000": 0.029665528426392616,
+      "8000": 0.10529092572360696
+    },
+    "air_absorption_monotone": true,
+    "sphere_dc_planewave": 1.0007507644527083,
+    "sphere_dc_series_vs_closed_form_max_abs_err": 0.0005028122332303602,
+    "sphere_hf_front_db": 6.000511590542045,
+    "sphere_hf_rear_db": -3.2791302383030017,
+    "sphere_near_over_far_db": 15.51243461159321,
+    "sphere_lut_max_abs_db_error": 1.3170955122427905,
+    "log_mel_gain_10x_db_shift": 20.0
+  },
+  "pool": {
+    "n_speakers": 211,
+    "n_noise_files": 400
+  },
+  "role_audit": {
+    "n_scenes": 1500,
+    "n_speakers": 211,
+    "n_in_both_roles": 211,
+    "n_wearer_only": 0,
+    "n_environment_only": 0,
+    "fraction_in_both_roles": 1.0
+  },
+  "S1": {
+    "scenes_per_sec_single_core": 15.97962367197244,
+    "audio_seconds_per_sec_single_core": 127.83698937577952,
+    "ms_per_scene": 62.57969652651809,
+    "log_mel_ms_per_8s": 4.105765244457871,
+    "state_fractions": {
+      "silence": 0.2706766917293233,
+      "wearer": 0.18170426065162906,
+      "environment": 0.3094298245614035,
+      "overlap": 0.23818922305764412
+    },
+    "tir_db": {
+      "mean": 12.312881084275094,
+      "p5": -4.229853098326315,
+      "p95": 40.2174052484463
+    },
+    "drr_wearer_db_mean": 17.935990026179436,
+    "drr_environment_db_mean": -2.302225466495586,
+    "mean_clip_fraction": 0.015881835937499998,
+    "log_mel_frames": 798,
+    "log_mel_dim": 64
+  },
+  "S2": {
+    "scenes_per_sec_single_core": 17.841848348134377,
+    "audio_seconds_per_sec_single_core": 142.73478678507502,
+    "ms_per_scene": 56.04800469591282,
+    "log_mel_ms_per_8s": 3.875051497016102,
+    "state_fractions": {
+      "silence": 0.2706766917293233,
+      "wearer": 0.18170426065162906,
+      "environment": 0.3094298245614035,
+      "overlap": 0.23818922305764412
+    },
+    "tir_db": {
+      "mean": 7.061480598761446,
+      "p5": -11.353762611458983,
+      "p95": 33.34522947547992
+    },
+    "drr_wearer_db_mean": 17.935990026179436,
+    "drr_environment_db_mean": -2.302225466495586,
+    "mean_clip_fraction": 0.009468750000000001,
+    "log_mel_frames": 798,
+    "log_mel_dim": 64
+  },
+  "state_transitions_observed": {
+    "environment->overlap": 175,
+    "environment->silence": 201,
+    "environment->wearer": 5,
+    "overlap->environment": 154,
+    "overlap->silence": 6,
+    "overlap->wearer": 182,
+    "silence->environment": 236,
+    "silence->overlap": 3,
+    "silence->wearer": 166,
+    "wearer->environment": 2,
+    "wearer->overlap": 182,
+    "wearer->silence": 159
+  },
+  "n_distinct_transitions": 12
+}

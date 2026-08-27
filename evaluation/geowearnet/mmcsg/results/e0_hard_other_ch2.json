@@ -1,0 +1,11 @@
+{
+  "status": "OK",
+  "channel": 2,
+  "baseline_other_false_accept_rate": 0.11782406751819649,
+  "hard_other_rms_ge_self_median_far": 0.968187843211513,
+  "n_hard_other_rms_ge_self_median": 5281,
+  "hard_other_rms_ge_self_p75_far": 0.9995090819833088,
+  "n_hard_other_rms_ge_self_p75": 2037,
+  "hard_other_top_decile_energy_far": 0.6662418578306428,
+  "n_hard_other_top_decile_energy": 14124
+}

@@ -1,0 +1,1 @@
+{"text": "Diece", "words": [{"word": "diece", "start_s": 1.4399999380111694, "end_s": 2.959999990463257}], "latency_s": 0.1817383950110525, "audio_duration_s": 4.0, "rtf": 0.04543459875276312, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

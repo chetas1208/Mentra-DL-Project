@@ -1,0 +1,74 @@
+{
+  "note": "CPU, batch=1. No CUDA timing is reported as deployment evidence.",
+  "checkpoint": "training/geowearnet/runs/geowearnet_e1_s1_arch_convnext_20260825_151958_a7fc/checkpoints/best.pt",
+  "global_step": 11250,
+  "benchmarks": {
+    "geowearnet_e1_s1_arch_convnext": {
+      "params": 111958,
+      "state_dict_mb": 0.467936,
+      "receptive_field_frames": 98,
+      "context_ms": 980.0,
+      "arch": "convnext",
+      "chunk_1thread": {
+        "mode": "chunk",
+        "threads": 1,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 1.8453014781698585,
+        "p95_ms": 2.767919935286045,
+        "mean_ms": 1.9181640702299774,
+        "rtf": 0.0018453014781698585,
+        "per_frame_p50_us": 18.453014781698585,
+        "rss_mb": 391.984375
+      },
+      "chunk_2thread": {
+        "mode": "chunk",
+        "threads": 2,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 2.438545459881425,
+        "p95_ms": 4.066134442109615,
+        "mean_ms": 2.6300741476006806,
+        "rtf": 0.002438545459881425,
+        "per_frame_p50_us": 24.38545459881425,
+        "rss_mb": 393.078125
+      },
+      "chunk_4thread": {
+        "mode": "chunk",
+        "threads": 4,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 1.5601494815200567,
+        "p95_ms": 1.7449825769290328,
+        "mean_ms": 1.5951330889947712,
+        "rtf": 0.0015601494815200567,
+        "per_frame_p50_us": 15.601494815200567,
+        "rss_mb": 393.234375
+      }
+    }
+  },
+  "export": {
+    "tolerance": 0.0001,
+    "frames": 200,
+    "torchscript": {
+      "status": "OK",
+      "path": "training/geowearnet/export/geowearnet_e1.ts.pt",
+      "size_mb": 0.464104,
+      "max_abs_diff": {
+        "wearer_logits": 2.5033950805664062e-06,
+        "environment_logits": 1.5497207641601562e-06
+      }
+    },
+    "onnx": {
+      "status": "OK",
+      "path": "training/geowearnet/export/geowearnet_e1.onnx",
+      "size_mb": 0.471625,
+      "opset": 17,
+      "onnx_checker": "PASS",
+      "max_abs_diff": {
+        "wearer_logits": 2.86102294921875e-06,
+        "environment_logits": 2.205371856689453e-06
+      }
+    }
+  }
+}

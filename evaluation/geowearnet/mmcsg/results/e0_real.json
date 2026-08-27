@@ -1,0 +1,409 @@
+{
+  "n_train_recordings": 134,
+  "n_val_recordings": 38,
+  "max_seconds_per_recording": 90.0,
+  "channels": {
+    "0": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7712411322855298,
+          "auprc": 0.8078739345551418,
+          "eer": 0.2847293019294739,
+          "balanced_accuracy": 0.734879379138364
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7867712237299327,
+          "auprc": 0.8206774966807769,
+          "eer": 0.26175928115844727,
+          "balanced_accuracy": 0.765606945090979
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.786383896500437,
+          "auprc": 0.8208598445035162,
+          "eer": 0.26242032647132874,
+          "balanced_accuracy": 0.7654984281663377
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7267568186533093,
+          "auprc": 0.7651227113877116,
+          "eer": 0.31409233808517456,
+          "balanced_accuracy": 0.6963087348894155
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.816582654895756,
+          "auprc": 0.8346560022664794,
+          "eer": 0.23228323459625244,
+          "balanced_accuracy": 0.7906319051344469
+        }
+      }
+    },
+    "1": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7591379749846792,
+          "auprc": 0.8187427453571281,
+          "eer": 0.3033166527748108,
+          "balanced_accuracy": 0.7165815325329622
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7727409951124359,
+          "auprc": 0.8285958363555638,
+          "eer": 0.28240007162094116,
+          "balanced_accuracy": 0.7440369230260407
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7744412559635838,
+          "auprc": 0.8297466852133759,
+          "eer": 0.2800210118293762,
+          "balanced_accuracy": 0.7453396975322237
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7072301148521071,
+          "auprc": 0.7423020108399508,
+          "eer": 0.33583641052246094,
+          "balanced_accuracy": 0.6648644957082666
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.8064542799805136,
+          "auprc": 0.8482654956449547,
+          "eer": 0.25368160009384155,
+          "balanced_accuracy": 0.77084945677295
+        }
+      }
+    },
+    "2": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7961090989157531,
+          "auprc": 0.8431583441323101,
+          "eer": 0.26948460936546326,
+          "balanced_accuracy": 0.75184758031588
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.8053741135681188,
+          "auprc": 0.8503906593464501,
+          "eer": 0.25358864665031433,
+          "balanced_accuracy": 0.7769055900503669
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.8050787371467574,
+          "auprc": 0.8507352331615805,
+          "eer": 0.25144535303115845,
+          "balanced_accuracy": 0.7783152629133325
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7172522659542188,
+          "auprc": 0.7506748560448822,
+          "eer": 0.3258316218852997,
+          "balanced_accuracy": 0.6734925567192245
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.8336250343085674,
+          "auprc": 0.8654172946847697,
+          "eer": 0.22861811518669128,
+          "balanced_accuracy": 0.8015719381918158
+        }
+      }
+    },
+    "3": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7234375664170489,
+          "auprc": 0.7824077844503052,
+          "eer": 0.33461037278175354,
+          "balanced_accuracy": 0.68914852723411
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7374981805962056,
+          "auprc": 0.7920881083751388,
+          "eer": 0.3152818977832794,
+          "balanced_accuracy": 0.7119811342759002
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.740260870130094,
+          "auprc": 0.7935694687260356,
+          "eer": 0.31162029504776,
+          "balanced_accuracy": 0.7133950726361407
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.69139823637243,
+          "auprc": 0.7265236034755922,
+          "eer": 0.34920379519462585,
+          "balanced_accuracy": 0.6503468542335731
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7708097356096002,
+          "auprc": 0.8102867268969935,
+          "eer": 0.28800565004348755,
+          "balanced_accuracy": 0.7355878529588835
+        }
+      }
+    },
+    "4": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7294677856525974,
+          "auprc": 0.78866183935084,
+          "eer": 0.3292209506034851,
+          "balanced_accuracy": 0.6814690923012579
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7450003454218507,
+          "auprc": 0.8010624720908753,
+          "eer": 0.30931103229522705,
+          "balanced_accuracy": 0.7137509410585463
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7444518057837444,
+          "auprc": 0.8007308243303589,
+          "eer": 0.30999213457107544,
+          "balanced_accuracy": 0.7133923955624941
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6989732168698221,
+          "auprc": 0.7378139680580005,
+          "eer": 0.3450239598751068,
+          "balanced_accuracy": 0.6576040137135113
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.7736421597645706,
+          "auprc": 0.8191942796127747,
+          "eer": 0.28418436646461487,
+          "balanced_accuracy": 0.7336556480354541
+        }
+      }
+    },
+    "5": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6817096242874888,
+          "auprc": 0.7152486835434598,
+          "eer": 0.3613118529319763,
+          "balanced_accuracy": 0.6291451766674265
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.679240474637719,
+          "auprc": 0.7179808207774263,
+          "eer": 0.36312949657440186,
+          "balanced_accuracy": 0.6529481126580255
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.681337805001186,
+          "auprc": 0.718845861147562,
+          "eer": 0.3622722625732422,
+          "balanced_accuracy": 0.6519187181287267
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6239030685191764,
+          "auprc": 0.679803366543158,
+          "eer": 0.40996021032333374,
+          "balanced_accuracy": 0.589054654199325
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.666227393502792,
+          "auprc": 0.7087378885526154,
+          "eer": 0.3762010931968689,
+          "balanced_accuracy": 0.6430905420724905
+        }
+      }
+    },
+    "6": {
+      "n_train_frames": 1205732,
+      "n_val_frames": 341924,
+      "wearer_frame_fraction_val": 0.559668242931366,
+      "other_frame_fraction_val": 0.5056094527244568,
+      "groups": {
+        "rms_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6579845676895681,
+          "auprc": 0.6925695973252932,
+          "eer": 0.38357770442962646,
+          "balanced_accuracy": 0.6257745597263136
+        },
+        "peak_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6500091692764655,
+          "auprc": 0.6862889463589019,
+          "eer": 0.3872792720794678,
+          "balanced_accuracy": 0.6233870934051325
+        },
+        "amplitude_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6572795235510385,
+          "auprc": 0.6920016187007111,
+          "eer": 0.384185791015625,
+          "balanced_accuracy": 0.6265974707983442
+        },
+        "spectral_only": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.6194749207121625,
+          "auprc": 0.6595065394591009,
+          "eer": 0.41123294830322266,
+          "balanced_accuracy": 0.5883442565562833
+        },
+        "combined": {
+          "status": "OK",
+          "n_train_frames": 1055593,
+          "n_val_frames": 300956,
+          "auroc": 0.647059727967151,
+          "auprc": 0.6765818947556037,
+          "eer": 0.3886913061141968,
+          "balanced_accuracy": 0.6198144109983686
+        }
+      }
+    }
+  },
+  "ranked_by_combined_auroc": [
+    [
+      "2",
+      0.8336250343085674
+    ],
+    [
+      "0",
+      0.816582654895756
+    ],
+    [
+      "1",
+      0.8064542799805136
+    ],
+    [
+      "4",
+      0.7736421597645706
+    ],
+    [
+      "3",
+      0.7708097356096002
+    ],
+    [
+      "5",
+      0.666227393502792
+    ],
+    [
+      "6",
+      0.647059727967151
+    ]
+  ],
+  "verdict": "MMCSG_E0_LOUDNESS_ONLY"
+}

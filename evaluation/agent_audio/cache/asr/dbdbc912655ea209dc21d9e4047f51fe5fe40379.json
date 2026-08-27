@@ -1,0 +1,1 @@
+{"text": "Dollision.", "words": [{"word": "dollision", "start_s": 1.4399999380111694, "end_s": 2.759999942779541}], "latency_s": 0.1741203621495515, "audio_duration_s": 4.0, "rtf": 0.04353009053738788, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

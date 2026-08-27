@@ -1,0 +1,119 @@
+{
+  "status": "G2_PARENT_FROZEN",
+  "frozen_utc": "2026-08-27T10:55:30.876887+00:00",
+  "source_selection": "evaluation/geowearnet/mmcsg/results/g2_final_selection.json",
+  "selected_model": "g2_ablation_ctx1000",
+  "selection_metrics": {
+    "solo_auroc": 0.9152202706829804,
+    "false_wearer_rate": 0.13512164460548695,
+    "params": 132678,
+    "context_ms": null
+  },
+  "checkpoint_metadata": {
+    "config": {
+      "name": "g2_ablation_ctx1000",
+      "channel": 2,
+      "duration_s": 6.0,
+      "n_mels": 64,
+      "normalization": "global",
+      "use_physical": true,
+      "drop_amplitude_features": false,
+      "p_transition": 0.35,
+      "p_overlap_bias": 0.15,
+      "response_augment": false,
+      "level_normalize": false,
+      "minutes_budget": 60.0,
+      "arch": "tcn",
+      "variant": "ctx1000",
+      "aux_four_state_head": true,
+      "dropout": 0.1,
+      "loss_mode": "M1",
+      "aux_weight": 0.2,
+      "steps": 2000,
+      "batch_size": 24,
+      "lr": 0.0015,
+      "weight_decay": 0.0001,
+      "warmup_steps": 100,
+      "grad_clip": 5.0,
+      "amp": false,
+      "num_workers": 3,
+      "seed": 1234,
+      "val_every": 250,
+      "val_batches": 10,
+      "ckpt_every": 99999,
+      "log_every": 100,
+      "early_stop_patience": 8,
+      "init_from": "/home/923873155/Mentra Project/training/geowearnet/runs/geowearnet_e1_s1_ctx1000_20260825_121526_3dba/checkpoints/best.pt"
+    },
+    "model_config": {
+      "arch": "tcn",
+      "n_mels": 64,
+      "n_physical_features": 14,
+      "use_physical_features": true,
+      "frontend_kernels": [
+        5,
+        5
+      ],
+      "conv_channels": 48,
+      "tcn_channels": 64,
+      "tcn_kernel_size": 3,
+      "tcn_dilations": [
+        1,
+        2,
+        4,
+        8,
+        8
+      ],
+      "dropout": 0.1,
+      "aux_four_state_head": true,
+      "physical_proj_dim": 16,
+      "frame_hop_ms": 10.0
+    },
+    "params": 132678,
+    "receptive_field_frames": null,
+    "context_ms": 1000.0
+  },
+  "artifacts": {
+    "selected_checkpoint": {
+      "path": "training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+      "sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+      "size_bytes": 1686522
+    },
+    "final_selection": {
+      "path": "evaluation/geowearnet/mmcsg/results/g2_final_selection.json",
+      "sha256": "932558efe967d9f3b40e5f25a6edc0f5b1caf4866500767a5bfdc7c2480b875f",
+      "size_bytes": 27052
+    },
+    "official_final_dev": {
+      "path": "evaluation/geowearnet/mmcsg/results/g2_final_dev_evaluation.json",
+      "sha256": "63cd92c3b4ed51f41b4425cd8990f659d74d644bf18e23d335f140515e1c27eb",
+      "size_bytes": 27618
+    },
+    "runtime_normalization_stats": {
+      "path": "training/geowearnet/mmcsg/cache/norm_stats_real_ch2_0.npz",
+      "sha256": "b9be67de220bd33b43886d4e99bd6d1a6b01f15176e8332f34f11d52d78ba6e6",
+      "size_bytes": 1638
+    },
+    "feature_config": {
+      "path": "training/geowearnet/features.py",
+      "sha256": "25276c1f86a3f198de6266328aea73b76e6043b73a8fa17762b4cb3eb3d4e9bd",
+      "size_bytes": 8950
+    },
+    "model_architecture": {
+      "path": "training/geowearnet/model_zoo.py",
+      "sha256": "ac120fbe91b8e83c1d364e60faeca1b1f3c3c9b8e35b0ae45a98eca5f3b4653a",
+      "size_bytes": 17986
+    },
+    "export_artifact": {
+      "path": "evaluation/geowearnet/results/geowearnet_g2_final_deploy.json",
+      "sha256": "d74743f9d576e10d670e87cc02336a469f944ae3f4cc59c312ab2b8f2f1bfc1f",
+      "size_bytes": 3205
+    },
+    "streaming_validation": {
+      "path": "evaluation/geowearnet/mmcsg/results/streaming_real_audio.json",
+      "sha256": "f2c772950de1b4e3d2d368faac600b89da8de6430834604235db1daf80ff0604",
+      "size_bytes": 1772
+    }
+  },
+  "g3_write_boundary": "evaluation/geowearnet/g3/ and training/geowearnet/g3/ only; G2 artifacts immutable"
+}

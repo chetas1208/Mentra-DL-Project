@@ -5,7 +5,13 @@
 // canvas, never a flat synthetic line.
 import type { DetectionResult } from '~/composables/useMentraTransport'
 
-const props = defineProps<{ result: DetectionResult | null }>()
+const props = defineProps<{
+  result: DetectionResult | null
+  /** The model the backend confirmed for this session. Changing it clears the
+   * trace: two models' scores are different quantities and must never be drawn
+   * as one continuous line. */
+  modelId?: string | null
+}>()
 
 const WINDOW_MS = 30_000
 const canvasRef = ref<HTMLCanvasElement | null>(null)
@@ -57,6 +63,13 @@ function draw() {
 watch(() => props.result, (r) => {
   if (!r) return
   points.push({ t: Date.now(), score: r.wearerScore, state: r.state })
+  requestAnimationFrame(draw)
+})
+
+// Visible restart on a model change -- no points carried over, no synthetic
+// bridge drawn across the switch.
+watch(() => props.modelId, () => {
+  points = []
   requestAnimationFrame(draw)
 })
 

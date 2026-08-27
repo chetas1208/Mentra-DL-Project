@@ -1,0 +1,1655 @@
+{
+  "status": "SCORED",
+  "generated_utc": "2026-08-27T17:06:18.465187+00:00",
+  "workstream": "G4_WS2_FIRST_WORD_RETENTION",
+  "checkpoint": "training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+  "official_dev_used": false,
+  "official_eval_used": false,
+  "mentra_hardware_audio_used": false,
+  "data_boundary": "38 MMCSG GeoWearNet-internal validation windows (20 s each) derived only from official train; wearer-disjoint from G2 inner train. No Mentra-device audio exists in this environment and none was simulated.",
+  "measurement_class": "gate-exposure proxy (mean applied gain over labelled word spans), NOT ASR word error",
+  "n_items": 38,
+  "total_audio_minutes": 12.666666666666666,
+  "rolling_window_parity_probes": [
+    {
+      "n_probes": 8,
+      "max_abs_wearer_prob_diff": 1.341104507446289e-07,
+      "mean_abs_wearer_prob_diff": 5.4424162954092026e-08,
+      "max_abs_env_prob_diff": 0.0,
+      "mean_abs_env_prob_diff": 0.0
+    },
+    {
+      "n_probes": 8,
+      "max_abs_wearer_prob_diff": 4.76837158203125e-07,
+      "mean_abs_wearer_prob_diff": 8.533243089914322e-08,
+      "max_abs_env_prob_diff": 2.384185791015625e-07,
+      "mean_abs_env_prob_diff": 4.98257577419281e-08
+    },
+    {
+      "n_probes": 8,
+      "max_abs_wearer_prob_diff": 3.8743019104003906e-07,
+      "mean_abs_wearer_prob_diff": 8.300412446260452e-08,
+      "max_abs_env_prob_diff": 1.7881393432617188e-07,
+      "mean_abs_env_prob_diff": 6.340269464999437e-08
+    },
+    {
+      "n_probes": 8,
+      "max_abs_wearer_prob_diff": 8.381903171539307e-09,
+      "mean_abs_wearer_prob_diff": 1.0477378964424133e-09,
+      "max_abs_env_prob_diff": 2.2351741790771484e-08,
+      "mean_abs_env_prob_diff": 5.476067599374801e-09
+    },
+    {
+      "n_probes": 8,
+      "max_abs_wearer_prob_diff": 2.421438694000244e-08,
+      "mean_abs_wearer_prob_diff": 4.540197551250458e-09,
+      "max_abs_env_prob_diff": 1.4901161193847656e-08,
+      "mean_abs_env_prob_diff": 2.212146910096635e-09
+    }
+  ],
+  "preroll_grid_ms": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+  ],
+  "policies": [
+    {
+      "name": "A_balanced",
+      "wearer_on": 0.6,
+      "wearer_off": 0.4,
+      "env_on": 0.6,
+      "env_off": 0.4,
+      "wearer_gain": 1.0,
+      "env_gain": 0.0,
+      "silence_gain": 0.0,
+      "overlap_policy": "pass_raw",
+      "overlap_gain": 1.0,
+      "attack_ms": 10.0,
+      "release_ms": 60.0,
+      "min_state_ms": 40.0,
+      "hangover_ms": 200.0,
+      "frame_hop_ms": 10.0
+    },
+    {
+      "name": "A_fast_attack",
+      "wearer_on": 0.6,
+      "wearer_off": 0.4,
+      "env_on": 0.6,
+      "env_off": 0.4,
+      "wearer_gain": 1.0,
+      "env_gain": 0.0,
+      "silence_gain": 0.0,
+      "overlap_policy": "pass_raw",
+      "overlap_gain": 1.0,
+      "attack_ms": 0.0,
+      "release_ms": 60.0,
+      "min_state_ms": 40.0,
+      "hangover_ms": 200.0,
+      "frame_hop_ms": 10.0
+    },
+    {
+      "name": "A_early_open",
+      "wearer_on": 0.5,
+      "wearer_off": 0.35,
+      "env_on": 0.6,
+      "env_off": 0.4,
+      "wearer_gain": 1.0,
+      "env_gain": 0.0,
+      "silence_gain": 0.0,
+      "overlap_policy": "pass_raw",
+      "overlap_gain": 1.0,
+      "attack_ms": 10.0,
+      "release_ms": 60.0,
+      "min_state_ms": 40.0,
+      "hangover_ms": 200.0,
+      "frame_hop_ms": 10.0
+    },
+    {
+      "name": "E_no_smoothing",
+      "wearer_on": 0.6,
+      "wearer_off": 0.4,
+      "env_on": 0.6,
+      "env_off": 0.4,
+      "wearer_gain": 1.0,
+      "env_gain": 0.0,
+      "silence_gain": 0.0,
+      "overlap_policy": "pass_raw",
+      "overlap_gain": 1.0,
+      "attack_ms": 0.0,
+      "release_ms": 0.0,
+      "min_state_ms": 0.0,
+      "hangover_ms": 0.0,
+      "frame_hop_ms": 10.0
+    }
+  ],
+  "configs": [
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 0.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.39501594938337803,
+        "p50": 0.33181819319725037,
+        "pass_rate_ge_0_5": 0.4342105263157895
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.5489425273416074,
+        "p50": 0.612500011920929,
+        "pass_rate_ge_0_5": 0.6052631578947368
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.5741223862002555,
+        "p50": 0.653124988079071,
+        "pass_rate_ge_0_5": 0.6447368421052632
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.5734596901607735,
+        "p50": 0.6472222208976746,
+        "pass_rate_ge_0_5": 0.6481481481481481
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07854612714789519,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0764872521246459
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 0.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.1101076565682888,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.10526315789473684
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.21983711294045574,
+        "p50": 0.019999999552965164,
+        "pass_rate_ge_0_5": 0.19736842105263158
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.2699951715277214,
+        "p50": 0.0714285746216774,
+        "pass_rate_ge_0_5": 0.23684210526315788
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.32355746530272345,
+        "p50": 0.20000000298023224,
+        "pass_rate_ge_0_5": 0.2962962962962963
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.09254554315884374,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0906515580736544
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 50.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.6180622039460822,
+        "p50": 0.9090909361839294,
+        "pass_rate_ge_0_5": 0.631578947368421
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7261949351155444,
+        "p50": 0.959935873746872,
+        "pass_rate_ge_0_5": 0.75
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.737601762441428,
+        "p50": 0.9479166567325592,
+        "pass_rate_ge_0_5": 0.7763157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6888220253641959,
+        "p50": 0.8153409063816071,
+        "pass_rate_ge_0_5": 0.7222222222222222
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07288633494455864,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06893295561850803
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 50.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.17661483507407338,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.18421052631578946
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.3299096156107752,
+        "p50": 0.24499999731779099,
+        "pass_rate_ge_0_5": 0.3157894736842105
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.368201091297363,
+        "p50": 0.25,
+        "pass_rate_ge_0_5": 0.3815789473684211
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.4258192693469701,
+        "p50": 0.3379310369491577,
+        "pass_rate_ge_0_5": 0.42592592592592593
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08756114939373687,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08781869688385269
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 100.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.7474581344347251,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.75
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.811222890097844,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.814873522833774,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.7829468007440921,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8518518518518519
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.0700681398994693,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06515580736543909
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 100.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.2880515701284534,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.3157894736842105
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.4567205727492508,
+        "p50": 0.4672619104385376,
+        "pass_rate_ge_0_5": 0.4473684210526316
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.48595592556031125,
+        "p50": 0.5,
+        "pass_rate_ge_0_5": 0.5131578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.5510529133456724,
+        "p50": 0.5590277910232544,
+        "pass_rate_ge_0_5": 0.5740740740740741
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08252058751050935,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08404154863078375
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 150.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.8417464110412096,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8709421393118406,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8702510289455715,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8555166986253526,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8703703703703703
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06731499437567258,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06704438149197356
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 150.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.4623471582798581,
+        "p50": 0.33181819319725037,
+        "pass_rate_ge_0_5": 0.4605263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.597971597588376,
+        "p50": 0.6800000071525574,
+        "pass_rate_ge_0_5": 0.6842105263157895
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.6169270467209188,
+        "p50": 0.7165178656578064,
+        "pass_rate_ge_0_5": 0.6973684210526315
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6738871674018877,
+        "p50": 0.75,
+        "pass_rate_ge_0_5": 0.7777777777777778
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07812072909890029,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07932011331444759
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 200.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.8967703357338905,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.9008881567340148,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9210526315789473
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8959168838827234,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9078947368421053
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8905496884275366,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9074074074074074
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06543053581614164,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06610009442870633
+      }
+    },
+    {
+      "policy": "A_balanced",
+      "preroll_ms": 200.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.6789872422814369,
+        "p50": 0.8090909123420715,
+        "pass_rate_ge_0_5": 0.7105263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7428827323019505,
+        "p50": 0.9200000166893005,
+        "pass_rate_ge_0_5": 0.7631578947368421
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.7506172807985231,
+        "p50": 0.9446969628334045,
+        "pass_rate_ge_0_5": 0.7763157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.775153223839071,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.7962962962962963
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07372885927508697,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0708215297450425
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 0.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.39501594938337803,
+        "p50": 0.33181819319725037,
+        "pass_rate_ge_0_5": 0.4342105263157895
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.5489425273416074,
+        "p50": 0.612500011920929,
+        "pass_rate_ge_0_5": 0.6052631578947368
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.5741223862002555,
+        "p50": 0.653124988079071,
+        "pass_rate_ge_0_5": 0.6447368421052632
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.5734596901607735,
+        "p50": 0.6472222208976746,
+        "pass_rate_ge_0_5": 0.6481481481481481
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07854612714789519,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0764872521246459
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 0.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.1101076565682888,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.10526315789473684
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.21983711294045574,
+        "p50": 0.019999999552965164,
+        "pass_rate_ge_0_5": 0.19736842105263158
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.2699951715277214,
+        "p50": 0.0714285746216774,
+        "pass_rate_ge_0_5": 0.23684210526315788
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.32355746530272345,
+        "p50": 0.20000000298023224,
+        "pass_rate_ge_0_5": 0.2962962962962963
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.09254554315884374,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0906515580736544
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 50.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.6180622039460822,
+        "p50": 0.9090909361839294,
+        "pass_rate_ge_0_5": 0.631578947368421
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7261949351155444,
+        "p50": 0.959935873746872,
+        "pass_rate_ge_0_5": 0.75
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.737601762441428,
+        "p50": 0.9479166567325592,
+        "pass_rate_ge_0_5": 0.7763157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6888220253641959,
+        "p50": 0.8153409063816071,
+        "pass_rate_ge_0_5": 0.7222222222222222
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07288633494455864,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06893295561850803
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 50.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.17661483507407338,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.18421052631578946
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.3299096156107752,
+        "p50": 0.24499999731779099,
+        "pass_rate_ge_0_5": 0.3157894736842105
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.368201091297363,
+        "p50": 0.25,
+        "pass_rate_ge_0_5": 0.3815789473684211
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.4258192693469701,
+        "p50": 0.3379310369491577,
+        "pass_rate_ge_0_5": 0.42592592592592593
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08756114939373687,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08781869688385269
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 100.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.7474581344347251,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.75
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.811222890097844,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.814873522833774,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.7829468007440921,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8518518518518519
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.0700681398994693,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06515580736543909
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 100.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.2880515701284534,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.3157894736842105
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.4567205727492508,
+        "p50": 0.4672619104385376,
+        "pass_rate_ge_0_5": 0.4473684210526316
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.48595592556031125,
+        "p50": 0.5,
+        "pass_rate_ge_0_5": 0.5131578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.5510529133456724,
+        "p50": 0.5590277910232544,
+        "pass_rate_ge_0_5": 0.5740740740740741
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08252058751050935,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08404154863078375
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 150.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.8417464110412096,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8709421393118406,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8702510289455715,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8555166986253526,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8703703703703703
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06731499437567258,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06704438149197356
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 150.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.4623471582798581,
+        "p50": 0.33181819319725037,
+        "pass_rate_ge_0_5": 0.4605263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.597971597588376,
+        "p50": 0.6800000071525574,
+        "pass_rate_ge_0_5": 0.6842105263157895
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.6169270467209188,
+        "p50": 0.7165178656578064,
+        "pass_rate_ge_0_5": 0.6973684210526315
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6738871674018877,
+        "p50": 0.75,
+        "pass_rate_ge_0_5": 0.7777777777777778
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07812072909890029,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07932011331444759
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 200.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.8967703357338905,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.9008881567340148,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9210526315789473
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8959168838827234,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9078947368421053
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8905496884275366,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9074074074074074
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06543053581614164,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06610009442870633
+      }
+    },
+    {
+      "policy": "A_fast_attack",
+      "preroll_ms": 200.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.6789872422814369,
+        "p50": 0.8090909123420715,
+        "pass_rate_ge_0_5": 0.7105263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7428827323019505,
+        "p50": 0.9200000166893005,
+        "pass_rate_ge_0_5": 0.7631578947368421
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.7506172807985231,
+        "p50": 0.9446969628334045,
+        "pass_rate_ge_0_5": 0.7763157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.775153223839071,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.7962962962962963
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07372885927508697,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0708215297450425
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 0.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.4244417869731,
+        "p50": 0.3818181902170181,
+        "pass_rate_ge_0_5": 0.47368421052631576
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.5716020509012436,
+        "p50": 0.6449999809265137,
+        "pass_rate_ge_0_5": 0.6052631578947368
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.5935916317332732,
+        "p50": 0.6830357015132904,
+        "pass_rate_ge_0_5": 0.6578947368421053
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.5951628451821981,
+        "p50": 0.6830357015132904,
+        "pass_rate_ge_0_5": 0.6666666666666666
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08807936795337286,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08498583569405099
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 0.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.13851674783386683,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.13157894736842105
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.23937152571191914,
+        "p50": 0.040833333507180214,
+        "pass_rate_ge_0_5": 0.21052631578947367
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.2884527736490494,
+        "p50": 0.0833333358168602,
+        "pass_rate_ge_0_5": 0.2631578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.3495348312512592,
+        "p50": 0.2884615361690521,
+        "pass_rate_ge_0_5": 0.3333333333333333
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.10055870420850876,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.09820585457979225
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 50.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.6267942604853919,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.6578947368421053
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7351783308151522,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.75
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.7446246376555217,
+        "p50": 0.987500011920929,
+        "pass_rate_ge_0_5": 0.7763157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6987060719618091,
+        "p50": 0.8504464328289032,
+        "pass_rate_ge_0_5": 0.7222222222222222
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08274129084579654,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08026440037771483
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 50.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.19575359084104238,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.19736842105263158
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.343953138119296,
+        "p50": 0.25,
+        "pass_rate_ge_0_5": 0.32894736842105265
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.3819072319096641,
+        "p50": 0.2613636404275894,
+        "pass_rate_ge_0_5": 0.39473684210526316
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.4451093931716901,
+        "p50": 0.40312500298023224,
+        "pass_rate_ge_0_5": 0.4444444444444444
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.09439075514199291,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.09348441926345609
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 100.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.7549940202581255,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.7631578947368421
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8172567251481508,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8194373257850346,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.868421052631579
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.789369930823644,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8518518518518519
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07892590484338284,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07271010387157696
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 100.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.2998936753720045,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.32894736842105265
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.4641218885387245,
+        "p50": 0.47809523344039917,
+        "pass_rate_ge_0_5": 0.4605263157894737
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.4933572413497849,
+        "p50": 0.5096153914928436,
+        "pass_rate_ge_0_5": 0.5263157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.5614695800123392,
+        "p50": 0.5625,
+        "pass_rate_ge_0_5": 0.5925925925925926
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.0886197267394826,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08781869688385269
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 150.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.8514354068197703,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8759233418263888,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8739337223140817,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8606997485514041,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8703703703703703
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.0753644369364513,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07271010387157696
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 150.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.4676103158608863,
+        "p50": 0.33181819319725037,
+        "pass_rate_ge_0_5": 0.4605263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.6012610712725865,
+        "p50": 0.6800000071525574,
+        "pass_rate_ge_0_5": 0.6842105263157895
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.6202165204051294,
+        "p50": 0.7165178656578064,
+        "pass_rate_ge_0_5": 0.6973684210526315
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6785167970315173,
+        "p50": 0.7689394056797028,
+        "pass_rate_ge_0_5": 0.7777777777777778
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08426191630870863,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08498583569405099
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 200.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.9027511967640174,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.9035197355245289,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9210526315789473
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8972499535271996,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9078947368421053
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8924258605197624,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9074074074074074
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.0738563478486375,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07365439093484419
+      }
+    },
+    {
+      "policy": "A_early_open",
+      "preroll_ms": 200.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.6789872422814369,
+        "p50": 0.8090909123420715,
+        "pass_rate_ge_0_5": 0.7105263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7428827323019505,
+        "p50": 0.9200000166893005,
+        "pass_rate_ge_0_5": 0.7631578947368421
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.7506172807985231,
+        "p50": 0.9446969628334045,
+        "pass_rate_ge_0_5": 0.7763157894736842
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.775153223839071,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.7962962962962963
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07976057681424774,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07743153918791312
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 0.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.5544557440045633,
+        "p50": 0.6363636255264282,
+        "pass_rate_ge_0_5": 0.5657894736842105
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.681113867873424,
+        "p50": 0.800000011920929,
+        "pass_rate_ge_0_5": 0.7368421052631579
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.6969138138780469,
+        "p50": 0.800000011920929,
+        "pass_rate_ge_0_5": 0.7631578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6517902124259207,
+        "p50": 0.7321428656578064,
+        "pass_rate_ge_0_5": 0.7037037037037037
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07098871454723159,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06610009442870633
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 0.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.13851674695156121,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.11842105263157894
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.27946021192167936,
+        "p50": 0.14642857760190964,
+        "pass_rate_ge_0_5": 0.2894736842105263
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.3222669371844907,
+        "p50": 0.1785714328289032,
+        "pass_rate_ge_0_5": 0.35526315789473684
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.3773693531337712,
+        "p50": 0.2534482851624489,
+        "pass_rate_ge_0_5": 0.42592592592592593
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.08324988684471876,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.08026440037771483
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 50.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.7057715315175684,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.7236842105263158
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.7872440724780685,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8289473684210527
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.793048648849914,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8421052631578947
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.7525674827672817,
+        "p50": 0.9101010262966156,
+        "pass_rate_ge_0_5": 0.8148148148148148
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06784213370378846,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06421152030217187
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 50.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 50.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.23895534333821974,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.23684210526315788
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.40527453077466863,
+        "p50": 0.375,
+        "pass_rate_ge_0_5": 0.35526315789473684
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.43725758663525705,
+        "p50": 0.39047619700431824,
+        "pass_rate_ge_0_5": 0.42105263157894735
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.4987126631593263,
+        "p50": 0.45913460850715637,
+        "pass_rate_ge_0_5": 0.48148148148148145
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07890450699400857,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07837582625118036
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 100.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.820454546103352,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8421052631578947
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8538179585808202,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8520343715423032,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8293337783327809,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8703703703703703
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06451370338254148,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06610009442870633
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 100.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 100.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.3799375348577374,
+        "p50": 0.140909094363451,
+        "pass_rate_ge_0_5": 0.35526315789473684
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.5419569203728124,
+        "p50": 0.6000000238418579,
+        "pass_rate_ge_0_5": 0.618421052631579
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.5648631205488193,
+        "p50": 0.6220238208770752,
+        "pass_rate_ge_0_5": 0.6578947368421053
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6269738710036984,
+        "p50": 0.653124988079071,
+        "pass_rate_ge_0_5": 0.7222222222222222
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07464639721148075,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07459867799811143
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 150.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.8771531102492621,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.881578947368421
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8900702478070008,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9078947368421053
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8840670942475921,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8947368421052632
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8738722067188334,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8888888888888888
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.061550285100824324,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.05760151085930123
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 150.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.5885333622756758,
+        "p50": 0.6181818246841431,
+        "pass_rate_ge_0_5": 0.6578947368421053
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.6791975586430022,
+        "p50": 0.8366666436195374,
+        "pass_rate_ge_0_5": 0.7368421052631579
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.6909078659587785,
+        "p50": 0.8603896200656891,
+        "pass_rate_ge_0_5": 0.75
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.7380246153032338,
+        "p50": 0.8911764621734619,
+        "pass_rate_ge_0_5": 0.7777777777777778
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07060346728484511,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0679886685552408
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 200.0,
+      "probability_source": "offline_dense",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.9010765552520752,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9210526315789473
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8968750003137087,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9078947368421053
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8928582005594906,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9078947368421053
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8862448748615053,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.9074074074074074
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.062452173710038236,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.059490084985835696
+      }
+    },
+    {
+      "policy": "E_no_smoothing",
+      "preroll_ms": 200.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 200.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.7955741631357294,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8157894736842105
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.8328144875796217,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8421052631578947
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.8344327034918886,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8552631578947368
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.8055596070157157,
+        "p50": 1.0,
+        "pass_rate_ge_0_5": 0.8333333333333334
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.06822069717449777,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.06610009442870633
+      }
+    }
+  ],
+  "selection": {
+    "status": "SELECTED",
+    "rule": {
+      "objective": "maximise first_token_retention pass rate under the LIVE (200 ms held) probability source",
+      "constraint_leakage": "bystander_word_exposure pass rate must not exceed the A_balanced/preroll=0 baseline by more than 2.0 percentage points",
+      "constraint_delay": "added algorithmic delay from pre-roll must be <= 150 ms",
+      "tie_break": "lowest added delay, then lowest bystander exposure"
+    },
+    "baseline": {
+      "policy": "A_balanced",
+      "preroll_ms": 0.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 0.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.1101076565682888,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.10526315789473684
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.21983711294045574,
+        "p50": 0.019999999552965164,
+        "pass_rate_ge_0_5": 0.19736842105263158
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.2699951715277214,
+        "p50": 0.0714285746216774,
+        "pass_rate_ge_0_5": 0.23684210526315788
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.32355746530272345,
+        "p50": 0.20000000298023224,
+        "pass_rate_ge_0_5": 0.2962962962962963
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.09254554315884374,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.0906515580736544
+      }
+    },
+    "selected": {
+      "policy": "A_balanced",
+      "preroll_ms": 150.0,
+      "probability_source": "live_200ms_held",
+      "added_delay_ms": 150.0,
+      "first_100ms_retention": {
+        "n": 76,
+        "mean": 0.4623471582798581,
+        "p50": 0.33181819319725037,
+        "pass_rate_ge_0_5": 0.4605263157894737
+      },
+      "first_250ms_retention": {
+        "n": 76,
+        "mean": 0.597971597588376,
+        "p50": 0.6800000071525574,
+        "pass_rate_ge_0_5": 0.6842105263157895
+      },
+      "first_token_retention": {
+        "n": 76,
+        "mean": 0.6169270467209188,
+        "p50": 0.7165178656578064,
+        "pass_rate_ge_0_5": 0.6973684210526315
+      },
+      "wake_word_retention": {
+        "n": 54,
+        "mean": 0.6738871674018877,
+        "p50": 0.75,
+        "pass_rate_ge_0_5": 0.7777777777777778
+      },
+      "bystander_word_exposure": {
+        "n": 1059,
+        "mean": 0.07812072909890029,
+        "p50": 0.0,
+        "pass_rate_ge_0_5": 0.07932011331444759
+      }
+    },
+    "n_eligible": 12,
+    "delta_first_token_pp": 46.05,
+    "delta_first_250ms_pp": 48.68,
+    "delta_bystander_exposure_pp": -1.13
+  }
+}

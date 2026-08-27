@@ -19,6 +19,8 @@ export interface ModelCapabilities {
   supportsOverlap: boolean
   supportsEnvironmentActivity: boolean
   supportsSourceSeparation: boolean
+  audioPolicy: string
+  experimental: boolean
   outputLabels: string[]
 }
 
@@ -37,6 +39,8 @@ function isModelCapabilities(v: unknown): v is ModelCapabilities {
     typeof o.supportsOverlap === 'boolean' &&
     typeof o.supportsEnvironmentActivity === 'boolean' &&
     typeof o.supportsSourceSeparation === 'boolean' &&
+    typeof o.audioPolicy === 'string' &&
+    typeof o.experimental === 'boolean' &&
     Array.isArray(o.outputLabels)
   )
 }

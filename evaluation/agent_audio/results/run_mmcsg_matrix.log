@@ -1,0 +1,89 @@
+== availability ==
+{
+  "asr": {
+    "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1",
+    "available": true,
+    "model_dir": "/home/923873155/Mentra Project/models/sherpa-asr/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06",
+    "status": "AVAILABLE",
+    "cache_dir": "/home/923873155/Mentra Project/evaluation/agent_audio/cache/asr"
+  },
+  "rnnoise": {
+    "backend": "rnnoise/xiph-bsd3/pyrnnoise-0.4.3",
+    "available": true,
+    "status": "AVAILABLE",
+    "license": "BSD-3-Clause (RNNoise/Xiph); python wrapper Apache-2.0",
+    "note": "bound via pyrnnoise's low-level ctypes module directly; the package __init__ is bypassed because its audiolab dependency is only needed for file I/O and installing it would risk perturbing the numpy/torch used by the live GPU campaign",
+    "rnnoise_frame_ms": 10.0,
+    "rnnoise_lookahead_ms": 0.0,
+    "resampler_group_delay_ms_est": 0.5,
+    "latency_algorithmic_ms": 10.5,
+    "native_sample_rate": 48000,
+    "frame_size": 480
+  },
+  "stress_bench": {
+    "DISCLAIMER": "SYNTHETIC PRODUCT STRESS BENCH -- digitally mixed LibriSpeech + MUSAN. NOT real autobody validation, NOT recorded on Mentra hardware.",
+    "librispeech_root": "/home/923873155/Mentra Project/evaluation/data/raw/LibriSpeech/test-clean",
+    "librispeech_utterances_indexed": 2620,
+    "librispeech_speakers": 40,
+    "musan_noise_files": 930,
+    "musan_music_files": 660,
+    "n_scenarios": 10,
+    "status": "AVAILABLE"
+  }
+}
+== detector ==
+{
+  "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_sim_ft_60m_20260826_075257_bd19/checkpoints/best.pt",
+  "arch": "crnn",
+  "params": 28950,
+  "context_ms": 80.0,
+  "train_run": "g2_sim_ft_60m",
+  "normalization": "global",
+  "has_norm_stats": true,
+  "best_val": {
+    "wearer_auroc": 0.8887492439347264,
+    "environment_auroc": 0.8845309465668172,
+    "wearer_eer": 0.1498188078403473,
+    "wearer_frr_at_far20": 0.11931073665618896,
+    "wearer_frr_at_far10": 0.22084707021713257,
+    "wearer_frr_at_far5": 0.5817550420761108,
+    "wearer_frr_at_far1": 0.9468153715133667,
+    "wearer_positive_rate": 0.6040830612182617,
+    "environment_positive_rate": 0.5409908294677734,
+    "wearer_vs_env_solo_auroc": 0.9133425651573421,
+    "wearer_vs_env_solo_frr_at_far5": 0.4465295076370239,
+    "overlap_f1": 0.5433104836776761,
+    "state_accuracy": 0.7642906911928651,
+    "false_wearer_rate_on_env_only": 0.15090956148783555,
+    "val_loss": 1.175093013048172,
+    "val_frames": 143520
+  }
+}
+== building items (source=mmcsg) ==
+   76 items, 25.3 min of audio
+  [5/76] 27s elapsed
+  [10/76] 53s elapsed
+  [15/76] 80s elapsed
+  [20/76] 106s elapsed
+  [25/76] 132s elapsed
+  [30/76] 157s elapsed
+  [35/76] 183s elapsed
+  [40/76] 209s elapsed
+  [45/76] 234s elapsed
+  [50/76] 260s elapsed
+  [55/76] 285s elapsed
+  [60/76] 311s elapsed
+  [65/76] 335s elapsed
+  [70/76] 360s elapsed
+  [75/76] 385s elapsed
+
+wrote /home/923873155/Mentra Project/evaluation/agent_audio/results/agent_audio_matrix_mmcsg.json
+
+pipeline                        wearerWER      BLR    wDel     F1   latms
+RAW                                 0.778    0.568   0.125    nan     0.0
+RNNOISE                             0.760    0.527   0.123    nan    10.5
+GEOWEAR_GATE                        0.290    0.096   0.174  0.814    35.0
+RNNOISE_GEOWEAR_GATE                0.323    0.117   0.179  0.761    45.5
+ORACLE_GATE                         0.226    0.063   0.153  0.943    35.0
+RNNOISE_ORACLE_GATE                 0.239    0.066   0.158  0.943    45.5
+ORACLE_GATE_MUTE_OVERLAP            0.298    0.052   0.233  0.796    35.0

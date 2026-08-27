@@ -7,6 +7,7 @@
 
 import { deriveGlobalStatus, type GlobalStatus } from '~/utils/runtimeStatus'
 import { classifySource } from '~/utils/sourceClassification'
+import { selectableModels } from '~/utils/modelCatalog'
 
 export function useRuntimeState() {
   const {
@@ -39,6 +40,27 @@ export function useRuntimeState() {
   const requiresEnrollment = computed<boolean | null>(() => transport.capabilities.value?.requiresEnrollment ?? null)
   const supportsEnrollment = computed<boolean | null>(() => transport.capabilities.value?.supportsEnrollment ?? null)
   const modelReady = computed<boolean | null>(() => transport.capabilities.value?.ready ?? null)
+
+  // --- multi-model runtime view -------------------------------------------
+  // The backend's catalog is authoritative. With no catalog (a receiver that
+  // predates model selection) this collapses to the single model that
+  // receiver actually reported, so the selector still tells the truth.
+  const availableModels = computed(() =>
+    selectableModels(transport.modelCatalog.value, transport.capabilities.value),
+  )
+  /** The model the backend has CONFIRMED for this session, resolved to its
+   * product display name. Never derived from the user's pending choice. */
+  const activeModelName = computed<string | null>(() => {
+    const id = transport.activeModel.value
+    if (!id) return null
+    return availableModels.value.find((m) => m.id === id)?.displayName ?? id
+  })
+  const activeModelExperimental = computed<boolean>(() =>
+    transport.capabilities.value?.experimental ?? false,
+  )
+  /** A model switch needs a stopped session: never carry rolling context,
+   * latches or an enrollment across a live stream (preferred option A). */
+  const modelSelectionLocked = computed(() => mic.isCapturing.value)
 
   const enrollmentSatisfied = computed(() =>
     requiresEnrollment.value === false ? true : transport.enrollmentStatus.value === 'REAL',
@@ -82,6 +104,7 @@ export function useRuntimeState() {
     refreshDevices, selectDevice, attachDeviceChangeListener,
     mic, transport,
     sourceLabel, sourceClassification,
+    availableModels, activeModelName, activeModelExperimental, modelSelectionLocked,
     requiresEnrollment, supportsEnrollment, modelReady, enrollmentSatisfied, audioFlowing,
     globalStatus, sessionUptimeS,
     isStarting, wasStopped, hasError,

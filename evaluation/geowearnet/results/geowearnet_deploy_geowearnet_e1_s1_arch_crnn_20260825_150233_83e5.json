@@ -1,0 +1,109 @@
+{
+  "note": "CPU, batch=1. No CUDA timing is reported as deployment evidence.",
+  "checkpoint": "training/geowearnet/runs/geowearnet_e1_s1_arch_crnn_20260825_150233_83e5/checkpoints/best.pt",
+  "global_step": 11250,
+  "benchmarks": {
+    "geowearnet_e1_s1_arch_crnn": {
+      "params": 28950,
+      "state_dict_mb": 0.12634,
+      "receptive_field_frames": 8,
+      "context_ms": 80.0,
+      "arch": "crnn",
+      "chunk_1thread": {
+        "mode": "chunk",
+        "threads": 1,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 2.6453143218532205,
+        "p95_ms": 2.7735749492421746,
+        "mean_ms": 2.6515407080296427,
+        "rtf": 0.0026453143218532205,
+        "per_frame_p50_us": 26.453143218532205,
+        "rss_mb": 391.24609375
+      },
+      "chunk_2thread": {
+        "mode": "chunk",
+        "threads": 2,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 2.782099531032145,
+        "p95_ms": 3.154418594203889,
+        "mean_ms": 2.883157547330484,
+        "rtf": 0.002782099531032145,
+        "per_frame_p50_us": 27.82099531032145,
+        "rss_mb": 391.71484375
+      },
+      "chunk_4thread": {
+        "mode": "chunk",
+        "threads": 4,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 2.7234050212427974,
+        "p95_ms": 2.9590661171823736,
+        "mean_ms": 2.7585545205511153,
+        "rtf": 0.0027234050212427974,
+        "per_frame_p50_us": 27.234050212427974,
+        "rss_mb": 392.02734375
+      },
+      "streaming_parity": {
+        "max_abs_diff_wearer": 2.86102294921875e-06,
+        "max_abs_diff_environment": 1.3113021850585938e-06,
+        "frames": 300,
+        "tolerance": 0.0002
+      },
+      "streaming_1thread": {
+        "mode": "streaming",
+        "threads": 1,
+        "chunk_frames": 100,
+        "audio_ms_per_chunk": 1000.0,
+        "p50_ms": 49.668678431771696,
+        "p95_ms": 50.2510170917958,
+        "mean_ms": 49.7600098606199,
+        "rtf": 0.049668678431771696,
+        "per_frame_p50_us": 496.68678431771696,
+        "rss_mb": 393.58984375
+      }
+    }
+  },
+  "export": {
+    "tolerance": 0.0001,
+    "frames": 200,
+    "torchscript": {
+      "status": "OK",
+      "path": "training/geowearnet/export/geowearnet_e1.ts.pt",
+      "size_mb": 0.124206,
+      "max_abs_diff": {
+        "wearer_logits": 3.0994415283203125e-06,
+        "environment_logits": 1.430511474609375e-06
+      }
+    },
+    "onnx": {
+      "status": "OK",
+      "path": "training/geowearnet/export/geowearnet_e1.onnx",
+      "size_mb": 0.124979,
+      "opset": 17,
+      "onnx_checker": "PASS",
+      "max_abs_diff": {
+        "wearer_logits": 1.9073486328125e-06,
+        "environment_logits": 1.1920928955078125e-06
+      }
+    }
+  },
+  "soak": {
+    "requested_minutes": 1.0,
+    "audio_minutes_processed": 1.0,
+    "wall_seconds": 3.3733111179899424,
+    "frames": 6000,
+    "threads": 2,
+    "per_frame_p50_ms": 0.5420922604389489,
+    "per_frame_p95_ms": 0.6597446148516608,
+    "latency_drift_pct_second_half_vs_first": -1.9192239598571765,
+    "rtf": 0.05420922604389489,
+    "nan_or_inf_outputs": 0,
+    "rss_timeline": [],
+    "rss_growth_mb": 0.0,
+    "streaming_state_elements": 512,
+    "streaming_state_constant": true,
+    "output_magnitude_timeline": []
+  }
+}

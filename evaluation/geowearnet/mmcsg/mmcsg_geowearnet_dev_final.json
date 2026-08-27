@@ -1,0 +1,1188 @@
+{
+  "source": "MMCSG official dev split -- FINAL HELD-OUT TEST. Do not tune on this.",
+  "recordings": [
+    {
+      "recording_id": "1033566334616594_0001_3375_21050",
+      "source_split": "dev",
+      "self_speaker": "NYC3840614",
+      "other_speaker": "NYC3840612",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "1044912663445633_0001_3225_21325",
+      "source_split": "dev",
+      "self_speaker": "NYC3870586",
+      "other_speaker": "NYC3840602",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "1064129154833441_0001_3200_20825",
+      "source_split": "dev",
+      "self_speaker": "NYC3900560",
+      "other_speaker": "NYC3840585",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1064298294761885_0001_3325_20925",
+      "source_split": "dev",
+      "self_speaker": "NYC3840678",
+      "other_speaker": "NYC3840679",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1066327188050933_0001_3475_20600",
+      "source_split": "dev",
+      "self_speaker": "NYC3840585",
+      "other_speaker": "NYC3900560",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1068087847846091_0001_3325_21875",
+      "source_split": "dev",
+      "self_speaker": "NYC3871147",
+      "other_speaker": "NYC3901162",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1087058362613610_0001_3375_20675",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "1087926412210752_0001_3425_21050",
+      "source_split": "dev",
+      "self_speaker": "NYC3900570",
+      "other_speaker": "NYC3840590",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "1349438055688287_0001_3400_20675",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "1355496158424060_0001_3400_21100",
+      "source_split": "dev",
+      "self_speaker": "NYC3871147",
+      "other_speaker": "NYC3901162",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1379736632914841_0001_3375_21025",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1388497025206893_0001_3250_21450",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1407057153351797_0001_3425_21975",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "1409438886314772_0001_3325_23825",
+      "source_split": "dev",
+      "self_speaker": "NYC3901360",
+      "other_speaker": "NYC3901361",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "1430571151172072_0001_3175_20325",
+      "source_split": "dev",
+      "self_speaker": "NYC3901253",
+      "other_speaker": "NYC3871247",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1440908536506719_0001_3325_19700",
+      "source_split": "dev",
+      "self_speaker": "NYC3840678",
+      "other_speaker": "NYC3840679",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1443857503202528_0001_3700_20700",
+      "source_split": "dev",
+      "self_speaker": "NYC3901261",
+      "other_speaker": "NYC3901262",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1460917057973110_0001_3475_21950",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "1462179267699386_0001_3050_23650",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "1466773233885918_0001_2875_20650",
+      "source_split": "dev",
+      "self_speaker": "NYC3871292",
+      "other_speaker": "NYC3841326",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1476797856502697_0001_3175_20700",
+      "source_split": "dev",
+      "self_speaker": "NYC3840678",
+      "other_speaker": "NYC3840679",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1481113902455765_0001_3750_21150",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1533179980815465_0001_3400_20675",
+      "source_split": "dev",
+      "self_speaker": "NYC3871147",
+      "other_speaker": "NYC3901162",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1535305527270961_0001_3100_21900",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1554108952012256_0001_3400_18850",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1555513625202988_0001_3400_21425",
+      "source_split": "dev",
+      "self_speaker": "NYC3841274",
+      "other_speaker": "NYC3841273",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1562490704505413_0001_3725_21300",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "1564146724334766_0001_3225_23275",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1566087857577515_0001_3375_20750",
+      "source_split": "dev",
+      "self_speaker": "NYC3901285",
+      "other_speaker": "NYC3871291",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1577583496405136_0001_3200_20975",
+      "source_split": "dev",
+      "self_speaker": "NYC3870558",
+      "other_speaker": "NYC3870559",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1589259165235764_0001_3325_20100",
+      "source_split": "dev",
+      "self_speaker": "NYC3840678",
+      "other_speaker": "NYC3840679",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1636199213577454_0001_3275_20525",
+      "source_split": "dev",
+      "self_speaker": "NYC3840678",
+      "other_speaker": "NYC3840679",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1731840500630013_0001_3275_19850",
+      "source_split": "dev",
+      "self_speaker": "NYC3840679",
+      "other_speaker": "NYC3840678",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1732178347284330_0001_3125_21925",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1736285593549864_0001_3200_19400",
+      "source_split": "dev",
+      "self_speaker": "NYC3901253",
+      "other_speaker": "NYC3871247",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1756645261521257_0001_3250_20550",
+      "source_split": "dev",
+      "self_speaker": "NYC3901253",
+      "other_speaker": "NYC3871247",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1758543781236834_0001_3300_20950",
+      "source_split": "dev",
+      "self_speaker": "NYC3840679",
+      "other_speaker": "NYC3840678",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1786070985198395_0001_3300_19625",
+      "source_split": "dev",
+      "self_speaker": "NYC3901261",
+      "other_speaker": "NYC3901262",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1791957144587454_0001_3225_22100",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "1812895699141779_0001_3375_20950",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "187253264474937_0001_4225_20225",
+      "source_split": "dev",
+      "self_speaker": "NYC3901360",
+      "other_speaker": "NYC3901361",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "1912294209188261_0001_3525_21900",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "201795706345104_0001_3075_20475",
+      "source_split": "dev",
+      "self_speaker": "NYC3841199",
+      "other_speaker": "NYC3871173",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "2060076274350008_0001_3500_23200",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "210442042116760_0001_3425_21950",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "219418964538572_0001_3375_21950",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "2315628568647745_0001_2975_21200",
+      "source_split": "dev",
+      "self_speaker": "NYC3871292",
+      "other_speaker": "NYC3841326",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "232571193193486_0001_3350_21100",
+      "source_split": "dev",
+      "self_speaker": "NYC3840590",
+      "other_speaker": "NYC3900570",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "245773038383092_0001_3100_19750",
+      "source_split": "dev",
+      "self_speaker": "NYC3870558",
+      "other_speaker": "NYC3870559",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "24693988033547944_0001_3200_22075",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "273423405708316_0001_3275_25450",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "299736249239486_0001_3250_21200",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "300261102540778_0001_3450_21950",
+      "source_split": "dev",
+      "self_speaker": "NYC3901360",
+      "other_speaker": "NYC3901361",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "301423406207956_0001_3450_21150",
+      "source_split": "dev",
+      "self_speaker": "NYC3900605",
+      "other_speaker": "NYC3840617",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "304666975885408_0001_3300_21875",
+      "source_split": "dev",
+      "self_speaker": "NYC3870558",
+      "other_speaker": "NYC3870559",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "306773501963154_0001_3425_20975",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "316793748017370_0001_3425_21575",
+      "source_split": "dev",
+      "self_speaker": "NYC3841274",
+      "other_speaker": "NYC3841273",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "323090363906288_0001_3275_21450",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "323374283898264_0001_3250_21925",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "324300197110752_0001_3375_21675",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "324448130393605_0001_3600_20975",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "324509280390537_0001_3275_24450",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "326149846863178_0001_3425_22575",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "328765676750574_0001_3550_21900",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "330439069851336_0001_3400_20400",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "331181269681390_0001_3300_21400",
+      "source_split": "dev",
+      "self_speaker": "NYC3900568",
+      "other_speaker": "NYC3900569",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "3363428510469114_0001_3550_21850",
+      "source_split": "dev",
+      "self_speaker": "NYC3871147",
+      "other_speaker": "NYC3901162",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "336987409240651_0001_3400_21275",
+      "source_split": "dev",
+      "self_speaker": "NYC3901360",
+      "other_speaker": "NYC3901361",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "340373282234870_0001_3125_20875",
+      "source_split": "dev",
+      "self_speaker": "NYC3871292",
+      "other_speaker": "NYC3841326",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "341796008580039_0001_3275_21950",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "342796491802257_0001_3450_21850",
+      "source_split": "dev",
+      "self_speaker": "NYC3840617",
+      "other_speaker": "NYC3900605",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "343446011788512_0001_2975_20950",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "346826761621579_0001_3350_20025",
+      "source_split": "dev",
+      "self_speaker": "NYC3901262",
+      "other_speaker": "NYC3901261",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "347198634868266_0001_2925_20950",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "351926390962173_0001_3125_20925",
+      "source_split": "dev",
+      "self_speaker": "NYC3901261",
+      "other_speaker": "NYC3901262",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "353207977345573_0001_3200_20925",
+      "source_split": "dev",
+      "self_speaker": "NYC3901361",
+      "other_speaker": "NYC3901360",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "3548091608787052_0001_3275_24450",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "3587110091571181_0001_3225_21500",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "3588338971439521_0001_3550_20525",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "359977920012388_0001_3275_20075",
+      "source_split": "dev",
+      "self_speaker": "NYC3840679",
+      "other_speaker": "NYC3840678",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "361129999991258_0001_2925_20950",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "3630575763833145_0001_3400_20525",
+      "source_split": "dev",
+      "self_speaker": "NYC3871147",
+      "other_speaker": "NYC3901162",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "3650432641912784_0001_3225_21225",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "3662152454031065_0001_3625_20825",
+      "source_split": "dev",
+      "self_speaker": "NYC3871147",
+      "other_speaker": "NYC3901162",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "366361389474584_0001_3350_21525",
+      "source_split": "dev",
+      "self_speaker": "NYC3841273",
+      "other_speaker": "NYC3841274",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "369491905635065_0001_3200_23200",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "372637025441740_0001_3250_21250",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "3752060985119433_0001_3200_21275",
+      "source_split": "dev",
+      "self_speaker": "NYC3871141",
+      "other_speaker": "NYC3871138",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "377663248119858_0001_3150_19125",
+      "source_split": "dev",
+      "self_speaker": "NYC3870558",
+      "other_speaker": "NYC3870559",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "380158591089541_0001_3250_20875",
+      "source_split": "dev",
+      "self_speaker": "NYC3840585",
+      "other_speaker": "NYC3900560",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "381563810927189_0001_3250_19725",
+      "source_split": "dev",
+      "self_speaker": "NYC3870558",
+      "other_speaker": "NYC3870559",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "382616950938808_0001_3175_19850",
+      "source_split": "dev",
+      "self_speaker": "NYC3901262",
+      "other_speaker": "NYC3901261",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "382882274275543_0001_3375_21350",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "383568327557376_0001_3450_21200",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "385295610532330_0001_3125_20075",
+      "source_split": "dev",
+      "self_speaker": "NYC3901261",
+      "other_speaker": "NYC3901262",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "385813803823965_0001_3200_20150",
+      "source_split": "dev",
+      "self_speaker": "NYC3901262",
+      "other_speaker": "NYC3901261",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "387689623798564_0001_3825_18550",
+      "source_split": "dev",
+      "self_speaker": "NYC3871401",
+      "other_speaker": "NYC3871400",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "388050350376955_0001_3575_22350",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "388192237017915_0001_3325_21175",
+      "source_split": "dev",
+      "self_speaker": "NYC3871138",
+      "other_speaker": "NYC3871141",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "391321226678290_0001_3175_20350",
+      "source_split": "dev",
+      "self_speaker": "NYC3871247",
+      "other_speaker": "NYC3901253",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "393343469828808_0001_3250_20650",
+      "source_split": "dev",
+      "self_speaker": "NYC3840679",
+      "other_speaker": "NYC3840678",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "395392249517026_0001_3000_24925",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "396942622723865_0001_3575_21225",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "397161029449506_0001_3175_20550",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "405269731922421_0001_3250_21075",
+      "source_split": "dev",
+      "self_speaker": "NYC3901261",
+      "other_speaker": "NYC3901262",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "421398956883890_0001_3325_21900",
+      "source_split": "dev",
+      "self_speaker": "NYC3901162",
+      "other_speaker": "NYC3871147",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "577230011237386_0001_3250_21400",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "612798457639608_0001_3375_18825",
+      "source_split": "dev",
+      "self_speaker": "NYC3871401",
+      "other_speaker": "NYC3871400",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "660659566225882_0001_3275_21150",
+      "source_split": "dev",
+      "self_speaker": "NYC3870586",
+      "other_speaker": "NYC3840602",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "660777146271384_0001_3450_22050",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "662093426070092_0001_3225_20325",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "677835174562861_0001_3325_21650",
+      "source_split": "dev",
+      "self_speaker": "NYC3871291",
+      "other_speaker": "NYC3901285",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "684052777224002_0001_3225_21250",
+      "source_split": "dev",
+      "self_speaker": "NYC3871138",
+      "other_speaker": "NYC3871141",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "690303869922467_0001_3325_20800",
+      "source_split": "dev",
+      "self_speaker": "NYC3841199",
+      "other_speaker": "NYC3871173",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "6927381237317729_0001_3300_21025",
+      "source_split": "dev",
+      "self_speaker": "NYC3901360",
+      "other_speaker": "NYC3901361",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "695336162669361_0001_3675_20525",
+      "source_split": "dev",
+      "self_speaker": "NYC3901262",
+      "other_speaker": "NYC3901261",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "6997494703704655_0001_3400_21200",
+      "source_split": "dev",
+      "self_speaker": "NYC3871141",
+      "other_speaker": "NYC3871138",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "700039285267385_0001_3350_21650",
+      "source_split": "dev",
+      "self_speaker": "NYC3841273",
+      "other_speaker": "NYC3841274",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "703822145037168_0001_3450_22550",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "7054943667908403_0001_3300_25475",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "719772263444423_0001_3250_23350",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "7233876343299554_0001_2925_21200",
+      "source_split": "dev",
+      "self_speaker": "NYC3841326",
+      "other_speaker": "NYC3871292",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "724137432680567_0001_3325_20525",
+      "source_split": "dev",
+      "self_speaker": "NYC3870559",
+      "other_speaker": "NYC3870558",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "7244024135637000_0001_3075_20850",
+      "source_split": "dev",
+      "self_speaker": "NYC3841326",
+      "other_speaker": "NYC3871292",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "726743756096084_0001_3200_20450",
+      "source_split": "dev",
+      "self_speaker": "NYC3871247",
+      "other_speaker": "NYC3901253",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "727494212611588_0001_3100_20450",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "729192785417697_0001_3250_20325",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "7415952781768405_0001_3025_20750",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "746942430228829_0001_3550_20750",
+      "source_split": "dev",
+      "self_speaker": "NYC3901162",
+      "other_speaker": "NYC3871147",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "747101280613110_0001_3250_21650",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "753399199623034_0001_3075_23775",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "753689249945108_0001_3250_20475",
+      "source_split": "dev",
+      "self_speaker": "NYC3871173",
+      "other_speaker": "NYC3841199",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "7546080005420767_0001_3325_21200",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "755495149757782_0001_3250_22675",
+      "source_split": "dev",
+      "self_speaker": "NYC3871306",
+      "other_speaker": "NYc3871308",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "755874273061546_0001_3100_20900",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "758890836258911_0001_3525_20050",
+      "source_split": "dev",
+      "self_speaker": "NYC3871138",
+      "other_speaker": "NYC3871141",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "7730562690306272_0001_2950_22700",
+      "source_split": "dev",
+      "self_speaker": "NYC3841414",
+      "other_speaker": "NYC3871368",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "773222467973649_0001_3525_20650",
+      "source_split": "dev",
+      "self_speaker": "NYC3900560",
+      "other_speaker": "NYC3840585",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "808687581274702_0001_3125_21000",
+      "source_split": "dev",
+      "self_speaker": "NYC3901253",
+      "other_speaker": "NYC3871247",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "813429997213336_0001_3250_20300",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "818457706713282_0001_3250_20325",
+      "source_split": "dev",
+      "self_speaker": "NYC3901261",
+      "other_speaker": "NYC3901262",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "818644243364598_0001_3500_21950",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "828119565858808_0001_3175_21400",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "871128874513837_0001_3150_20625",
+      "source_split": "dev",
+      "self_speaker": "NYC3900569",
+      "other_speaker": "3900568",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "873764018086402_0001_2950_22725",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "883110306737061_0001_3200_23200",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "883228263418834_0001_3200_21075",
+      "source_split": "dev",
+      "self_speaker": "NYC3900516",
+      "other_speaker": "NYC3870513",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "889640619319777_0001_3450_21500",
+      "source_split": "dev",
+      "self_speaker": "NYC3901162",
+      "other_speaker": "NYC3871147",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "890733135838142_0001_3350_22450",
+      "source_split": "dev",
+      "self_speaker": "NYC3901360",
+      "other_speaker": "NYC3901361",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "893598115662763_0001_3350_21800",
+      "source_split": "dev",
+      "self_speaker": "NYC3870559",
+      "other_speaker": "NYC3870558",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "894133302241208_0001_3225_21625",
+      "source_split": "dev",
+      "self_speaker": "NYC3870513",
+      "other_speaker": "NYC3900516",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "894712982177144_0001_3825_21350",
+      "source_split": "dev",
+      "self_speaker": "NYC3840684",
+      "other_speaker": "NYC3870665",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "895329572076072_0001_3375_20125",
+      "source_split": "dev",
+      "self_speaker": "NYC3901253",
+      "other_speaker": "NYC3871247",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "895840078673350_0001_3500_21900",
+      "source_split": "dev",
+      "self_speaker": "NYC3901162",
+      "other_speaker": "NYC3871147",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "900369164976194_0001_3175_21000",
+      "source_split": "dev",
+      "self_speaker": "NYC3901262",
+      "other_speaker": "NYC3901261",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "908848453945183_0001_3600_20625",
+      "source_split": "dev",
+      "self_speaker": "NYC3901162",
+      "other_speaker": "NYC3871147",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "910982873736253_0001_3000_20750",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "911978887215286_0001_3200_20650",
+      "source_split": "dev",
+      "self_speaker": "NYC3901253",
+      "other_speaker": "NYC3871247",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "914552520244799_0001_3400_21325",
+      "source_split": "dev",
+      "self_speaker": "NYC3870665",
+      "other_speaker": "NYC3840684",
+      "noise_category": "Music in room"
+    },
+    {
+      "recording_id": "915730396113889_0001_3600_21000",
+      "source_split": "dev",
+      "self_speaker": "NYC3900568",
+      "other_speaker": "NYC3900569",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "922530212173613_0001_3125_20500",
+      "source_split": "dev",
+      "self_speaker": "NYC3871173",
+      "other_speaker": "NYC3841199",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "924633745258218_0001_3400_18475",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "928127752223314_0001_3000_21425",
+      "source_split": "dev",
+      "self_speaker": "NYC3871292",
+      "other_speaker": "NYC3841326",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "929961675349549_0001_3325_21450",
+      "source_split": "dev",
+      "self_speaker": "NYC3871400",
+      "other_speaker": "NYC3871401",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "934275318258776_0001_3375_21075",
+      "source_split": "dev",
+      "self_speaker": "NYC3901162",
+      "other_speaker": "NYC3871147",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "937840167784929_0001_3000_21125",
+      "source_split": "dev",
+      "self_speaker": "NYC3871292",
+      "other_speaker": "NYC3841326",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "944232050381977_0001_3225_21700",
+      "source_split": "dev",
+      "self_speaker": "NYC3871138",
+      "other_speaker": "NYC3871141",
+      "noise_category": "No background Noise"
+    },
+    {
+      "recording_id": "947606327081930_0001_3100_20900",
+      "source_split": "dev",
+      "self_speaker": "NYC3871368",
+      "other_speaker": "NYC3841414",
+      "noise_category": "Busy intersection"
+    },
+    {
+      "recording_id": "955011492634316_0001_3300_21300",
+      "source_split": "dev",
+      "self_speaker": "NYC3871173",
+      "other_speaker": "NYC3841199",
+      "noise_category": "No background Noise"
+    }
+  ]
+}

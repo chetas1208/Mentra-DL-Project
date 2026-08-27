@@ -1,0 +1,71 @@
+{
+  "train": {
+    "split": "train",
+    "n_recordings": 172,
+    "total_duration_hours": 8.472786475694445,
+    "total_overlap_minutes": 57.83403333333332,
+    "overlap_pct_of_total": 11.376429210398015,
+    "total_silence_minutes": 11.314871875000016,
+    "silence_pct_of_total": 2.225728200015928,
+    "self_only_pct_of_total": 44.93365658038418,
+    "other_only_pct_of_total": 41.46418600920188,
+    "n_overlap_segments": 3754,
+    "overlap_segment_duration_s": {
+      "mean": 0.9243585508790624,
+      "median": 0.6519999999999935,
+      "p90": 2.0794000000000104,
+      "max": 7.826999999999998
+    },
+    "per_recording_overlap_pct_distribution": {
+      "min": 2.0313286713286756,
+      "median": 9.282948233019972,
+      "max": 33.29872881355934
+    }
+  },
+  "dev": {
+    "split": "dev",
+    "n_recordings": 169,
+    "total_duration_hours": 8.420450271990742,
+    "total_overlap_minutes": 55.72228333333336,
+    "overlap_pct_of_total": 11.029157494242414,
+    "total_silence_minutes": 14.958249652777791,
+    "silence_pct_of_total": 2.9606986898182823,
+    "self_only_pct_of_total": 42.573627244562786,
+    "other_only_pct_of_total": 43.4365165713765,
+    "n_overlap_segments": 3586,
+    "overlap_segment_duration_s": {
+      "mean": 0.9323304517568323,
+      "median": 0.6805000000000021,
+      "p90": 2.022500000000001,
+      "max": 11.17300000000003
+    },
+    "per_recording_overlap_pct_distribution": {
+      "min": 2.1147595356550517,
+      "median": 9.269930069930087,
+      "max": 34.435036496350385
+    }
+  },
+  "eval": {
+    "split": "eval",
+    "n_recordings": 189,
+    "total_duration_hours": 9.387361122685185,
+    "total_overlap_minutes": 66.36479999999999,
+    "overlap_pct_of_total": 11.782651008568145,
+    "total_silence_minutes": 11.485914236111121,
+    "silence_pct_of_total": 2.039251515237625,
+    "self_only_pct_of_total": 46.08005438991547,
+    "other_only_pct_of_total": 40.09804549051616,
+    "n_overlap_segments": 4037,
+    "overlap_segment_duration_s": {
+      "mean": 0.9863482784245728,
+      "median": 0.6839999999999975,
+      "p90": 2.180399999999999,
+      "max": 13.402999999999992
+    },
+    "per_recording_overlap_pct_distribution": {
+      "min": 2.007909604519751,
+      "median": 9.098351648351647,
+      "max": 41.33918128654971
+    }
+  }
+}

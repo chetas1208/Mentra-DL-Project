@@ -1,0 +1,33 @@
+{
+  "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "identity_probe": {
+    "status": "OK",
+    "label_key": "self_speaker",
+    "n_labels": 31,
+    "n_train_windows": 6706,
+    "n_heldout_windows": 2352,
+    "chance_accuracy": 0.03225806451612903,
+    "in_sample_probe_train_accuracy": 0.8000298240381748,
+    "out_of_recording_heldout_accuracy": 0.5824829931972789,
+    "heldout_accuracy_over_chance": 18.056972789115648
+  },
+  "session_probe": {
+    "status": "OK",
+    "n_sessions": 30,
+    "n_train_windows": 1432,
+    "n_heldout_windows": 635,
+    "chance_accuracy": 0.03333333333333333,
+    "held_out_time_slice_accuracy": 0.47244094488188976,
+    "accuracy_over_chance": 14.173228346456693
+  },
+  "dataset_source_shortcut_audit": {
+    "status": "OK",
+    "same_recording": true,
+    "same_channel_selection_logic": true,
+    "same_resampling_function": "audio_io.read_full for both SELF and OTHER frames of the same window",
+    "same_feature_extractor": "acoustics.log_mel / features.extract_features, label-independent",
+    "same_normalization_stats": "shared per-channel/global stats, computed on TRAIN split only, not per-label",
+    "note": "SELF vs OTHER labels come only from RTTM speaker field applied to a SHARED audio tensor already read once per window (see dataset.py); there is no separate code path that could introduce a systematic non-label difference between the two classes."
+  },
+  "verdict": "IDENTITY_SHORTCUT_SUSPECTED"
+}

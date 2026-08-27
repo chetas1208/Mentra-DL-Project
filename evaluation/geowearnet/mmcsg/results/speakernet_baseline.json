@@ -1,0 +1,92 @@
+{
+  "channel": 2,
+  "min_test_segment_s": 1.0,
+  "by_enrollment_duration": {
+    "1.0": {
+      "status": "OK",
+      "enroll_s": 1.0,
+      "n_recordings_used": 38,
+      "n_recordings_skipped_insufficient_self_speech": 0,
+      "n_test_utterances": 731,
+      "n_positive_self": 344,
+      "n_negative_other": 387,
+      "auroc": 0.8661213268433388,
+      "auprc": 0.8526357475534427,
+      "eer": 0.22432170542635657,
+      "frr_at_far10": 0.43023255813953487,
+      "frr_at_far5": 0.5523255813953488
+    },
+    "3.0": {
+      "status": "OK",
+      "enroll_s": 3.0,
+      "n_recordings_used": 38,
+      "n_recordings_skipped_insufficient_self_speech": 0,
+      "n_test_utterances": 720,
+      "n_positive_self": 333,
+      "n_negative_other": 387,
+      "auroc": 0.8885086637024622,
+      "auprc": 0.881073734364264,
+      "eer": 0.20416928556463437,
+      "frr_at_far10": 0.3273273273273273,
+      "frr_at_far5": 0.44744744744744747
+    },
+    "5.0": {
+      "status": "OK",
+      "enroll_s": 5.0,
+      "n_recordings_used": 38,
+      "n_recordings_skipped_insufficient_self_speech": 0,
+      "n_test_utterances": 711,
+      "n_positive_self": 324,
+      "n_negative_other": 387,
+      "auroc": 0.8957077232271031,
+      "auprc": 0.8920215326630032,
+      "eer": 0.19695664656904965,
+      "frr_at_far10": 0.2993827160493827,
+      "frr_at_far5": 0.3765432098765432
+    }
+  },
+  "dev_final": {
+    "1.0": {
+      "status": "OK",
+      "enroll_s": 1.0,
+      "n_recordings_used": 169,
+      "n_recordings_skipped_insufficient_self_speech": 0,
+      "n_test_utterances": 4055,
+      "n_positive_self": 1962,
+      "n_negative_other": 2093,
+      "auroc": 0.8562951696178659,
+      "auprc": 0.8597621387460082,
+      "eer": 0.22786563921386419,
+      "frr_at_far10": 0.37614678899082565,
+      "frr_at_far5": 0.4892966360856269
+    },
+    "3.0": {
+      "status": "OK",
+      "enroll_s": 3.0,
+      "n_recordings_used": 169,
+      "n_recordings_skipped_insufficient_self_speech": 0,
+      "n_test_utterances": 4003,
+      "n_positive_self": 1910,
+      "n_negative_other": 2093,
+      "auroc": 0.907693308285159,
+      "auprc": 0.9073826955487821,
+      "eer": 0.16711989353692064,
+      "frr_at_far10": 0.2534031413612565,
+      "frr_at_far5": 0.374869109947644
+    },
+    "5.0": {
+      "status": "OK",
+      "enroll_s": 5.0,
+      "n_recordings_used": 169,
+      "n_recordings_skipped_insufficient_self_speech": 0,
+      "n_test_utterances": 3966,
+      "n_positive_self": 1873,
+      "n_negative_other": 2093,
+      "auroc": 0.9108234322375784,
+      "auprc": 0.9095911961475471,
+      "eer": 0.1618705118554233,
+      "frr_at_far10": 0.2359850507207688,
+      "frr_at_far5": 0.35824879871863324
+    }
+  }
+}

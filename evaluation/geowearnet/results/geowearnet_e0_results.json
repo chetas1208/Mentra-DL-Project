@@ -1,0 +1,288 @@
+{
+  "generated_at_utc": "2026-08-25T04:32:41Z",
+  "data": {
+    "type": "SIMULATED (LibriSpeech + synthetic S0 transfer function, see docs/geowearnet_dataset_licenses.md)",
+    "n_train": 500,
+    "n_val": 120,
+    "n_test": 180,
+    "person_disjoint_split": true,
+    "role_randomization": true
+  },
+  "e0_ablation_results": {
+    "rms_only": {
+      "n_features": 2,
+      "val": {
+        "auroc": 0.9530555555555557,
+        "auprc": 0.9589159876512643,
+        "eer": 0.125,
+        "far": 0.1,
+        "frr": 0.2,
+        "accuracy": 0.85,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.9650617283950618,
+        "auprc": 0.9663660963429641,
+        "eer": 0.09444444444444446,
+        "far": 0.1,
+        "frr": 0.14444444444444443,
+        "accuracy": 0.8777777777777778,
+        "n": 180
+      }
+    },
+    "peak_only": {
+      "n_features": 2,
+      "val": {
+        "auroc": 0.971111111111111,
+        "auprc": 0.9746705937167462,
+        "eer": 0.08333333333333334,
+        "far": 0.016666666666666666,
+        "frr": 0.23333333333333334,
+        "accuracy": 0.875,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.9787654320987654,
+        "auprc": 0.9769134314791577,
+        "eer": 0.07777777777777775,
+        "far": 0.044444444444444446,
+        "frr": 0.14444444444444443,
+        "accuracy": 0.9055555555555556,
+        "n": 180
+      }
+    },
+    "clipping_only": {
+      "n_features": 2,
+      "val": {
+        "auroc": 0.5,
+        "auprc": 0.5,
+        "eer": 0.5,
+        "far": 1.0,
+        "frr": 0.0,
+        "accuracy": 0.5,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.5,
+        "auprc": 0.5,
+        "eer": 0.5,
+        "far": 1.0,
+        "frr": 0.0,
+        "accuracy": 0.5,
+        "n": 180
+      }
+    },
+    "amplitude_only": {
+      "n_features": 8,
+      "val": {
+        "auroc": 0.9761111111111112,
+        "auprc": 0.9807851741541487,
+        "eer": 0.06666666666666665,
+        "far": 0.03333333333333333,
+        "frr": 0.15,
+        "accuracy": 0.9083333333333333,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.9865432098765432,
+        "auprc": 0.986418183509941,
+        "eer": 0.07222222222222219,
+        "far": 0.06666666666666667,
+        "frr": 0.07777777777777778,
+        "accuracy": 0.9277777777777778,
+        "n": 180
+      }
+    },
+    "spectral_only": {
+      "n_features": 18,
+      "val": {
+        "auroc": 0.9555555555555555,
+        "auprc": 0.9433050757995395,
+        "eer": 0.08333333333333334,
+        "far": 0.1,
+        "frr": 0.08333333333333333,
+        "accuracy": 0.9083333333333333,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.9456790123456791,
+        "auprc": 0.9426765341747035,
+        "eer": 0.1111111111111111,
+        "far": 0.14444444444444443,
+        "frr": 0.08888888888888889,
+        "accuracy": 0.8833333333333333,
+        "n": 180
+      }
+    },
+    "amplitude_plus_spectral": {
+      "n_features": 28,
+      "val": {
+        "auroc": 0.9997222222222222,
+        "auprc": 0.9997267759562841,
+        "eer": 0.01666666666666669,
+        "far": 0.0,
+        "frr": 0.05,
+        "accuracy": 0.975,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.9969135802469136,
+        "auprc": 0.9970205451178105,
+        "eer": 0.03888888888888886,
+        "far": 0.03333333333333333,
+        "frr": 0.044444444444444446,
+        "accuracy": 0.9611111111111111,
+        "n": 180
+      }
+    },
+    "all": {
+      "n_features": 28,
+      "val": {
+        "auroc": 0.9997222222222222,
+        "auprc": 0.9997267759562841,
+        "eer": 0.01666666666666669,
+        "far": 0.0,
+        "frr": 0.05,
+        "accuracy": 0.975,
+        "n": 120
+      },
+      "test": {
+        "auroc": 0.9969135802469136,
+        "auprc": 0.9970205451178105,
+        "eer": 0.03888888888888886,
+        "far": 0.03333333333333333,
+        "frr": 0.044444444444444446,
+        "accuracy": 0.9611111111111111,
+        "n": 180
+      },
+      "logreg_coefficients": {
+        "mean_log_rms": 1.1740353107452393,
+        "mean_peak": 0.6499396562576294,
+        "mean_crest_factor": 0.23144781589508057,
+        "mean_clipping_fraction": 0.0,
+        "mean_zero_crossing_rate": 0.13036008179187775,
+        "mean_spectral_centroid": -0.33713003993034363,
+        "mean_spectral_rolloff85": -0.14397461712360382,
+        "mean_spectral_tilt": 0.44127166271209717,
+        "mean_lf_energy_ratio": 0.14811420440673828,
+        "mean_mf_energy_ratio": -0.1124657467007637,
+        "mean_hf_energy_ratio": 0.04759872332215309,
+        "mean_spectral_flux": -1.1428956985473633,
+        "mean_energy_derivative": -0.7725031971931458,
+        "mean_harmonicity": -1.129737377166748,
+        "std_log_rms": -0.2739250361919403,
+        "std_peak": 1.6146255731582642,
+        "std_crest_factor": 0.39430639147758484,
+        "std_clipping_fraction": 0.0,
+        "std_zero_crossing_rate": -0.16643035411834717,
+        "std_spectral_centroid": 0.7547604441642761,
+        "std_spectral_rolloff85": -0.8618335723876953,
+        "std_spectral_tilt": 0.3500508666038513,
+        "std_lf_energy_ratio": -0.1433522254228592,
+        "std_mf_energy_ratio": 0.4770311415195465,
+        "std_hf_energy_ratio": 0.46797680854797363,
+        "std_spectral_flux": 0.17256398499011993,
+        "std_energy_derivative": 2.808640480041504,
+        "std_harmonicity": 0.39383429288864136
+      }
+    }
+  },
+  "e0_tiny_mlp_all_features_test": {
+    "auroc": 0.9990123456790124,
+    "auprc": 0.9990249094789574,
+    "eer": 0.011111111111111092,
+    "far": 0.022222222222222223,
+    "frr": 0.011111111111111112,
+    "accuracy": 0.9833333333333333,
+    "n": 180
+  },
+  "anti_cheating": {
+    "normal": {
+      "auroc": 0.9969135802469136,
+      "auprc": 0.9970205451178105,
+      "eer": 0.03888888888888886,
+      "far": 0.03333333333333333,
+      "frr": 0.044444444444444446,
+      "accuracy": 0.9611111111111111,
+      "n": 180
+    },
+    "level_matched": {
+      "auroc": 0.9927111111111111,
+      "auprc": 0.9934759093353743,
+      "eer": 0.06666666666666665,
+      "far": 0.02666666666666667,
+      "frr": 0.06666666666666667,
+      "accuracy": 0.9533333333333334,
+      "n": 150
+    },
+    "wearer_whisper": {
+      "auroc": 0.9509333333333334,
+      "auprc": 0.9491811244365209,
+      "eer": 0.12,
+      "far": 0.013333333333333334,
+      "frr": 0.4,
+      "accuracy": 0.7933333333333333,
+      "n": 150
+    },
+    "close_bystander": {
+      "auroc": 0.9214222222222223,
+      "auprc": 0.9259712570328047,
+      "eer": 0.16666666666666669,
+      "far": 0.14666666666666667,
+      "frr": 0.18666666666666668,
+      "accuracy": 0.8333333333333334,
+      "n": 150
+    },
+    "shouting_bystander": {
+      "auroc": 0.7875555555555556,
+      "auprc": 0.7660828486716504,
+      "eer": 0.28,
+      "far": 0.5066666666666667,
+      "frr": 0.08,
+      "accuracy": 0.7066666666666667,
+      "n": 150
+    },
+    "wearer_loud": {
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "eer": 0.0,
+      "far": 0.0,
+      "frr": 0.0,
+      "accuracy": 1.0,
+      "n": 150
+    },
+    "random_gain": {
+      "auroc": 0.9976888888888888,
+      "auprc": 0.9978325503362636,
+      "eer": 0.019999999999999976,
+      "far": 0.0,
+      "frr": 0.12,
+      "accuracy": 0.94,
+      "n": 150
+    }
+  },
+  "amplitude_dependence_score": {
+    "level_matched": {
+      "delta_auroc": -0.004202469135802467,
+      "delta_accuracy": -0.007777777777777772,
+      "delta_far": -0.0066666666666666645,
+      "delta_frr": 0.02222222222222222
+    },
+    "random_gain": {
+      "delta_auroc": 0.0007753086419752808,
+      "delta_accuracy": -0.02111111111111119,
+      "delta_far": -0.03333333333333333,
+      "delta_frr": 0.07555555555555554
+    }
+  },
+  "verdict": {
+    "value": "E0_PHYSICAL_SIGNAL_STRONG",
+    "all_features_test_auroc": 0.9969135802469136,
+    "amplitude_only_test_auroc": 0.9865432098765432,
+    "spectral_only_test_auroc": 0.9456790123456791,
+    "level_matched_auroc": 0.9927111111111111,
+    "random_gain_auroc": 0.9976888888888888,
+    "note": "SIMULATED_GEOMETRY data only (Phase 2/47) -- this verdict is about whether the simulated transfer-function hypothesis has ANY nontrivial, non-loudness signal, not about real Mentra wearer detection."
+  },
+  "runtime_seconds": 139.49672174453735
+}

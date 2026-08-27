@@ -1,0 +1,1 @@
+{"text": "Donption", "words": [{"word": "donption", "start_s": 1.4399999380111694, "end_s": 1.9599999904632568}], "latency_s": 0.18870365503244102, "audio_duration_s": 4.0, "rtf": 0.047175913758110255, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

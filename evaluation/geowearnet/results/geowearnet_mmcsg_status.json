@@ -1,0 +1,86 @@
+{
+  "availability": {
+    "root": "/usr/data/923873155/mmcsg/MMCSG",
+    "exists": true,
+    "train": {
+      "audio_files": 172,
+      "transcripts": 172,
+      "metadata": 172
+    },
+    "dev": {
+      "audio_files": 169,
+      "transcripts": 169,
+      "metadata": 169
+    },
+    "eval": {
+      "audio_files": 189,
+      "transcripts": 189,
+      "metadata": 189
+    },
+    "status": "AVAILABLE"
+  },
+  "manifest_summary": {
+    "n_recordings": 530
+  },
+  "split": {
+    "train": 181,
+    "val": 8,
+    "test": 0,
+    "dropped_straddling": 341,
+    "_speaker_counts": {
+      "test": 28,
+      "val": 28,
+      "train": 82
+    }
+  },
+  "channel_study": {
+    "n_channels": 7,
+    "n_recordings": 20,
+    "channels": {
+      "0": {
+        "rms_db_mean": -51.2836767515528,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.8674699157754981
+      },
+      "1": {
+        "rms_db_mean": -54.61936333826888,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.8730331679567294
+      },
+      "2": {
+        "rms_db_mean": -52.955620382293006,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.8786064118492682
+      },
+      "3": {
+        "rms_db_mean": -55.36432257407265,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.8452614467908183
+      },
+      "4": {
+        "rms_db_mean": -55.273803691694155,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.8348722620651425
+      },
+      "5": {
+        "rms_db_mean": -55.917873090770996,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.7339422054985206
+      },
+      "6": {
+        "rms_db_mean": -56.78928507473879,
+        "wearer_frame_fraction": 0.37885960936546326,
+        "other_frame_fraction": 0.36402133107185364,
+        "e0_wearer_vs_other_auroc": 0.7342091962578136
+      }
+    },
+    "recommended_single_channel": 2,
+    "note": "Channel chosen by MEASUREMENT, not by assuming which mic the baseline uses."
+  }
+}

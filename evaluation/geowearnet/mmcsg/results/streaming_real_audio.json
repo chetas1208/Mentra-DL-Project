@@ -1,0 +1,55 @@
+{
+  "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "channel": 2,
+  "cpu_benchmark": {
+    "1_threads": {
+      "p50_ms": 3.643055446445942,
+      "p95_ms": 4.043039423413574,
+      "rtf": 0.003643055446445942
+    },
+    "2_threads": {
+      "p50_ms": 3.3047543838620186,
+      "p95_ms": 3.363184747286141,
+      "rtf": 0.0033047543838620186
+    },
+    "4_threads": {
+      "p50_ms": 3.1923940405249596,
+      "p95_ms": 6.04320407146588,
+      "rtf": 0.0031923940405249596
+    },
+    "params": 132678,
+    "serialized_size_mb": 0.567366,
+    "source_recording": "1302664060426140_0001_3375_22000"
+  },
+  "streaming_parity": {
+    "recording_id": "1302664060426140_0001_3375_22000",
+    "frames": 18623,
+    "max_abs_diff_wearer": 4.678964614868164e-06,
+    "max_abs_diff_environment": 5.7220458984375e-06,
+    "tolerance": 0.0002,
+    "pass": true
+  },
+  "perturbation_causality": {
+    "recording_id": "1302664060426140_0001_3375_22000",
+    "total_frames": 18623,
+    "perturb_at_frame": 9311,
+    "max_abs_diff_before_T": 0.0,
+    "max_abs_diff_after_T": 38.139652729034424,
+    "causality_pass": true,
+    "note": "post_diff should be LARGE (perturbation should change future predictions); pre_diff must be ~0 (future audio must not affect past predictions)."
+  },
+  "long_soak": {
+    "target_minutes": 5.0,
+    "actual_minutes_streamed": 6.153499999999999,
+    "n_recordings_used": 2,
+    "total_frames": 36921,
+    "wall_clock_s": 101.17838072776794,
+    "p50_latency_ms": 2.52802693285048,
+    "p95_latency_ms": 3.2356190495193005,
+    "max_latency_ms": 27.870831778272986,
+    "rss_start_mb": 1222.1796875,
+    "rss_end_mb": 1222.9609375,
+    "rss_growth_mb": 0.78125,
+    "nan_or_inf_count": 0
+  }
+}

@@ -21,6 +21,18 @@ export enum MessageType {
   ENROLL_AUDIO = 11,
   ENROLL_DONE = 12,
   SET_PLAYBACK_MODE = 13,
+  // G4 WS6 research capture. Additive: a receiver started without a capture
+  // directory ignores these, and a client that never sends them is unchanged.
+  CAPTURE_META = 14,     // client->server: UTF-8 JSON session/condition/device metadata
+  CAPTURE_RAW_PCM = 15,  // client->server: PCM16 at the device's NATIVE rate (header carries it)
+  CAPTURE_ACK = 16,      // server->client: UTF-8 JSON capture status
+  // Multi-model control plane. Feature-detected, not a version bump: the
+  // server sends MODEL_CATALOG only to a client whose STREAM_START payload
+  // advertises `features=model_selection`, and a receiver built before these
+  // existed simply never sends one. Binary AUDIO_FRAME framing is unchanged.
+  MODEL_CATALOG = 17,       // server->client: UTF-8 JSON model catalog
+  SESSION_CONFIG = 18,      // client->server: UTF-8 JSON {"type","model"} -- binds THIS session
+  SESSION_CONFIG_ACK = 19,  // server->client: UTF-8 JSON binding result + capabilities
 }
 
 export enum Codec {

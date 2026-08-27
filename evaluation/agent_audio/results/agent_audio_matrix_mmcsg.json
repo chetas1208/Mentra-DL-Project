@@ -1,0 +1,1270 @@
+{
+  "pipelines": {
+    "RAW": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.7781402936378466,
+        "wearer_deletion_rate": 0.12479608482871125,
+        "wearer_retention": 0.7785481239804242,
+        "bystander_leakage_rate": 0.5681049069373942,
+        "wearer_ter": 11.798928099525329,
+        "energy_leak_fraction": 0.15482302119460062,
+        "speaker_attribution_error_rate": 0.39682704078948283,
+        "attribution_frac_self": 0.5208212138851323,
+        "attribution_frac_other": 0.38788086496444657,
+        "attribution_frac_overlap": 0.08235174532538486,
+        "attribution_frac_none": 0.008946175825036276,
+        "latency_algorithmic_ms": 0.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.49088742295839755,
+          0.6425635577065022
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.10373049561848188,
+          0.15728179085721553
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.7894736842105263,
+        "wearer_deletion_rate": 0.11382113821138211,
+        "wearer_retention": 0.7903294822421908,
+        "bystander_leakage_rate": 0.5664814023086789,
+        "wearer_ter": 12.105273357309335,
+        "energy_leak_fraction": 0.14962690331652295,
+        "speaker_attribution_error_rate": 0.4028642038731592,
+        "attribution_frac_self": 0.5156167453963554,
+        "attribution_frac_other": 0.3936729273405877,
+        "attribution_frac_overlap": 0.08151905073048538,
+        "attribution_frac_none": 0.009191276532571516,
+        "latency_algorithmic_ms": 0.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.4909732797506102,
+          0.6331601445226043
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.0957177905700864,
+          0.1302196164564566
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 1419.0,
+          "11_overlap": 114.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 1533.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.07436399217221135,
+        "fraction_of_leakage_from_env_only": 0.9256360078277887,
+        "pct_of_leakage_from_overlap": 7.436399217221135,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.6979832759468766,
+          "11_overlap": 0.34441087613293053
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 3509.0,
+        "hyp_words_by_state": {
+          "00_silence": 29.0,
+          "10_wearer_only": 1804.0,
+          "01_environment_only": 1395.0,
+          "11_overlap": 281.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.008264462809917356,
+          "10_wearer_only": 0.5141065830721003,
+          "01_environment_only": 0.3975491593046452,
+          "11_overlap": 0.08007979481333713
+        },
+        "pure_leakage_words_env_only": 1395.0,
+        "ambiguous_words_overlap": 281.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.16766109785202865,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    },
+    "RNNOISE": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.7597879282218597,
+        "wearer_deletion_rate": 0.12275693311582382,
+        "wearer_retention": 0.7744698205546493,
+        "bystander_leakage_rate": 0.5270727580372251,
+        "wearer_ter": 11.719116000838627,
+        "energy_leak_fraction": 0.1173938233497297,
+        "speaker_attribution_error_rate": 0.3940315918579274,
+        "attribution_frac_self": 0.5279508284190626,
+        "attribution_frac_other": 0.38696471611432315,
+        "attribution_frac_overlap": 0.07801757972301006,
+        "attribution_frac_none": 0.00706687574360433,
+        "latency_algorithmic_ms": 10.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.4625233175504522,
+          0.5921577762495827
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.10233986391909304,
+          0.1476194595485253
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.7697903294822422,
+        "wearer_deletion_rate": 0.11382113821138211,
+        "wearer_retention": 0.7907573812580231,
+        "bystander_leakage_rate": 0.5275758871312527,
+        "wearer_ter": 12.023722261786416,
+        "energy_leak_fraction": 0.11055182387172104,
+        "speaker_attribution_error_rate": 0.3996899916348569,
+        "attribution_frac_self": 0.5234369241748359,
+        "attribution_frac_other": 0.39285758504896207,
+        "attribution_frac_overlap": 0.07687308419030713,
+        "attribution_frac_none": 0.006832406585894859,
+        "latency_algorithmic_ms": 10.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.45420076405995574,
+          0.6014863424609057
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.09425360043940303,
+          0.13141589339663357
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 1348.0,
+          "11_overlap": 107.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 1455.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.07353951890034365,
+        "fraction_of_leakage_from_env_only": 0.9264604810996564,
+        "pct_of_leakage_from_overlap": 7.353951890034364,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.663059517953763,
+          "11_overlap": 0.32326283987915405
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 3460.0,
+        "hyp_words_by_state": {
+          "00_silence": 22.0,
+          "10_wearer_only": 1815.0,
+          "01_environment_only": 1350.0,
+          "11_overlap": 273.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.006358381502890174,
+          "10_wearer_only": 0.5245664739884393,
+          "01_environment_only": 0.3901734104046243,
+          "11_overlap": 0.07890173410404624
+        },
+        "pure_leakage_words_env_only": 1350.0,
+        "ambiguous_words_overlap": 273.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.16820702402957485,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    },
+    "GEOWEAR_GATE": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.2895595432300163,
+        "wearer_deletion_rate": 0.1737357259380098,
+        "wearer_retention": 0.7455138662316476,
+        "bystander_leakage_rate": 0.09602368866328258,
+        "wearer_ter": 0.9789336103457016,
+        "target_activity_precision": 0.8291696801848787,
+        "target_activity_recall": 0.8229115605762816,
+        "target_activity_f1": 0.8137448563388022,
+        "energy_leak_fraction": 0.09041115009194553,
+        "speaker_attribution_error_rate": 0.15302938610902367,
+        "attribution_frac_self": 0.7305037368286993,
+        "attribution_frac_other": 0.1439691259077898,
+        "attribution_frac_overlap": 0.11646687706227705,
+        "attribution_frac_none": 0.009060260201233832,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.05971933471139756,
+          0.13970748780727235
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.1380700648770163,
+          0.23537279445418285
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.2563115104835259,
+        "wearer_deletion_rate": 0.14206247325631152,
+        "wearer_retention": 0.7804878048780488,
+        "bystander_leakage_rate": 0.08935442496793501,
+        "wearer_ter": 0.9812915513442024,
+        "target_activity_precision": 0.8325007689610647,
+        "target_activity_recall": 0.8416769841842152,
+        "target_activity_f1": 0.8309229260032205,
+        "energy_leak_fraction": 0.08337520763409789,
+        "speaker_attribution_error_rate": 0.1489468690564965,
+        "attribution_frac_self": 0.7362121739628299,
+        "attribution_frac_other": 0.13963493496078397,
+        "attribution_frac_overlap": 0.11484095698067365,
+        "attribution_frac_none": 0.00931193409571255,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.05591077586539426,
+          0.13062090815707725
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.12300528421605675,
+          0.16454164507140548
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 345.0,
+          "11_overlap": 78.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 423.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.18439716312056736,
+        "fraction_of_leakage_from_env_only": 0.8156028368794326,
+        "pct_of_leakage_from_overlap": 18.43971631205674,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.16969995081160846,
+          "11_overlap": 0.23564954682779457
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 2110.0,
+        "hyp_words_by_state": {
+          "00_silence": 12.0,
+          "10_wearer_only": 1684.0,
+          "01_environment_only": 181.0,
+          "11_overlap": 233.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.005687203791469194,
+          "10_wearer_only": 0.7981042654028436,
+          "01_environment_only": 0.08578199052132701,
+          "11_overlap": 0.11042654028436019
+        },
+        "pure_leakage_words_env_only": 181.0,
+        "ambiguous_words_overlap": 233.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.5628019323671497,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    },
+    "RNNOISE_GEOWEAR_GATE": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.3225938009787928,
+        "wearer_deletion_rate": 0.17944535073409462,
+        "wearer_retention": 0.7361337683523654,
+        "bystander_leakage_rate": 0.11717428087986463,
+        "wearer_ter": 2.145478238086374,
+        "target_activity_precision": 0.7734155054815847,
+        "target_activity_recall": 0.7736529006606331,
+        "target_activity_f1": 0.7609424503228075,
+        "energy_leak_fraction": 0.1028828099286669,
+        "speaker_attribution_error_rate": 0.19142101300741424,
+        "attribution_frac_self": 0.7034829913079204,
+        "attribution_frac_other": 0.1794462741105757,
+        "attribution_frac_overlap": 0.10509599568466535,
+        "attribution_frac_none": 0.011974738896838519,
+        "latency_algorithmic_ms": 45.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.07504703306505565,
+          0.1656460100170339
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.14093913002980626,
+          0.2400837248786367
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.29097133076593923,
+        "wearer_deletion_rate": 0.14762516046213095,
+        "wearer_retention": 0.7706461275139067,
+        "bystander_leakage_rate": 0.11115861479264642,
+        "wearer_ter": 2.1792404446361493,
+        "target_activity_precision": 0.7754372458699759,
+        "target_activity_recall": 0.7913281341473271,
+        "target_activity_f1": 0.7768171678766507,
+        "energy_leak_fraction": 0.09561261961564715,
+        "speaker_attribution_error_rate": 0.18566637938780034,
+        "attribution_frac_self": 0.7126869771009897,
+        "attribution_frac_other": 0.17352298219664017,
+        "attribution_frac_overlap": 0.10164664351120993,
+        "attribution_frac_none": 0.01214339719116019,
+        "latency_algorithmic_ms": 45.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.07250015718339696,
+          0.15295954593267874
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.126235342920354,
+          0.17171000190468963
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 386.0,
+          "11_overlap": 76.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 462.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.1645021645021645,
+        "fraction_of_leakage_from_env_only": 0.8354978354978355,
+        "pct_of_leakage_from_overlap": 16.450216450216452,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.18986719134284308,
+          "11_overlap": 0.229607250755287
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 2154.0,
+        "hyp_words_by_state": {
+          "00_silence": 14.0,
+          "10_wearer_only": 1670.0,
+          "01_environment_only": 246.0,
+          "11_overlap": 224.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.0064995357474466105,
+          "10_wearer_only": 0.7753017641597029,
+          "01_environment_only": 0.11420612813370473,
+          "11_overlap": 0.10399257195914577
+        },
+        "pure_leakage_words_env_only": 246.0,
+        "ambiguous_words_overlap": 224.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.4765957446808511,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    },
+    "ORACLE_GATE": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.22553017944535073,
+        "wearer_deletion_rate": 0.1533442088091354,
+        "wearer_retention": 0.7891517128874388,
+        "bystander_leakage_rate": 0.06260575296108291,
+        "wearer_ter": 0.2020852884856992,
+        "target_activity_precision": 0.9364732831990221,
+        "target_activity_recall": 0.9505449311051793,
+        "target_activity_f1": 0.9433346094266319,
+        "energy_leak_fraction": 0.004007804240756494,
+        "speaker_attribution_error_rate": 0.08668483721384304,
+        "attribution_frac_self": 0.7903848799470208,
+        "attribution_frac_other": 0.07423560033598577,
+        "attribution_frac_overlap": 0.12293028283913633,
+        "attribution_frac_none": 0.012449236877857282,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.04765564217442637,
+          0.07918260925656137
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.12733896311614518,
+          0.1914538520183973
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.21437740693196405,
+        "wearer_deletion_rate": 0.14291827128797605,
+        "wearer_retention": 0.8010269576379975,
+        "bystander_leakage_rate": 0.059854638734501926,
+        "wearer_ter": 0.19735462194036768,
+        "target_activity_precision": 0.9349824746513061,
+        "target_activity_recall": 0.9492561190198903,
+        "target_activity_f1": 0.941940827067763,
+        "energy_leak_fraction": 0.004116122746253219,
+        "speaker_attribution_error_rate": 0.08787991813440241,
+        "attribution_frac_self": 0.7898633432320592,
+        "attribution_frac_other": 0.0763873568674636,
+        "attribution_frac_overlap": 0.12225673863353842,
+        "attribution_frac_none": 0.011492561266938784,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.04487826844060363,
+          0.07467897489023728
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.1221211927856379,
+          0.16671422300263383
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 259.0,
+          "11_overlap": 78.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 337.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.2314540059347181,
+        "fraction_of_leakage_from_env_only": 0.7685459940652819,
+        "pct_of_leakage_from_overlap": 23.14540059347181,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.12739793408755534,
+          "11_overlap": 0.23564954682779457
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 2110.0,
+        "hyp_words_by_state": {
+          "00_silence": 15.0,
+          "10_wearer_only": 1781.0,
+          "01_environment_only": 83.0,
+          "11_overlap": 231.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.0071090047393364926,
+          "10_wearer_only": 0.8440758293838863,
+          "01_environment_only": 0.03933649289099526,
+          "11_overlap": 0.109478672985782
+        },
+        "pure_leakage_words_env_only": 83.0,
+        "ambiguous_words_overlap": 231.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.7356687898089171,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    },
+    "RNNOISE_ORACLE_GATE": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.23939641109298532,
+        "wearer_deletion_rate": 0.15823817292006526,
+        "wearer_retention": 0.7785481239804242,
+        "bystander_leakage_rate": 0.0655668358714044,
+        "wearer_ter": 0.21062079219626426,
+        "target_activity_precision": 0.9364732831990221,
+        "target_activity_recall": 0.9505449311051793,
+        "target_activity_f1": 0.9433346094266319,
+        "energy_leak_fraction": 0.005393159953179993,
+        "speaker_attribution_error_rate": 0.06940763333326018,
+        "attribution_frac_self": 0.8012242547212781,
+        "attribution_frac_other": 0.05685188475493978,
+        "attribution_frac_overlap": 0.12936811194546186,
+        "attribution_frac_none": 0.012555748578320397,
+        "latency_algorithmic_ms": 45.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.05029035394477716,
+          0.0831758692841231
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.13282641038613582,
+          0.193984858755354
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.22721437740693196,
+        "wearer_deletion_rate": 0.14634146341463414,
+        "wearer_retention": 0.7916131792896877,
+        "bystander_leakage_rate": 0.06284737067122702,
+        "wearer_ter": 0.20526484796510647,
+        "target_activity_precision": 0.9349824746513061,
+        "target_activity_recall": 0.9492561190198903,
+        "target_activity_f1": 0.941940827067763,
+        "energy_leak_fraction": 0.005538921030968203,
+        "speaker_attribution_error_rate": 0.07004847408956054,
+        "attribution_frac_self": 0.801286522717282,
+        "attribution_frac_other": 0.0578237189003932,
+        "attribution_frac_overlap": 0.12866500319315752,
+        "attribution_frac_none": 0.012224755189167356,
+        "latency_algorithmic_ms": 45.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.04638592855991408,
+          0.07834608507130517
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.12579767294077496,
+          0.16837475312705727
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 263.0,
+          "11_overlap": 81.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 344.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.23546511627906977,
+        "fraction_of_leakage_from_env_only": 0.7645348837209303,
+        "pct_of_leakage_from_overlap": 23.546511627906977,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.1293654697491392,
+          "11_overlap": 0.24471299093655588
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 2107.0,
+        "hyp_words_by_state": {
+          "00_silence": 14.0,
+          "10_wearer_only": 1782.0,
+          "01_environment_only": 80.0,
+          "11_overlap": 231.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.006644518272425249,
+          "10_wearer_only": 0.8457522543901281,
+          "01_environment_only": 0.037968675842429994,
+          "11_overlap": 0.10963455149501661
+        },
+        "pure_leakage_words_env_only": 80.0,
+        "ambiguous_words_overlap": 231.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.7427652733118971,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    },
+    "ORACLE_GATE_MUTE_OVERLAP": {
+      "official": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.29812398042414356,
+        "wearer_deletion_rate": 0.23287112561174553,
+        "wearer_retention": 0.7116639477977161,
+        "bystander_leakage_rate": 0.05203045685279188,
+        "wearer_ter": 0.2912199891310665,
+        "target_activity_precision": 0.9023016782670389,
+        "target_activity_recall": 0.7303090950208846,
+        "target_activity_f1": 0.7964251128264483,
+        "energy_leak_fraction": 0.00033433417760234775,
+        "speaker_attribution_error_rate": 0.054848648514286544,
+        "attribution_frac_self": 0.9130693317748133,
+        "attribution_frac_other": 0.04343799744145991,
+        "attribution_frac_overlap": 0.032082019710900155,
+        "attribution_frac_none": 0.011410651072826627,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.0394822884021717,
+          0.0644891408095469
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.20022959432252532,
+          0.2705408854587576
+        ]
+      },
+      "anomaly_excluded": {
+        "n_items": 74,
+        "n_self_ref_words": 2337,
+        "n_other_ref_words": 2339,
+        "wearer_wer": 0.3025246041934104,
+        "wearer_deletion_rate": 0.2374839537869063,
+        "wearer_retention": 0.7073170731707317,
+        "bystander_leakage_rate": 0.051303976058144504,
+        "wearer_ter": 0.29469498385082643,
+        "target_activity_precision": 0.8999376461274875,
+        "target_activity_recall": 0.7260988091048803,
+        "target_activity_f1": 0.7927107593898873,
+        "energy_leak_fraction": 0.0003433585262810528,
+        "speaker_attribution_error_rate": 0.05586403105700157,
+        "attribution_frac_self": 0.911670329814781,
+        "attribution_frac_other": 0.04442370880787166,
+        "attribution_frac_overlap": 0.03246563912821749,
+        "attribution_frac_none": 0.011440322249129909,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.039281595016344914,
+          0.06465340961734457
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.20167344335835496,
+          0.27883608710058516
+        ]
+      },
+      "anomaly_reporting": {
+        "policy": "P1.13 -- both blocks always emitted; neither replaces the other",
+        "n_rows_total": 76,
+        "n_rows_excluded_as_anomalous": 2,
+        "excluded_recording_ids": [
+          "1302664060426140_0001_3375_22000"
+        ],
+        "registry": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/known_annotation_anomalies.json"
+      },
+      "overlap_analysis_token_bag_approx": {
+        "leaked_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 234.0,
+          "11_overlap": 49.0
+        },
+        "other_ref_words_by_state": {
+          "00_silence": 0.0,
+          "10_wearer_only": 0.0,
+          "01_environment_only": 2033.0,
+          "11_overlap": 331.0
+        },
+        "total_leaked_words": 283.0,
+        "total_other_ref_words": 2364.0,
+        "fraction_of_leakage_from_overlap": 0.17314487632508835,
+        "fraction_of_leakage_from_env_only": 0.8268551236749117,
+        "pct_of_leakage_from_overlap": 17.314487632508833,
+        "leakage_rate_by_state": {
+          "00_silence": null,
+          "10_wearer_only": null,
+          "01_environment_only": 0.11510083620265617,
+          "11_overlap": 0.14803625377643503
+        }
+      },
+      "received_words_by_state": {
+        "n_hyp_words": 1903.0,
+        "hyp_words_by_state": {
+          "00_silence": 14.0,
+          "10_wearer_only": 1777.0,
+          "01_environment_only": 52.0,
+          "11_overlap": 60.0
+        },
+        "frac_by_state": {
+          "00_silence": 0.007356805044666317,
+          "10_wearer_only": 0.9337887545980031,
+          "01_environment_only": 0.027325275880189175,
+          "11_overlap": 0.03152916447714135
+        },
+        "pure_leakage_words_env_only": 52.0,
+        "ambiguous_words_overlap": 60.0,
+        "max_share_of_non_wearer_content_from_overlap": 0.5357142857142857,
+        "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+      }
+    }
+  },
+  "overlap_bottleneck": {
+    "bystander_leakage_ceiling": {
+      "defined": true,
+      "n_other_ref_words": 2364.0,
+      "n_other_words_in_overlap": 331.0,
+      "min_possible_bystander_leakage_rate_pass_overlap": 0.14001692047377326,
+      "min_possible_bystander_leakage_rate_mute_overlap": 0.0,
+      "note": "mute-overlap achieves zero leakage only by deleting the wearer's own simultaneous words -- see wearer_deletion_rate in the same row. The pass-overlap floor is the leakage a router must accept if it refuses to delete wearer speech."
+    },
+    "wearer_deletion_ceiling": {
+      "defined": true,
+      "n_self_ref_words": 2452.0,
+      "n_self_words_in_overlap": 322.0,
+      "min_wearer_deletion_rate_if_overlap_muted": 0.13132137030995106,
+      "min_wearer_deletion_rate_if_overlap_passed": 0.0
+    },
+    "separator_value_estimate": {
+      "defined": true,
+      "oracle_pass_overlap": {
+        "bystander_leakage_rate": 0.06260575296108291,
+        "wearer_deletion_rate": 0.1533442088091354
+      },
+      "oracle_mute_overlap": {
+        "bystander_leakage_rate": 0.05203045685279188,
+        "wearer_deletion_rate": 0.23287112561174553
+      },
+      "leakage_reducible_by_muting": 0.010575296108291027,
+      "wearer_deletion_cost_of_muting": 0.07952691680261012,
+      "separator_target_corner": {
+        "bystander_leakage_rate": 0.05203045685279188,
+        "wearer_deletion_rate": 0.1533442088091354
+      },
+      "interpretation": "A separator is worth building iff BOTH gaps are large: muting overlap must buy a meaningful leakage reduction AND cost a meaningful amount of wearer speech. If muting costs almost no wearer speech, just mute overlap and skip the separator. If muting buys almost no leakage reduction, overlap is not where the problem lives and the separator would solve nothing."
+    },
+    "leakage_attribution_oracle_gate_token_bag": {
+      "leaked_words_by_state": {
+        "00_silence": 0.0,
+        "10_wearer_only": 0.0,
+        "01_environment_only": 259.0,
+        "11_overlap": 78.0
+      },
+      "other_ref_words_by_state": {
+        "00_silence": 0.0,
+        "10_wearer_only": 0.0,
+        "01_environment_only": 2033.0,
+        "11_overlap": 331.0
+      },
+      "total_leaked_words": 337.0,
+      "total_other_ref_words": 2364.0,
+      "fraction_of_leakage_from_overlap": 0.2314540059347181,
+      "fraction_of_leakage_from_env_only": 0.7685459940652819,
+      "pct_of_leakage_from_overlap": 23.14540059347181,
+      "leakage_rate_by_state": {
+        "00_silence": null,
+        "10_wearer_only": null,
+        "01_environment_only": 0.12739793408755534,
+        "11_overlap": 0.23564954682779457
+      }
+    },
+    "received_words_by_state_oracle_gate": {
+      "n_hyp_words": 2110.0,
+      "hyp_words_by_state": {
+        "00_silence": 15.0,
+        "10_wearer_only": 1781.0,
+        "01_environment_only": 83.0,
+        "11_overlap": 231.0
+      },
+      "frac_by_state": {
+        "00_silence": 0.0071090047393364926,
+        "10_wearer_only": 0.8440758293838863,
+        "01_environment_only": 0.03933649289099526,
+        "11_overlap": 0.109478672985782
+      },
+      "pure_leakage_words_env_only": 83.0,
+      "ambiguous_words_overlap": 231.0,
+      "max_share_of_non_wearer_content_from_overlap": 0.7356687898089171,
+      "note": "max_share_of_non_wearer_content_from_overlap is an UPPER bound on the share of problematic content attributable to overlap: it optimistically assumes every state-11 word is a bystander word, when in reality many are the wearer's own simultaneous speech. If even this upper bound is small, overlap is not where the product's residual error lives."
+    },
+    "overlap_share_of_residual_leakage_exact": {
+      "oracle_pass_overlap_blr": 0.06260575296108291,
+      "oracle_mute_overlap_blr": 0.05203045685279188,
+      "leakage_removed_by_muting_all_overlap": 0.010575296108291027,
+      "share_of_oracle_residual_leakage_from_overlap": 0.16891891891891883,
+      "wearer_deletion_cost": 0.07952691680261012,
+      "method": "assumption-free: muting ALL overlap is the maximum a gain-only router can do about state 11, so the leakage it removes bounds overlap's contribution to residual leakage from above."
+    }
+  },
+  "state_occupancy": {
+    "n_frames": 152000,
+    "occupancy": {
+      "00_silence": 0.034098684210526316,
+      "10_wearer_only": 0.4451842105263158,
+      "01_environment_only": 0.4229473684210526,
+      "11_overlap": 0.09776973684210526
+    },
+    "n_frames_by_state": {
+      "00_silence": 5183,
+      "10_wearer_only": 67668,
+      "01_environment_only": 64288,
+      "11_overlap": 14861
+    },
+    "seconds_by_state": {
+      "00_silence": 51.83,
+      "10_wearer_only": 676.6800000000001,
+      "01_environment_only": 642.88,
+      "11_overlap": 148.61
+    }
+  },
+  "by_scenario": {
+    "mmcsg_conversation": {
+      "RAW": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.7781402936378466,
+        "wearer_deletion_rate": 0.12479608482871125,
+        "wearer_retention": 0.7785481239804242,
+        "bystander_leakage_rate": 0.5681049069373942,
+        "wearer_ter": 11.798928099525329,
+        "energy_leak_fraction": 0.15482302119460062,
+        "speaker_attribution_error_rate": 0.39682704078948283,
+        "attribution_frac_self": 0.5208212138851323,
+        "attribution_frac_other": 0.38788086496444657,
+        "attribution_frac_overlap": 0.08235174532538486,
+        "attribution_frac_none": 0.008946175825036276,
+        "latency_algorithmic_ms": 0.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.49088742295839755,
+          0.6425635577065022
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.10373049561848188,
+          0.15728179085721553
+        ]
+      },
+      "RNNOISE": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.7597879282218597,
+        "wearer_deletion_rate": 0.12275693311582382,
+        "wearer_retention": 0.7744698205546493,
+        "bystander_leakage_rate": 0.5270727580372251,
+        "wearer_ter": 11.719116000838627,
+        "energy_leak_fraction": 0.1173938233497297,
+        "speaker_attribution_error_rate": 0.3940315918579274,
+        "attribution_frac_self": 0.5279508284190626,
+        "attribution_frac_other": 0.38696471611432315,
+        "attribution_frac_overlap": 0.07801757972301006,
+        "attribution_frac_none": 0.00706687574360433,
+        "latency_algorithmic_ms": 10.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.4625233175504522,
+          0.5921577762495827
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.10233986391909304,
+          0.1476194595485253
+        ]
+      },
+      "GEOWEAR_GATE": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.2895595432300163,
+        "wearer_deletion_rate": 0.1737357259380098,
+        "wearer_retention": 0.7455138662316476,
+        "bystander_leakage_rate": 0.09602368866328258,
+        "wearer_ter": 0.9789336103457016,
+        "target_activity_precision": 0.8291696801848787,
+        "target_activity_recall": 0.8229115605762816,
+        "target_activity_f1": 0.8137448563388022,
+        "energy_leak_fraction": 0.09041115009194553,
+        "speaker_attribution_error_rate": 0.15302938610902367,
+        "attribution_frac_self": 0.7305037368286993,
+        "attribution_frac_other": 0.1439691259077898,
+        "attribution_frac_overlap": 0.11646687706227705,
+        "attribution_frac_none": 0.009060260201233832,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.05971933471139756,
+          0.13970748780727235
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.1380700648770163,
+          0.23537279445418285
+        ]
+      },
+      "RNNOISE_GEOWEAR_GATE": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.3225938009787928,
+        "wearer_deletion_rate": 0.17944535073409462,
+        "wearer_retention": 0.7361337683523654,
+        "bystander_leakage_rate": 0.11717428087986463,
+        "wearer_ter": 2.145478238086374,
+        "target_activity_precision": 0.7734155054815847,
+        "target_activity_recall": 0.7736529006606331,
+        "target_activity_f1": 0.7609424503228075,
+        "energy_leak_fraction": 0.1028828099286669,
+        "speaker_attribution_error_rate": 0.19142101300741424,
+        "attribution_frac_self": 0.7034829913079204,
+        "attribution_frac_other": 0.1794462741105757,
+        "attribution_frac_overlap": 0.10509599568466535,
+        "attribution_frac_none": 0.011974738896838519,
+        "latency_algorithmic_ms": 45.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.07504703306505565,
+          0.1656460100170339
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.14093913002980626,
+          0.2400837248786367
+        ]
+      },
+      "ORACLE_GATE": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.22553017944535073,
+        "wearer_deletion_rate": 0.1533442088091354,
+        "wearer_retention": 0.7891517128874388,
+        "bystander_leakage_rate": 0.06260575296108291,
+        "wearer_ter": 0.2020852884856992,
+        "target_activity_precision": 0.9364732831990221,
+        "target_activity_recall": 0.9505449311051793,
+        "target_activity_f1": 0.9433346094266319,
+        "energy_leak_fraction": 0.004007804240756494,
+        "speaker_attribution_error_rate": 0.08668483721384304,
+        "attribution_frac_self": 0.7903848799470208,
+        "attribution_frac_other": 0.07423560033598577,
+        "attribution_frac_overlap": 0.12293028283913633,
+        "attribution_frac_none": 0.012449236877857282,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.04765564217442637,
+          0.07918260925656137
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.12733896311614518,
+          0.1914538520183973
+        ]
+      },
+      "RNNOISE_ORACLE_GATE": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.23939641109298532,
+        "wearer_deletion_rate": 0.15823817292006526,
+        "wearer_retention": 0.7785481239804242,
+        "bystander_leakage_rate": 0.0655668358714044,
+        "wearer_ter": 0.21062079219626426,
+        "target_activity_precision": 0.9364732831990221,
+        "target_activity_recall": 0.9505449311051793,
+        "target_activity_f1": 0.9433346094266319,
+        "energy_leak_fraction": 0.005393159953179993,
+        "speaker_attribution_error_rate": 0.06940763333326018,
+        "attribution_frac_self": 0.8012242547212781,
+        "attribution_frac_other": 0.05685188475493978,
+        "attribution_frac_overlap": 0.12936811194546186,
+        "attribution_frac_none": 0.012555748578320397,
+        "latency_algorithmic_ms": 45.5,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.05029035394477716,
+          0.0831758692841231
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.13282641038613582,
+          0.193984858755354
+        ]
+      },
+      "ORACLE_GATE_MUTE_OVERLAP": {
+        "n_items": 76,
+        "n_self_ref_words": 2452,
+        "n_other_ref_words": 2364,
+        "wearer_wer": 0.29812398042414356,
+        "wearer_deletion_rate": 0.23287112561174553,
+        "wearer_retention": 0.7116639477977161,
+        "bystander_leakage_rate": 0.05203045685279188,
+        "wearer_ter": 0.2912199891310665,
+        "target_activity_precision": 0.9023016782670389,
+        "target_activity_recall": 0.7303090950208846,
+        "target_activity_f1": 0.7964251128264483,
+        "energy_leak_fraction": 0.00033433417760234775,
+        "speaker_attribution_error_rate": 0.054848648514286544,
+        "attribution_frac_self": 0.9130693317748133,
+        "attribution_frac_other": 0.04343799744145991,
+        "attribution_frac_overlap": 0.032082019710900155,
+        "attribution_frac_none": 0.011410651072826627,
+        "latency_algorithmic_ms": 35.0,
+        "latency_measured_ms": 0.0,
+        "n_wearer_commands": 0,
+        "n_wearer_commands_retained": 0,
+        "n_bystander_commands": 0,
+        "n_false_agent_commands": 0,
+        "n_wake_phrase_falsely_injected": 0,
+        "bystander_leakage_rate_ci95": [
+          0.0394822884021717,
+          0.0644891408095469
+        ],
+        "wearer_deletion_rate_ci95": [
+          0.20022959432252532,
+          0.2705408854587576
+        ]
+      }
+    }
+  },
+  "mode": "pipeline_matrix",
+  "meta": {
+    "source": "mmcsg",
+    "n_items": 76,
+    "total_audio_minutes": 25.333333333333332,
+    "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_sim_ft_60m_20260826_075257_bd19/checkpoints/best.pt",
+    "detector": {
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_sim_ft_60m_20260826_075257_bd19/checkpoints/best.pt",
+      "arch": "crnn",
+      "params": 28950,
+      "context_ms": 80.0,
+      "train_run": "g2_sim_ft_60m",
+      "normalization": "global",
+      "has_norm_stats": true,
+      "best_val": {
+        "wearer_auroc": 0.8887492439347264,
+        "environment_auroc": 0.8845309465668172,
+        "wearer_eer": 0.1498188078403473,
+        "wearer_frr_at_far20": 0.11931073665618896,
+        "wearer_frr_at_far10": 0.22084707021713257,
+        "wearer_frr_at_far5": 0.5817550420761108,
+        "wearer_frr_at_far1": 0.9468153715133667,
+        "wearer_positive_rate": 0.6040830612182617,
+        "environment_positive_rate": 0.5409908294677734,
+        "wearer_vs_env_solo_auroc": 0.9133425651573421,
+        "wearer_vs_env_solo_frr_at_far5": 0.4465295076370239,
+        "overlap_f1": 0.5433104836776761,
+        "state_accuracy": 0.7642906911928651,
+        "false_wearer_rate_on_env_only": 0.15090956148783555,
+        "val_loss": 1.175093013048172,
+        "val_frames": 143520
+      }
+    },
+    "asr": {
+      "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1",
+      "available": true,
+      "model_dir": "/home/923873155/Mentra Project/models/sherpa-asr/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06",
+      "status": "AVAILABLE",
+      "cache_dir": "/home/923873155/Mentra Project/evaluation/agent_audio/cache/asr"
+    },
+    "rnnoise": {
+      "backend": "rnnoise/xiph-bsd3/pyrnnoise-0.4.3",
+      "available": true,
+      "status": "AVAILABLE",
+      "license": "BSD-3-Clause (RNNoise/Xiph); python wrapper Apache-2.0",
+      "note": "bound via pyrnnoise's low-level ctypes module directly; the package __init__ is bypassed because its audiolab dependency is only needed for file I/O and installing it would risk perturbing the numpy/torch used by the live GPU campaign",
+      "rnnoise_frame_ms": 10.0,
+      "rnnoise_lookahead_ms": 0.0,
+      "resampler_group_delay_ms_est": 0.5,
+      "latency_algorithmic_ms": 10.5,
+      "native_sample_rate": 48000,
+      "frame_size": 480
+    },
+    "gate_policy": {
+      "name": "A_balanced",
+      "wearer_on": 0.6,
+      "wearer_off": 0.4,
+      "env_on": 0.6,
+      "env_off": 0.4,
+      "wearer_gain": 1.0,
+      "env_gain": 0.0,
+      "silence_gain": 0.0,
+      "overlap_policy": "pass_raw",
+      "overlap_gain": 1.0,
+      "attack_ms": 10.0,
+      "release_ms": 60.0,
+      "min_state_ms": 40.0,
+      "hangover_ms": 200.0,
+      "frame_hop_ms": 10.0
+    },
+    "generated_utc": "2026-08-27T09:13:06Z",
+    "official_dev_split_touched": false
+  }
+}

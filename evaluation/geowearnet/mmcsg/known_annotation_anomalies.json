@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Registry of known, verified annotation defects in the MMCSG corpus as used by this project. Records what was observed and why it is believed to be an annotation defect rather than a model or acoustic failure. This registry NEVER modifies, patches, or removes raw corpus data.",
+  "hard_rules": [
+    "The official MMCSG RTTM/TSV files are NEVER modified. This registry is metadata alongside the corpus, not a correction applied to it.",
+    "Recordings listed here are NEVER silently dropped from any evaluation. Any harness consuming this registry MUST report an official-label result and an anomaly-sensitivity result SEPARATELY, so the effect of the anomaly is visible rather than hidden.",
+    "Adding an entry requires a reproducible detection script and a model-independent piece of evidence."
+  ],
+  "consumers": [
+    "evaluation/agent_audio/anomalies.py",
+    "evaluation/agent_audio/harness.py (emits official + anomaly_excluded aggregates)"
+  ],
+  "created_utc": "2026-08-27",
+  "anomalies": [
+    {
+      "id": "MMCSG-ANOM-001",
+      "recording_id": "1302664060426140_0001_3375_22000",
+      "corpus_split": "train",
+      "internal_split": "val",
+      "internal_split_note": "This recording landed in the GeoWearNet-INTERNAL validation split (mmcsg_geowearnet_val.json), which holds only 38 recordings. It is therefore 1/38 = 2.6% of the internal val pool, not 1/172 = 0.6% of the official train pool. Its dilution in internal-val aggregates is roughly 4.5x larger than the corpus-level figure recorded in error_analysis.json implies. This is the single most important consequence of the anomaly for day-to-day evaluation and is the reason anomaly-sensitivity reporting is mandatory.",
+      "status": "CONFIRMED_ANNOTATION_DEFECT",
+      "classification": "SELF_OTHER_ROLE_INVERSION",
+      "date_identified": "2026-08-27",
+      "identified_by": "training/geowearnet/mmcsg/error_analysis.py (Workstream 66)",
+
+      "observed_behavior": "Scored worse-than-chance zero-shot wearer AUROC on ALL 7 raw microphone channels simultaneously. Independently re-observed on 2026-08-27 by evaluation/agent_audio/mmcsg_bridge.py using the real-trained checkpoint g2_sim_ft_60m: wearer AUROC = 0.021 on this recording, versus ~0.89 val-pooled wearer AUROC for the same checkpoint. An AUROC that far BELOW 0.5 is not a failure to learn; it is a correct model scored against inverted labels.",
+
+      "why_annotation_and_not_acoustics": "A genuine acoustic hard case (unusually loud bystander, heavy reverberation, poor mic seating) would degrade SOME channels more than others, because the 7 microphones differ in their geometric relationship to the wearer's mouth. Uniform, severe inversion across every one of 7 independent microphones simultaneously cannot be produced by acoustics; it is the signature of the SELF ('0') and OTHER ('1') speaker labels being transposed in this recording's official RTTM.",
+
+      "model_independent_evidence": {
+        "metric": "self_over_other_rms_ratio",
+        "method": "Mean RMS of audio inside SELF-labelled RTTM segments divided by mean RMS inside OTHER-labelled segments, computed directly from RTTM boundaries and raw audio on channel 2, with NO model in the loop. A wearer-worn microphone must show the wearer's own speech louder than a conversational partner's, by near-field proximity gain.",
+        "this_recording": 0.2137590415696477,
+        "population_median": 1.943574878576682,
+        "population_p10": 1.0813517827389814,
+        "next_lowest_recording": {
+          "recording_id": "3340931076196744_0001_3450_21800",
+          "ratio": 0.7158048407311676
+        },
+        "n_recordings_audited": 172,
+        "n_recordings_below_0.5": 1,
+        "interpretation": "This recording is the ONLY one of 172 below a 0.5 ratio, and sits 3.35x below the next-lowest recording and 9.1x below the population median. The wearer is measured as ~4.7x QUIETER than the bystander, the physical inverse of what a head-worn microphone produces.",
+        "n_self_segments": 11,
+        "n_other_segments": 6,
+        "self_mean_rms": 0.002541590491916395,
+        "other_mean_rms": 0.011889978890498932
+      },
+
+      "population_comparison_verdict": "ISOLATED_LABEL_ANOMALY",
+      "isolation_evidence": "1 of 172 recordings affected (0.58% of the official train split). No systemic labelling concern: the remaining 171 recordings have self/other RMS ratios consistent with correct role assignment.",
+
+      "detection_script": "python3 -m training.geowearnet.mmcsg.error_analysis --channel 2",
+      "detection_artifact": "evaluation/geowearnet/mmcsg/results/error_analysis.json",
+      "reverification_script": "python3 -m evaluation.agent_audio.anomalies --verify",
+
+      "handling_policy": {
+        "raw_data": "UNMODIFIED. The official RTTM is not patched, and no corrected copy is written.",
+        "exclusion": "NOT excluded from any already-computed aggregate metric.",
+        "reporting": "Any aggregate over the internal val split MUST be reported twice: 'official' (all 38 recordings, official labels as shipped) and 'anomaly_excluded' (37 recordings, MMCSG-ANOM-001 held out) so readers can see the anomaly's contribution explicitly.",
+        "small_n_warning": "Do not use this recording for a single-recording qualitative demo, a per-recording case study, or any analysis where n is small enough for one recording to dominate."
+      },
+
+      "affects_official_dev_split": false,
+      "affects_official_eval_split": false,
+      "notes": "Reported to no upstream party; this project has no channel to the corpus maintainers. Recorded here so the finding is not silently rediscovered or, worse, mistaken for a GeoWearNet regression during a future campaign."
+    }
+  ]
+}

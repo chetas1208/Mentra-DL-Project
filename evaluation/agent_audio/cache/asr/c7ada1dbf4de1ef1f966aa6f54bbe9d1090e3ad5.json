@@ -1,0 +1,1 @@
+{"text": "direction", "words": [{"word": "direction", "start_s": 1.3600000143051147, "end_s": 1.91999990940094}], "latency_s": 0.16893968102522194, "audio_duration_s": 4.0, "rtf": 0.042234920256305486, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

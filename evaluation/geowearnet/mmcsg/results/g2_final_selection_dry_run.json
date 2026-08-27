@@ -1,0 +1,424 @@
+{
+  "mode": "DRY_RUN",
+  "started_utc": "2026-08-27T10:05:12Z",
+  "pareto_spec": {
+    "predeclared": true,
+    "maximise": "wearer_vs_env_solo_auroc",
+    "minimise": "false_wearer_rate_on_env_only",
+    "tie_breaks": [
+      "params",
+      "context_ms"
+    ],
+    "rationale": "solo AUROC is the campaign's mandatory primary discrimination metric; false-wearer-rate-on-environment-only is the direct upstream cause of bystander leakage, the product's first-class failure mode. Parameter count and context length break ties on the deployment budget (CPU, on-device, streaming)."
+  },
+  "completeness": {
+    "n_experiments": 10,
+    "n_done": 10,
+    "n_failed": 0,
+    "n_incomplete": 0,
+    "by_state": {
+      "DONE": [
+        "g2_ablation_baseline_60m",
+        "g2_ablation_ctx100",
+        "g2_ablation_ctx1000",
+        "g2_ablation_ctx250",
+        "g2_ablation_ctx500",
+        "g2_ablation_ctx680",
+        "g2_ablation_level_normalized",
+        "g2_ablation_random_channel",
+        "g2_ablation_response_augment",
+        "g2_ablation_spectral_only"
+      ]
+    },
+    "complete": true,
+    "verdict": "CAMPAIGN_COMPLETE",
+    "blocking_reason": null
+  },
+  "selection": {
+    "status": "SELECTED",
+    "pareto_spec": {
+      "predeclared": true,
+      "maximise": "wearer_vs_env_solo_auroc",
+      "minimise": "false_wearer_rate_on_env_only",
+      "tie_breaks": [
+        "params",
+        "context_ms"
+      ],
+      "rationale": "solo AUROC is the campaign's mandatory primary discrimination metric; false-wearer-rate-on-environment-only is the direct upstream cause of bystander leakage, the product's first-class failure mode. Parameter count and context length break ties on the deployment budget (CPU, on-device, streaming)."
+    },
+    "n_candidates": 10,
+    "n_eligible": 9,
+    "pareto_front": [
+      "g2_ablation_ctx500",
+      "g2_ablation_ctx680",
+      "g2_ablation_ctx1000"
+    ],
+    "selected": {
+      "name": "g2_ablation_ctx1000",
+      "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d",
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+      "solo_auroc": 0.9152202706829804,
+      "false_wearer_rate": 0.13512164460548695,
+      "params": 132678,
+      "context_ms": null,
+      "eligible": true,
+      "ineligible_reason": null,
+      "metrics": {
+        "wearer_auroc": 0.8896995011090714,
+        "environment_auroc": 0.8720680473578417,
+        "wearer_eer": 0.14795181155204773,
+        "wearer_frr_at_far20": 0.1195644736289978,
+        "wearer_frr_at_far10": 0.21504533290863037,
+        "wearer_frr_at_far5": 0.5311771631240845,
+        "wearer_frr_at_far1": 0.8332948684692383,
+        "wearer_positive_rate": 0.6040830612182617,
+        "environment_positive_rate": 0.5409908294677734,
+        "wearer_vs_env_solo_auroc": 0.9152202706829804,
+        "wearer_vs_env_solo_frr_at_far5": 0.42599016427993774,
+        "overlap_f1": 0.46540438871473355,
+        "state_accuracy": 0.7463001672240802,
+        "false_wearer_rate_on_env_only": 0.13512164460548695,
+        "val_loss": 1.4163913190364839,
+        "val_frames": 143520
+      }
+    },
+    "candidates": [
+      {
+        "name": "g2_ablation_ctx1000",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+        "solo_auroc": 0.9152202706829804,
+        "false_wearer_rate": 0.13512164460548695,
+        "params": 132678,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8896995011090714,
+          "environment_auroc": 0.8720680473578417,
+          "wearer_eer": 0.14795181155204773,
+          "wearer_frr_at_far20": 0.1195644736289978,
+          "wearer_frr_at_far10": 0.21504533290863037,
+          "wearer_frr_at_far5": 0.5311771631240845,
+          "wearer_frr_at_far1": 0.8332948684692383,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9152202706829804,
+          "wearer_vs_env_solo_frr_at_far5": 0.42599016427993774,
+          "overlap_f1": 0.46540438871473355,
+          "state_accuracy": 0.7463001672240802,
+          "false_wearer_rate_on_env_only": 0.13512164460548695,
+          "val_loss": 1.4163913190364839,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_ctx500",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx500_20260827_083413_1d70",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx500_20260827_083413_1d70/checkpoints/best.pt",
+        "solo_auroc": 0.913553319024524,
+        "false_wearer_rate": 0.13255194853213045,
+        "params": 107718,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8902535700280311,
+          "environment_auroc": 0.8678663225353327,
+          "wearer_eer": 0.14710843563079834,
+          "wearer_frr_at_far20": 0.11946064233779907,
+          "wearer_frr_at_far10": 0.2141340970993042,
+          "wearer_frr_at_far5": 0.6484924554824829,
+          "wearer_frr_at_far1": 0.9085215330123901,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.913553319024524,
+          "wearer_vs_env_solo_frr_at_far5": 0.5690056681632996,
+          "overlap_f1": 0.39196663610281285,
+          "state_accuracy": 0.748306856187291,
+          "false_wearer_rate_on_env_only": 0.13255194853213045,
+          "val_loss": 1.1687588095664978,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_random_channel",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_random_channel_20260827_074455_6ab8",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_random_channel_20260827_074455_6ab8/checkpoints/best.pt",
+        "solo_auroc": 0.9135273008544528,
+        "false_wearer_rate": 0.1499297493159802,
+        "params": 28950,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8888405216874563,
+          "environment_auroc": 0.8845732586377297,
+          "wearer_eer": 0.14967921376228333,
+          "wearer_frr_at_far20": 0.11917227506637573,
+          "wearer_frr_at_far10": 0.22013193368911743,
+          "wearer_frr_at_far5": 0.5821356773376465,
+          "wearer_frr_at_far1": 0.9476343393325806,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9135273008544528,
+          "wearer_vs_env_solo_frr_at_far5": 0.4468621015548706,
+          "overlap_f1": 0.5444030207437147,
+          "state_accuracy": 0.7645345596432553,
+          "false_wearer_rate_on_env_only": 0.1499297493159802,
+          "val_loss": 1.1752114832401275,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_baseline_60m",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_baseline_60m_20260827_074454_199a",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_baseline_60m_20260827_074454_199a/checkpoints/best.pt",
+        "solo_auroc": 0.9133836052222225,
+        "false_wearer_rate": 0.15011461953708496,
+        "params": 28950,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8887571720093095,
+          "environment_auroc": 0.8845095940949936,
+          "wearer_eer": 0.14958909153938293,
+          "wearer_frr_at_far20": 0.11936837434768677,
+          "wearer_frr_at_far10": 0.21983206272125244,
+          "wearer_frr_at_far5": 0.5820318460464478,
+          "wearer_frr_at_far1": 0.9473113417625427,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9133836052222225,
+          "wearer_vs_env_solo_frr_at_far5": 0.4458327293395996,
+          "overlap_f1": 0.5441109649647256,
+          "state_accuracy": 0.7644091415830546,
+          "false_wearer_rate_on_env_only": 0.15011461953708496,
+          "val_loss": 1.1759014487266541,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_spectral_only",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_spectral_only_20260827_075150_68cc",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_spectral_only_20260827_075150_68cc/checkpoints/best.pt",
+        "solo_auroc": 0.9133725496627192,
+        "false_wearer_rate": 0.151778451527028,
+        "params": 28902,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8896135827968745,
+          "environment_auroc": 0.8808774756941101,
+          "wearer_eer": 0.14983339607715607,
+          "wearer_frr_at_far20": 0.12325543165206909,
+          "wearer_frr_at_far10": 0.2164294719696045,
+          "wearer_frr_at_far5": 0.5430459976196289,
+          "wearer_frr_at_far1": 0.928718090057373,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9133725496627192,
+          "wearer_vs_env_solo_frr_at_far5": 0.4447717070579529,
+          "overlap_f1": 0.5286023608297827,
+          "state_accuracy": 0.75479375696767,
+          "false_wearer_rate_on_env_only": 0.151778451527028,
+          "val_loss": 1.2330780327320099,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_ctx680",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx680_20260827_083630_eca6",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx680_20260827_083630_eca6/checkpoints/best.pt",
+        "solo_auroc": 0.9127184336941644,
+        "false_wearer_rate": 0.13212674702358945,
+        "params": 107718,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.89113755475907,
+          "environment_auroc": 0.8716178102187154,
+          "wearer_eer": 0.1456514298915863,
+          "wearer_frr_at_far20": 0.11688852310180664,
+          "wearer_frr_at_far10": 0.2139264941215515,
+          "wearer_frr_at_far5": 0.6518950462341309,
+          "wearer_frr_at_far1": 0.9250847697257996,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9127184336941644,
+          "wearer_vs_env_solo_frr_at_far5": 0.5608342885971069,
+          "overlap_f1": 0.46611731540713436,
+          "state_accuracy": 0.7574763099219621,
+          "false_wearer_rate_on_env_only": 0.13212674702358945,
+          "val_loss": 1.1264422118663788,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_response_augment",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_response_augment_20260827_074455_b0dc",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_response_augment_20260827_074455_b0dc/checkpoints/best.pt",
+        "solo_auroc": 0.9111349801566891,
+        "false_wearer_rate": 0.170246986615396,
+        "params": 28950,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8883831944000572,
+          "environment_auroc": 0.8731420050076636,
+          "wearer_eer": 0.15606838464736938,
+          "wearer_frr_at_far20": 0.12741929292678833,
+          "wearer_frr_at_far10": 0.24414634704589844,
+          "wearer_frr_at_far5": 0.5724930167198181,
+          "wearer_frr_at_far1": 0.9024544954299927,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9111349801566891,
+          "wearer_vs_env_solo_frr_at_far5": 0.4805612564086914,
+          "overlap_f1": 0.5079549613554651,
+          "state_accuracy": 0.740600613154961,
+          "false_wearer_rate_on_env_only": 0.170246986615396,
+          "val_loss": 1.3042624175548554,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_ctx250",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx250_20260827_083437_3739",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx250_20260827_083437_3739/checkpoints/best.pt",
+        "solo_auroc": 0.9080032211713315,
+        "false_wearer_rate": 0.1355838201582489,
+        "params": 74774,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8812661763707901,
+          "environment_auroc": 0.8513193370543835,
+          "wearer_eer": 0.15735089778900146,
+          "wearer_frr_at_far20": 0.1368197798728943,
+          "wearer_frr_at_far10": 0.21822881698608398,
+          "wearer_frr_at_far5": 0.6272347569465637,
+          "wearer_frr_at_far1": 0.9276569485664368,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9080032211713315,
+          "wearer_vs_env_solo_frr_at_far5": 0.5351956486701965,
+          "overlap_f1": 0.38768160933813484,
+          "state_accuracy": 0.7156354515050167,
+          "false_wearer_rate_on_env_only": 0.1355838201582489,
+          "val_loss": 1.276876986026764,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_level_normalized",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_level_normalized_20260827_074456_1667",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_level_normalized_20260827_074456_1667/checkpoints/best.pt",
+        "solo_auroc": 0.9051554669296453,
+        "false_wearer_rate": 0.16984027212896546,
+        "params": 28950,
+        "context_ms": null,
+        "eligible": false,
+        "ineligible_reason": "level_normalize=True deliberately destroys the absolute-amplitude cue to test its contribution. It is a control for the amplitude-shortcut question, not a deployment candidate.",
+        "metrics": {
+          "wearer_auroc": 0.8809587856361811,
+          "environment_auroc": 0.874357468886477,
+          "wearer_eer": 0.16025614738464355,
+          "wearer_frr_at_far20": 0.1317216157913208,
+          "wearer_frr_at_far10": 0.25092852115631104,
+          "wearer_frr_at_far5": 0.5710628032684326,
+          "wearer_frr_at_far1": 0.9189254641532898,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.9051554669296453,
+          "wearer_vs_env_solo_frr_at_far5": 0.5127717852592468,
+          "overlap_f1": 0.5193867935369694,
+          "state_accuracy": 0.7493311036789297,
+          "false_wearer_rate_on_env_only": 0.16984027212896546,
+          "val_loss": 1.3284082949161529,
+          "val_frames": 143520
+        }
+      },
+      {
+        "name": "g2_ablation_ctx100",
+        "run_dir": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx100_20260827_074454_7f8f",
+        "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx100_20260827_074454_7f8f/checkpoints/best.pt",
+        "solo_auroc": 0.8973064484317548,
+        "false_wearer_rate": 0.13929971160245508,
+        "params": 41190,
+        "context_ms": null,
+        "eligible": true,
+        "ineligible_reason": null,
+        "metrics": {
+          "wearer_auroc": 0.8690734090676212,
+          "environment_auroc": 0.8278041549833681,
+          "wearer_eer": 0.1737179458141327,
+          "wearer_frr_at_far20": 0.16160696744918823,
+          "wearer_frr_at_far10": 0.2407437562942505,
+          "wearer_frr_at_far5": 0.6613301038742065,
+          "wearer_frr_at_far1": 0.9644628763198853,
+          "wearer_positive_rate": 0.6040830612182617,
+          "environment_positive_rate": 0.5409908294677734,
+          "wearer_vs_env_solo_auroc": 0.8973064484317548,
+          "wearer_vs_env_solo_frr_at_far5": 0.6092926263809204,
+          "overlap_f1": 0.2542164189788964,
+          "state_accuracy": 0.6936176142697882,
+          "false_wearer_rate_on_env_only": 0.13929971160245508,
+          "val_loss": 1.3024998307228088,
+          "val_frames": 143520
+        }
+      }
+    ],
+    "ineligible": {
+      "g2_ablation_level_normalized": "level_normalize=True deliberately destroys the absolute-amplitude cue to test its contribution. It is a control for the amplitude-shortcut question, not a deployment candidate."
+    }
+  },
+  "freeze": {
+    "source_checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+    "frozen_path": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+    "sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+    "size_bytes": 1686522,
+    "frozen_utc": "2026-08-27T10:05:12Z",
+    "dry_run": true
+  },
+  "downstream": {
+    "dev_evaluation": {
+      "status": "PLANNED_NOT_RUN",
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+      "dry_run": true
+    },
+    "streaming_real": {
+      "cmd": "/home/923873155/Mentra Project/.venv/bin/python3 -m training.geowearnet.mmcsg.streaming_real --checkpoint /home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt --soak-minutes 5",
+      "dry_run": true,
+      "status": "PLANNED_NOT_RUN"
+    },
+    "identity_probe": {
+      "cmd": "/home/923873155/Mentra Project/.venv/bin/python3 -m training.geowearnet.mmcsg.identity_probe --checkpoint /home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+      "dry_run": true,
+      "status": "PLANNED_NOT_RUN"
+    },
+    "cpu_benchmark_and_export": {
+      "cmd": "/home/923873155/Mentra Project/.venv/bin/python3 -m training.geowearnet.deploy --checkpoint /home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt --out geowearnet_g2_final_deploy.json",
+      "dry_run": true,
+      "status": "PLANNED_NOT_RUN"
+    },
+    "capability_update": {
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+      "dry_run": true,
+      "status": "PLANNED_NOT_RUN",
+      "would_call": "server.models.capabilities.set_geowearnet_g2_ready(checkpoint)"
+    },
+    "report_regeneration": {
+      "cmd": "/home/923873155/Mentra Project/.venv/bin/python3 -m training.geowearnet.mmcsg.g2_report",
+      "dry_run": true,
+      "status": "PLANNED_NOT_RUN"
+    }
+  },
+  "status": "DRY_RUN_OK",
+  "elapsed_s": 0.010002374649047852
+}

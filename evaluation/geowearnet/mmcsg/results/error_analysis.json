@@ -1,0 +1,150 @@
+{
+  "trigger": "recording 1302664060426140_0001_3375_22000 scored worse-than-chance zero-shot AUROC on ALL 7 channels simultaneously in zero_shot_channel_matrix_train_val.json",
+  "method": "audit self-speech vs other-speech RMS ratio, computed directly from RTTM segment boundaries and RAW audio (no model), across every recording in the internal train+val pool (172 recordings). A wearer-worn mic should show SELF ('0') louder than OTHER ('1') on average (near-field proximity gain); this checks whether the flagged recording is a real acoustic outlier or a role-swap.",
+  "audit": {
+    "channel": 2,
+    "n_recordings_audited": 172,
+    "self_over_other_ratio_median": 1.943574878576682,
+    "self_over_other_ratio_p10": 1.0813517827389814,
+    "n_suspected_role_swap_ratio_lt_0.5": 1,
+    "lowest_15_by_ratio": [
+      {
+        "recording_id": "1302664060426140_0001_3375_22000",
+        "status": "OK",
+        "n_self_segments": 11,
+        "n_other_segments": 6,
+        "self_mean_rms": 0.002541590491916395,
+        "other_mean_rms": 0.011889978890498932,
+        "self_over_other_ratio": 0.2137590415696477
+      },
+      {
+        "recording_id": "3340931076196744_0001_3450_21800",
+        "status": "OK",
+        "n_self_segments": 26,
+        "n_other_segments": 10,
+        "self_mean_rms": 0.004241042977011213,
+        "other_mean_rms": 0.005924859313160201,
+        "self_over_other_ratio": 0.7158048407311676
+      },
+      {
+        "recording_id": "3280415488759535_0001_3125_19725",
+        "status": "OK",
+        "n_self_segments": 15,
+        "n_other_segments": 6,
+        "self_mean_rms": 0.00445746518373082,
+        "other_mean_rms": 0.006065195902172885,
+        "self_over_other_ratio": 0.7349251789433401
+      },
+      {
+        "recording_id": "3489455724717290_0001_3525_22950",
+        "status": "OK",
+        "n_self_segments": 21,
+        "n_other_segments": 13,
+        "self_mean_rms": 0.008294049745576466,
+        "other_mean_rms": 0.010778326809561336,
+        "self_over_other_ratio": 0.7695118075487287
+      },
+      {
+        "recording_id": "908326870640480_0001_3150_19725",
+        "status": "OK",
+        "n_self_segments": 12,
+        "n_other_segments": 9,
+        "self_mean_rms": 0.004363528774966567,
+        "other_mean_rms": 0.005514006617152666,
+        "self_over_other_ratio": 0.7913535615631551
+      },
+      {
+        "recording_id": "1531799547654802_0001_3000_23100",
+        "status": "OK",
+        "n_self_segments": 18,
+        "n_other_segments": 12,
+        "self_mean_rms": 0.012634795209937912,
+        "other_mean_rms": 0.014851582261423364,
+        "self_over_other_ratio": 0.8507373145524363
+      },
+      {
+        "recording_id": "694409076164945_0001_3450_21850",
+        "status": "OK",
+        "n_self_segments": 32,
+        "n_other_segments": 15,
+        "self_mean_rms": 0.006561208546669338,
+        "other_mean_rms": 0.007233683606610526,
+        "self_over_other_ratio": 0.907035599493646
+      },
+      {
+        "recording_id": "374439191929643_0001_3300_22050",
+        "status": "OK",
+        "n_self_segments": 13,
+        "n_other_segments": 20,
+        "self_mean_rms": 0.007820838343152437,
+        "other_mean_rms": 0.008480095042762323,
+        "self_over_other_ratio": 0.922258335987336
+      },
+      {
+        "recording_id": "396898786187339_0001_2875_20975",
+        "status": "OK",
+        "n_self_segments": 10,
+        "n_other_segments": 25,
+        "self_mean_rms": 0.009647942833420778,
+        "other_mean_rms": 0.01021536960406513,
+        "self_over_other_ratio": 0.9444536230565218
+      },
+      {
+        "recording_id": "197788393421201_0001_3100_20900",
+        "status": "OK",
+        "n_self_segments": 15,
+        "n_other_segments": 12,
+        "self_mean_rms": 0.005206328543106073,
+        "other_mean_rms": 0.005479865744948721,
+        "self_over_other_ratio": 0.9500832293026902
+      },
+      {
+        "recording_id": "902504921457231_0001_3275_21300",
+        "status": "OK",
+        "n_self_segments": 17,
+        "n_other_segments": 10,
+        "self_mean_rms": 0.004262752386360167,
+        "other_mean_rms": 0.004467147641531636,
+        "self_over_other_ratio": 0.9542447952086515
+      },
+      {
+        "recording_id": "739659951391387_0001_3125_20275",
+        "status": "OK",
+        "n_self_segments": 28,
+        "n_other_segments": 19,
+        "self_mean_rms": 0.0073314620871165635,
+        "other_mean_rms": 0.007461474002346519,
+        "self_over_other_ratio": 0.9825755721739339
+      },
+      {
+        "recording_id": "7015497248540235_0001_3325_22825",
+        "status": "OK",
+        "n_self_segments": 21,
+        "n_other_segments": 14,
+        "self_mean_rms": 0.004497988128298093,
+        "other_mean_rms": 0.004340645593150166,
+        "self_over_other_ratio": 1.0362486482186486
+      },
+      {
+        "recording_id": "876511064219697_0001_3400_22075",
+        "status": "OK",
+        "n_self_segments": 11,
+        "n_other_segments": 5,
+        "self_mean_rms": 0.00850368238301319,
+        "other_mean_rms": 0.008082307193486338,
+        "self_over_other_ratio": 1.0521355077751122
+      },
+      {
+        "recording_id": "3475309649448089_0001_3375_22025",
+        "status": "OK",
+        "n_self_segments": 30,
+        "n_other_segments": 13,
+        "self_mean_rms": 0.007390255951122084,
+        "other_mean_rms": 0.00694028021202742,
+        "self_over_other_ratio": 1.064835384933718
+      }
+    ]
+  },
+  "verdict": "ISOLATED_LABEL_ANOMALY",
+  "interpretation": "Exactly 1 of 172 recordings has a self/other RMS ratio below 0.5 (1302664060426140_0001_3375_22000, ratio=0.214), more than 3x lower than the next-lowest recording, against a population median ratio of 1.94. This uniform, severe, single-recording inversion (worse-than-chance AUROC on every one of 7 independent microphones) is the signature of a SPEAKER-ROLE LABEL SWAP in that recording's official RTTM, not a genuine acoustic hard case or a GeoWearNet model failure. Per campaign rules, the raw MMCSG RTTM is NOT modified; this is recorded as a known, isolated (1/172) label-quality defect. It is not excluded from already-computed aggregate metrics (which are frame-count-weighted over many recordings, so one mislabeled ~3-minute recording has a small, diluted effect on pooled AUROC) but should be kept in mind if this specific recording ever dominates a small-n analysis (e.g. a single-recording qualitative demo)."
+}

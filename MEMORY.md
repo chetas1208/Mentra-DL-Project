@@ -165,3 +165,213 @@ wearer) — disclosed directly in the UI, not hidden.
 
 **Do not commit** until the user explicitly authorizes it (repeated across
 multiple messages this session).
+
+## Standing instruction: parallel processing from now onwards (2026-08-27)
+
+**From this point forward, run independent GPU/CPU jobs concurrently
+instead of sequentially by default**, not just for the GeoWearNet G2
+ablation campaign that prompted this. Applies to any future training
+campaign, sweep, or batch of independent experiments on this box.
+
+Why this is safe/correct here specifically: the GeoWearNet/G2 models are
+tiny (~29K params for the CRNN, sub-6M for SpeakerNet-derived models) —
+`nvidia-smi` confirms GPU compute utilization stays near 0% even during
+"active" training. The real bottleneck is CPU-side audio I/O/feature
+dataloading, not GPU compute, so multiple training jobs can safely share
+each of the 2x RTX 3090s with large memory headroom to spare. Concretely:
+`training/geowearnet/mmcsg/campaign_ablations.py` now takes a
+`--concurrency` flag (jobs per GPU, default raised from 1 to 3) with
+`num_workers` per job reduced 6→3 to compensate.
+
+**Caveats to re-check before blindly parallelizing a NEW workload**:
+- Verify the same "GPU compute idle" signature via `nvidia-smi` first —
+  don't assume every future model is this small.
+- This shared host runs other users' jobs too (`uptime` load average was
+  ~80 during this run) — parallelizing further than ~3 jobs/GPU risks
+  diminishing or negative returns from CPU thrashing, not another
+  speedup.
+- When killing/restarting a scheduler to change concurrency, verify with
+  `ps -ef`/`pstree` that old child processes actually died — a `pkill -f`
+  pattern that doesn't match the exact `-m module.path` invocation can
+  leave orphaned processes writing into the same log files as the new run
+  (this happened once this session; caught and cleaned up via explicit
+  PID kills, not assumed).
+
+## GeoWearNet G1 -> G2 campaign (2026-08-27, live)
+
+Single long-running background agent (autonomous, no routine check-ins by
+design) took the G1 simulation campaign to completion, then self-initiated
+a G2 campaign against the real MMCSG smart-glasses dataset (CC BY-NC 4.0,
+license re-verification in progress — see `docs/geowearnet_data_license_state.md`)
+without being re-briefed, per its own "don't stop at milestones" mandate.
+
+**Verified real** (checked directly via `ps`/`nvidia-smi`, not just agent
+self-report): G2 ablation campaign running now —
+`training/geowearnet/mmcsg/campaign_ablations.py --run --concurrency 3`,
+real `train_real.py` jobs across both GPUs (baseline_60m, random_channel,
+response_augment, level_normalized, spectral_only, ctx100, ctx1000; ctx250/
+500/680 queued), initialized from real G1 checkpoints under
+`training/geowearnet/runs/geowearnet_e1_s1_arch_crnn_20260825_150233_83e5/`
+etc. Own watcher polls `training/logs/ablation_watch.log` every 60s,
+prints `ABLATION_CAMPAIGN_COMPLETE` when done.
+
+**Agent-reported, not yet independently spot-checked by reading the raw
+JSON**: strong zero-shot SIM->MMCSG transfer (~0.9+ AUROC on the one
+predeclared official-dev look); real-data sample-efficiency curve
+plateaus ~60min; multichannel spatial features give +0.05-0.06 AUROC over
+best single channel (channel 2); `IDENTITY_SHORTCUT_SUSPECTED` flagged
+honestly; one MMCSG recording (`1302664060426140_0001_3375_22000`) has a
+genuine isolated SELF/OTHER RTTM label swap (documented, raw file
+untouched).
+
+**Product north star correction (2026-08-27, from user)**: GeoWearNet is
+the control signal, not the end product. Real target: raw Mentra mic ->
+[optional machinery denoise] -> GeoWearNet (wearer/environment activity,
+no enrollment) -> non-overlap routing now, WearerSepNet (geometry-
+conditioned target extraction) later for the overlap case -> wearer-
+dominant PCM -> ASR/agent. Audio-only — no camera, no IMU in the always-on
+path (camera stays an explicit agent tool-call). Eval axis that actually
+matters: wearer transcription retention + bystander leakage rate +
+command correctness, not raw AUROC. Source separation (WearerSepNet)
+stays gated — spec/design work is fine, no GPU training until G2 lands a
+checkpoint and this gets explicit go-ahead.
+
+**Parallel P1 lane launched (2026-08-27)**: second background agent
+building the product-facing evaluation/routing infra so the moment G2
+picks a final checkpoint, its real value is immediately measurable — not
+another ablation table. Scope: `evaluation/agent_audio/` harness (wearer
+WER/TER, bystander leakage rate, false-command rate, overlap-conditioned
+metrics), a no-training "GeoWear Gate v0" streaming router (hysteresis/
+attack/release, NOT a separator), an oracle-gate upper bound using ground-
+truth MMCSG labels, an optional RNNoise baseline for machinery noise, a
+synthetic "autobody stress bench," the one-shot final-G2-selection
+pipeline (Pareto selection -> frozen checkpoint -> single guarded official-
+dev eval -> export -> backend flip -> report regen) with a dev-reuse
+guard, campaign process hardening (PID files, stale-process
+detection) after the earlier zombie-process incident, an
+`known_annotation_anomalies.json` registry for the MMCSG label swap, and a
+WearerSepNet *design spec only* (no training). Explicitly forbidden from
+touching the running GPU jobs, final MMCSG dev set, frontend, or
+committing anything.
+
+Both agents are autonomous background processes on this box — check
+`ps aux | grep -E "geowearnet|train_real|campaign_ablations"` and
+`nvidia-smi` for real current state rather than trusting any cached
+status (including this note) once time has passed.
+
+## GeoWearNet G3 — campaign converged (2026-08-27, verified real)
+
+GPU campaign finished for real (confirmed: `ps aux` shows no
+`train_real`/`campaign_ablations` processes, both GPUs 0% util). Final
+model selected and frozen (read-only, checksummed):
+`training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt` — TCN,
+132,678 params, sha256 `07c43c3d9e37...68ef` (verified by hand, matches).
+
+**Key evidence-based decisions from `evaluation/geowearnet/g3/g3_final_summary.json`
+and `docs/geowearnet_g3_report.md`** (agent-reported, spot-checked file
+existence/hash/timestamps only, not every number re-derived):
+- Identity causality: `IDENTITY_INFORMATION_PRESENT_BUT_NOT_CAUSAL` —
+  decodable in internal reps but a controlled real-MMCSG audit (671,575
+  frames, 38 recordings, train/val wearer-identity-disjoint) found no
+  material AUROC/Brier/log-loss improvement from adding self-speaker
+  identity after acoustic/noise controls.
+- Product value: raw bystander leakage 62.09% -> predicted GeoWear Gate
+  7.04% (wearer WER 28.27%, activity F1 79.06%). Oracle-vs-predicted gap
+  quantifies real detector-improvement headroom separately from the
+  overlap-is-unsolvable-by-gating ceiling.
+- **WearerSepNet: correctly NOT started** — predeclared gate required
+  overlap to cause >=50% of residual leakage; measured 6.90%. Muting
+  overlap would cost 3.99pp wearer deletion (< 5pp threshold). This is a
+  real evidence-based negative result, not unfinished work — matches
+  [[project_mentra_product_north_star]]'s "separator only after G2 lands
+  + explicit go-ahead" gate, and the evidence says not yet warranted.
+- Live receiver (`mentra/audio/consumer.py`, `server/audio/frontend.py`,
+  `scripts/mentra/run_receiver.py`) audited and fixed: was silently
+  collapsing GeoWearNet's real wearer+environment dual scores into a
+  binary result; now emits all 4 states (WEARER/ENVIRONMENT/OVERLAP/
+  SILENCE) correctly, resets all state (consumer/RNNoise/ASR/transcript/
+  playback-mode) at session boundaries, OVERLAP passes raw mixed PCM
+  (never fabricates separation), capability payload now truthfully
+  advertises `supportsSourceSeparation=false` + marks opt-in gate
+  policies `experimental`. Live smoke-tested on a separate port
+  (18768) without touching the existing production receiver (8765).
+- CPU runtime: 2-thread GeoWear-gate update 8.3ms p50/13.4ms p95, RTF
+  0.048; +RNNoise 11.4ms p50, RTF 0.181 — real-time on CPU with margin.
+- Full test suite 225 passed (+38 web), `git diff --check` clean.
+
+**Real remaining limit (external, not solvable locally): Mentra hardware
+validation.** Everything above is MMCSG-wearable-proxy-validated, not
+Mentra-device-validated. Next step needing the user specifically: a real
+Mentra pilot recording session per `docs/geowearnet_capture_protocol.md`.
+
+**No commit was made** (consistent with every campaign brief's rule) —
+all of this is real, verified, uncommitted working-tree state.
+
+## GeoWearNet G4 completed (2026-08-27) — real live-path bug found+fixed
+
+Real finding, not just infra: the live receiver's actual first-word
+retention was **19.74%**, not the 59.21% G3 reported (that number was from
+the *offline* evaluator, never measured on the live path until G4). Root
+cause: 200ms detector cadence, not gate logic (isolated via router-only vs
+cadence-only vs full-path parity decomposition). Fixed via a predeclared-
+rule-selected 150ms pre-roll -> 68.42% first-250ms retention, -1.13pp
+leakage cost; 100ms cadence + 150ms pre-roll reaches 81.58%. New:
+`server/audio/streaming_gate.py` (wraps the offline `GeoWearGate`, don't
+reimplement), two new opt-in policies, binary default unchanged.
+
+**Capture-path correction applied for real** (see
+[[project_mentra_product_north_star]]'s "Architecture north star" section):
+capture tool is `web/app/pages/capture.vue` (extends the existing real
+browser->WebSocket->receiver chain), NOT a server-side Bluetooth/adb tool —
+G4 self-corrected after an orchestrator mistake mid-campaign.
+
+**Follow-up done directly by the orchestrator (not another big agent, per
+explicit "stop autonomous coding, do the necessary prep" instruction)**:
+- `mentra/audio/mentraos_source.py` — MentraOS Path A (`session.mic.onAudioChunk`,
+  base64 PCM/LC3) + Path B (`mic_pcm` raw) decode adapter, targets the same
+  `AudioFrame` contract the browser path already uses. LC3 refuses rather
+  than silently mis-decoding; unreported/unmeasured sample rate is always
+  tagged `assumed_format=True` rather than guessed silently. 11 tests,
+  `tests/audio/test_mentraos_source.py`, all passing on synthetic payloads
+  (no hardware needed for this part).
+- `docs/geowearnet_capture_protocol.md` — added a frozen **G4-PILOT-V1**
+  section: 5 people x 7-10min (not 20), exact per-condition duration table,
+  mandatory shared-glasses swap sequence, AGC check procedure (run FIRST,
+  ~20dB level-change comparison), zero-shot-only two runtime configs to
+  test (200ms/0ms vs 100ms/150ms — no fresh sweep on 5 people), a 4-way
+  minimal product comparison (not another 30-condition matrix), and the
+  real command-script (with False Agent Command Rate as the headline
+  product metric, distinct from raw token leakage).
+- Recovery snapshot at `/home/923873155/mentra_snapshots/G4_PRE_HARDWARE_SNAPSHOT_<UTC-timestamp>/`
+  (outside the repo, survives tree mangling) — full `git diff`, untracked-
+  file backup (1898 files, excludes checkpoints/npz/runs — those stay
+  hash-verified in place, not duplicated), critical-file hashes, 316-test
+  pass snapshot. Make a fresh one before any future long autonomous run
+  touches this dirty tree again.
+
+**Explicit standing instruction from the user (2026-08-27): STOP training
+models for now.** No G5 architecture search, no separator training, no
+more MMCSG ablations, no identity work, no bigger model. Frozen checkpoint
+(`g2_selected_07c43c3d9e37.pt`) stays as-is. The only real next step is
+physical: a Mentra Live + phone + 5 people through the now-real capture
+path, per G4-PILOT-V1 above. Software is ready; more autonomous coding
+without hardware would be avoidance of the actual experiment, not
+progress — do not launch another giant campaign to fill the wait.
+
+## GeoWearNet G4 launched (2026-08-27) — real-Mentra-hardware gate
+
+G4's headline question (does frozen G2 work on real Mentra Live audio)
+**cannot be answered in this dev environment** — no physical Mentra
+device, no paired phone, no Bluetooth/adb, verified twice (see
+"Environment reality" above, still true). Agent briefed to do everything
+achievable without hardware for real (live-routing envelope fix for the
+known offline-evaluator-vs-live-200ms-router mismatch, first-word
+retention/pre-roll tuning on internal data, live/offline parity
+measurement, MentraOS audio-path desk research, capture-tool build+self-
+test) and cleanly mark every hardware-dependent workstream
+BLOCKED_NO_MENTRA_HARDWARE with an exact unblock spec, rather than
+faking results on relabeled MMCSG/synthetic audio. Expected honest
+verdict: `MENTRA_NOT_TESTED`. Real next action once this converges: the
+user needs to physically supply a Mentra Live + phone + some pilot
+capture minutes via the tool this campaign builds — everything else is
+already staged to consume that the moment it exists.

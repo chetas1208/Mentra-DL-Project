@@ -1,0 +1,1 @@
+{"text": "But I", "words": [{"word": "but", "start_s": 8.15999984741211, "end_s": 8.319999694824219}, {"word": "i", "start_s": 8.319999694824219, "end_s": 8.519999694824218}], "latency_s": 0.8182853918988258, "audio_duration_s": 20.0, "rtf": 0.04091426959494129, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

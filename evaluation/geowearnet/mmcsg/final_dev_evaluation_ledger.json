@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Append-only record of every evaluation against the OFFICIAL MMCSG dev split. Guards against repeated held-out-set tuning ('dev fishing').",
+  "entries": [
+    {
+      "evaluated_utc": "2026-08-27T08:49:00Z",
+      "checkpoint": "/tmp/pytest-of-923873155/pytest-7/test_dry_run_never_invokes_the0/r/checkpoints/best.pt",
+      "checkpoint_sha256": "9a129038d9a00aed0cf6a7ea059ca50a813449061ab87848cf1a13eafdf33b2c",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/zero_shot_G2_FINAL_dev_final.json",
+      "headline_metrics": null,
+      "dry_run": true
+    },
+    {
+      "evaluated_utc": "2026-08-27T08:49:54Z",
+      "checkpoint": "/tmp/pytest-of-923873155/pytest-8/test_dry_run_never_invokes_the0/r/checkpoints/best.pt",
+      "checkpoint_sha256": "9a129038d9a00aed0cf6a7ea059ca50a813449061ab87848cf1a13eafdf33b2c",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/zero_shot_G2_FINAL_dev_final.json",
+      "headline_metrics": null,
+      "dry_run": true
+    },
+    {
+      "evaluated_utc": "2026-08-27T09:06:11Z",
+      "checkpoint": "/tmp/pytest-of-923873155/pytest-9/test_dry_run_never_invokes_the0/r/checkpoints/best.pt",
+      "checkpoint_sha256": "9a129038d9a00aed0cf6a7ea059ca50a813449061ab87848cf1a13eafdf33b2c",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/zero_shot_G2_FINAL_dev_final.json",
+      "headline_metrics": null,
+      "dry_run": true
+    },
+    {
+      "evaluated_utc": "2026-08-27T09:14:26Z",
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/runs/g2_ablation_ctx1000_20260827_074635_c46d/checkpoints/best.pt",
+      "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/zero_shot_G2_FINAL_dev_final.json",
+      "headline_metrics": null,
+      "dry_run": true
+    },
+    {
+      "evaluated_utc": "2026-08-27T09:15:26Z",
+      "checkpoint": "/tmp/pytest-of-923873155/pytest-10/test_dry_run_never_invokes_the0/r/checkpoints/best.pt",
+      "checkpoint_sha256": "9a129038d9a00aed0cf6a7ea059ca50a813449061ab87848cf1a13eafdf33b2c",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/g2_final_dev_evaluation.json",
+      "headline_metrics": null,
+      "dry_run": true
+    },
+    {
+      "evaluated_utc": "2026-08-27T09:21:29Z",
+      "checkpoint": "/tmp/pytest-of-923873155/pytest-11/test_dry_run_never_invokes_the0/r/checkpoints/best.pt",
+      "checkpoint_sha256": "9a129038d9a00aed0cf6a7ea059ca50a813449061ab87848cf1a13eafdf33b2c",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/g2_final_dev_evaluation.json",
+      "headline_metrics": null,
+      "dry_run": true
+    },
+    {
+      "evaluated_utc": "2026-08-27T09:45:09Z",
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+      "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+      "reason": "G2 final selection -- single predeclared dev evaluation",
+      "config_hash": "c340fbbfef3a20a0",
+      "decision": "ALLOW_FIRST",
+      "override": false,
+      "override_reason": "",
+      "result_artifact": "/home/923873155/Mentra Project/evaluation/geowearnet/mmcsg/results/g2_final_dev_evaluation.json",
+      "headline_metrics": {
+        "wearer_all_frames_auroc": 0.9552640703480663,
+        "speech_active_10_vs_01_auroc": 0.980020636438443,
+        "speech_active_10_vs_01_ci95": [
+          0.9618501891768552,
+          0.9918403133022523
+        ],
+        "overlap_f1": 0.4157372986369269,
+        "state_accuracy": 0.8161932019696307,
+        "n_frames": 3031025
+      },
+      "dry_run": false
+    }
+  ]
+}

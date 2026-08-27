@@ -13,6 +13,7 @@ const {
   refreshDevices, selectDevice, attachDeviceChangeListener,
   mic, transport,
   sourceLabel, sourceClassification,
+  availableModels, activeModelName, modelSelectionLocked,
   requiresEnrollment, supportsEnrollment,
   globalStatus, sessionUptimeS,
   isStarting, wasStopped, hasError,
@@ -27,8 +28,10 @@ const {
 const {
   wsState, lastResult, framesSent, lastRttMs, transcript, enrollmentStatus,
   capabilities, sessionId, rejectionReason,
+  modelCatalog, selectedModel, activeModel, modelError,
   queueDepth, queueHighWaterMark, framesDropped, bytesDropped, reconnectCount,
   connect, disconnect, sendAudioFrame, sendEnrollmentAudio, setPlaybackModePreference,
+  setSelectedModel, applyModelSelection,
   getBufferedAmount,
 } = transport
 
@@ -68,6 +71,16 @@ async function ensureTransportConnected() {
 
 function onSelectAnother() {
   selectedDeviceLost.value = false
+}
+
+/** Model choice is a session-scoped binding, not a page-global setting: the
+ * click only records the request, and the backend's ack is what makes it
+ * active. The selector is disabled while capturing, so this always runs on a
+ * stopped session and can never hot-swap a model mid-stream. */
+async function onSelectModel(modelId: string) {
+  setSelectedModel(modelId)
+  if (wsState.value !== 'CONNECTED') return
+  await applyModelSelection()
 }
 
 /** Self-contained enrollment capture -- deliberately NOT reusing
@@ -129,6 +142,12 @@ async function startSession() {
   isStarting.value = true
   try {
     await ensureTransportConnected()
+    // Confirm the selected model is really bound before any audio flows --
+    // never start a stream against a model the backend hasn't acked.
+    const bound = await applyModelSelection()
+    if (!bound) {
+      throw new Error(modelError.value ?? 'Selected model unavailable.')
+    }
     await startMic(selectedDeviceId.value, (pcm16, captureTimestampNs) => {
       sendAudioFrame(pcm16, captureTimestampNs)
     })
@@ -176,7 +195,10 @@ const backendRowLabel = computed(() =>
 )
 const modelRowLabel = computed(() => {
   if (!capabilities.value) return 'NOT AVAILABLE'
-  return `${capabilities.value.modelId}${capabilities.value.ready ? '' : ' (not ready)'}`
+  // The product name when the backend's catalog gives us one, the raw id
+  // otherwise -- still the backend's answer either way, never a local guess.
+  const name = activeModelName.value ?? capabilities.value.modelId
+  return `${name}${capabilities.value.ready ? '' : ' (not ready)'}`
 })
 </script>
 
@@ -229,7 +251,7 @@ const modelRowLabel = computed(() => {
         <!-- signature element: bipolar meter + rolling timeline -->
         <div class="px-6 sm:px-10 py-8 border-b border-panel-line space-y-4">
           <InferencePanel :wearer-score="lastResult?.wearerScore ?? null" :state="stateLabel" />
-          <ProbabilityTimeline :result="lastResult" />
+          <ProbabilityTimeline :result="lastResult" :model-id="activeModel" />
         </div>
 
         <!-- controls -->
@@ -242,6 +264,15 @@ const modelRowLabel = computed(() => {
             :source-classification="sourceClassification"
             @select="selectDevice"
             @select-another="onSelectAnother"
+          />
+
+          <ModelSelector
+            :models="availableModels"
+            :selected-model="selectedModel"
+            :active-model="activeModel"
+            :disabled="modelSelectionLocked"
+            :error="modelError"
+            @select="onSelectModel"
           />
 
           <!-- real mic level, driven by actual RMS -->
@@ -353,6 +384,10 @@ const modelRowLabel = computed(() => {
           :ws-state="wsState"
           :session-id="sessionId"
           :capabilities="capabilities"
+          :model-catalog="modelCatalog"
+          :selected-model="selectedModel"
+          :active-model="activeModel"
+          :model-ms="lastResult?.inferenceMs ?? null"
           :queue-depth="queueDepth"
           :queue-high-water-mark="queueHighWaterMark"
           :get-buffered-amount="getBufferedAmount"

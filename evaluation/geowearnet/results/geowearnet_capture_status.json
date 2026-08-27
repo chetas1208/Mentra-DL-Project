@@ -1,0 +1,94 @@
+{
+  "smoke_test": {
+    "session_id": "20260826_023324_W99",
+    "wearer_id": "W99",
+    "directory": "/home/923873155/Mentra Project/recordings/geowearnet_pilot/20260826_023324_W99",
+    "n_steps": 16,
+    "n_valid": 16,
+    "n_flagged": 0,
+    "synthetic_smoke_test": true,
+    "total_seconds": 23.2,
+    "records": [
+      {
+        "step_id": "quiet_room",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "wearer_normal",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "wearer_soft",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "wearer_loud",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "wearer_whisper",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "env_025m",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "env_050m",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "env_100m",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "env_200m",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "env_loud",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "env_behind",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "overlap",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "turn_taking",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "tv_phone",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "wearer_moving",
+        "ok": true,
+        "flags": []
+      },
+      {
+        "step_id": "noisy_room",
+        "ok": true,
+        "flags": []
+      }
+    ]
+  }
+}

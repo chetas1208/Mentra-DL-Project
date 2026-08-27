@@ -1,0 +1,1 @@
+{"text": "in", "words": [{"word": "in", "start_s": 0.23999999463558197, "end_s": 0.439999994635582}], "latency_s": 0.8308077920228243, "audio_duration_s": 20.0, "rtf": 0.04154038960114122, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

@@ -13,16 +13,34 @@
 
 import { encodeFrame, decodeFrame, MessageType, Codec, nowNs, type MentraFrame } from '~/utils/mentraProtocol'
 import { parseCapabilities, type ModelCapabilities } from '~/utils/modelCapabilities'
+import { parseModelCatalog, parseSessionConfigAck, type ModelCatalog } from '~/utils/modelCatalog'
 import { BoundedAudioQueue, type QueuedAudioFrame } from '~/utils/boundedAudioQueue'
 import { nextBackoffDelayMs, DEFAULT_BACKOFF } from '~/utils/reconnectBackoff'
 
 export interface DetectionResult {
   wearerScore: number
+  /** Only models that genuinely produce environment evidence send this;
+   * SpeakerNet leaves it null rather than having one fabricated for it. */
+  environmentScore: number | null
   state: string
   contextMs: number
   inferenceMs: number
   captureToPredictionMs: number
+  /** Which model actually produced this result, per the backend. Null from a
+   * receiver build that predates the multi-model envelope. */
+  modelId: string | null
+  modelVersion: string | null
 }
+
+/** What the user asked for vs what the backend confirmed are deliberately
+ * distinct: PENDING means an ack is outstanding, and `activeModel` is never
+ * updated from a click -- only from a real backend ack or capability payload. */
+export type ModelSelectionStatus = 'IDLE' | 'PENDING' | 'BOUND' | 'FAILED'
+
+// Advertises the multi-model control plane. A receiver that doesn't know this
+// token ignores it (it only ever split on the first '|'), so this stays safe
+// against the currently deployed backend.
+const CLIENT_INFO = 'mentra-web-0.2|features=model_selection'
 
 // Explicit states (spec section 20) -- never collapse this to one boolean.
 export type WsState = 'IDLE' | 'CONNECTING' | 'CONNECTED' | 'RECONNECTING' | 'ERROR' | 'CLOSING' | 'CLOSED'
@@ -46,12 +64,23 @@ export function useMentraTransport() {
   const transcript = useState<string>('mentra-transcript', () => '')
   const enrollmentStatus = useState<'PLACEHOLDER' | 'ENROLLING' | 'REAL'>('mentra-enrollment-status', () => 'PLACEHOLDER')
   const capabilities = useState<ModelCapabilities | null>('mentra-capabilities', () => null)
+  // --- multi-model runtime state (backend-authoritative) -------------------
+  // `modelCatalog` is null until a receiver that supports model selection
+  // sends one; `activeModel` only ever comes from the backend.
+  const modelCatalog = useState<ModelCatalog | null>('mentra-model-catalog', () => null)
+  const selectedModel = useState<string | null>('mentra-selected-model', () => null)
+  const activeModel = useState<string | null>('mentra-active-model', () => null)
+  const modelSelectionStatus = useState<ModelSelectionStatus>('mentra-model-selection-status', () => 'IDLE')
+  const modelError = useState<string | null>('mentra-model-error', () => null)
   const sessionId = useState<string | null>('mentra-session-id', () => null)
   const queueDepth = useState<number>('mentra-queue-depth', () => 0)
   const queueHighWaterMark = useState<number>('mentra-queue-high-water', () => 0)
   const framesDropped = useState<number>('mentra-frames-dropped', () => 0)
   const bytesDropped = useState<number>('mentra-bytes-dropped', () => 0)
   const reconnectCount = useState<number>('mentra-reconnect-count', () => 0)
+  const captureAck = useState<Record<string, unknown> | null>('mentra-capture-ack', () => null)
+  const captureRawFramesSent = useState<number>('mentra-capture-raw-sent', () => 0)
+  const captureRawDropped = useState<number>('mentra-capture-raw-dropped', () => 0)
 
   let ws: WebSocket | null = null
   let enrollSequenceNumber = 0
@@ -63,6 +92,7 @@ export function useMentraTransport() {
   let userRequestedDisconnect = false
   let reconnectAttempt = 0
   let currentGatedHandlers: GatedAudioHandlers | undefined
+  let pendingModelAck: ((ok: boolean) => void) | null = null
   const outboundQueue = new BoundedAudioQueue(MAX_QUEUE_FRAMES)
 
   function resetSessionCounters() {
@@ -90,7 +120,7 @@ export function useMentraTransport() {
           sequenceNumber: 0,
           captureTimestampNs: nowNs(),
           sampleRate: 16000, channels: 1, bitsPerSample: 16,
-          payload: new TextEncoder().encode(`${sid}|mentra-web-0.1`),
+          payload: new TextEncoder().encode(`${sid}|${CLIENT_INFO}`),
           messageType: MessageType.STREAM_START,
           codec: Codec.PCM16,
         })
@@ -109,10 +139,33 @@ export function useMentraTransport() {
         if (frame.messageType === MessageType.STREAM_ACCEPTED) {
           wsState.value = 'CONNECTED'
           capabilities.value = parseCapabilities(frame.payload)
+          // The backend just told us which model this session is bound to by
+          // default. That -- not the user's pick -- is the active model until
+          // an explicit selection is acknowledged.
+          activeModel.value = capabilities.value?.modelId ?? null
+          if (selectedModel.value === null) selectedModel.value = activeModel.value
           reconnectAttempt = 0
           startHeartbeat()
           startQueueDrain()
           resolve()
+        } else if (frame.messageType === MessageType.MODEL_CATALOG) {
+          modelCatalog.value = parseModelCatalog(frame.payload)
+          if (modelCatalog.value && selectedModel.value === null) {
+            selectedModel.value = modelCatalog.value.defaultModel
+          }
+        } else if (frame.messageType === MessageType.SESSION_CONFIG_ACK) {
+          const ack = parseSessionConfigAck(frame.payload)
+          if (ack) {
+            activeModel.value = ack.model
+            modelError.value = ack.error
+            modelSelectionStatus.value = ack.error ? 'FAILED' : 'BOUND'
+            if (ack.capabilities) capabilities.value = ack.capabilities
+            // A rejected selection leaves the session on the model it already
+            // had -- reflect that instead of showing a choice that isn't live.
+            if (ack.error) selectedModel.value = ack.model
+          }
+          pendingModelAck?.(!ack?.error)
+          pendingModelAck = null
         } else if (frame.messageType === MessageType.STREAM_REJECTED) {
           rejectionReason.value = new TextDecoder().decode(frame.payload)
           wsState.value = 'ERROR'
@@ -130,16 +183,21 @@ export function useMentraTransport() {
           const echoedNs = BigInt(parsed.echoed_capture_timestamp_ns)
           lastResult.value = {
             wearerScore: parsed.wearer_score,
+            environmentScore: parsed.environment_score ?? null,
             state: parsed.state,
             contextMs: parsed.context_ms,
             inferenceMs: parsed.inference_ms,
             captureToPredictionMs: Number(nowNs() - echoedNs) / 1e6,
+            modelId: parsed.modelId ?? null,
+            modelVersion: parsed.modelVersion ?? null,
           }
         } else if (frame.messageType === MessageType.ENROLL_DONE) {
           enrollmentStatus.value = 'REAL'
         } else if (frame.messageType === MessageType.TRANSCRIPT) {
           const parsed = JSON.parse(new TextDecoder().decode(frame.payload))
           transcript.value = parsed.text
+        } else if (frame.messageType === MessageType.CAPTURE_ACK) {
+          captureAck.value = JSON.parse(new TextDecoder().decode(frame.payload))
         } else if (frame.messageType === MessageType.WEARER_PCM) {
           currentGatedHandlers?.onWearerPcm?.(frame.payload)
         } else if (frame.messageType === MessageType.ENVIRONMENT_PCM) {
@@ -238,6 +296,52 @@ export function useMentraTransport() {
     drainTimer = null
   }
 
+  // --- per-session model selection ----------------------------------------
+  /** Records the user's choice. Purely local: nothing is "active" until the
+   * backend acknowledges the binding for THIS session. */
+  function setSelectedModel(modelId: string) {
+    if (selectedModel.value === modelId) return
+    selectedModel.value = modelId
+    modelError.value = null
+    modelSelectionStatus.value = activeModel.value === modelId ? 'BOUND' : 'IDLE'
+  }
+
+  /** Binds the selected model to this session and resolves once the backend
+   * acks. Resolves true when the requested model is genuinely live. A receiver
+   * that sent no catalog can't bind models, so this resolves immediately with
+   * whatever that receiver already reported -- never a fabricated success. */
+  function applyModelSelection(timeoutMs = 5000): Promise<boolean> {
+    const wanted = selectedModel.value
+    if (!wanted || !modelCatalog.value) return Promise.resolve(activeModel.value !== null)
+    if (activeModel.value === wanted && modelSelectionStatus.value !== 'FAILED') {
+      return Promise.resolve(true)
+    }
+    if (ws?.readyState !== WebSocket.OPEN) return Promise.resolve(false)
+
+    modelSelectionStatus.value = 'PENDING'
+    modelError.value = null
+    return new Promise<boolean>((resolveAck) => {
+      const timer = setTimeout(() => {
+        if (pendingModelAck) {
+          pendingModelAck = null
+          modelSelectionStatus.value = 'FAILED'
+          modelError.value = 'Model selection timed out.'
+          resolveAck(false)
+        }
+      }, timeoutMs)
+      pendingModelAck = (ok: boolean) => {
+        clearTimeout(timer)
+        resolveAck(ok)
+      }
+      ws!.send(encodeFrame({
+        sequenceNumber: 0, captureTimestampNs: nowNs(),
+        sampleRate: 16000, channels: 1, bitsPerSample: 16,
+        payload: new TextEncoder().encode(JSON.stringify({ type: 'session_config', model: wanted })),
+        messageType: MessageType.SESSION_CONFIG,
+      }))
+    })
+  }
+
   function setPlaybackModePreference(mode: 'both' | 'wearer' | 'environment' | 'muted') {
     if (ws?.readyState !== WebSocket.OPEN) return
     ws.send(encodeFrame({
@@ -259,6 +363,44 @@ export function useMentraTransport() {
       messageType: MessageType.ENROLL_AUDIO,
       codec: Codec.PCM16,
     }))
+  }
+
+  // --- G4 WS6 research capture -------------------------------------------
+  // Opens a capture session on the backend and streams the NATIVE-rate PCM
+  // alongside the ordinary 16kHz AUDIO_FRAMEs. A backend started without a
+  // capture directory ignores both messages, so calling these is always safe.
+  function sendCaptureMeta(metadata: Record<string, unknown>) {
+    if (ws?.readyState !== WebSocket.OPEN) return false
+    ws.send(encodeFrame({
+      sequenceNumber: 0, captureTimestampNs: nowNs(),
+      sampleRate: 16000, channels: 1, bitsPerSample: 16,
+      payload: new TextEncoder().encode(JSON.stringify(metadata)),
+      messageType: MessageType.CAPTURE_META,
+    }))
+    return true
+  }
+
+  /** Native-rate raw PCM. The header's sampleRate/channels describe THIS
+   * payload -- not the 16kHz transport rate -- which is how the backend knows
+   * what it is writing without having to trust the metadata alone. */
+  function sendCaptureRawPcm(pcm16: Uint8Array, sampleRate: number, channels: number,
+                             captureTimestampNs: bigint) {
+    if (ws?.readyState !== WebSocket.OPEN) return
+    if (ws.bufferedAmount > BUFFERED_AMOUNT_HIGH_WATER * 4) {
+      // Raw capture is bulk data and must never starve the live inference
+      // stream. Dropping here is counted, not silent: the duration-match
+      // check in mentra/capture/validation.py will flag the resulting gap.
+      captureRawDropped.value++
+      return
+    }
+    ws.send(encodeFrame({
+      sequenceNumber: 0, captureTimestampNs,
+      sampleRate, channels, bitsPerSample: 16,
+      payload: pcm16,
+      messageType: MessageType.CAPTURE_RAW_PCM,
+      codec: Codec.PCM16,
+    }))
+    captureRawFramesSent.value++
   }
 
   function sendAudioFrame(pcm16: Uint8Array, captureTimestampNs: bigint) {
@@ -293,6 +435,15 @@ export function useMentraTransport() {
     wsState.value = 'CLOSED'
     capabilities.value = null
     sessionId.value = null
+    // The session is gone, so nothing is bound any more. `selectedModel` (the
+    // user's choice) deliberately survives; `activeModel` (what the backend
+    // confirmed) does not, and must be re-acked on the next session.
+    activeModel.value = null
+    modelSelectionStatus.value = 'IDLE'
+    enrollmentStatus.value = 'PLACEHOLDER'
+    transcript.value = ''
+    lastResult.value = null
+    pendingModelAck = null
   }
 
   /** On-demand, non-reactive -- deliberately not pushed through Vue state
@@ -305,8 +456,12 @@ export function useMentraTransport() {
   return {
     wsState, lastResult, framesSent, lastRttMs, transcript, enrollmentStatus,
     capabilities, sessionId, rejectionReason,
+    modelCatalog, selectedModel, activeModel, modelSelectionStatus, modelError,
     queueDepth, queueHighWaterMark, framesDropped, bytesDropped, reconnectCount,
+    captureAck, captureRawFramesSent, captureRawDropped,
     connect, disconnect, sendAudioFrame, sendEnrollmentAudio, setPlaybackModePreference,
+    setSelectedModel, applyModelSelection,
+    sendCaptureMeta, sendCaptureRawPcm,
     getBufferedAmount,
   }
 }

@@ -1,0 +1,88 @@
+{
+  "status": "OK",
+  "generated_utc": "2026-08-27T11:04:39.089899+00:00",
+  "official_dev_used": false,
+  "real_wearable_corpus": {
+    "name": "MMCSG",
+    "root": "/usr/data/923873155/mmcsg/MMCSG",
+    "audio_by_split": {
+      "train": 172,
+      "dev": 169,
+      "eval": 189
+    },
+    "audio_inventory": {
+      "files": 530,
+      "formats": {
+        "WAV": 530
+      },
+      "subtypes": {
+        "PCM_16": 530
+      },
+      "sample_rates": {
+        "48000": 530
+      },
+      "channels": {
+        "7": 530
+      },
+      "info_failures": []
+    },
+    "metadata_by_split": {
+      "train": 172,
+      "dev": 169,
+      "eval": 189
+    },
+    "rttm_by_split": {
+      "train": 172,
+      "dev": 169,
+      "eval": 189
+    },
+    "transcriptions_by_split": {
+      "train": 172,
+      "dev": 169,
+      "eval": 189
+    },
+    "annotation_files": {
+      "metadata": 530,
+      "rttm": 530,
+      "transcriptions": 530
+    },
+    "target_kind": "REAL_MIX_ONLY",
+    "clean_isolated_source_target": false,
+    "clean_target_paths_checked": [],
+    "reason": "MMCSG provides multi-channel wearable mixtures plus RTTM/transcript annotations. No isolated wearer waveform or lavalier/reference source target is present in the corpus layout; annotations identify activity but do not reconstruct a clean waveform."
+  },
+  "synthetic_clean_source_corpora": {
+    "librispeech_train_clean_100": {
+      "root": "/home/923873155/Mentra Project/evaluation/data/raw/LibriSpeech/train-clean-100",
+      "files": 28539,
+      "target_kind": "CLEAN_SPEECH_SOURCE",
+      "license_record": "LibriSpeech CC BY 4.0; see existing manifests/license records"
+    },
+    "librispeech_test_clean": {
+      "root": "/home/923873155/Mentra Project/evaluation/data/raw/LibriSpeech/test-clean",
+      "files": 2620,
+      "target_kind": "CLEAN_SPEECH_SOURCE",
+      "license_record": "LibriSpeech CC BY 4.0; see existing stress-bench record"
+    },
+    "musan": {
+      "root": "/home/923873155/Mentra Project/evaluation/data/raw/musan",
+      "files_by_extension": {
+        ".wav": 2016,
+        ".txt": 0
+      },
+      "target_kind": "CLEAN_NOISE_SOURCE",
+      "license_record": "MUSAN license record in existing stress-bench documentation"
+    },
+    "existing_generators": [
+      "evaluation.agent_audio.stressbench.build_item retains clean_wearer and clean_bystander",
+      "training.geowearnet.scenes.generate_scene uses clean source tracks internally but returns mixture-only Scene"
+    ]
+  },
+  "separator_training_status": {
+    "trained": false,
+    "model_artifact": null,
+    "status": "DATA_AUDIT_ONLY_UNTIL_OVERLAP_GO_NO_GO",
+    "spec": "docs/geowearnet_wearersepnet_spec.md",
+    "constraint": "A synthetic R0 is permissible only if the frozen-G2 internal-val overlap gate demonstrates that separation is justified."
+  }
+}

@@ -1,0 +1,1 @@
+{"text": "Yeah.", "words": [{"word": "yeah", "start_s": 17.68000030517578, "end_s": 18.800000381469726}], "latency_s": 1.0295502950903028, "audio_duration_s": 20.0, "rtf": 0.05147751475451514, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

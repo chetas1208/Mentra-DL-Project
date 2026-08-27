@@ -1,0 +1,1 @@
+{"text": "Hmm", "words": [{"word": "hmm", "start_s": 6.0, "end_s": 6.399999809265137}], "latency_s": 0.8208903649356216, "audio_duration_s": 20.0, "rtf": 0.041044518246781084, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}

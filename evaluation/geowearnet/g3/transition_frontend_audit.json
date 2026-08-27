@@ -1,0 +1,108 @@
+{
+  "status": "SCORED",
+  "generated_utc": "2026-08-27T11:48:11.718244+00:00",
+  "checkpoint": "training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+  "official_dev_used": false,
+  "official_eval_used": false,
+  "data_boundary": "38 MMCSG internal-val windows derived only from official train; wearer-disjoint from G2 inner train.",
+  "n_items": 38,
+  "total_audio_minutes": 12.666666666666666,
+  "policies": {
+    "A_balanced": {
+      "policy": {
+        "name": "A_balanced",
+        "wearer_on": 0.6,
+        "wearer_off": 0.4,
+        "env_on": 0.6,
+        "env_off": 0.4,
+        "wearer_gain": 1.0,
+        "env_gain": 0.0,
+        "silence_gain": 0.0,
+        "overlap_policy": "pass_raw",
+        "overlap_gain": 1.0,
+        "attack_ms": 10.0,
+        "release_ms": 60.0,
+        "min_state_ms": 40.0,
+        "hangover_ms": 200.0,
+        "frame_hop_ms": 10.0
+      },
+      "wearer_onset": {
+        "n_events": 78,
+        "opened_within_500ms_rate": 0.9102564102564102,
+        "not_opened_within_1s_rate": 0.07692307692307693,
+        "p50_ms": 100.0,
+        "p95_ms": 408.0000000000001
+      },
+      "environment_only_onset_initial_gain": {
+        "n_events": 70,
+        "mean": 0.4271428567889546,
+        "p50": 0.25999999046325684,
+        "p95": 1.0
+      },
+      "pre_wearer_onset_gate_exposure": {
+        "n_events": 59,
+        "mean": 0.10745762787380461,
+        "p50": 0.0,
+        "p95": 0.8919999957084649
+      },
+      "first_word_gate_attenuation_proxy": {
+        "definition": "For the first labelled wearer word following each wearer RTTM onset, mean gate gain over its initial <=250 ms. This is exposure to the audio router, not ASR word error.",
+        "n_events": 76,
+        "mean": 0.5476239245679033,
+        "p50": 0.6201923191547394,
+        "p95": 1.0,
+        "n_first_words": 76,
+        "pass_gain_ge_0_5_rate": 0.5921052631578947
+      }
+    },
+    "E_no_smoothing": {
+      "policy": {
+        "name": "E_no_smoothing",
+        "wearer_on": 0.6,
+        "wearer_off": 0.4,
+        "env_on": 0.6,
+        "env_off": 0.4,
+        "wearer_gain": 1.0,
+        "env_gain": 0.0,
+        "silence_gain": 0.0,
+        "overlap_policy": "pass_raw",
+        "overlap_gain": 1.0,
+        "attack_ms": 0.0,
+        "release_ms": 0.0,
+        "min_state_ms": 0.0,
+        "hangover_ms": 0.0,
+        "frame_hop_ms": 10.0
+      },
+      "wearer_onset": {
+        "n_events": 78,
+        "opened_within_500ms_rate": 0.9102564102564102,
+        "not_opened_within_1s_rate": 0.07692307692307693,
+        "p50_ms": 60.0,
+        "p95_ms": 378.0000000000001
+      },
+      "environment_only_onset_initial_gain": {
+        "n_events": 70,
+        "mean": 0.3365714297762939,
+        "p50": 0.019999999552965164,
+        "p95": 1.0
+      },
+      "pre_wearer_onset_gate_exposure": {
+        "n_events": 59,
+        "mean": 0.08271186457852185,
+        "p50": 0.0,
+        "p95": 0.6679999887943252
+      },
+      "first_word_gate_attenuation_proxy": {
+        "definition": "For the first labelled wearer word following each wearer RTTM onset, mean gate gain over its initial <=250 ms. This is exposure to the audio router, not ASR word error.",
+        "n_events": 76,
+        "mean": 0.6800452432546177,
+        "p50": 0.800000011920929,
+        "p95": 1.0,
+        "n_first_words": 76,
+        "pass_gain_ge_0_5_rate": 0.7368421052631579
+      }
+    }
+  },
+  "decision": "No post-hoc gate retuning was applied. A_balanced remains the measured product policy; E_no_smoothing is a causal-control measurement only, and receiver default remains passthrough."
+}

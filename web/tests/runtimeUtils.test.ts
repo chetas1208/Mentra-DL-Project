@@ -26,7 +26,8 @@ const FULL_CAPS = {
   modelId: 'speakernet-wearer-detector', modelVersion: 'v1', ready: true, task: 'wearer_activity',
   requiresEnrollment: true, supportsEnrollment: true, supportsEnrollmentFreeDetection: false,
   supportsPassivePersonalization: false, supportsOverlap: false, supportsEnvironmentActivity: true,
-  supportsSourceSeparation: false, outputLabels: ['silence', 'wearer', 'environment'],
+  supportsSourceSeparation: false, audioPolicy: 'passthrough', experimental: false,
+  outputLabels: ['silence', 'wearer', 'environment'],
 }
 test('parseCapabilities: empty payload -> null (NOT AVAILABLE)', () => {
   assert.equal(parseCapabilities(new Uint8Array(0)), null)

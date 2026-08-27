@@ -1,0 +1,52 @@
+{
+  "channel": 2,
+  "state_level_distributions_val": {
+    "silence": {
+      "n": 9324,
+      "log_rms_mean": -7.156744956970215,
+      "log_rms_std": 0.6655220985412598,
+      "peak_mean": 0.002785599324852228,
+      "crest_mean": 2.318028450012207,
+      "spectral_tilt_mean": -1.2444074153900146,
+      "lf_hf_ratio_mean": 2936.20263671875,
+      "clipping_fraction_mean": 0.0
+    },
+    "self_only": {
+      "n": 159720,
+      "log_rms_mean": -5.49114465713501,
+      "log_rms_std": 1.1603175401687622,
+      "peak_mean": 0.019883692264556885,
+      "crest_mean": 2.814739942550659,
+      "spectral_tilt_mean": -1.2581619024276733,
+      "lf_hf_ratio_mean": 1835.451416015625,
+      "clipping_fraction_mean": 0.0
+    },
+    "other_only": {
+      "n": 141236,
+      "log_rms_mean": -6.716279029846191,
+      "log_rms_std": 0.7097831964492798,
+      "peak_mean": 0.004408888053148985,
+      "crest_mean": 2.544919490814209,
+      "spectral_tilt_mean": -1.2495691776275635,
+      "lf_hf_ratio_mean": 1849.937744140625,
+      "clipping_fraction_mean": 1.0832932275661733e-05
+    },
+    "overlap": {
+      "n": 31644,
+      "log_rms_mean": -5.895550727844238,
+      "log_rms_std": 1.1791117191314697,
+      "peak_mean": 0.015468848869204521,
+      "crest_mean": 2.7678637504577637,
+      "spectral_tilt_mean": -1.2551945447921753,
+      "lf_hf_ratio_mean": 951.3828735351562,
+      "clipping_fraction_mean": 0.0
+    }
+  },
+  "level_matched_evaluation": {
+    "status": "OK",
+    "n_matched_frames": 147880,
+    "auroc_normal_solo": 0.8336250333554777,
+    "auroc_level_matched": 0.6264560742691092,
+    "global_random_gain_note": "Applied at the WAVEFORM level in the neural real-data evaluation (zero_shot.py), not here -- E0's scalar features cannot be gain-perturbed after the fact without re-deriving them from audio."
+  }
+}

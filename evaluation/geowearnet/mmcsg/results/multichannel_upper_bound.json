@@ -1,0 +1,114 @@
+{
+  "beamformer_availability": {
+    "beamformer_weight_files_found": [],
+    "top_level_directories": [
+      "rttm",
+      "accelerometer",
+      "audio",
+      "metadata",
+      "gyroscope",
+      "transcriptions",
+      "video"
+    ],
+    "rir_or_mcac_or_beam_directories_found": [],
+    "conclusion": "NOT AVAILABLE locally -- the downloaded MMCSG copy ships audio/transcriptions/rttm/metadata/accelerometer/gyroscope/video only. Reproducing Meta's exact 13-beam (incl. mouth-directed) frontend would require the separate published beamformer-weight resource, which this campaign does NOT fabricate."
+  },
+  "channel_average": {
+    "signal": "channel_average_7mic",
+    "groups": {
+      "rms_only": {
+        "status": "OK",
+        "n_train_frames": 1055593,
+        "n_val_frames": 300956,
+        "auroc": 0.7334115265363172,
+        "auprc": 0.7843537666420787,
+        "eer": 0.3261905908584595,
+        "balanced_accuracy": 0.697643759821212
+      },
+      "peak_only": {
+        "status": "OK",
+        "n_train_frames": 1055593,
+        "n_val_frames": 300956,
+        "auroc": 0.7481277603515164,
+        "auprc": 0.7985689319409206,
+        "eer": 0.308666467666626,
+        "balanced_accuracy": 0.7302281501726268
+      },
+      "amplitude_only": {
+        "status": "OK",
+        "n_train_frames": 1055593,
+        "n_val_frames": 300956,
+        "auroc": 0.7662924472789998,
+        "auprc": 0.8071068991582664,
+        "eer": 0.29839253425598145,
+        "balanced_accuracy": 0.7351355911780448
+      },
+      "spectral_only": {
+        "status": "OK",
+        "n_train_frames": 1055593,
+        "n_val_frames": 300956,
+        "auroc": 0.6983704683300566,
+        "auprc": 0.734417566496119,
+        "eer": 0.34428951144218445,
+        "balanced_accuracy": 0.6568812595957508
+      },
+      "combined": {
+        "status": "OK",
+        "n_train_frames": 1055593,
+        "n_val_frames": 300956,
+        "auroc": 0.7924609566784355,
+        "auprc": 0.8204677440061916,
+        "eer": 0.26645427942276,
+        "balanced_accuracy": 0.7591351317409618
+      }
+    }
+  },
+  "spatial_upper_bound": {
+    "reference_channel": 2,
+    "channel_pairs": [
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "single_reference_channel_e0_only": {
+      "auroc": 0.8336250333554777,
+      "auprc": 0.8654172947679211,
+      "balanced_accuracy": 0.8015719381918158,
+      "n_val_frames": 300956
+    },
+    "spatial_features_only": {
+      "auroc": 0.8864890982025051,
+      "auprc": 0.89761145302028,
+      "balanced_accuracy": 0.8500641259101953,
+      "n_val_frames": 300956
+    },
+    "spatial_plus_single_channel_combined": {
+      "auroc": 0.8940297211039128,
+      "auprc": 0.9025486704451481,
+      "balanced_accuracy": 0.8584131475423122
+    },
+    "delta_spatial_vs_single_auroc": 0.05286406484702744,
+    "delta_combined_vs_single_auroc": 0.060404687748435104
+  }
+}

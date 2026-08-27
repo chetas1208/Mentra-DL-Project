@@ -1,0 +1,205 @@
+{
+  "status": "OK",
+  "generated_utc": "2026-08-27T11:02:38.586956+00:00",
+  "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+  "checkpoint_sha256": "07c43c3d9e37dbd490ae0477f46ff515e1e19e8fe0a20687ec9d13a8555c68ef",
+  "official_dev_used": false,
+  "protocol": {
+    "synthetic_split": "test",
+    "n_speakers": 20,
+    "speaker_ids": [
+      "1116",
+      "1594",
+      "2952",
+      "328",
+      "3374",
+      "3436",
+      "3879",
+      "4088",
+      "426",
+      "5192",
+      "5393",
+      "6019",
+      "6437",
+      "6563",
+      "730",
+      "7447",
+      "8095",
+      "8098",
+      "8419",
+      "8609"
+    ],
+    "repeats_per_speaker": 3,
+    "generation": "S2",
+    "duration_s": 6.0,
+    "same_speaker_role_flip": "same source waveform, fixed rig/room/device seed, wearer vs environment geometry",
+    "same_geometry_speaker_swap": "same wearer geometry, different held-out synthetic speaker",
+    "grouped_generalization": "role-flip accuracy grouped by synthetic test speaker",
+    "no_mmcsg_dev_or_g2_overwrite": true
+  },
+  "original_probe_context": {
+    "identity_probe_artifact": "evaluation/geowearnet/mmcsg/results/identity_session_probe.json",
+    "identity_target": "closed-set self_speaker label over held-out recording windows",
+    "session_target": "recording ID over a within-recording temporal split",
+    "not_tested_by_original": "leave-person-out generalization and same-speaker geometry counterfactuals",
+    "original_result": {
+      "checkpoint": "/home/923873155/Mentra Project/training/geowearnet/mmcsg/frozen/g2_selected_07c43c3d9e37.pt",
+      "identity_probe": {
+        "status": "OK",
+        "label_key": "self_speaker",
+        "n_labels": 31,
+        "n_train_windows": 6706,
+        "n_heldout_windows": 2352,
+        "chance_accuracy": 0.03225806451612903,
+        "in_sample_probe_train_accuracy": 0.8000298240381748,
+        "out_of_recording_heldout_accuracy": 0.5824829931972789,
+        "heldout_accuracy_over_chance": 18.056972789115648
+      },
+      "session_probe": {
+        "status": "OK",
+        "n_sessions": 30,
+        "n_train_windows": 1432,
+        "n_heldout_windows": 635,
+        "chance_accuracy": 0.03333333333333333,
+        "held_out_time_slice_accuracy": 0.47244094488188976,
+        "accuracy_over_chance": 14.173228346456693
+      },
+      "dataset_source_shortcut_audit": {
+        "status": "OK",
+        "same_recording": true,
+        "same_channel_selection_logic": true,
+        "same_resampling_function": "audio_io.read_full for both SELF and OTHER frames of the same window",
+        "same_feature_extractor": "acoustics.log_mel / features.extract_features, label-independent",
+        "same_normalization_stats": "shared per-channel/global stats, computed on TRAIN split only, not per-label",
+        "note": "SELF vs OTHER labels come only from RTTM speaker field applied to a SHARED audio tensor already read once per window (see dataset.py); there is no separate code path that could introduce a systematic non-label difference between the two classes."
+      },
+      "verdict": "IDENTITY_SHORTCUT_SUSPECTED"
+    }
+  },
+  "representation_identity_baselines": {
+    "n_labels": 20,
+    "chance_accuracy": 0.05,
+    "physical": {
+      "train_samples": 40,
+      "test_samples": 20,
+      "heldout_accuracy": 0.65,
+      "accuracy_over_chance": 13.0
+    },
+    "log_mel": {
+      "train_samples": 40,
+      "test_samples": 20,
+      "heldout_accuracy": 0.75,
+      "accuracy_over_chance": 15.0
+    },
+    "input": {
+      "train_samples": 40,
+      "test_samples": 20,
+      "heldout_accuracy": 0.75,
+      "accuracy_over_chance": 15.0
+    },
+    "early": {
+      "train_samples": 40,
+      "test_samples": 20,
+      "heldout_accuracy": 0.75,
+      "accuracy_over_chance": 15.0
+    },
+    "late": {
+      "train_samples": 40,
+      "test_samples": 20,
+      "heldout_accuracy": 0.75,
+      "accuracy_over_chance": 15.0
+    },
+    "final_pre_head": {
+      "train_samples": 40,
+      "test_samples": 20,
+      "heldout_accuracy": 0.75,
+      "accuracy_over_chance": 15.0
+    }
+  },
+  "same_speaker_role_flip": {
+    "n_pairs": 60,
+    "role_flip_accuracy": 1.0,
+    "bootstrap_ci95": [
+      1.0,
+      1.0
+    ],
+    "mean_probability_delta": 0.35681770248293143,
+    "median_probability_delta": 0.2287177811302294
+  },
+  "same_geometry_speaker_swap": {
+    "n_pairs": 60,
+    "mean_abs_probability_delta": 0.002624072601262382,
+    "median_abs_probability_delta": 0.0006316078305377837,
+    "bootstrap_ci95_mean": [
+      0.0012347699692583695,
+      0.004527612392979823
+    ]
+  },
+  "same_speaker_different_content_control": {
+    "n_pairs": 60,
+    "content_isolation": "same held-out speaker, same wearer geometry and device response, different source clip",
+    "mean_abs_probability_delta": 0.002602952153646465,
+    "median_abs_probability_delta": 0.0005227874729583082,
+    "bootstrap_ci95_mean": [
+      0.0015226288818530388,
+      0.0038358227559146486
+    ]
+  },
+  "geometry_sensitivity": {
+    "same_source_role_flip_abs_delta_median": 0.2287177811302294,
+    "same_source_role_flip_abs_delta_bootstrap_ci95_mean": [
+      0.27862150346317244,
+      0.4304900565638099
+    ],
+    "same_source_environment_perturb_abs_delta_median": 0.03295366899502011,
+    "identity_abs_delta_median": 0.0006316078305377837,
+    "GEOMETRY_DOMINANCE_RATIO": 362.11992643518556
+  },
+  "voice_perturbation_control": {
+    "n_pairs": 60,
+    "pitch_shift_semitones": 1.0,
+    "mean_abs_probability_delta": 0.031902904025122546,
+    "median_abs_probability_delta": 0.010096142186237389
+  },
+  "leave_identity_out": {
+    "grouping": "synthetic test speaker; speakers are disjoint from synthetic training pool",
+    "mean_group_role_flip_accuracy": 1.0,
+    "median_group_role_flip_accuracy": 1.0,
+    "p10_group_role_flip_accuracy": 1.0,
+    "worst_group_role_flip_accuracy": 1.0,
+    "variance_group_role_flip_accuracy": 0.0,
+    "per_speaker": {
+      "1116": 1.0,
+      "1594": 1.0,
+      "2952": 1.0,
+      "328": 1.0,
+      "3374": 1.0,
+      "3436": 1.0,
+      "3879": 1.0,
+      "4088": 1.0,
+      "426": 1.0,
+      "5192": 1.0,
+      "5393": 1.0,
+      "6019": 1.0,
+      "6437": 1.0,
+      "6563": 1.0,
+      "730": 1.0,
+      "7447": 1.0,
+      "8095": 1.0,
+      "8098": 1.0,
+      "8419": 1.0,
+      "8609": 1.0
+    }
+  },
+  "decision_rule": {
+    "role_flip_min": 0.8,
+    "grouped_role_flip_min": 0.75,
+    "geometry_dominance_min": 1.5,
+    "result": "geometry-dominant evidence clears causal shortcut concern only when all three pass"
+  },
+  "verdict": "IDENTITY_INFORMATION_PRESENT_BUT_NOT_CAUSAL",
+  "notes": [
+    "Speaker identity remains decodable from ordinary and model representations by design; decodability alone is not a shortcut verdict.",
+    "This experiment is causal evidence on synthetic held-out speakers, not Mentra-hardware validation."
+  ]
+}

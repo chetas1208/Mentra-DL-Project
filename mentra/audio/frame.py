@@ -42,6 +42,26 @@ class MessageType(IntEnum):
                              # actually wants, so the server can skip building+sending the
                              # unwanted stream entirely (was previously always sending both and
                              # relying on the client to silently gate playback volume locally).
+    # --- G4 WS6: research capture. Additive; a receiver built before these
+    # existed simply ignores unknown message types, and a client that never
+    # sends them behaves exactly as before.
+    CAPTURE_META = 14    # client->server: UTF-8 JSON session/condition/device metadata.
+                          # Opens a capture session; must precede CAPTURE_RAW_PCM.
+    CAPTURE_RAW_PCM = 15  # client->server: PCM16 at the capture device's NATIVE sample rate
+                          # (header's sample_rate/channels describe THIS payload, not 16 kHz).
+                          # The 16 kHz stream the model consumes still arrives as AUDIO_FRAME.
+    CAPTURE_ACK = 16      # server->client: UTF-8 JSON capture status/validation summary.
+    # --- Multi-model runtime control plane. Additive and feature-detected:
+    # the server only sends MODEL_CATALOG to a client whose STREAM_START
+    # payload advertises `features=model_selection`, so a client built before
+    # these existed never sees an unknown message type, and a server built
+    # before these existed simply never receives SESSION_CONFIG. Model
+    # selection is CONTROL metadata -- the binary AUDIO_FRAME framing above is
+    # deliberately untouched.
+    MODEL_CATALOG = 17    # server->client: UTF-8 JSON {"type","defaultModel","models":[...]}
+    SESSION_CONFIG = 18   # client->server: UTF-8 JSON {"type","model",...}; binds ONE model
+                          # to THIS session (never to the process), once per session.
+    SESSION_CONFIG_ACK = 19  # server->client: UTF-8 JSON {"type","model","ready","capabilities"}
 
 
 class Codec(IntEnum):

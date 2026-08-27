@@ -1,0 +1,2150 @@
+{
+  "checkpoint": "training/geowearnet/runs/geowearnet_e1_s1_ctx100_20260825_105635_42d8/checkpoints/best.pt",
+  "trained_on_generation": "S1",
+  "evaluated_on_generation": "S1",
+  "cross_simulator": false,
+  "split": "test",
+  "suite_seed": 4242,
+  "n_scenes_per_condition": 200,
+  "model": {
+    "arch": "tcn",
+    "variant": "ctx100",
+    "params": 41190,
+    "receptive_field_frames": 10,
+    "context_ms": 100.0,
+    "global_step": 11250,
+    "normalization": "global",
+    "use_physical": true,
+    "drop_amplitude_features": false,
+    "loss_mode": "M1"
+  },
+  "enrollment_required": false,
+  "data_note": "SIMULATED GEOMETRY (LibriSpeech CC BY 4.0 + MUSAN). NOT Mentra hardware validation.",
+  "conditions": {
+    "normal": {
+      "wearer": {
+        "auroc": 0.920828816043852,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.129518009900785,
+        "frr_at_far10": 0.2263510014706187,
+        "frr_at_far5": 0.3389879657822241,
+        "frr_at_far1": 0.6042171544563889,
+        "far_at_recall900": 0.25054331823726533,
+        "far_at_recall950": 0.3964049859087786,
+        "far_at_recall975": 0.5127101414730584,
+        "eer": 0.15967425818155273,
+        "auroc_ci95": [
+          0.9116242453788824,
+          0.931262283266639
+        ]
+      },
+      "environment": {
+        "auroc": 0.813766088101366,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.3766526442307693,
+        "frr_at_far10": 0.5345219017094017,
+        "frr_at_far5": 0.6515591613247863,
+        "frr_at_far1": 0.833049545940171,
+        "far_at_recall900": 0.4810372554274993,
+        "far_at_recall950": 0.5672239346019834,
+        "far_at_recall975": 0.6353021978021978,
+        "eer": 0.27964883185919776
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8779842821485587,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.21332763776164032,
+        "frr_at_far10": 0.32298163178129,
+        "frr_at_far5": 0.4419906023067065,
+        "frr_at_far1": 0.7102947458351132,
+        "far_at_recall900": 0.39982874268588553,
+        "far_at_recall950": 0.54428428714143,
+        "far_at_recall975": 0.6450692164977879,
+        "eer": 0.20747683694836927,
+        "auroc_ci95": [
+          0.8563917136014214,
+          0.9000060890988839
+        ]
+      },
+      "overlap_f1": 0.5515906698808271,
+      "state_confusion": [
+        [
+          32002,
+          319,
+          3550,
+          415
+        ],
+        [
+          2988,
+          5529,
+          2857,
+          12036
+        ],
+        [
+          9238,
+          828,
+          19629,
+          5340
+        ],
+        [
+          1064,
+          3290,
+          4269,
+          16246
+        ]
+      ],
+      "state_accuracy": 0.6137625418060201,
+      "false_wearer_rate_on_env_only": 0.17605251890966175,
+      "missed_wearer_rate": 0.2315292363139253,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.8084487587153578,
+      "error_buckets": {
+        "tir_db": {
+          "bins": [
+            {
+              "range": [
+                -52.00516891479492,
+                10.201603651046753
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.23890103622017303,
+              "n_env_only": 10519,
+              "missed_wearer_rate": 0.2868808993530597,
+              "n_wearer": 9429,
+              "auroc_within_bucket": 0.8843939795190948
+            },
+            {
+              "range": [
+                10.201603651046753,
+                17.75557231903076
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.19514756853271714,
+              "n_env_only": 9521,
+              "missed_wearer_rate": 0.26252927400468384,
+              "n_wearer": 12810,
+              "auroc_within_bucket": 0.9031627184730332
+            },
+            {
+              "range": [
+                17.75557231903076,
+                24.4909725189209
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.17479570990806945,
+              "n_env_only": 7832,
+              "missed_wearer_rate": 0.2016327788046827,
+              "n_wearer": 12984,
+              "auroc_within_bucket": 0.9281704981826769
+            },
+            {
+              "range": [
+                24.4909725189209,
+                60.28253655297851
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.059751500767834705,
+              "n_env_only": 7163,
+              "missed_wearer_rate": 0.19087009803921567,
+              "n_wearer": 13056,
+              "auroc_within_bucket": 0.9561712096528233
+            }
+          ]
+        },
+        "wearer_range_m": {
+          "bins": [
+            {
+              "range": [
+                0.09007009863853455,
+                0.1067969799041748
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.15538698589546046,
+              "n_env_only": 8437,
+              "missed_wearer_rate": 0.24331025049157903,
+              "n_wearer": 11697,
+              "auroc_within_bucket": 0.9237485860390957
+            },
+            {
+              "range": [
+                0.1067969799041748,
+                0.12340475246310234
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.18336653386454183,
+              "n_env_only": 10040,
+              "missed_wearer_rate": 0.2286664203915774,
+              "n_wearer": 10828,
+              "auroc_within_bucket": 0.9144756559359838
+            },
+            {
+              "range": [
+                0.12340475246310234,
+                0.13978144526481628
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.18713776192599196,
+              "n_env_only": 8972,
+              "missed_wearer_rate": 0.2149756460001651,
+              "n_wearer": 12113,
+              "auroc_within_bucket": 0.9218976074286619
+            },
+            {
+              "range": [
+                0.13978144526481628,
+                0.15465580089187622
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.17624571579224887,
+              "n_env_only": 7586,
+              "missed_wearer_rate": 0.23839894435891798,
+              "n_wearer": 13641,
+              "auroc_within_bucket": 0.9232356990586625
+            }
+          ]
+        },
+        "wearer_drr_db": {
+          "bins": [
+            {
+              "range": [
+                5.116765022277832,
+                13.923906326293945
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.167795080117355,
+              "n_env_only": 8862,
+              "missed_wearer_rate": 0.23617882819601685,
+              "n_wearer": 12101,
+              "auroc_within_bucket": 0.9228097312068988
+            },
+            {
+              "range": [
+                13.923906326293945,
+                17.820951461791992
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.1603741302612068,
+              "n_env_only": 8767,
+              "missed_wearer_rate": 0.2283571915473756,
+              "n_wearer": 11736,
+              "auroc_within_bucket": 0.9254014153707034
+            },
+            {
+              "range": [
+                17.820951461791992,
+                20.88289451599121
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.15805964952999885,
+              "n_env_only": 8617,
+              "missed_wearer_rate": 0.2867012089810017,
+              "n_wearer": 12159,
+              "auroc_within_bucket": 0.9102268326482721
+            },
+            {
+              "range": [
+                20.88289451599121,
+                28.431361244750978
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.2176584366822164,
+              "n_env_only": 8789,
+              "missed_wearer_rate": 0.175364324676382,
+              "n_wearer": 12283,
+              "auroc_within_bucket": 0.9262673543971572
+            }
+          ]
+        },
+        "env_range_m": {
+          "bins": [
+            {
+              "range": [
+                0.30126506090164185,
+                0.8196214437484741
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.3545979778526721,
+              "n_env_only": 8308,
+              "missed_wearer_rate": 0.20923446618606248,
+              "n_wearer": 11652,
+              "auroc_within_bucket": 0.894561791346235
+            },
+            {
+              "range": [
+                0.8196214437484741,
+                1.6212987303733826
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.1325459317585302,
+              "n_env_only": 9144,
+              "missed_wearer_rate": 0.26534859521331944,
+              "n_wearer": 11532,
+              "auroc_within_bucket": 0.9230654223711388
+            },
+            {
+              "range": [
+                1.6212987303733826,
+                3.2872713804244995
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.15272108843537416,
+              "n_env_only": 8820,
+              "missed_wearer_rate": 0.20359528325224704,
+              "n_wearer": 12127,
+              "auroc_within_bucket": 0.9315561315617632
+            },
+            {
+              "range": [
+                3.2872713804244995,
+                6.992634819580078
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.07565902088325915,
+              "n_env_only": 8763,
+              "missed_wearer_rate": 0.24760950030845158,
+              "n_wearer": 12968,
+              "auroc_within_bucket": 0.938029021682404
+            }
+          ]
+        },
+        "env_drr_db": {
+          "bins": [
+            {
+              "range": [
+                -18.0,
+                -10.708301544189453
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.09222113502935421,
+              "n_env_only": 8176,
+              "missed_wearer_rate": 0.2602843890198464,
+              "n_wearer": 13151,
+              "auroc_within_bucket": 0.9294005066117778
+            },
+            {
+              "range": [
+                -10.708301544189453,
+                -4.574439525604248
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.11874376869391824,
+              "n_env_only": 10030,
+              "missed_wearer_rate": 0.2179874105372079,
+              "n_wearer": 11597,
+              "auroc_within_bucket": 0.933080131469586
+            },
+            {
+              "range": [
+                -4.574439525604248,
+                2.0438323318958282
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.14889978337703796,
+              "n_env_only": 8771,
+              "missed_wearer_rate": 0.21948792183117705,
+              "n_wearer": 11053,
+              "auroc_within_bucket": 0.9366409929811835
+            },
+            {
+              "range": [
+                2.0438323318958282,
+                15.024508522583007
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.3620004964010921,
+              "n_env_only": 8058,
+              "missed_wearer_rate": 0.22447507613399584,
+              "n_wearer": 12478,
+              "auroc_within_bucket": 0.8861018581775214
+            }
+          ]
+        },
+        "env_angle_deg": {
+          "bins": [
+            {
+              "range": [
+                0.4736643135547638,
+                41.96164131164551
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.2294710612753426,
+              "n_env_only": 8829,
+              "missed_wearer_rate": 0.2078451792068038,
+              "n_wearer": 11523,
+              "auroc_within_bucket": 0.9191134589087474
+            },
+            {
+              "range": [
+                41.96164131164551,
+                81.39181900024414
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.16687365925256858,
+              "n_env_only": 8857,
+              "missed_wearer_rate": 0.27858694777500603,
+              "n_wearer": 12427,
+              "auroc_within_bucket": 0.9033540400634952
+            },
+            {
+              "range": [
+                81.39181900024414,
+                135.8374786376953
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.1267561001373191,
+              "n_env_only": 9467,
+              "missed_wearer_rate": 0.20670531888076632,
+              "n_wearer": 11901,
+              "auroc_within_bucket": 0.9343049331195747
+            },
+            {
+              "range": [
+                135.8374786376953,
+                179.808838890625
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.18573965998477543,
+              "n_env_only": 7882,
+              "missed_wearer_rate": 0.2302059864821371,
+              "n_wearer": 12428,
+              "auroc_within_bucket": 0.9278208852035342
+            }
+          ]
+        },
+        "rt60_s": {
+          "bins": [
+            {
+              "range": [
+                0.12104074656963348,
+                0.19025984406471252
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.21264759309718437,
+              "n_env_only": 8808,
+              "missed_wearer_rate": 0.21988133115487143,
+              "n_wearer": 11629,
+              "auroc_within_bucket": 0.9225629729123015
+            },
+            {
+              "range": [
+                0.19025984406471252,
+                0.3177415132522583
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.18588015757827078,
+              "n_env_only": 9646,
+              "missed_wearer_rate": 0.1818732162933495,
+              "n_wearer": 11563,
+              "auroc_within_bucket": 0.9331358316167858
+            },
+            {
+              "range": [
+                0.3177415132522583,
+                0.46742726117372513
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.19140765630625226,
+              "n_env_only": 8333,
+              "missed_wearer_rate": 0.2582475480262625,
+              "n_wearer": 12337,
+              "auroc_within_bucket": 0.9098247340157076
+            },
+            {
+              "range": [
+                0.46742726117372513,
+                1.0733579860458373
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.10996605237633365,
+              "n_env_only": 8248,
+              "missed_wearer_rate": 0.2613333333333333,
+              "n_wearer": 12750,
+              "auroc_within_bucket": 0.923308150688847
+            }
+          ]
+        },
+        "head_radius_m": {
+          "bins": [
+            {
+              "range": [
+                0.07260768860578537,
+                0.0771319791674614
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.2,
+              "n_env_only": 7920,
+              "missed_wearer_rate": 0.21373801916932908,
+              "n_wearer": 12520,
+              "auroc_within_bucket": 0.9207040174156332
+            },
+            {
+              "range": [
+                0.0771319791674614,
+                0.08396194502711296
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.16776353769772542,
+              "n_env_only": 8661,
+              "missed_wearer_rate": 0.21894076885002475,
+              "n_wearer": 12122,
+              "auroc_within_bucket": 0.9295269811849675
+            },
+            {
+              "range": [
+                0.08396194502711296,
+                0.08872578665614128
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.14794026260398918,
+              "n_env_only": 9977,
+              "missed_wearer_rate": 0.24118040461461293,
+              "n_wearer": 11962,
+              "auroc_within_bucket": 0.919865915850634
+            },
+            {
+              "range": [
+                0.08872578665614128,
+                0.0939253882894516
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.1952341630293736,
+              "n_env_only": 8477,
+              "missed_wearer_rate": 0.25379014989293364,
+              "n_wearer": 11675,
+              "auroc_within_bucket": 0.9135798568335962
+            }
+          ]
+        },
+        "noise_snr_db": {
+          "bins": [
+            {
+              "range": [
+                0.3089021146297455,
+                9.992341041564941
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.14239675340176652,
+              "n_env_only": 8378,
+              "missed_wearer_rate": 0.29718531218745536,
+              "n_wearer": 13998,
+              "auroc_within_bucket": 0.8815406935345831
+            },
+            {
+              "range": [
+                9.992341041564941,
+                21.93843364715576
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.19889689329131022,
+              "n_env_only": 8884,
+              "missed_wearer_rate": 0.21268163804491413,
+              "n_wearer": 11355,
+              "auroc_within_bucket": 0.918822032973693
+            },
+            {
+              "range": [
+                21.93843364715576,
+                30.977493286132812
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.16799091940976163,
+              "n_env_only": 8810,
+              "missed_wearer_rate": 0.1883032373515536,
+              "n_wearer": 12294,
+              "auroc_within_bucket": 0.9409230262632304
+            },
+            {
+              "range": [
+                30.977493286132812,
+                99.000001
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.19279259176614974,
+              "n_env_only": 8963,
+              "missed_wearer_rate": 0.21519939804364183,
+              "n_wearer": 10632,
+              "auroc_within_bucket": 0.9381606157056313
+            }
+          ]
+        },
+        "recording_gain_db": {
+          "bins": [
+            {
+              "range": [
+                -11.818501472473145,
+                -6.751231789588928
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.09912331969608416,
+              "n_env_only": 8555,
+              "missed_wearer_rate": 0.28327324031979934,
+              "n_wearer": 12758,
+              "auroc_within_bucket": 0.9312842206488231
+            },
+            {
+              "range": [
+                -6.751231789588928,
+                -1.8987786769866943
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.1610621283575969,
+              "n_env_only": 9754,
+              "missed_wearer_rate": 0.24720948342995588,
+              "n_wearer": 11557,
+              "auroc_within_bucket": 0.915311806307363
+            },
+            {
+              "range": [
+                -1.8987786769866943,
+                1.7231060564517975
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.16540074821448816,
+              "n_env_only": 8821,
+              "missed_wearer_rate": 0.23952291479454293,
+              "n_wearer": 12241,
+              "auroc_within_bucket": 0.9201572211305168
+            },
+            {
+              "range": [
+                1.7231060564517975,
+                7.883220718933106
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.28969006957621757,
+              "n_env_only": 7905,
+              "missed_wearer_rate": 0.15141175467030624,
+              "n_wearer": 11723,
+              "auroc_within_bucket": 0.9301144802093019
+            }
+          ]
+        },
+        "clip_fraction": {
+          "bins": [
+            {
+              "range": [
+                0.0,
+                0.0001875000016298145
+              ],
+              "n_frames": 89102,
+              "false_wearer_rate": 0.15365998957480081,
+              "n_env_only": 26858,
+              "missed_wearer_rate": 0.25864839719191407,
+              "n_wearer": 35469,
+              "auroc_within_bucket": 0.9206180479806487
+            },
+            {
+              "range": [
+                0.0001875000016298145,
+                0.14937600655651093
+              ],
+              "n_frames": 30498,
+              "false_wearer_rate": 0.24960254372019078,
+              "n_env_only": 8177,
+              "missed_wearer_rate": 0.15644028103044497,
+              "n_wearer": 12810,
+              "auroc_within_bucket": 0.9276069046224417
+            }
+          ]
+        },
+        "compressor_ratio": {
+          "bins": [
+            {
+              "range": [
+                1.0,
+                1.592270404100418
+              ],
+              "n_frames": 89700,
+              "false_wearer_rate": 0.18206500956022945,
+              "n_env_only": 26150,
+              "missed_wearer_rate": 0.22333755018975854,
+              "n_wearer": 36362,
+              "auroc_within_bucket": 0.9240585725397726
+            },
+            {
+              "range": [
+                1.592270404100418,
+                3.974258230758667
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.15835678109172763,
+              "n_env_only": 8885,
+              "missed_wearer_rate": 0.2565242930267685,
+              "n_wearer": 11917,
+              "auroc_within_bucket": 0.9106045026973463
+            }
+          ]
+        },
+        "mix_rms_db": {
+          "bins": [
+            {
+              "range": [
+                -54.97919464111328,
+                -30.530003547668457
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.08176422431436758,
+              "n_env_only": 9772,
+              "missed_wearer_rate": 0.3544438531133582,
+              "n_wearer": 9395,
+              "auroc_within_bucket": 0.9278132632664394
+            },
+            {
+              "range": [
+                -30.530003547668457,
+                -24.169837951660156
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.1741543058371572,
+              "n_env_only": 9371,
+              "missed_wearer_rate": 0.2416439712800198,
+              "n_wearer": 12117,
+              "auroc_within_bucket": 0.9166556735941981
+            },
+            {
+              "range": [
+                -24.169837951660156,
+                -17.63352060317993
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.20558526440879382,
+              "n_env_only": 8415,
+              "missed_wearer_rate": 0.21753934624697335,
+              "n_wearer": 13216,
+              "auroc_within_bucket": 0.9185626503521084
+            },
+            {
+              "range": [
+                -17.63352060317993,
+                -6.376864863800049
+              ],
+              "n_frames": 29900,
+              "false_wearer_rate": 0.26842316437073693,
+              "n_env_only": 7477,
+              "missed_wearer_rate": 0.15091137185447567,
+              "n_wearer": 13551,
+              "auroc_within_bucket": 0.9249870113470564
+            }
+          ]
+        }
+      }
+    },
+    "level_matched": {
+      "wearer": {
+        "auroc": 0.8339321159176522,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.31804718407589216,
+        "frr_at_far10": 0.5147579693034239,
+        "frr_at_far5": 0.6773545433832515,
+        "frr_at_far1": 0.891609188259906,
+        "far_at_recall900": 0.41953982697943104,
+        "far_at_recall950": 0.5295074382019321,
+        "far_at_recall975": 0.6121058313820614,
+        "eer": 0.2512635313398478,
+        "auroc_ci95": [
+          0.8187206576573183,
+          0.8505788130824702
+        ]
+      },
+      "environment": {
+        "auroc": 0.8828928392492672,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.20814970619658124,
+        "frr_at_far10": 0.36268028846153844,
+        "frr_at_far5": 0.5138054220085471,
+        "frr_at_far1": 0.774455795940171,
+        "far_at_recall900": 0.33588515143393194,
+        "far_at_recall950": 0.4543688019297775,
+        "far_at_recall975": 0.5496013133208255,
+        "eer": 0.2039130494970815
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8099173231723424,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.3529260999572832,
+        "frr_at_far10": 0.5246048697137975,
+        "frr_at_far5": 0.6694147800085434,
+        "frr_at_far1": 0.878684322938915,
+        "far_at_recall900": 0.5022406165263308,
+        "far_at_recall950": 0.6284287141429998,
+        "far_at_recall975": 0.7346367917796489,
+        "eer": 0.27249465918227744,
+        "auroc_ci95": [
+          0.7816491993780249,
+          0.8343160283552113
+        ]
+      },
+      "overlap_f1": 0.47743411974556593,
+      "state_confusion": [
+        [
+          32274,
+          269,
+          3269,
+          474
+        ],
+        [
+          4102,
+          5350,
+          4223,
+          9735
+        ],
+        [
+          4632,
+          932,
+          19309,
+          10162
+        ],
+        [
+          753,
+          1110,
+          8820,
+          14186
+        ]
+      ],
+      "state_accuracy": 0.5946404682274248,
+      "false_wearer_rate_on_env_only": 0.31665477379763096,
+      "missed_wearer_rate": 0.3707201889020071,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.7085771001489269
+    },
+    "random_gain": {
+      "wearer": {
+        "auroc": 0.9079541428945421,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.15793616272085176,
+        "frr_at_far10": 0.2740114749684127,
+        "frr_at_far5": 0.38242299964788007,
+        "frr_at_far1": 0.6273949336150293,
+        "far_at_recall900": 0.2926066656384515,
+        "far_at_recall950": 0.43503315993886793,
+        "far_at_recall975": 0.5515065688927525,
+        "eer": 0.17662161488654138,
+        "auroc_ci95": [
+          0.8952633921657283,
+          0.9205762096257124
+        ]
+      },
+      "environment": {
+        "auroc": 0.8128169297401349,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.37286324786324787,
+        "frr_at_far10": 0.5335870726495726,
+        "frr_at_far5": 0.6628271901709402,
+        "frr_at_far1": 0.848591079059829,
+        "far_at_recall900": 0.4776534441168587,
+        "far_at_recall950": 0.5794358080943447,
+        "far_at_recall975": 0.6642321093540605,
+        "eer": 0.2783444800880014
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.859010675051439,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.24767193507048268,
+        "frr_at_far10": 0.35160187953865873,
+        "frr_at_far5": 0.4603588210166596,
+        "frr_at_far1": 0.717983767620675,
+        "far_at_recall900": 0.4703582132153561,
+        "far_at_recall950": 0.6019123733409447,
+        "far_at_recall975": 0.7081204509775938,
+        "eer": 0.22776906988782256,
+        "auroc_ci95": [
+          0.8370814195190406,
+          0.881381922184838
+        ]
+      },
+      "overlap_f1": 0.5331534114868853,
+      "state_confusion": [
+        [
+          32393,
+          342,
+          2924,
+          627
+        ],
+        [
+          3075,
+          5052,
+          3450,
+          11833
+        ],
+        [
+          9293,
+          773,
+          18817,
+          6152
+        ],
+        [
+          1067,
+          3195,
+          4803,
+          15804
+        ]
+      ],
+      "state_accuracy": 0.6025585284280937,
+      "false_wearer_rate_on_env_only": 0.1976594833737691,
+      "missed_wearer_rate": 0.2567368835311419,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.7700125961976538
+    },
+    "wearer_quiet": {
+      "wearer": {
+        "auroc": 0.818426902517337,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.3561382795832556,
+        "frr_at_far10": 0.543859649122807,
+        "frr_at_far5": 0.6975289463327741,
+        "frr_at_far1": 0.8993558275854927,
+        "far_at_recall900": 0.45752302968270214,
+        "far_at_recall950": 0.5552502068114581,
+        "far_at_recall975": 0.640568696456864,
+        "eer": 0.26597070005465057,
+        "auroc_ci95": [
+          0.7940812340017975,
+          0.8373389861492695
+        ]
+      },
+      "environment": {
+        "auroc": 0.8730566969276725,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.23100293803418803,
+        "frr_at_far10": 0.3973023504273504,
+        "frr_at_far5": 0.5479600694444444,
+        "frr_at_far1": 0.7942207532051282,
+        "far_at_recall900": 0.3549316537121415,
+        "far_at_recall950": 0.46701621549182526,
+        "far_at_recall975": 0.5595182256767622,
+        "eer": 0.21445651602377974
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.7818607522946328,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.4120034173430158,
+        "frr_at_far10": 0.5752669799231098,
+        "frr_at_far5": 0.7059376334899616,
+        "frr_at_far1": 0.8944468175993165,
+        "far_at_recall900": 0.5559297845012131,
+        "far_at_recall950": 0.6810903382331954,
+        "far_at_recall975": 0.7757100042814329,
+        "eer": 0.29509623225983755,
+        "auroc_ci95": [
+          0.751905089390976,
+          0.8062845536189862
+        ]
+      },
+      "overlap_f1": 0.41534282299250247,
+      "state_confusion": [
+        [
+          33542,
+          194,
+          2355,
+          195
+        ],
+        [
+          6167,
+          4824,
+          6661,
+          5758
+        ],
+        [
+          6680,
+          906,
+          21812,
+          5637
+        ],
+        [
+          1487,
+          1524,
+          12302,
+          9556
+        ]
+      ],
+      "state_accuracy": 0.5830602006688963,
+      "false_wearer_rate_on_env_only": 0.18675610104181534,
+      "missed_wearer_rate": 0.5513163072971685,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.6966139078527512
+    },
+    "wearer_loud": {
+      "wearer": {
+        "auroc": 0.9541501637176767,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.07433873941050972,
+        "frr_at_far10": 0.12657677250978683,
+        "frr_at_far5": 0.19047619047619047,
+        "frr_at_far1": 0.3764990989871373,
+        "far_at_recall900": 0.13973444006674052,
+        "far_at_recall950": 0.28546991769605023,
+        "far_at_recall975": 0.40886975785533014,
+        "eer": 0.11514231646430642,
+        "auroc_ci95": [
+          0.9480431674835831,
+          0.9617679779067979
+        ]
+      },
+      "environment": {
+        "auroc": 0.71162756302047,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.5844517895299146,
+        "frr_at_far10": 0.7162459935897436,
+        "frr_at_far5": 0.7962907318376069,
+        "frr_at_far1": 0.9003739316239316,
+        "far_at_recall900": 0.606925087108014,
+        "far_at_recall950": 0.6784876708657196,
+        "far_at_recall975": 0.734102787456446,
+        "eer": 0.36777592696514194
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.9091699171640588,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.15852199914566423,
+        "frr_at_far10": 0.2218709953011534,
+        "frr_at_far5": 0.29282357966680905,
+        "frr_at_far1": 0.5343442973088424,
+        "far_at_recall900": 0.3473383759098045,
+        "far_at_recall950": 0.5213643499357785,
+        "far_at_recall975": 0.6301412872841444,
+        "eer": 0.17253742474039052,
+        "auroc_ci95": [
+          0.8927878538495457,
+          0.9266609028590475
+        ]
+      },
+      "overlap_f1": 0.5660427585059479,
+      "state_confusion": [
+        [
+          30450,
+          393,
+          4475,
+          968
+        ],
+        [
+          2173,
+          4251,
+          2191,
+          14795
+        ],
+        [
+          15438,
+          622,
+          16513,
+          2462
+        ],
+        [
+          1368,
+          4052,
+          2438,
+          17011
+        ]
+      ],
+      "state_accuracy": 0.570443143812709,
+      "false_wearer_rate_on_env_only": 0.08802625945483088,
+      "missed_wearer_rate": 0.16922471467926015,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.8467589691888366
+    },
+    "bystander_close": {
+      "wearer": {
+        "auroc": 0.8461765254053292,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.30079330557799455,
+        "frr_at_far10": 0.502060937467636,
+        "frr_at_far5": 0.6589614532198265,
+        "frr_at_far1": 0.8742103191863957,
+        "far_at_recall900": 0.3846132275206461,
+        "far_at_recall950": 0.4765356627080383,
+        "far_at_recall975": 0.5642096998079107,
+        "eer": 0.2409532493792691,
+        "auroc_ci95": [
+          0.8317437217020673,
+          0.8663326316797227
+        ]
+      },
+      "environment": {
+        "auroc": 0.8179937630074,
+        "positive_rate": 0.4958277591973244,
+        "n": 119600,
+        "frr_at_far20": 0.369471003861655,
+        "frr_at_far10": 0.5689111482099796,
+        "frr_at_far5": 0.7141363552048026,
+        "frr_at_far1": 0.897033776833443,
+        "far_at_recall900": 0.4362261397369774,
+        "far_at_recall950": 0.5310369989552065,
+        "far_at_recall975": 0.6127133119952238,
+        "eer": 0.2681605088966778
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.7092694203118212,
+        "positive_rate": 0.4057980923729103,
+        "n": 58502,
+        "frr_at_far20": 0.5169755686604887,
+        "frr_at_far10": 0.6753159224936816,
+        "frr_at_far5": 0.7842038753159225,
+        "frr_at_far1": 0.922620050547599,
+        "far_at_recall900": 0.6972556239571946,
+        "far_at_recall950": 0.8065416259133537,
+        "far_at_recall975": 0.8819112824348426,
+        "eer": 0.3516810193295635,
+        "auroc_ci95": [
+          0.6773286586532704,
+          0.7411263572559714
+        ]
+      },
+      "overlap_f1": 0.5196783509825018,
+      "state_confusion": [
+        [
+          32677,
+          468,
+          2865,
+          549
+        ],
+        [
+          2962,
+          5331,
+          2905,
+          12542
+        ],
+        [
+          5702,
+          3745,
+          10663,
+          14652
+        ],
+        [
+          699,
+          2282,
+          3204,
+          18354
+        ]
+      ],
+      "state_accuracy": 0.5604096989966555,
+      "false_wearer_rate_on_env_only": 0.5292273171854324,
+      "missed_wearer_rate": 0.20236541767642247,
+      "state_fractions": {
+        "silence": 0.3056772575250836,
+        "wearer": 0.19849498327759196,
+        "environment": 0.2906521739130435,
+        "overlap": 0.20517558528428093
+      },
+      "logrms_alone_auroc": 0.7757999368420452
+    },
+    "bystander_close_loud": {
+      "wearer": {
+        "auroc": 0.7119486007112734,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.6349344435468838,
+        "frr_at_far10": 0.8275026408997701,
+        "frr_at_far5": 0.9155326332359826,
+        "frr_at_far1": 0.9831189544108204,
+        "far_at_recall900": 0.5326481681412206,
+        "far_at_recall950": 0.6082780667685534,
+        "far_at_recall975": 0.6774582521277043,
+        "eer": 0.35203964655184217,
+        "auroc_ci95": [
+          0.689764454848486,
+          0.7417552765445179
+        ]
+      },
+      "environment": {
+        "auroc": 0.835489915891474,
+        "positive_rate": 0.4958277591973244,
+        "n": 119600,
+        "frr_at_far20": 0.3265374951518524,
+        "frr_at_far10": 0.5628235611541121,
+        "frr_at_far5": 0.7272558641506889,
+        "frr_at_far1": 0.9146388762415474,
+        "far_at_recall900": 0.37796646710559045,
+        "far_at_recall950": 0.47033947494983336,
+        "far_at_recall975": 0.5617837775087481,
+        "eer": 0.24574416478640507
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.47157449086814773,
+        "positive_rate": 0.4057980923729103,
+        "n": 58502,
+        "frr_at_far20": 0.8187447346251053,
+        "frr_at_far10": 0.8966301600673968,
+        "frr_at_far5": 0.9393428812131424,
+        "frr_at_far1": 0.9842881213142376,
+        "far_at_recall900": 0.8929865945572751,
+        "far_at_recall950": 0.9398481100051781,
+        "far_at_recall975": 0.9683274840342904,
+        "eer": 0.530544887810223,
+        "auroc_ci95": [
+          0.43166677648949897,
+          0.5105928705992868
+        ]
+      },
+      "overlap_f1": 0.4905150129250348,
+      "state_confusion": [
+        [
+          31688,
+          551,
+          3469,
+          851
+        ],
+        [
+          4883,
+          4342,
+          5062,
+          9453
+        ],
+        [
+          3240,
+          3816,
+          5615,
+          22091
+        ],
+        [
+          818,
+          1401,
+          3819,
+          18501
+        ]
+      ],
+      "state_accuracy": 0.5028929765886287,
+      "false_wearer_rate_on_env_only": 0.7452678211840515,
+      "missed_wearer_rate": 0.30203608194038817,
+      "state_fractions": {
+        "silence": 0.3056772575250836,
+        "wearer": 0.19849498327759196,
+        "environment": 0.2906521739130435,
+        "overlap": 0.20517558528428093
+      },
+      "logrms_alone_auroc": 0.63160850050238
+    },
+    "bystander_loud": {
+      "wearer": {
+        "auroc": 0.8542428764618166,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.2645042357961018,
+        "frr_at_far10": 0.45096211603388636,
+        "frr_at_far5": 0.6175355744733735,
+        "frr_at_far1": 0.8574535512334556,
+        "far_at_recall900": 0.38931030131377853,
+        "far_at_recall950": 0.507550370858513,
+        "far_at_recall975": 0.6013235933315573,
+        "eer": 0.22917154949142013,
+        "auroc_ci95": [
+          0.8374159315212225,
+          0.8709846592384614
+        ]
+      },
+      "environment": {
+        "auroc": 0.8640551495845958,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.2546407585470085,
+        "frr_at_far10": 0.4189369658119658,
+        "frr_at_far5": 0.5597288995726496,
+        "frr_at_far1": 0.7988615117521367,
+        "far_at_recall900": 0.38084628785848296,
+        "far_at_recall950": 0.48971455373894396,
+        "far_at_recall975": 0.5771240954167783,
+        "eer": 0.22594481600293337
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8098288237667014,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.34899615548910723,
+        "frr_at_far10": 0.510508329773601,
+        "frr_at_far5": 0.658052114480991,
+        "frr_at_far1": 0.8651003844510893,
+        "far_at_recall900": 0.5112887112887113,
+        "far_at_recall950": 0.6379049521906665,
+        "far_at_recall975": 0.7328956757528187,
+        "eer": 0.2727868823676476,
+        "auroc_ci95": [
+          0.7813027322365362,
+          0.8369929583043803
+        ]
+      },
+      "overlap_f1": 0.5217529145591054,
+      "state_confusion": [
+        [
+          30816,
+          373,
+          4258,
+          839
+        ],
+        [
+          3097,
+          4928,
+          3198,
+          12187
+        ],
+        [
+          4408,
+          996,
+          16236,
+          13395
+        ],
+        [
+          582,
+          1397,
+          4787,
+          18103
+        ]
+      ],
+      "state_accuracy": 0.5859782608695652,
+      "false_wearer_rate_on_env_only": 0.41076066790352506,
+      "missed_wearer_rate": 0.24159572484931335,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.7325664400710712
+    },
+    "shouting_bystander": {
+      "wearer": {
+        "auroc": 0.8302903775812196,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.3217340872843265,
+        "frr_at_far10": 0.5232502744464467,
+        "frr_at_far5": 0.6889745023716316,
+        "frr_at_far1": 0.9048447565193977,
+        "far_at_recall900": 0.4281628131966742,
+        "far_at_recall950": 0.538228572229778,
+        "far_at_recall975": 0.6206867542519033,
+        "eer": 0.2523418807218669,
+        "auroc_ci95": [
+          0.8108775191408829,
+          0.8490715726992548
+        ]
+      },
+      "environment": {
+        "auroc": 0.8713515102006505,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.2344918536324786,
+        "frr_at_far10": 0.40127537393162394,
+        "frr_at_far5": 0.5527176816239316,
+        "frr_at_far1": 0.8008146367521367,
+        "far_at_recall900": 0.3602921468775127,
+        "far_at_recall950": 0.4744203966764942,
+        "far_at_recall975": 0.5643259179844545,
+        "eer": 0.21641304368057418
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.7807823609843504,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.4123451516445963,
+        "frr_at_far10": 0.5782144382742418,
+        "frr_at_far5": 0.7107219137120888,
+        "frr_at_far1": 0.9017513882956002,
+        "far_at_recall900": 0.5569858712715856,
+        "far_at_recall950": 0.6727558156129585,
+        "far_at_recall975": 0.7646068217496789,
+        "eer": 0.2989308610471728,
+        "auroc_ci95": [
+          0.7488787028855152,
+          0.8093884092355842
+        ]
+      },
+      "overlap_f1": 0.5077163368535688,
+      "state_confusion": [
+        [
+          30764,
+          368,
+          4250,
+          904
+        ],
+        [
+          3387,
+          4877,
+          3620,
+          11526
+        ],
+        [
+          3915,
+          999,
+          15349,
+          14772
+        ],
+        [
+          592,
+          1180,
+          5381,
+          17716
+        ]
+      ],
+      "state_accuracy": 0.5744648829431438,
+      "false_wearer_rate_on_env_only": 0.45014985014985015,
+      "missed_wearer_rate": 0.2688539530644794,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.7061294778255612
+    },
+    "heavy_overlap": {
+      "wearer": {
+        "auroc": 0.8900897070115636,
+        "positive_rate": 0.693252508361204,
+        "n": 119600,
+        "frr_at_far20": 0.18763040777682627,
+        "frr_at_far10": 0.3216383438061583,
+        "frr_at_far5": 0.447577581320179,
+        "frr_at_far1": 0.7015908241168454,
+        "far_at_recall900": 0.3356774879385068,
+        "far_at_recall950": 0.48603047400986726,
+        "far_at_recall975": 0.6134325510398779,
+        "eer": 0.19369479818112775,
+        "auroc_ci95": [
+          0.8758295603875205,
+          0.9025568989773448
+        ]
+      },
+      "environment": {
+        "auroc": 0.7402033755783136,
+        "positive_rate": 0.7226505016722408,
+        "n": 119600,
+        "frr_at_far20": 0.4844091682190006,
+        "frr_at_far10": 0.6504414027699037,
+        "frr_at_far5": 0.7673928889608812,
+        "frr_at_far1": 0.9126682016452811,
+        "far_at_recall900": 0.629827258750113,
+        "far_at_recall950": 0.7275632329444395,
+        "far_at_recall975": 0.7844502728286756,
+        "eer": 0.3316465269677792
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8517785512299761,
+        "positive_rate": 0.4620285973476176,
+        "n": 46298,
+        "frr_at_far20": 0.25061941938198307,
+        "frr_at_far10": 0.38123509887335794,
+        "frr_at_far5": 0.5024543032116311,
+        "frr_at_far1": 0.7412463185451825,
+        "far_at_recall900": 0.48231420885694787,
+        "far_at_recall950": 0.6392178905528566,
+        "far_at_recall975": 0.7369815714457782,
+        "eer": 0.2276128945270347,
+        "auroc_ci95": [
+          0.832341238593853,
+          0.8701729481034833
+        ]
+      },
+      "overlap_f1": 0.7070199407956801,
+      "state_confusion": [
+        [
+          9595,
+          228,
+          1633,
+          324
+        ],
+        [
+          2071,
+          4302,
+          2552,
+          12466
+        ],
+        [
+          6744,
+          788,
+          12192,
+          5183
+        ],
+        [
+          2500,
+          5420,
+          10133,
+          43469
+        ]
+      ],
+      "state_accuracy": 0.5815886287625418,
+      "false_wearer_rate_on_env_only": 0.239731802304573,
+      "missed_wearer_rate": 0.20812176618865558,
+      "state_fractions": {
+        "silence": 0.09849498327759197,
+        "wearer": 0.17885451505016722,
+        "environment": 0.20825250836120401,
+        "overlap": 0.5143979933110367
+      },
+      "logrms_alone_auroc": 0.769524073259851
+    },
+    "multi_talker": {
+      "wearer": {
+        "auroc": 0.8976755592178992,
+        "positive_rate": 0.42664715719063545,
+        "n": 119600,
+        "frr_at_far20": 0.16663727046465593,
+        "frr_at_far10": 0.2963725086718796,
+        "frr_at_far5": 0.43857173653164017,
+        "frr_at_far1": 0.6956905167852314,
+        "far_at_recall900": 0.3112157846382687,
+        "far_at_recall950": 0.4640747816195879,
+        "far_at_recall975": 0.5833782975806805,
+        "eer": 0.18310164039375199,
+        "auroc_ci95": [
+          0.8837041237722814,
+          0.910532398396959
+        ]
+      },
+      "environment": {
+        "auroc": 0.8175169263220992,
+        "positive_rate": 0.6080769230769231,
+        "n": 119600,
+        "frr_at_far20": 0.3608063141104969,
+        "frr_at_far10": 0.5231966559414789,
+        "frr_at_far5": 0.648447597832962,
+        "frr_at_far1": 0.8550587135274867,
+        "far_at_recall900": 0.47497546614327774,
+        "far_at_recall950": 0.5834151128557409,
+        "far_at_recall975": 0.6628834748474635,
+        "eer": 0.2715625228299199
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8675134651575289,
+        "positive_rate": 0.31801331834879315,
+        "n": 59617,
+        "frr_at_far20": 0.2365631098686639,
+        "frr_at_far10": 0.37269898201381935,
+        "frr_at_far5": 0.500079118096946,
+        "frr_at_far1": 0.7350598660266892,
+        "far_at_recall900": 0.40575040582419203,
+        "far_at_recall950": 0.5417629986718481,
+        "far_at_recall975": 0.648826799153918,
+        "eer": 0.21832330874556446,
+        "auroc_ci95": [
+          0.8430654202274575,
+          0.8856566329008709
+        ]
+      },
+      "overlap_f1": 0.6056138126799961,
+      "state_confusion": [
+        [
+          24349,
+          338,
+          2715,
+          513
+        ],
+        [
+          2426,
+          3839,
+          2343,
+          10351
+        ],
+        [
+          9016,
+          981,
+          22997,
+          7664
+        ],
+        [
+          1664,
+          2952,
+          5477,
+          21975
+        ]
+      ],
+      "state_accuracy": 0.6117056856187291,
+      "false_wearer_rate_on_env_only": 0.21262728122386737,
+      "missed_wearer_rate": 0.23340584396495972,
+      "state_fractions": {
+        "silence": 0.23340301003344482,
+        "wearer": 0.1585200668896321,
+        "environment": 0.3399498327759197,
+        "overlap": 0.26812709030100335
+      },
+      "logrms_alone_auroc": 0.7957449245726557
+    },
+    "noisy": {
+      "wearer": {
+        "auroc": 0.8811453795785582,
+        "positive_rate": 0.40535117056856185,
+        "n": 119600,
+        "frr_at_far20": 0.19799917491749175,
+        "frr_at_far10": 0.2990511551155115,
+        "frr_at_far5": 0.40651815181518147,
+        "frr_at_far1": 0.647710396039604,
+        "far_at_recall900": 0.40535714285714286,
+        "far_at_recall950": 0.5851096737907762,
+        "far_at_recall975": 0.7204724409448819,
+        "eer": 0.19882157753176893,
+        "auroc_ci95": [
+          0.8704248146088595,
+          0.8959560741751234
+        ]
+      },
+      "environment": {
+        "auroc": 0.7269535455758361,
+        "positive_rate": 0.5062458193979933,
+        "n": 119600,
+        "frr_at_far20": 0.5219251160255669,
+        "frr_at_far10": 0.6761358944291211,
+        "frr_at_far5": 0.77789155532066,
+        "frr_at_far1": 0.9083356731134491,
+        "far_at_recall900": 0.6326012226305183,
+        "far_at_recall950": 0.7259919055763466,
+        "far_at_recall975": 0.8004165749411546,
+        "eer": 0.3438628481683772
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8331136852951011,
+        "positive_rate": 0.39714280843519323,
+        "n": 58659,
+        "frr_at_far20": 0.2786744505494505,
+        "frr_at_far10": 0.3826837225274725,
+        "frr_at_far5": 0.49068509615384615,
+        "frr_at_far1": 0.7162173763736264,
+        "far_at_recall900": 0.5692107570059102,
+        "far_at_recall950": 0.7261544552215593,
+        "far_at_recall975": 0.8125441845997229,
+        "eer": 0.2458787907084856,
+        "auroc_ci95": [
+          0.8134818331177986,
+          0.8547893721726332
+        ]
+      },
+      "overlap_f1": 0.5375927718618909,
+      "state_confusion": [
+        [
+          26186,
+          417,
+          7088,
+          2066
+        ],
+        [
+          3045,
+          2379,
+          3003,
+          14869
+        ],
+        [
+          10867,
+          533,
+          16230,
+          7733
+        ],
+        [
+          1362,
+          1337,
+          4159,
+          18326
+        ]
+      ],
+      "state_accuracy": 0.527767558528428,
+      "false_wearer_rate_on_env_only": 0.23374713683793796,
+      "missed_wearer_rate": 0.23863448844884488,
+      "state_fractions": {
+        "silence": 0.29897157190635454,
+        "wearer": 0.19478260869565217,
+        "environment": 0.2956772575250836,
+        "overlap": 0.2105685618729097
+      },
+      "logrms_alone_auroc": 0.6737410646998333
+    },
+    "high_rt60": {
+      "wearer": {
+        "auroc": 0.9165239056527559,
+        "positive_rate": 0.3900418060200669,
+        "n": 119600,
+        "frr_at_far20": 0.14699136101524146,
+        "frr_at_far10": 0.24006945486505604,
+        "frr_at_far5": 0.33372633925700446,
+        "frr_at_far1": 0.5476215996055649,
+        "far_at_recall900": 0.27821414374031883,
+        "far_at_recall950": 0.41751312524845446,
+        "far_at_recall975": 0.5397595646392784,
+        "eer": 0.16977502473920625,
+        "auroc_ci95": [
+          0.9035104367366914,
+          0.9278595456259079
+        ]
+      },
+      "environment": {
+        "auroc": 0.8177198384254623,
+        "positive_rate": 0.5156354515050168,
+        "n": 119600,
+        "frr_at_far20": 0.35972109615696446,
+        "frr_at_far10": 0.5334198151451273,
+        "frr_at_far5": 0.6649748662234474,
+        "frr_at_far1": 0.863856007783363,
+        "far_at_recall900": 0.46687381322285515,
+        "far_at_recall950": 0.5639910236492318,
+        "far_at_recall975": 0.6425340928707061,
+        "eer": 0.27155508354818725
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8772910448884912,
+        "positive_rate": 0.36717188688254954,
+        "n": 56543,
+        "frr_at_far20": 0.2184865854245942,
+        "frr_at_far10": 0.30957082992148743,
+        "frr_at_far5": 0.39415249747122005,
+        "frr_at_far1": 0.5940465295505997,
+        "far_at_recall900": 0.43301101112291096,
+        "far_at_recall950": 0.5820524285953832,
+        "far_at_recall975": 0.7032586216533453,
+        "eer": 0.21141257546531333,
+        "auroc_ci95": [
+          0.8598794079516214,
+          0.8963703261064275
+        ]
+      },
+      "overlap_f1": 0.5767781927998092,
+      "state_confusion": [
+        [
+          30381,
+          266,
+          5684,
+          838
+        ],
+        [
+          1959,
+          2606,
+          3402,
+          12794
+        ],
+        [
+          7162,
+          230,
+          23139,
+          5251
+        ],
+        [
+          823,
+          1242,
+          5679,
+          18144
+        ]
+      ],
+      "state_accuracy": 0.6209866220735786,
+      "false_wearer_rate_on_env_only": 0.15317757531719858,
+      "missed_wearer_rate": 0.2543034148641986,
+      "state_fractions": {
+        "silence": 0.31077759197324417,
+        "wearer": 0.17358695652173914,
+        "environment": 0.29918060200668894,
+        "overlap": 0.21645484949832777
+      },
+      "logrms_alone_auroc": 0.7991512579207842
+    },
+    "eq_mismatch": {
+      "wearer": {
+        "auroc": 0.9123540571166437,
+        "positive_rate": 0.4036705685618729,
+        "n": 119600,
+        "frr_at_far20": 0.1490503117297376,
+        "frr_at_far10": 0.24832743014561198,
+        "frr_at_far5": 0.3616272085171607,
+        "frr_at_far1": 0.6335673895482508,
+        "far_at_recall900": 0.28213289213555615,
+        "far_at_recall950": 0.42636811037422356,
+        "far_at_recall975": 0.5391539658726041,
+        "eer": 0.17100377788348994,
+        "auroc_ci95": [
+          0.9021359707877417,
+          0.9244815540246185
+        ]
+      },
+      "environment": {
+        "auroc": 0.8061806287540634,
+        "positive_rate": 0.5008695652173913,
+        "n": 119600,
+        "frr_at_far20": 0.39451455662393164,
+        "frr_at_far10": 0.5540030715811965,
+        "frr_at_far5": 0.6684862446581197,
+        "frr_at_far1": 0.8444511217948718,
+        "far_at_recall900": 0.4895805414098097,
+        "far_at_recall950": 0.5731204770838917,
+        "far_at_recall975": 0.6392890645939426,
+        "eer": 0.2867725701424253
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8648343308610593,
+        "positive_rate": 0.40054752331251603,
+        "n": 58445,
+        "frr_at_far20": 0.23199487398547625,
+        "frr_at_far10": 0.346561298590346,
+        "frr_at_far5": 0.47573686458778297,
+        "frr_at_far1": 0.7470739000427168,
+        "far_at_recall900": 0.43961752533181103,
+        "far_at_recall950": 0.5837305551591266,
+        "far_at_recall975": 0.6883116883116883,
+        "eer": 0.21863151189446423,
+        "auroc_ci95": [
+          0.842515575586055,
+          0.889570396582011
+        ]
+      },
+      "overlap_f1": 0.5345724008083879,
+      "state_confusion": [
+        [
+          31720,
+          333,
+          3728,
+          505
+        ],
+        [
+          3094,
+          5466,
+          3091,
+          11759
+        ],
+        [
+          9343,
+          956,
+          19450,
+          5286
+        ],
+        [
+          1152,
+          3524,
+          4719,
+          15474
+        ]
+      ],
+      "state_accuracy": 0.6029264214046822,
+      "false_wearer_rate_on_env_only": 0.17816469245040673,
+      "missed_wearer_rate": 0.24971519708361814,
+      "state_fractions": {
+        "silence": 0.30339464882943146,
+        "wearer": 0.19573578595317725,
+        "environment": 0.29293478260869565,
+        "overlap": 0.20793478260869566
+      },
+      "logrms_alone_auroc": 0.8002773531149888
+    },
+    "compressed_clipped": {
+      "wearer": {
+        "auroc": 0.9145400543509267,
+        "positive_rate": 0.4006103678929766,
+        "n": 119600,
+        "frr_at_far20": 0.13424331601026862,
+        "frr_at_far10": 0.23644939786696717,
+        "frr_at_far5": 0.35334877799344644,
+        "frr_at_far1": 0.6855341973994531,
+        "far_at_recall900": 0.26451099920487675,
+        "far_at_recall950": 0.4195042336825366,
+        "far_at_recall975": 0.5540474563030954,
+        "eer": 0.16346177140106738,
+        "auroc_ci95": [
+          0.9025510433873335,
+          0.9257835649546365
+        ]
+      },
+      "environment": {
+        "auroc": 0.8106878835617333,
+        "positive_rate": 0.5152508361204013,
+        "n": 119600,
+        "frr_at_far20": 0.3743671296897313,
+        "frr_at_far10": 0.5424185382318577,
+        "frr_at_far5": 0.6625178501882383,
+        "frr_at_far1": 0.8461313773854342,
+        "far_at_recall900": 0.485959707465158,
+        "far_at_recall950": 0.5940906582033945,
+        "far_at_recall975": 0.6869911687594867,
+        "eer": 0.2771153634084885
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8755352750418037,
+        "positive_rate": 0.3803515018238302,
+        "n": 57297,
+        "frr_at_far20": 0.2113522690772266,
+        "frr_at_far10": 0.322259441104942,
+        "frr_at_far5": 0.45119992658193,
+        "frr_at_far1": 0.8092047905290689,
+        "far_at_recall900": 0.3986029743127535,
+        "far_at_recall950": 0.5466144659756648,
+        "far_at_recall975": 0.6561514195583596,
+        "eer": 0.20634680516524578,
+        "auroc_ci95": [
+          0.853302131337871,
+          0.8958230879923047
+        ]
+      },
+      "overlap_f1": 0.5667748700123524,
+      "state_confusion": [
+        [
+          30026,
+          464,
+          4582,
+          1111
+        ],
+        [
+          1961,
+          4194,
+          2068,
+          13570
+        ],
+        [
+          7418,
+          729,
+          18266,
+          9091
+        ],
+        [
+          857,
+          2414,
+          3119,
+          19730
+        ]
+      ],
+      "state_accuracy": 0.6038127090301003,
+      "false_wearer_rate_on_env_only": 0.27658855340243355,
+      "missed_wearer_rate": 0.16707365433180973,
+      "state_fractions": {
+        "silence": 0.3025334448160535,
+        "wearer": 0.18221571906354514,
+        "environment": 0.2968561872909699,
+        "overlap": 0.21839464882943144
+      },
+      "logrms_alone_auroc": 0.7743578943329686
+    },
+    "ood_geometry": {
+      "wearer": {
+        "auroc": 0.9329079339453908,
+        "positive_rate": 0.4070484949832776,
+        "n": 119600,
+        "frr_at_far20": 0.11242117371567073,
+        "frr_at_far10": 0.18546515210648484,
+        "frr_at_far5": 0.2676909804243781,
+        "frr_at_far1": 0.4691986935891379,
+        "far_at_recall900": 0.22727977776837713,
+        "far_at_recall950": 0.3887643301324083,
+        "far_at_recall975": 0.5181268243157494,
+        "eer": 0.14515960695626248,
+        "auroc_ci95": [
+          0.923564648948539,
+          0.9403749153324037
+        ]
+      },
+      "environment": {
+        "auroc": 0.7903462937351554,
+        "positive_rate": 0.5278678929765886,
+        "n": 119600,
+        "frr_at_far20": 0.4136188681038443,
+        "frr_at_far10": 0.5773050544089462,
+        "frr_at_far5": 0.7007270365735827,
+        "frr_at_far1": 0.8781778150887808,
+        "far_at_recall900": 0.5233322117342872,
+        "far_at_recall950": 0.6167496059645456,
+        "far_at_recall975": 0.7020206492287531,
+        "eer": 0.296513171387339
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8902504301107405,
+        "positive_rate": 0.37505620309203475,
+        "n": 57826,
+        "frr_at_far20": 0.20670416820361492,
+        "frr_at_far10": 0.2862412393950572,
+        "frr_at_far5": 0.36015308004426416,
+        "frr_at_far1": 0.5269734415344891,
+        "far_at_recall900": 0.3955393214898445,
+        "far_at_recall950": 0.5419226299186451,
+        "far_at_recall975": 0.6435054513254745,
+        "eer": 0.2039390559374441,
+        "auroc_ci95": [
+          0.8765553723412918,
+          0.9057207983079847
+        ]
+      },
+      "overlap_f1": 0.5754590698472627,
+      "state_confusion": [
+        [
+          29948,
+          193,
+          4137,
+          501
+        ],
+        [
+          2665,
+          3240,
+          3668,
+          12115
+        ],
+        [
+          10641,
+          166,
+          23438,
+          1893
+        ],
+        [
+          1683,
+          1903,
+          6643,
+          16766
+        ]
+      ],
+      "state_accuracy": 0.6136454849498327,
+      "false_wearer_rate_on_env_only": 0.05697603630527422,
+      "missed_wearer_rate": 0.30111127087484335,
+      "state_fractions": {
+        "silence": 0.2907943143812709,
+        "wearer": 0.18133779264214048,
+        "environment": 0.3021571906354515,
+        "overlap": 0.22571070234113713
+      },
+      "logrms_alone_auroc": 0.8134853218831326
+    },
+    "ood_geometry_level_matched": {
+      "wearer": {
+        "auroc": 0.83993885730461,
+        "positive_rate": 0.4070484949832776,
+        "n": 119600,
+        "frr_at_far20": 0.3043156748762401,
+        "frr_at_far10": 0.47234147443666163,
+        "frr_at_far5": 0.6061664235975597,
+        "frr_at_far1": 0.8153154078425734,
+        "far_at_recall900": 0.4375396590380304,
+        "far_at_recall950": 0.5587235782675523,
+        "far_at_recall975": 0.6521708476105871,
+        "eer": 0.24739210655529892,
+        "auroc_ci95": [
+          0.8243553814114626,
+          0.8540785883097894
+        ]
+      },
+      "environment": {
+        "auroc": 0.8768071200184266,
+        "positive_rate": 0.5278678929765886,
+        "n": 119600,
+        "frr_at_far20": 0.20612041246257895,
+        "frr_at_far10": 0.36833351812839565,
+        "frr_at_far5": 0.5453249489173649,
+        "frr_at_far1": 0.8214721302646794,
+        "far_at_recall900": 0.3554642534577718,
+        "far_at_recall950": 0.47075282908601485,
+        "far_at_recall975": 0.5783377902137532,
+        "eer": 0.20314388594085797
+      },
+      "wearer_vs_env_solo": {
+        "auroc": 0.8487902454093196,
+        "positive_rate": 0.37505620309203475,
+        "n": 57826,
+        "frr_at_far20": 0.2763279232755441,
+        "frr_at_far10": 0.40308004426410915,
+        "frr_at_far5": 0.5115271117668757,
+        "frr_at_far1": 0.6858631501291037,
+        "far_at_recall900": 0.4615086612430129,
+        "far_at_recall950": 0.6115999778626376,
+        "far_at_recall975": 0.7230339255077758,
+        "eer": 0.23892572784285104,
+        "auroc_ci95": [
+          0.8318205692200303,
+          0.8650614077774307
+        ]
+      },
+      "overlap_f1": 0.4286289317820245,
+      "state_confusion": [
+        [
+          29461,
+          131,
+          4672,
+          515
+        ],
+        [
+          3717,
+          2777,
+          6485,
+          8709
+        ],
+        [
+          4607,
+          91,
+          26669,
+          4771
+        ],
+        [
+          950,
+          471,
+          14393,
+          11181
+        ]
+      ],
+      "state_accuracy": 0.5860200668896322,
+      "false_wearer_rate_on_env_only": 0.134539819580497,
+      "missed_wearer_rate": 0.5247211552287246,
+      "state_fractions": {
+        "silence": 0.2907943143812709,
+        "wearer": 0.18133779264214048,
+        "environment": 0.3021571906354515,
+        "overlap": 0.22571070234113713
+      },
+      "logrms_alone_auroc": 0.6937016238774051
+    }
+  },
+  "calibration": {
+    "raw_nll": 0.35936552203863614,
+    "raw_brier": 0.11194821364744877,
+    "raw_ece": 0.048436838009497496,
+    "temperature": 0.8,
+    "temp_nll": 0.34846707791475956,
+    "temp_brier": 0.10935794175795176,
+    "temp_ece": 0.015992522954467348,
+    "platt_a": 1.2752133447247809,
+    "platt_b": 0.22811191970284264,
+    "platt_nll": 0.34895871509631887,
+    "platt_brier": 0.10978589576209344,
+    "platt_ece": 0.022652138147182317,
+    "note": "Calibration cannot fix ranking; AUROC is unchanged by any monotone rescaling.",
+    "fitted_on": "validation split, condition=normal"
+  },
+  "robustness_summary": {
+    "normal_auroc": 0.920828816043852,
+    "level_matched_auroc": 0.8339321159176522,
+    "random_gain_auroc": 0.9079541428945421,
+    "bystander_close_auroc": 0.8461765254053292,
+    "shouting_bystander_auroc": 0.8302903775812196,
+    "ood_geometry_auroc": 0.9329079339453908,
+    "normal_frr_at_far5": 0.3389879657822241,
+    "bystander_close_false_wearer": 0.5292273171854324,
+    "shouting_false_wearer": 0.45014985014985015,
+    "overlap_f1_normal": 0.5515906698808271,
+    "params": 41190,
+    "context_ms": 100.0,
+    "robust_mean_auroc": 0.8786816519646643,
+    "worst_condition_auroc": 0.8302903775812196
+  },
+  "runtime_seconds": 375.8352437019348
+}

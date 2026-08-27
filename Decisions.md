@@ -202,3 +202,72 @@ substituted or faked.
 
 **Why**: standing instruction against fabrication. A missing PDF is a fact
 worth recording accurately, not a gap to paper over.
+
+## 2026-08-27 — Parallel processing (concurrent GPU jobs) from now onwards
+
+**Decision**: default to running independent training/eval jobs
+concurrently on this box rather than one-at-a-time per GPU, going forward
+for all future campaigns, not only the one that prompted it.
+
+**Trigger**: user asked to "utilize more gpu to go faster" while the
+GeoWearNet G2 real-training ablation campaign
+(`training/geowearnet/mmcsg/campaign_ablations.py`) was running only 2
+jobs total (1 per GPU) sequentially through a 10-experiment queue.
+
+**Evidence before deciding**: `nvidia-smi --query-gpu=utilization.gpu`
+showed 0% GPU compute utilization during active training of both
+in-flight jobs. This is a real, measured fact, not an assumption — it
+means "more GPU" in the literal sense (more compute) wasn't available to
+give; the actual constraint was CPU-side dataloading (~29K-parameter
+model, feature extraction/resampling dominates wall-clock, not matrix
+math). Confirmed via `ps -ef` that each job spawns 6 dataloader worker
+processes, and `uptime` showed the shared host already under heavy load
+(~65-80) from other users' jobs.
+
+**Action taken**: added a `--concurrency` flag to `campaign_ablations.py`
+(jobs per GPU, 1→3), reduced `num_workers` per job 6→3 to compensate, and
+relaunched. Net effect: 6-7 concurrent jobs instead of 2, better
+overlapping I/O wait with GPU's large idle memory/compute headroom (both
+3090s were using only 0.5-3.4GB of 24GB).
+
+**Complication found and fixed, not glossed over**: the first
+kill-and-restart left some old child processes alive (a `pkill -f` pattern
+mismatch), which kept writing into the same log files as the new run and
+briefly doubled real GPU/CPU load. Diagnosed with `ps -ef`/`pstree`
+(showing stale PIDs reparented to init), fixed with explicit PID-targeted
+`kill -9`, and verified via a clean `pstree` that only the new process
+tree remained before declaring it fixed.
+
+**Two independent, pre-existing bugs surfaced by this change (not caused
+by it) were also fixed while here**, because the concurrency change is
+what got the `spectral_only` (WS31 drop-amplitude-features) ablation far
+enough to actually run and hit them:
+1. `training/geowearnet/mmcsg/norm_stats.py`:
+   `compute_real_norm_stats()` accepted a `drop_amplitude` semantic via
+   its cache filename (`path_for()`) but never actually threaded the flag
+   into the `RealDataConfig` used to compute the stats — so the cached
+   file for the drop-amplitude condition silently contained stats for the
+   full (non-dropped) 14-feature set, causing a broadcast shape error at
+   training start. Fixed by passing `drop_amplitude` through to
+   `RealDataConfig` inside `compute_real_norm_stats()`.
+2. `training/geowearnet/mmcsg/train_real.py`: sim-pretrained `init_from`
+   used `model.load_state_dict(strict=False)`, which only tolerates
+   missing/unexpected *keys*, not shape-mismatched tensors for keys
+   present in both state dicts — so the drop-amplitude ablation's
+   narrower physical-feature head couldn't load G1's checkpoint at all
+   (hard `RuntimeError`, not a graceful skip). Fixed by filtering out any
+   checkpoint tensor whose shape doesn't match the current model's shape
+   before calling `load_state_dict`, logging exactly which keys were
+   skipped, so the rest of the simulation-pretrained network still
+   transfers correctly and only the genuinely incompatible layer is left
+   at random init.
+
+**Why recorded as a standing decision, not a one-off**: the same
+GPU-idle/CPU-bound signature will very likely recur for any other small
+GeoWearNet/SpeakerNet-scale model trained on this box, so defaulting to
+checking `nvidia-smi` utilization first and parallelizing when GPU compute
+is idle (rather than assuming single-job-per-GPU is optimal) is the
+correct default posture going forward — not something to re-derive from
+scratch each time. See `MEMORY.md`'s matching entry for the operational
+caveats (re-verify per workload, shared-host load ceiling, kill/restart
+process hygiene).

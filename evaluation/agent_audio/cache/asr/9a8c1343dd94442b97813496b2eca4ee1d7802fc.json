@@ -1,0 +1,1 @@
+{"text": "Indeed a", "words": [{"word": "indeed", "start_s": 1.2799999713897705, "end_s": 2.0}, {"word": "a", "start_s": 2.0, "end_s": 2.2}], "latency_s": 0.17078269785270095, "audio_duration_s": 4.0, "rtf": 0.04269567446317524, "backend_id": "sherpa-onnx/sherpa-onnx-streaming-zipformer-en-kroko-2025-08-06/greedy_search/t1", "available": true}
