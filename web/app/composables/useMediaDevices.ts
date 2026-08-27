@@ -3,14 +3,12 @@
 // API; classification itself is the pure classifySource() in
 // utils/sourceClassification.ts so it's independently testable.
 
-import { classifySource, type SourceClassification } from '~/utils/sourceClassification'
+import {
+  hasLabeledInputs, isSelectedDeviceMissing, mapAudioInputDevices,
+  type AudioInputOption,
+} from '~/utils/audioInputDevices'
 
-export interface AudioInputOption {
-  deviceId: string
-  label: string
-  groupId: string
-  classification: SourceClassification
-}
+export type { AudioInputOption }
 
 export function useMediaDevices() {
   const devices = useState<AudioInputOption[]>('mentra-devices', () => [])
@@ -26,18 +24,12 @@ export function useMediaDevices() {
   async function refresh() {
     if (typeof navigator === 'undefined' || !navigator.mediaDevices?.enumerateDevices) return
     const all = await navigator.mediaDevices.enumerateDevices()
-    const inputs = all.filter((d) => d.kind === 'audioinput')
     // Labels are only real once permission has been granted at least once
     // (section 4) -- an empty label must never be classified as Mentra.
-    if (inputs.some((d) => d.label)) permissionKnown.value = true
-    devices.value = inputs.map((d) => ({
-      deviceId: d.deviceId,
-      label: d.label,
-      groupId: d.groupId,
-      classification: classifySource(d.label),
-    }))
+    if (hasLabeledInputs(all)) permissionKnown.value = true
+    devices.value = mapAudioInputDevices(all)
 
-    if (selectedDeviceId.value && !devices.value.some((d) => d.deviceId === selectedDeviceId.value)) {
+    if (isSelectedDeviceMissing(selectedDeviceId.value, devices.value)) {
       selectedDeviceLost.value = true
     }
   }

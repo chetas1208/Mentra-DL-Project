@@ -26,7 +26,7 @@ const classificationClass = computed(() => {
   <div class="space-y-2">
     <div class="flex items-center justify-between gap-3">
       <label for="input-device" class="text-[11px] text-ink-dim tracking-wide shrink-0">INPUT</label>
-      <div class="flex items-center gap-2 max-w-[70%]">
+      <div class="flex items-center gap-2 min-w-0 flex-1 sm:max-w-[70%]">
         <span class="text-[10px] font-mono shrink-0" :class="classificationClass">{{ sourceClassification }}</span>
         <select
           id="input-device"

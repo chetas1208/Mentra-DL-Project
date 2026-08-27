@@ -266,7 +266,7 @@ const modelRowLabel = computed(() => {
             @select-another="onSelectAnother"
           />
 
-          <ModelSelector
+          <ModelTabs
             :models="availableModels"
             :selected-model="selectedModel"
             :active-model="activeModel"
